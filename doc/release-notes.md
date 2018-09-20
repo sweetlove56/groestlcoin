@@ -1,4 +1,4 @@
-Groestlcoin Core version 2.16.0 is now available from:
+Groestlcoin Core version 2.16.3 is now available from:
 
   <https://groestlcoin.org/downloads/>
 
@@ -14,18 +14,18 @@ shut down (which might take a few minutes for older versions), then run the
 installer (on Windows) or just copy over `/Applications/Groestlcoin-Qt` (on Mac)
 or `groestlcoind`/`groestlcoin-qt` (on Linux).
 
-The first time you run version 2.16.0 or newer, your chainstate database will be converted to a
+The first time you run version 2.16.3 or newer, your chainstate database will be converted to a
 new format, which will take anywhere from a few minutes to half an hour,
 depending on the speed of your machine.
 
 Note that the block database format also changed in version 2.1.0.6 and there is no
-automatic upgrade code from before version 2.1.0.6 to version 2.16.0 or higher.
+automatic upgrade code from before version 2.1.0.6 to version 2.16.3 or higher.
 However, as usual, old wallet versions are still supported.
 
 Downgrading warning
 -------------------
 
-Wallets created in 2.16.0 and later are not compatible with versions prior to 2.16.0
+Wallets created in 2.16.3 and later are not compatible with versions prior to 2.16.3
 and will not work if you try to use newly created wallets in older versions. Existing
 wallets that were created with older versions are not affected by this.
 
@@ -42,21 +42,22 @@ frequently tested on them.
 Notable changes
 ===============
 
-Example item
--------------
+(to be filled in)
 
-Example item for a notable change.
-
-2.16.0 change log
+2.16.3 change log
 ------------------
 
-(to be filled in at release time)
+(to be filled in)
 
 Credits
 =======
 
 Thanks to everyone who directly contributed to this release:
 
-(to be filled in at release time)
+(to be filled in)
+
+And to those that reported security issues:
+
+(to be filled in)
 
 As well as everyone that helped translating on [Transifex](https://www.transifex.com/projects/p/bitcoin/).
