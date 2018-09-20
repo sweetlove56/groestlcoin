@@ -9,6 +9,8 @@
 #pragma comment(lib, "Uxtheme")
 #pragma comment(lib, "Dwmapi")
 #pragma comment(lib, "Version")
+#pragma comment(lib, "NetApi32")
+#pragma comment(lib, "Userenv")
 
 #pragma comment(lib, "bdb")
 #pragma comment(lib, "leveldb")
@@ -49,7 +51,7 @@ Q_IMPORT_PLUGIN(QWindowsIntegrationPlugin)
 #	pragma comment(lib, "Qt5ThemeSupport.lib")
 #	pragma comment(lib, "Qt5FontDatabaseSupport")
 #	pragma comment(lib, "Qt5AccessibilitySupport")
-
+#pragma comment(lib, "Qt5WindowsUIAutomationSupport")
 
 #include <windows.h>
 #undef WinMain
