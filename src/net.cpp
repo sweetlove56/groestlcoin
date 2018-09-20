@@ -20,6 +20,7 @@
 #include <ui_interface.h>
 #include <utilstrencodings.h>
 
+#include <memory>
 #ifdef WIN32
 #include <string.h>
 #else
@@ -1634,8 +1635,8 @@ void CConnman::ThreadDNSAddressSeed()
             if (!resolveSource.SetInternal(host)) {
                 continue;
             }
-            unsigned int nMaxIPs = 256; // Limits number of IPs learned from a DNS seed 
-	    if (LookupHost(host.c_str(), vIPs, nMaxIPs, true))
+            unsigned int nMaxIPs = 256; // Limits number of IPs learned from a DNS seed
+            if (LookupHost(host.c_str(), vIPs, nMaxIPs, true))
             {
                 for (const CNetAddr& ip : vIPs)
                 {

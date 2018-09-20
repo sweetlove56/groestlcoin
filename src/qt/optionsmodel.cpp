@@ -29,7 +29,7 @@
 
 const char *DEFAULT_GUI_PROXY_HOST = "127.0.0.1";
 
-static const QString GetDefaultProxyAddress(); 
+static const QString GetDefaultProxyAddress();
 
 OptionsModel::OptionsModel(QObject *parent, bool resetSettings) :
     QAbstractListModel(parent)
@@ -62,7 +62,7 @@ void OptionsModel::Init(bool resetSettings)
         settings.setValue("fHideTrayIcon", false);
     fHideTrayIcon = settings.value("fHideTrayIcon").toBool();
     Q_EMIT hideTrayIconChanged(fHideTrayIcon);
-    
+
     if (!settings.contains("fMinimizeToTray"))
         settings.setValue("fMinimizeToTray", false);
     fMinimizeToTray = settings.value("fMinimizeToTray").toBool() && !fHideTrayIcon;
@@ -230,9 +230,9 @@ static void SetProxySetting(QSettings &settings, const QString &name, const Prox
     settings.setValue(name, ip_port.ip + ":" + ip_port.port);
 }
 
-static const QString GetDefaultProxyAddress() 
-{ 
-    return QString("%1:%2").arg(DEFAULT_GUI_PROXY_HOST).arg(DEFAULT_GUI_PROXY_PORT); 
+static const QString GetDefaultProxyAddress()
+{
+    return QString("%1:%2").arg(DEFAULT_GUI_PROXY_HOST).arg(DEFAULT_GUI_PROXY_PORT);
 }
 
 // read QSettings values and return them
@@ -497,15 +497,16 @@ void OptionsModel::checkAndMigrate()
 
         settings.setValue(strSettingsVersionKey, CLIENT_VERSION);
     }
-    // Overwrite the 'addrProxy' setting in case it has been set to an illegal 
-    // default value (see issue #12623; PR #12650). 
-    if (settings.contains("addrProxy") && settings.value("addrProxy").toString().endsWith("%2")) { 
-        settings.setValue("addrProxy", GetDefaultProxyAddress()); 
-    } 
-    
+
+    // Overwrite the 'addrProxy' setting in case it has been set to an illegal
+    // default value (see issue #12623; PR #12650).
+    if (settings.contains("addrProxy") && settings.value("addrProxy").toString().endsWith("%2")) {
+        settings.setValue("addrProxy", GetDefaultProxyAddress());
+    }
+
     // Overwrite the 'addrSeparateProxyTor' setting in case it has been set to an illegal
-    // default value (see issue #12623; PR #12650). 
-    if (settings.contains("addrSeparateProxyTor") && settings.value("addrSeparateProxyTor").toString().endsWith("%2")) { 
-        settings.setValue("addrSeparateProxyTor", GetDefaultProxyAddress()); 
+    // default value (see issue #12623; PR #12650).
+    if (settings.contains("addrSeparateProxyTor") && settings.value("addrSeparateProxyTor").toString().endsWith("%2")) {
+        settings.setValue("addrSeparateProxyTor", GetDefaultProxyAddress());
     }
 }
