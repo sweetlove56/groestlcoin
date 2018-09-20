@@ -9,13 +9,13 @@
 #define CLIENT_VERSION_MAJOR 2
 #define CLIENT_VERSION_MINOR 16
 #define CLIENT_VERSION_REVISION 0
-#define CLIENT_VERSION_BUILD 0
+#define CLIENT_VERSION_BUILD 1
 
 #define CLIENT_VERSION_IS_RELEASE true
 
 #define COPYRIGHT_YEAR 2018
 
-#define BUILD_DESC "v2.16.0"
+#define BUILD_DESC "v2.16.0.1"
 
 #define COPYRIGHT_HOLDERS "The %s developers"
 #define COPYRIGHT_HOLDERS_FINAL "The Groestlcoin Core developers"
@@ -44,6 +44,8 @@
 #define HAVE_DECL_HTOLE64 1
 #define HAVE_DECL_BE64TOH 1
 #define HAVE_DECL_LE64TOH 1
+
+#define HAVE_DECL_STRNLEN 1
 
 #define HAVE_WORKING_BOOST_SLEEP_FOR 1
 
