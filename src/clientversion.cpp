@@ -41,7 +41,7 @@ const std::string CLIENT_NAME("Groestlcoin");
 #include <obj/build.h>
 #endif
 
-#define BUILD_DESC "v2.16.0"    //GRS
+#define BUILD_DESC "v2.16.3"    //GRS
 
 //! git will put "#define GIT_ARCHIVE 1" on the next line inside archives. $Format:%n#define GIT_ARCHIVE 1$
 #ifdef GIT_ARCHIVE
