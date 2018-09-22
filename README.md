@@ -1,12 +1,14 @@
 Groestlcoin integration/staging tree
 =================================
-Forked from Bitcoin reference wallet 0.8.6
+Forked from Bitcoin reference wallet 0.8.6 on march 2014
 
 Updated to Bitcoin reference wallet 0.11.0 on August 2015
 
 Updated to Bitcoin reference wallet 0.13.3 on January 2017
 
 Updated to Bitcoin reference wallet 0.16.0 on June 2018
+
+Updated to Bitcoin reference wallet 0.16.3 on September 2018
 
 Groestlcoin Core Wallet
 
