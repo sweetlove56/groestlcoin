@@ -727,8 +727,12 @@ bool AppInitServers()
 {
     // ********************************************************* Step 1: setup
 #ifdef _MSC_VER
+#ifndef WIN32
 	signal(SIGINT, HandleSIGTERM);		//!!!P
 	signal(SIGBREAK, HandleSIGTERM);
+#else
+    SetConsoleCtrlHandler(consoleCtrlHandler, true);
+#endif
 
     // Turn off Microsoft heap dump noise
     _CrtSetReportMode(_CRT_WARN, _CRTDBG_MODE_FILE);
