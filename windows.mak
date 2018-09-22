@@ -14,10 +14,10 @@ src\qt\res_bitcoin.cpp : src\qt\moc.proj
 
 
 x86_R_St\groestlcoin-qt.exe : src\groestlcoin.cpp src\qt\res_bitcoin.cpp
-	""$(MSB)"" my-groestlcoin.sln /p:Configuration=R_St,Platform=x86 /v:n
+	""$(MSB)"" groestlcoin.sln /p:Configuration=R_St,Platform=x86 /v:n
 
 x64_R_St\groestlcoin-qt.exe : src\groestlcoin.cpp src\qt\res_bitcoin.cpp
-	""$(MSB)"" my-groestlcoin.sln /p:Configuration=R_St,Platform=x64 /v:n
+	""$(MSB)"" groestlcoin.sln /p:Configuration=R_St,Platform=x64 /v:n
 
 
 groestlcoin-2.16.3-win32.msi : groestlcoin.wxs x86_R_St\groestlcoin-qt.exe

@@ -74,8 +74,6 @@ extern "C" {
 		) {
 
 		return WinMain(hInstance, hPrevInstance, 0, nCmdShow);
-
-
 	}
 } // "C"
 
