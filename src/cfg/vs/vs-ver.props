@@ -18,6 +18,7 @@
   <ItemDefinitionGroup>
         <ClCompile>
             <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+            <SupportJustMyCode>false</SupportJustMyCode>
             <ObjectFileName>$(IntDir)\%(RelativeDir)</ObjectFileName>
         </ClCompile>
         <Link>
