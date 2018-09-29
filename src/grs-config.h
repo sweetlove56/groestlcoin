@@ -17,7 +17,7 @@
 #define COPYRIGHT_HOLDERS_FINAL "The Groestlcoin Core developers"
 #define COPYRIGHT_HOLDERS_SUBSTITUTION "Groestlcoin Core"
 
-#ifndef RC_COMPILER
+#if defined(_MSC_VER) && !defined(RC_COMPILER) 
 #	include <vc-inc.h>
 #endif
 
