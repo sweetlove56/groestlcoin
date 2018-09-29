@@ -22,7 +22,7 @@
 
 extern "C" {
 
-#if !defined(UCFG_LIBEXT) && (defined(_M_IX86) || defined(_M_X64))
+#if !defined(UCFG_LIBEXT) && (defined(_M_IX86) || defined(_M_X64)) && defined(_MSC_VER) 
 
 	static __inline void Cpuid(int a[4], int level) {
 #	ifdef _MSC_VER
