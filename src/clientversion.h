@@ -6,7 +6,7 @@
 #define BITCOIN_CLIENTVERSION_H
 
 #if defined(HAVE_CONFIG_H)
-#	ifdef _WIN32
+#	if defined(_MSC_VER)
 #		include "grs-config.h"
 #	else
 #		include "config/bitcoin-config.h"
