@@ -66,7 +66,7 @@ QString BitcoinUnits::description(int unit)
     {
     case GRS: return QString("Groestlcoins");
     case mGRS: return QString("Milli-Groestlcoins (1 / 1" THIN_SP_UTF8 "000)");
-    case uGRS: return QString("Micro-Groestlcoins (bits) (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
+    case uGRS: return QString("Micro-Groestlcoins (groestls) (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
     case GRO: return QString("Gro (gro) (1 / 100" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
     default: return QString("???");
     }
