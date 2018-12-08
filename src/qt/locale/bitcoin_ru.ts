@@ -30,6 +30,10 @@
         <translation>Удалить текущий выбранный адрес из списка</translation>
     </message>
     <message>
+        <source>Enter address or label to search</source>
+        <translation>Введите адрес или метку для поиска</translation>
+    </message>
+    <message>
         <source>Export the data in the current tab to a file</source>
         <translation>Экспортировать данные текущей вкладки в файл</translation>
     </message>
@@ -148,6 +152,10 @@
         <translation>Разблокировать бумажник</translation>
     </message>
     <message>
+        <source>This operation needs your wallet passphrase to decrypt the wallet.</source>
+        <translation>Данная операция требует введения пароля для расшифровки вашего бумажника.</translation>
+    </message>
+    <message>
         <source>Decrypt wallet</source>
         <translation>Расшифровать бумажник</translation>
     </message>
@@ -164,12 +172,24 @@
         <translation>Подтвердить шифрование кошелька</translation>
     </message>
     <message>
+        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR BITCOINS&lt;/b&gt;!</source>
+        <translation>Предупреждение: если вы зашифруете бумажник и потеряете пароль, вы &lt;b&gt;ПОТЕРЯЕТЕ ВСЕ ВАШИ БИТКОИНЫ&lt;/b&gt;!</translation>
+    </message>
+    <message>
         <source>Are you sure you wish to encrypt your wallet?</source>
         <translation>Вы уверены, что хотите зашифровать ваш кошелёк?</translation>
     </message>
     <message>
         <source>Wallet encrypted</source>
         <translation>Кошелёк зашифрован</translation>
+    </message>
+    <message>
+        <source>Wallet encryption failed</source>
+        <translation>Не удалось зашифровать бумажник</translation>
+    </message>
+    <message>
+        <source>Wallet unlock failed</source>
+        <translation>Разблокировка бумажника не удалась</translation>
     </message>
     <message>
         <source>Wallet decryption failed</source>
@@ -226,6 +246,14 @@
         <translation>&amp;Около %1</translation>
     </message>
     <message>
+        <source>About &amp;Qt</source>
+        <translation>O &amp;Qt</translation>
+    </message>
+    <message>
+        <source>Show information about Qt</source>
+        <translation>Показать информацию о Qt</translation>
+    </message>
+    <message>
         <source>&amp;Options...</source>
         <translation>&amp;Параметры</translation>
     </message>
@@ -236,6 +264,14 @@
     <message>
         <source>&amp;Encrypt Wallet...</source>
         <translation>&amp;Зашифровать кошелёк...</translation>
+    </message>
+    <message>
+        <source>Wallet</source>
+        <translation>Кошелёк</translation>
+    </message>
+    <message>
+        <source>Error</source>
+        <translation>Ошибка</translation>
     </message>
     </context>
 <context>
@@ -256,6 +292,10 @@
     </context>
 <context>
     <name>Intro</name>
+    <message>
+        <source>Error</source>
+        <translation>Ошибка</translation>
+    </message>
     </context>
 <context>
     <name>ModalOverlay</name>
@@ -265,6 +305,10 @@
     </context>
 <context>
     <name>OptionsDialog</name>
+    <message>
+        <source>Error</source>
+        <translation>Ошибка</translation>
+    </message>
     </context>
 <context>
     <name>OverviewPage</name>
@@ -302,11 +346,30 @@
     </message>
     </context>
 <context>
+    <name>UnitDisplayStatusBarControl</name>
+    </context>
+<context>
+    <name>WalletFrame</name>
+    </context>
+<context>
+    <name>WalletModel</name>
+    </context>
+<context>
+    <name>WalletView</name>
+    <message>
+        <source>Wallet</source>
+        <translation>Кошелёк</translation>
+    </message>
+    </context>
+<context>
     <name>RecentRequestsTableModel</name>
     <message>
         <source>Label</source>
         <translation>Метка</translation>
     </message>
+    </context>
+<context>
+    <name>bitcoin-core</name>
     <message>
         <source>(no label)</source>
         <translation>(нет метки)</translation>
@@ -314,6 +377,10 @@
     </context>
 <context>
     <name>SendCoinsDialog</name>
+    <message>
+        <source>Transaction fee</source>
+        <translation>Комиссия</translation>
+    </message>
     <message>
         <source>(no label)</source>
         <translation>(нет метки)</translation>
@@ -396,6 +463,10 @@
 <context>
     <name>bitcoin-core</name>
     <message>
+        <source>Error initializing block database</source>
+        <translation>Ошибка инициализации БД блоков</translation>
+    </message>
+    <message>
         <source>The wallet will avoid paying less than the minimum relay fee.</source>
         <translation>Кошелёк постарается не платить меньше, чем минимальная комиссия передачи.</translation>
     </message>
@@ -408,6 +479,10 @@
         <translation>Недостаточно средств</translation>
     </message>
     <message>
+        <source>Loading block index...</source>
+        <translation>Загрузка индекса блоков...</translation>
+    </message>
+    <message>
         <source>Loading wallet...</source>
         <translation>Загрузка электронного кошелька...</translation>
     </message>
@@ -416,8 +491,16 @@
         <translation>Не удаётся понизить версию электронного кошелька</translation>
     </message>
     <message>
+        <source>Rescanning...</source>
+        <translation>Сканирование...</translation>
+    </message>
+    <message>
         <source>Done loading</source>
         <translation>Загрузка завершена</translation>
     </message>
-    </context>
+    <message>
+        <source>Error</source>
+        <translation>Ошибка</translation>
+    </message>
+</context>
 </TS>

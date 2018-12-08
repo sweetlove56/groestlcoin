@@ -1,4 +1,4 @@
-// Copyright (c) 2011-2017 The Bitcoin Core developers
+// Copyright (c) 2011-2018 The Bitcoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -20,6 +20,7 @@ QList<BitcoinUnits::Unit> BitcoinUnits::availableUnits()
     unitlist.append(GRS);
     unitlist.append(mGRS);
     unitlist.append(uGRS);
+    unitlist.append(GRO);
     return unitlist;
 }
 
@@ -30,6 +31,7 @@ bool BitcoinUnits::valid(int unit)
     case GRS:
     case mGRS:
     case uGRS:
+    case GRO:
         return true;
     default:
         return false;
@@ -42,7 +44,8 @@ QString BitcoinUnits::longName(int unit)
     {
     case GRS: return QString("GRS");
     case mGRS: return QString("mGRS");
-    case uGRS: return QString::fromUtf8("μGRS");
+    case uGRS: return QString::fromUtf8("µGRS (groestls)");
+    case GRO: return QString("Gro (gro)");
     default: return QString("???");
     }
 }
@@ -51,8 +54,9 @@ QString BitcoinUnits::shortName(int unit)
 {
     switch(unit)
     {
-    case uGRS: return QString::fromUtf8("groestls");
-    default:   return longName(unit);
+    case uGRS: return QString::fromUtf8("groestl");
+    case GRO: return QString("gro");
+    default: return longName(unit);
     }
 }
 
@@ -62,7 +66,8 @@ QString BitcoinUnits::description(int unit)
     {
     case GRS: return QString("Groestlcoins");
     case mGRS: return QString("Milli-Groestlcoins (1 / 1" THIN_SP_UTF8 "000)");
-    case uGRS: return QString("Micro-Groestlcoins (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
+    case uGRS: return QString("Micro-Groestlcoins (bits) (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
+    case GRO: return QString("Gro (gro) (1 / 100" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
     default: return QString("???");
     }
 }
@@ -71,10 +76,11 @@ qint64 BitcoinUnits::factor(int unit)
 {
     switch(unit)
     {
-    case GRS:  return 100000000;
+    case GRS: return 100000000;
     case mGRS: return 100000;
     case uGRS: return 100;
-    default:   return 100000000;
+    case GRO: return 1;
+    default: return 100000000;
     }
 }
 
@@ -85,6 +91,7 @@ int BitcoinUnits::decimals(int unit)
     case GRS: return 8;
     case mGRS: return 5;
     case uGRS: return 2;
+    case GRO: return 0;
     default: return 0;
     }
 }
@@ -100,9 +107,7 @@ QString BitcoinUnits::format(int unit, const CAmount& nIn, bool fPlus, Separator
     int num_decimals = decimals(unit);
     qint64 n_abs = (n > 0 ? n : -n);
     qint64 quotient = n_abs / coin;
-    qint64 remainder = n_abs % coin;
     QString quotient_str = QString::number(quotient);
-    QString remainder_str = QString::number(remainder).rightJustified(num_decimals, '0');
 
     // Use SI-style thin space separators as these are locale independent and can't be
     // confused with the decimal marker.
@@ -116,7 +121,14 @@ QString BitcoinUnits::format(int unit, const CAmount& nIn, bool fPlus, Separator
         quotient_str.insert(0, '-');
     else if (fPlus && n > 0)
         quotient_str.insert(0, '+');
-    return quotient_str + QString(".") + remainder_str;
+
+    if (num_decimals > 0) {
+        qint64 remainder = n_abs % coin;
+        QString remainder_str = QString::number(remainder).rightJustified(num_decimals, '0');
+        return quotient_str + QString(".") + remainder_str;
+    } else {
+        return quotient_str;
+    }
 }
 
 

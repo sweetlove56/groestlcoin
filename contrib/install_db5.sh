@@ -2,6 +2,7 @@
 
 # Install libdb5.3 (Berkeley DB).
 
+export LC_ALL=C
 set -e
 
 if [ -z "${1}" ]; then
