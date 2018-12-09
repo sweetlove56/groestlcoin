@@ -445,6 +445,7 @@ public:
 				{111111, uint256S("0x00000000013de206275ee83f93bee57622335e422acbf126a37020484c6e113c")},
 				{1000000, uint256S("0x000000000df8560f2612d5f28b52ed1cf81b0f87ac0c9c7242cbcf721ca6854a")},
 				{2000000, uint256S("0x00000000000434d5b8d1c3308df7b6e3fd773657dfb28f5dd2f70854ef94cc66")},
+				{2372000, uint256S("0x000000000000117a4710e01e4f86d883ca491b96efa0b4f2139c4d49a9437f10")},
 			}
 		};
 
@@ -454,7 +455,10 @@ public:
 						//   (the tx=... number in the SetBestChain debug.log lines)
 			100.0     // * estimated number of transactions per day after checkpoint
 		};
-    }
+
+		/* enable fallback fee on mainnet */
+		m_fallback_fee_enabled = true;
+  }
 };
 static CMainParams mainParams;
 
@@ -548,7 +552,8 @@ public:
 #endif
 			{
 				{0		, uint256S("0x000000ffbb50fc9898cdd36ec163e6ba23230164c0052a28876255b7dcf2cd36")},
-				{ 50000 , uint256S("0x00000081951486bb535f8cffec8ac0641bd24b814f89641f6cc2cad737f18950") },
+				{ 50000 , uint256S("0x00000081951486bb535f8cffec8ac0641bd24b814f89641f6cc2cad737f18950")},
+				{ 887766 , uint256S("0x000000cc069338b7cd182dbf3e98dedd80c9ce85f26b78daaec0a6c964ffa501")},
 			}
 		};
 
@@ -557,7 +562,9 @@ public:
 			0,
 			10
 		};
-    }
+		/* enable fallback fee on testnet */
+		m_fallback_fee_enabled = true;
+  }
 };
 static CTestNetParams testNetParams;
 
@@ -633,6 +640,9 @@ public:
 		base58Prefixes[EXT_SECRET_KEY] = { 0x04, 0x35, 0x83, 0x94 };
 
         bech32_hrp = "grsrt";
+
+				/* enable fallback fee on regtest */
+				m_fallback_fee_enabled = true;
     }
 };
 
