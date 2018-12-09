@@ -5,7 +5,7 @@ MSB=%ProgramFiles(x86)%\Microsoft Visual Studio\2017\Community\MSBuild\15.0\Bin\
 WIX_LINK = light.exe -ext WixUIExtension -ext WixUtilExtension -dWixUILicenseRtf=doc\groestlcoin_lic.rtf -dWixUIDialogBmp=share\pixmaps\wix-banner.bmp -dWixUIBannerBmp=share\pixmaps\wix-topbanner.bmp
 
 
-all : groestlcoin-2.16.3-win32.msi groestlcoin-2.16.3-win64.msi
+all : groestlcoin-2.17.2-win32.msi groestlcoin-2.16.3-win64.msi
 
 src\qt\res_bitcoin.cpp : src\qt\moc.proj
 	cd src\qt
