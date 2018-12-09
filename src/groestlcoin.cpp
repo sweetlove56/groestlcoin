@@ -336,7 +336,7 @@ class CMainParams : public CChainParams {
 public:
     CMainParams() {
         strNetworkID = "main";
-		consensus.BIP16Exception = 1439423;
+		consensus.BIP16Exception = uint256S("00000000005a3b7cda97b28dd1e59d872eebb990ec79ed44f494b8e6edbf015d");
 		consensus.BIP34Height = 800000;
 		consensus.BIP34Hash = uint256S("0x0000000007f3f37410d5f7e71a07bf09bb802d5af6726fc891f0248ad857708c");
 		consensus.BIP66Height = 800000;
@@ -465,7 +465,7 @@ class CTestNetParams : public CMainParams {
 public:
     CTestNetParams() {
         strNetworkID = "test";
-        consensus.BIP16Exception = 1;
+        consensus.BIP16Exception = uint256S("000000458242a5d60e943f0a9945c29040b32be35582d1bfd47b5c536f10ac30");
 		consensus.BIP34Height = 286;
 		consensus.BIP34Hash = uint256S("0x0000004b7778ba253a75b716c55b2c6609b5fb97691b3260978f9ce4a633106d");
 		consensus.BIP66Height = 286;
@@ -569,7 +569,7 @@ public:
     CRegTestParams() {
         strNetworkID = "regtest";
 
-        consensus.BIP16Exception = 0; // always enforce P2SH BIP16 on regtest
+        consensus.BIP16Exception = uint256(); // always enforce P2SH BIP16 on regtest
         consensus.powLimit = uint256S("00ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
         consensus.nPowTargetSpacing = 1;
 		consensus.fPowAllowMinDifficultyBlocks = true;
