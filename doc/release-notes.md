@@ -17,7 +17,9 @@ shut down (which might take a few minutes for older versions), then run the
 installer (on Windows) or just copy over `/Applications/Groestlcoin-Qt` (on Mac)
 or `groestlcoind`/`groestlcoin-qt` (on Linux).
 
-If your node has a txindex, the txindex db will be migrated the first time you run 2.17.2 or newer, which may take up to a few hours. Your node will not be functional until this migration completes.
+If your node has a txindex, the txindex db will be migrated the first time you
+run 2.17.2, which may take up to a few hours. Your node will not be
+functional until this migration completes.
 
 The first time you run version 2.16.0 or newer, your chainstate database will be converted to a
 new format, which will take anywhere from a few minutes to half an hour,
@@ -49,8 +51,7 @@ support versions of macOS older than 10.10.
 Notable changes
 ===============
 
-`listtransactions` label support
---------------------------------
+(todo)
 
 The `listtransactions` RPC `account` parameter which was deprecated in 0.17.0
 and renamed to `dummy` has been un-deprecated and renamed again to `label`.
