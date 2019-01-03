@@ -1,6 +1,6 @@
 NetBSD build guide
 ======================
-(updated for NetBSD 7.0)
+(updated for NetBSD 8.0)
 
 This guide describes how to build groestlcoind and command-line utilities on NetBSD.
 
@@ -15,16 +15,13 @@ You will need the following modules, which can be installed via pkgsrc or pkgin:
 autoconf
 automake
 boost
-db4
 git
 gmake
 libevent
 libtool
-python27
-```
+pkg-config
+python37
 
-Download the source code:
-```
 git clone https://github.com/groestlcoin/groestlcoin
 ```
 
@@ -37,13 +34,24 @@ See [dependencies.md](dependencies.md) for a complete overview.
 With wallet:
 ```
 ./autogen.sh
-./configure CPPFLAGS="-I/usr/pkg/include" LDFLAGS="-L/usr/pkg/lib" BOOST_CPPFLAGS="-I/usr/pkg/include" BOOST_LDFLAGS="-L/usr/pkg/lib"
-gmake
+./configure --with-gui=no CPPFLAGS="-I/usr/pkg/include" \
+    LDFLAGS="-L/usr/pkg/lib" \
+    BOOST_CPPFLAGS="-I/usr/pkg/include" \
+    BOOST_LDFLAGS="-L/usr/pkg/lib"
 ```
 
 Without wallet:
 ```
 ./autogen.sh
-./configure --disable-wallet CPPFLAGS="-I/usr/pkg/include" LDFLAGS="-L/usr/pkg/lib" BOOST_CPPFLAGS="-I/usr/pkg/include" BOOST_LDFLAGS="-L/usr/pkg/lib"
-gmake
+./configure --with-gui=no --disable-wallet \
+    CPPFLAGS="-I/usr/pkg/include" \
+    LDFLAGS="-L/usr/pkg/lib" \
+    BOOST_CPPFLAGS="-I/usr/pkg/include" \
+    BOOST_LDFLAGS="-L/usr/pkg/lib"
+```
+
+Build and run the tests:
+```bash
+gmake # use -jX here for parallelism
+gmake check
 ```
