@@ -50,5 +50,6 @@ static const int MAX_URI_LENGTH = 255;
 #define QAPP_ORG_DOMAIN "groestlcoin.org"
 #define QAPP_APP_NAME_DEFAULT "Groestlcoin-Qt"
 #define QAPP_APP_NAME_TESTNET "Groestlcoin-Qt-testnet"
+#define QAPP_APP_NAME_REGTEST "Groestlcoin-Qt-regtest"
 
 #endif // BITCOIN_QT_GUICONSTANTS_H
