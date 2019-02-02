@@ -1,8 +1,8 @@
-Groestlcoin Core version 2.17.2 is now available from:
+Groestlcoin Core version *2.17.2* is now available from:
 
   <https://groestlcoin.org/downloads/>
 
-This is a new minor version release, including new features, various bugfixes
+This is a new major version release, including new features, various bugfixes
 and performance improvements, as well as updated translations.
 
 Please report bugs using the issue tracker at GitHub:
@@ -25,16 +25,11 @@ The first time you run version 2.16.0 or newer, your chainstate database will be
 new format, which will take anywhere from a few minutes to half an hour,
 depending on the speed of your machine.
 
-Note that the block database format also changed in version 2.1.0.6 and there is no
-automatic upgrade code from before version 2.1.0.6 to version 2.16.3 or higher.
-However, as usual, old wallet versions are still supported.
-
 Downgrading warning
 -------------------
 
-Wallets created in 2.16.3 and later are not compatible with versions prior to 2.16.3
-and will not work if you try to use newly created wallets in older versions. Existing
-wallets that were created with older versions are not affected by this.
+The chainstate database for this release is not compatible with previous releases, so if you run 2.16.0 and then decide to switch back to any older version, you will need to run the old release with the -reindex-chainstate option to rebuild the chainstate data structures in the old format.
+If your node has pruning enabled, this will entail re-downloading and processing the entire blockchain.
 
 Compatibility
 ==============
@@ -62,10 +57,7 @@ Documentation
   implementations, and many other cases where two or more programs need
   to interact to generate a complete transaction.
 
-The `listtransactions` RPC `account` parameter which was deprecated in 0.17.0
-and renamed to `dummy` has been un-deprecated and renamed again to `label`.
-
-When bitcoin is configured with the `-deprecatedrpc=accounts` setting, specifying
+When groestlcoin is configured with the `-deprecatedrpc=accounts` setting, specifying
 a label/account/dummy argument will return both outgoing and incoming
 transactions. Without the `-deprecatedrpc=accounts` setting, it will only return
 incoming transactions (because it used to be possible to create transactions
