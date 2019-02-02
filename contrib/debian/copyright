@@ -5,8 +5,8 @@ Upstream-Contact: Satoshi Nakamoto <satoshin@gmx.com>
 Source: https://github.com/groestlcoin/groestlcoin
 
 Files: *
-Copyright: 2009-2018, Bitcoin Core Developers
-Copyright: 2014-2018, Groestlcoin Core Developers
+Copyright: 2009-2019, Bitcoin Core Developers
+Copyright: 2014-2019, Groestlcoin Core Developers
 License: Expat
 Comment: The Bitcoin Core and The Groestlcoin Core Developers encompasses the current developers listed on groestlcoin.org,
          as well as the numerous contributors to the project.
