@@ -39,9 +39,9 @@ OSX_PLIST=$(top_builddir)/share/qt/Info.plist #not installed
 OSX_QT_TRANSLATIONS = da,de,es,hu,ru,uk,zh_CN,zh_TW
 
 DIST_DOCS = $(wildcard doc/*.md) $(wildcard doc/release-notes/*.md)
-DIST_CONTRIB = $(top_srcdir)/contrib/bitcoin-cli.bash-completion \
-	       $(top_srcdir)/contrib/bitcoin-tx.bash-completion \
-	       $(top_srcdir)/contrib/bitcoind.bash-completion \
+DIST_CONTRIB = $(top_srcdir)/contrib/groestlcoin-cli.bash-completion \
+	       $(top_srcdir)/contrib/groestlcoin-tx.bash-completion \
+	       $(top_srcdir)/contrib/groestlcoind.bash-completion \
 	       $(top_srcdir)/contrib/init \
 	       $(top_srcdir)/contrib/install_db5.sh
 DIST_SHARE = \
@@ -98,7 +98,7 @@ $(OSX_APP)/Contents/Resources/groestlcoin.icns: $(OSX_INSTALLER_ICONS)
 
 $(OSX_APP)/Contents/MacOS/Groestlcoin-Qt: all-recursive
 	$(MKDIR_P) $(@D)
-	STRIPPROG="$(STRIP)" $(INSTALL_STRIP_PROGRAM)  $(BITCOIN_QT_BIN) $@
+	STRIPPROG="$(STRIP)" $(INSTALL_STRIP_PROGRAM)  $(GROESTLCOIN_QT_BIN) $@
 
 $(OSX_APP)/Contents/Resources/Base.lproj/InfoPlist.strings:
 	$(MKDIR_P) $(@D)
@@ -169,7 +169,7 @@ $(GROESTLCOIND_BIN): FORCE
 $(GROESTLCOIN_CLI_BIN): FORCE
 	$(MAKE) -C src $(@F)
 
-$(BITCOIN_TX_BIN): FORCE
+$(GROESTLCOIN_TX_BIN): FORCE
 	$(MAKE) -C src $(@F)
 
 if USE_LCOV
