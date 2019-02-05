@@ -25,9 +25,9 @@
 
 	<Property Id="ARPPRODUCTICON" Value="Groestlcoin.ico" />
 	<Property Id='DiskPrompt' Value="Groestlcoin Core" />
-	<Property Id="ARPHELPLINK" Value="http://www.groestlcoin.org/downloads/" />
-	<Property Id="ARPURLINFOABOUT" Value="http://www.groestlcoin.org/downloads/" />
-	<Property Id="ARPURLUPDATEINFO" Value="http://www.groestlcoin.org/downloads/" />
+	<Property Id="ARPHELPLINK" Value="https://www.groestlcoin.org/downloads/" />
+	<Property Id="ARPURLINFOABOUT" Value="https://www.groestlcoin.org/downloads/" />
+	<Property Id="ARPURLUPDATEINFO" Value="https://www.groestlcoin.org/downloads/" />
 	<Property Id="LAUNCHPRODUCT">0</Property>
 	<Property Id="ARPNOREPAIR" Value="1" />
 <!--    <Property Id="WIXUI_INSTALLDIR" Value="INSTALLDIR" />-->

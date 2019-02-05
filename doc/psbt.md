@@ -18,7 +18,7 @@ produce a transaction. Examples include hardware wallets, multisig setups, and
 
 ### Overall workflow
 
-Overall, the construction of a fully signed Bitcoin transaction goes through the
+Overall, the construction of a fully signed Groestlcoin transaction goes through the
 following steps:
 
 - A **Creator** proposes a particular transaction to be created. They construct
