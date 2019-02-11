@@ -340,7 +340,7 @@ public:
 		consensus.BIP34Height = 800000;
 		consensus.BIP34Hash = uint256S("0x0000000007f3f37410d5f7e71a07bf09bb802d5af6726fc891f0248ad857708c");
 		consensus.BIP66Height = 800000;
-		consensus.BIP65Height = INT_MAX;	//!!!?
+		consensus.BIP65Height = 2464000;
 
         consensus.powLimit = uint256S("00000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
         consensus.nPowTargetTimespan = 14 * 24 * 60 * 60; // two weeks
