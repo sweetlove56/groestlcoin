@@ -45,11 +45,11 @@ src/qt/forms/ui_*.h
 
 src/qt/test/moc*.cpp
 
-src/qt/bitcoin-qt.config
-src/qt/bitcoin-qt.creator
-src/qt/bitcoin-qt.creator.user
-src/qt/bitcoin-qt.files
-src/qt/bitcoin-qt.includes
+src/qt/groestlcoin-qt.config
+src/qt/groestlcoin-qt.creator
+src/qt/groestlcoin-qt.creator.user
+src/qt/groestlcoin-qt.files
+src/qt/groestlcoin-qt.includes
 
 .deps
 .dirstamp

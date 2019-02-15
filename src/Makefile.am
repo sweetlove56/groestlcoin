@@ -216,7 +216,7 @@ obj/build.h: FORCE
 	  "$(abs_top_srcdir)"
 libgroestlcoin_util_a-clientversion.$(OBJEXT): obj/build.h
 
-# server: shared between bitcoind and bitcoin-qt
+# server: shared between groestlcoind and groestlcoin-qt
 libgroestlcoin_server_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(MINIUPNPC_CPPFLAGS) $(EVENT_CFLAGS) $(EVENT_PTHREADS_CFLAGS)
 libgroestlcoin_server_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 libgroestlcoin_server_a_SOURCES = \
@@ -274,7 +274,7 @@ libgroestlcoin_zmq_a_SOURCES = \
 endif
 
 
-# wallet: shared between bitcoind and bitcoin-qt, but only linked
+# wallet: shared between groestlcoind and groestlcoin-qt, but only linked
 # when wallet enabled
 libgroestlcoin_wallet_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
 libgroestlcoin_wallet_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
@@ -376,7 +376,7 @@ libgroestlcoin_consensus_a_SOURCES = \
   utilstrencodings.h \
   version.h
 
-# common: shared between bitcoind, and bitcoin-qt and non-server tools
+# common: shared between groestlcoind, and groestlcoin-qt and non-server tools
 libgroestlcoin_common_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
 libgroestlcoin_common_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 libgroestlcoin_common_a_SOURCES = \
@@ -444,7 +444,7 @@ libgroestlcoin_cli_a_SOURCES = \
 nodist_libgroestlcoin_util_a_SOURCES = $(srcdir)/obj/build.h
 #
 
-# bitcoind binary #
+# groestlcoind binary #
 groestlcoind_SOURCES = groestlcoind.cpp
 groestlcoind_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
 groestlcoind_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
