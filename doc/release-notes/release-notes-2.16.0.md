@@ -12,7 +12,7 @@ How to Upgrade
 ==============
 
 If you are running an older version, shut it down. Wait until it has completely
-shut down (which might take a few minutes for older versions), then run the 
+shut down (which might take a few minutes for older versions), then run the
 installer (on Windows) or just copy over `/Applications/Groestlcoin-Qt` (on Mac)
 or `groestlcoind`/`groestlcoin-qt` (on Linux).
 
@@ -120,7 +120,7 @@ command without running the commands separately.
 
 The nested RPC commands use bracket syntax (i.e. `getwalletinfo()`) and can
 be nested (i.e. `getblock(getblockhash(1))`). Simple queries can be
-done with square brackets where object values are accessed with either an 
+done with square brackets where object values are accessed with either an
 array index or a non-quoted string (i.e. `listunspent()[0][txid]`). Both
 commas and spaces can be used to separate parameters in both the bracket syntax
 and normal RPC command syntax.
@@ -129,9 +129,9 @@ Network Activity Toggle
 -----------------------
 
 A RPC command and GUI toggle have been added to enable or disable all p2p
-network activity. The network status icon in the bottom right hand corner 
+network activity. The network status icon in the bottom right hand corner
 is now the GUI toggle. Clicking the icon will either enable or disable all
-p2p network activity. If network activity is disabled, the icon will 
+p2p network activity. If network activity is disabled, the icon will
 be grayed out with an X on top of it.
 
 Additionally the `setnetworkactive` RPC command has been added which does
@@ -201,15 +201,15 @@ commands such as `prioritisetransaction` so that those changes will not be lost.
 GUI Changes
 -----------
 
- - After resetting the options by clicking the `Reset Options` button 
-   in the options dialog or with the `-resetguioptions` startup option, 
-   the user will be prompted to choose the data directory again. This 
-   is to ensure that custom data directories will be kept after the 
-   option reset which clears the custom data directory set via the choose 
+ - After resetting the options by clicking the `Reset Options` button
+   in the options dialog or with the `-resetguioptions` startup option,
+   the user will be prompted to choose the data directory again. This
+   is to ensure that custom data directories will be kept after the
+   option reset which clears the custom data directory set via the choose
    datadir dialog.
 
- - Multiple peers can now be selected in the list of peers in the debug 
-   window. This allows for users to ban or disconnect multiple peers 
+ - Multiple peers can now be selected in the list of peers in the debug
+   window. This allows for users to ban or disconnect multiple peers
    simultaneously instead of banning them one at a time.
 
  - An indicator has been added to the bottom right hand corner of the main
@@ -221,7 +221,7 @@ HTTP REST Changes
 -----------------
 
  - UTXO set query (`GET /rest/getutxos/<checkmempool>/<txid>-<n>/<txid>-<n>
-   /.../<txid>-<n>.<bin|hex|json>`) responses were changed to return status 
+   /.../<txid>-<n>.<bin|hex|json>`) responses were changed to return status
    code `HTTP_BAD_REQUEST` (400) instead of `HTTP_INTERNAL_SERVER_ERROR` (500)
    when requests contain invalid parameters.
 
@@ -489,7 +489,7 @@ have been made, as a safety precaution against blockchain forks and misbehaving 
 
 - Unrequested blocks with less work than the minimum-chain-work are now no longer processed even
 if they have more work than the tip (a potential issue during IBD where the tip may have low-work).
-This prevents peers wasting the resources of a node. 
+This prevents peers wasting the resources of a node.
 
 - Peers which provide a chain with less work than the minimum-chain-work during IBD will now be disconnected.
 
@@ -649,7 +649,7 @@ Low-level RPC changes
    an optional third arg, which was always ignored. Make sure to never pass more
    than two arguments.
 
- - The first boolean argument to `getaddednodeinfo` has been removed. This is 
+ - The first boolean argument to `getaddednodeinfo` has been removed. This is
    an incompatible change.
 
  - RPC command `getmininginfo` loses the "testnet" field in favor of the more
@@ -659,8 +659,8 @@ Low-level RPC changes
    precious. A precious block will be treated as if it were received earlier
    than a competing block.
 
- - A new RPC command `importmulti` has been added which receives an array of 
-   JSON objects representing the intention of importing a public key, a 
+ - A new RPC command `importmulti` has been added which receives an array of
+   JSON objects representing the intention of importing a public key, a
    private key, an address and script/p2sh
 
  - Use of `getrawtransaction` for retrieving confirmed transactions with unspent
@@ -696,13 +696,13 @@ Low-level RPC changes
 
  - A new `savemempool` RPC has been added which allows the current mempool to be saved to
    disk at any time to avoid it being lost due to crashes / power loss.
-   
-   
+
+
  - The first positional argument of `createrawtransaction` was renamed from
   `transactions` to `inputs`.
 
  - The argument of `disconnectnode` was renamed from `node` to `address`.
- 
+
  - `abortrescan` stops current wallet rescan, e.g. when triggered by an `importprivkey` call (See [PR 10208](https://github.com/bitcoin/bitcoin/pull/10208)).
 - `combinerawtransaction` accepts a JSON array of raw transactions and combines them into a single raw transaction (See [PR 10571](https://github.com/bitcoin/bitcoin/pull/10571)).
 - `estimaterawfee` returns raw fee data so that customized logic can be implemented to analyze the data and calculate estimates. See [Fee Estimation Improvements](#fee-estimation-improvements) for full details on changes to the fee estimation logic and interface.
@@ -776,13 +776,13 @@ Low-level RPC changes
   or subnet is invalid. Previously returned RPC_CLIENT_NODE_ALREADY_ADDED.
   - `setban` now returns RPC_CLIENT_INVALID_IP_OR_SUBNET if the user tries to unban
   a node that has not previously been banned. Previously returned RPC_MISC_ERROR.
-  - `removeprunedfunds` now returns RPC_WALLET_ERROR if `bitcoind` is unable to remove
+  - `removeprunedfunds` now returns RPC_WALLET_ERROR if `groestlcoind` is unable to remove
   the transaction. Previously returned RPC_INTERNAL_ERROR.
   - `removeprunedfunds` now returns RPC_INVALID_PARAMETER if the transaction does not
   exist in the wallet. Previously returned RPC_INTERNAL_ERROR.
   - `fundrawtransaction` now returns RPC_INVALID_ADDRESS_OR_KEY if an invalid change
   address is provided. Previously returned RPC_INVALID_PARAMETER.
-  - `fundrawtransaction` now returns RPC_WALLET_ERROR if `bitcoind` is unable to create
+  - `fundrawtransaction` now returns RPC_WALLET_ERROR if `groestlcoind` is unable to create
   the transaction. The error message provides further details. Previously returned
   RPC_INTERNAL_ERROR.
   - `bumpfee` now returns RPC_INVALID_PARAMETER if the provided transaction has
@@ -841,4 +841,4 @@ Other changed command-line options
 Testing changes
 ----------------
 - Regtest support has been enabled and the JSON-RPC port is 18888.
-- Segwit is always active in regtest mode by default. 
+- Segwit is always active in regtest mode by default.
