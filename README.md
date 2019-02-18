@@ -1,6 +1,6 @@
 Groestlcoin integration/staging tree
 =================================
-Forked from Bitcoin reference wallet 0.8.6 on march 2014
+Forked from Bitcoin reference wallet 0.8.6 on March 2014
 
 Updated to Bitcoin reference wallet 0.11.0 on August 2015
 
@@ -10,17 +10,15 @@ Updated to Bitcoin reference wallet 0.16.0 on June 2018
 
 Updated to Bitcoin reference wallet 0.16.3 on September 2018
 
+Updated to Bitcoin reference wallet 0.17.2 on March 2019
+
 Groestlcoin Core Wallet
 
-http://www.groestlcoin.org
+https://www.groestlcoin.org
 
 The algorithm was written as a candidate for sha3
 
 https://bitcointalk.org/index.php?topic=525926.0
-
-Copyright (c) 2009-2018 The Bitcoin Core Developers
-
-Copyright (c) 2014-2018 The Groestlcoin Core Developers
 
 What is Groestlcoin?
 -----------------
@@ -32,7 +30,7 @@ out collectively by the network. Groestlcoin Core is the name of open source
 software which enables the use of this currency.
 
 For more information, as well as an immediately useable, binary version of
-the Groestlcoin Core software, see http://www.groestlcoin.org/download.
+the Groestlcoin Core software, see https://www.groestlcoin.org/download.
 
 License
 -------

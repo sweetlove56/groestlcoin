@@ -5,7 +5,7 @@ Upstart: groestlcoind.conf
 OpenRC:  groestlcoind.openrc
          groestlcoind.openrcconf
 CentOS:  groestlcoind.init
-OS X:    org.groestlcoin.groestlcoind.plist
+macOS:    org.groestlcoin.groestlcoind.plist
 ```
 have been made available to assist packagers in creating node packages here.
 

@@ -5,8 +5,8 @@ Upstream-Contact: Satoshi Nakamoto <satoshin@gmx.com>
 Source: https://github.com/groestlcoin/groestlcoin
 
 Files: *
-Copyright: 2009-2018, Bitcoin Core Developers
-Copyright: 2014-2018, Groestlcoin Core Developers
+Copyright: 2009-2019, Bitcoin Core Developers
+Copyright: 2014-2019, Groestlcoin Core Developers
 License: Expat
 Comment: The Bitcoin Core and The Groestlcoin Core Developers encompasses the current developers listed on groestlcoin.org,
          as well as the numerous contributors to the project.
@@ -63,22 +63,42 @@ License: public-domain
 Comment: The author, Utopian, declares the source code to be
  put in the public domain
 
-Files: src/qt/res/icons/configure.png, src/qt/res/icons/quit.png,
-      src/qt/res/icons/editcopy.png, src/qt/res/icons/editpaste.png,
-      src/qt/res/icons/add.png, src/qt/res/icons/edit.png,
-      src/qt/res/icons/remove.png
+Files: src/qt/res/icons/tx_mined.png
+       src/qt/res/src/mine.svg
+       src/qt/res/icons/fontbigger.png
+       src/qt/res/icons/fontsmaller.png
+       src/qt/res/icons/hd_disabled.png
+       src/qt/res/src/hd_disabled.svg
+       src/qt/res/icons/hd_enabled.png
+       src/qt/res/src/hd_enabled.svg
 Copyright: No copyright holder, these files are put in public domain
 License: public-domain
 Comment: The author, Utopian, declares the source code to be
  put in the public domain
 
-Files: src/qt/res/icons/groestlcoin.png, src/qt/res/icons/toolbar.png
+Files: src/qt/res/icons/clock*.png
+       src/qt/res/icons/eye_*.png
+       src/qt/res/icons/tx_in*.png
+       src/qt/res/icons/verify.png
+       src/qt/res/src/clock_*.svg
+       src/qt/res/src/tx_*.svg
+       src/qt/res/src/verify.svg
 Copyright: No copyright holder, these files are put in public domain
 License: public-domain
 Comment: The author, Utopian, declares the source code to be
  put in the public domain
 
-Files:  scripts/img/reload.xcf, src/qt/res/movies/*.png
+Files: src/qt/res/icons/about.png
+       src/qt/res/icons/groestlcoin.*
+       share/pixmaps/groestlcoin*
+       src/qt/res/src/groestlcoin.svg
+Copyright: No copyright holder, these files are put in public domain
+License: public-domain
+Comment: The author, Utopian, declares the source code to be
+ put in the public domain
+
+Files: src/qt/res/icons/proxy.png
+        src/qt/res/src/proxy.svg
 Copyright: No copyright holder, these files are put in public domain
 License: public-domain
 Comment: The author, Utopian, declares the source code to be
