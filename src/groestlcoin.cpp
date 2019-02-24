@@ -362,11 +362,6 @@ public:
         consensus.vDeployments[Consensus::DEPLOYMENT_SEGWIT].nStartTime = 1484956800; // Jan 21, 2017
         consensus.vDeployments[Consensus::DEPLOYMENT_SEGWIT].nTimeout = 1498003200; // Jun 21, 2017
 
-        // Deployment of BIP65
-        consensus.vDeployments[Consensus::DEPLOYMENT_BIP65].bit = 5;
-        consensus.vDeployments[Consensus::DEPLOYMENT_BIP65].nStartTime = 1484956800; // Jan 21, 2017
-        consensus.vDeployments[Consensus::DEPLOYMENT_BIP65].nTimeout = 1498003200; // Jun 21, 2017
-
         // The best chain should have at least this much work.
         consensus.nMinimumChainWork = uint256S("0x00000000000000000000000000000000000000000000000579194ed4709d7098");
 
