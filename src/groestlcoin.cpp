@@ -339,9 +339,8 @@ public:
         consensus.BIP16Exception = uint256S("00000000005a3b7cda97b28dd1e59d872eebb990ec79ed44f494b8e6edbf015d");
         consensus.BIP34Height = 800000;
         consensus.BIP34Hash = uint256S("0x0000000007f3f37410d5f7e71a07bf09bb802d5af6726fc891f0248ad857708c");
-        consensus.BIP66Height = 800000;
         consensus.BIP65Height = 2464000;
-
+        consensus.BIP66Height = 800000;
         consensus.powLimit = uint256S("00000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
         consensus.nPowTargetTimespan = 14 * 24 * 60 * 60; // two weeks
         consensus.nPowTargetSpacing = 60;
@@ -467,9 +466,9 @@ public:
         consensus.BIP16Exception = uint256S("000000458242a5d60e943f0a9945c29040b32be35582d1bfd47b5c536f10ac30");
         consensus.BIP34Height = 286;
         consensus.BIP34Hash = uint256S("0x0000004b7778ba253a75b716c55b2c6609b5fb97691b3260978f9ce4a633106d");
-        consensus.BIP66Height = 286;
         consensus.BIP65Height = 982000;
-
+        consensus.BIP66Height = 286;
+        consensus.powLimit = uint256S("000000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
         consensus.nPowTargetSpacing = 60;
         consensus.fPowAllowMinDifficultyBlocks = true;
         consensus.nRuleChangeActivationThreshold = 1512; // 75% for testchains
@@ -487,8 +486,6 @@ public:
         consensus.vDeployments[Consensus::DEPLOYMENT_SEGWIT].bit = 1;
         consensus.vDeployments[Consensus::DEPLOYMENT_SEGWIT].nStartTime = 1484956800; // Jan 21, 2017
         consensus.vDeployments[Consensus::DEPLOYMENT_SEGWIT].nTimeout = 1498003200; // Jun 21, 2017
-
-        consensus.powLimit = uint256S("000000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
 
         // The best chain should have at least this much work.
         consensus.nMinimumChainWork = uint256S("0x0000000000000000000000000000000000000000000000000000182f81e84065");
@@ -573,6 +570,10 @@ public:
         strNetworkID = "regtest";
 
         consensus.BIP16Exception = uint256(); // always enforce P2SH BIP16 on regtest
+        consensus.BIP34Height = 100000000; // BIP34 has not activated on regtest (far in the future so block v1 are not rejected in tests)
+        consensus.BIP34Hash = uint256();
+        consensus.BIP65Height = 1351; // BIP65 activated on regtest (Used in rpc activation tests)
+        consensus.BIP66Height = 1251; // BIP66 activated on regtest (Used in rpc activation tests)
         consensus.powLimit = uint256S("00ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
         consensus.nPowTargetSpacing = 1;
         consensus.fPowAllowMinDifficultyBlocks = true;
