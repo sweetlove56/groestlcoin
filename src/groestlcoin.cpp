@@ -51,7 +51,7 @@ extern "C" {
 
 using namespace std;
 
-static const int64_t nGenesisBlockRewardCoin = 1 * COIN;
+static const int64_t nGenesisBlockRewardCoin = 0;
 int64_t minimumSubsidy = 5.0 * COIN;
 static const int64_t nPremine = 240640 * COIN;
 
