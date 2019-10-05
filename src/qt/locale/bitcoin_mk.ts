@@ -138,10 +138,6 @@
         <translation>Биткоин</translation>
     </message>
     <message>
-        <source>Wallet</source>
-        <translation>Паричник</translation>
-    </message>
-    <message>
         <source>&amp;Send</source>
         <translation>&amp;Испрати</translation>
     </message>
@@ -180,6 +176,10 @@
     <message>
         <source>Up to date</source>
         <translation>Во тек</translation>
+    </message>
+    <message>
+        <source>&amp;Window</source>
+        <translation>&amp;Прозорец</translation>
     </message>
     <message>
         <source>Date: %1
@@ -585,6 +585,9 @@
     </context>
 <context>
     <name>UnitDisplayStatusBarControl</name>
+    </context>
+<context>
+    <name>WalletController</name>
     </context>
 <context>
     <name>WalletFrame</name>

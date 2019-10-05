@@ -10,6 +10,7 @@ MANDIR=${MANDIR:-$TOPDIR/doc/man}
 BITCOIND=${GROESTLCOIND:-$BINDIR/groestlcoind}
 BITCOINCLI=${GROESTLCOINCLI:-$BINDIR/groestlcoin-cli}
 BITCOINTX=${GROESTLCOINTX:-$BINDIR/groestlcoin-tx}
+WALLET_TOOL=${WALLET_TOOL:-$BINDIR/groestlcoin-wallet}
 BITCOINQT=${GROESTLCOINQT:-$BINDIR/qt/groestlcoin-qt}
 
 [ ! -x $BITCOIND ] && echo "$BITCOIND not found or not executable." && exit 1
@@ -23,7 +24,7 @@ GRSVER=($($BITCOINCLI --version | head -n1 | awk -F'[ -]' '{ print $6, $7 }'))
 echo "[COPYRIGHT]" > footer.h2m
 $BITCOIND --version | sed -n '1!p' >> footer.h2m
 
-for cmd in $BITCOIND $BITCOINCLI $BITCOINTX $BITCOINQT; do
+for cmd in $BITCOIND $BITCOINCLI $BITCOINTX $WALLET_TOOL $BITCOINQT; do
   cmdname="${cmd##*/}"
   help2man -N --version-string=${GRSVER[0]} --include=footer.h2m -o ${MANDIR}/${cmdname}.1 ${cmd}
   sed -i "s/\\\-${GRSVER[1]}//g" ${MANDIR}/${cmdname}.1

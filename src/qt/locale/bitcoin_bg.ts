@@ -3,11 +3,11 @@
     <name>AddressBookPage</name>
     <message>
         <source>Right-click to edit address or label</source>
-        <translation>Клик с десен бутон на мишката за промяна на адрес или етикет</translation>
+        <translation>Десен клик за промяна на адреса или името</translation>
     </message>
     <message>
         <source>Create a new address</source>
-        <translation>Създай нов адрес</translation>
+        <translation>Създаване на нов адрес</translation>
     </message>
     <message>
         <source>&amp;New</source>
@@ -15,11 +15,11 @@
     </message>
     <message>
         <source>Copy the currently selected address to the system clipboard</source>
-        <translation>Копирай текущо избрания адрес към клипборда</translation>
+        <translation>Копиране на избрания адрес към клипборда</translation>
     </message>
     <message>
         <source>&amp;Copy</source>
-        <translation>&amp;Copy</translation>
+        <translation>Копирай</translation>
     </message>
     <message>
         <source>C&amp;lose</source>
@@ -27,7 +27,7 @@
     </message>
     <message>
         <source>Delete the currently selected address from the list</source>
-        <translation>Изтрий текущо избрания адрес от листа</translation>
+        <translation>Изтрий избрания адрес от списъка</translation>
     </message>
     <message>
         <source>Enter address or label to search</source>
@@ -35,7 +35,7 @@
     </message>
     <message>
         <source>Export the data in the current tab to a file</source>
-        <translation>Изнеси данните в избрания раздел към файл</translation>
+        <translation>Запишете данните от текущия раздел във файл</translation>
     </message>
     <message>
         <source>&amp;Export</source>
@@ -43,15 +43,15 @@
     </message>
     <message>
         <source>&amp;Delete</source>
-        <translation>&amp;Изтрий</translation>
+        <translation>&amp;Изтриване</translation>
     </message>
     <message>
         <source>Choose the address to send coins to</source>
-        <translation>Избери адреса на който да пратиш монети</translation>
+        <translation>Изберете адрес, на който ще изпращате монети</translation>
     </message>
     <message>
         <source>Choose the address to receive coins with</source>
-        <translation>Избери адреса на който да получиш монети</translation>
+        <translation>Изберете адрес за получаване на монети</translation>
     </message>
     <message>
         <source>C&amp;hoose</source>
@@ -59,54 +59,54 @@
     </message>
     <message>
         <source>Sending addresses</source>
-        <translation>Адрес за пращане</translation>
+        <translation>Адреси за изпращане</translation>
     </message>
     <message>
         <source>Receiving addresses</source>
-        <translation>Адрес за получаване</translation>
+        <translation>Получаване на адреси</translation>
     </message>
     <message>
         <source>These are your Bitcoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
-        <translation>Тези са вашите Биткойн адреси за изпращане на монети. Винаги проверявайте количеството и получаващия адрес преди изпращане. </translation>
+        <translation>Това са адресите на получателите на плащания. Винаги проверявайте размера на сумата и адреса на получателя, преди да изпратите монети.</translation>
     </message>
     <message>
         <source>These are your Bitcoin addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
-        <translation>Това са вашите Биткойн адреси за получаване на монети. Препоръчително е да ползвате нов адрес на всяка транзакция.</translation>
+        <translation>Това са Вашите Биткойн адреси,благодарение на които ще получавате плащания.Препоръчително е да използвате нови адреси за получаване на всяка транзакция.</translation>
     </message>
     <message>
         <source>&amp;Copy Address</source>
-        <translation>Копирай адрес</translation>
+        <translation>&amp;Копирай адрес</translation>
     </message>
     <message>
         <source>Copy &amp;Label</source>
-        <translation>Копирай етикет</translation>
+        <translation>Копирай &amp;име</translation>
     </message>
     <message>
         <source>&amp;Edit</source>
-        <translation>Редактирай</translation>
+        <translation>&amp;Редактирай</translation>
     </message>
     <message>
         <source>Export Address List</source>
-        <translation>Изнеси лист с адреси</translation>
+        <translation>Изнасяне на списъка с адреси</translation>
     </message>
     <message>
         <source>Comma separated file (*.csv)</source>
-        <translation>Comma separated file (*.csv)</translation>
+        <translation>CSV файл (*.csv)</translation>
     </message>
     <message>
         <source>Exporting Failed</source>
-        <translation>Изнасянето се провали</translation>
+        <translation>Грешка при изнасянето</translation>
     </message>
     <message>
         <source>There was an error trying to save the address list to %1. Please try again.</source>
-        <translation>Получи се грешка при запазването на листа с адреси към %1. Моля опитайте пак.</translation>
+        <translation>Възникна грешка при опита за запазване на списъка с адреси в %1.Моля опитайте отново.</translation>
     </message>
 </context>
 <context>
     <name>AddressTableModel</name>
     <message>
         <source>Label</source>
-        <translation>Етикет</translation>
+        <translation>Име</translation>
     </message>
     <message>
         <source>Address</source>
@@ -114,18 +114,18 @@
     </message>
     <message>
         <source>(no label)</source>
-        <translation>(без етикет)</translation>
+        <translation>(без име)</translation>
     </message>
 </context>
 <context>
     <name>AskPassphraseDialog</name>
     <message>
         <source>Passphrase Dialog</source>
-        <translation>Диалог за пропуск</translation>
+        <translation>Диалог за паролите</translation>
     </message>
     <message>
         <source>Enter passphrase</source>
-        <translation>Въведи парола</translation>
+        <translation>Въведете текущата парола</translation>
     </message>
     <message>
         <source>New passphrase</source>
@@ -133,7 +133,7 @@
     </message>
     <message>
         <source>Repeat new passphrase</source>
-        <translation>Повтори парола</translation>
+        <translation>Въведете новата парола повторно</translation>
     </message>
     <message>
         <source>Show password</source>
@@ -145,27 +145,27 @@
     </message>
     <message>
         <source>Encrypt wallet</source>
-        <translation>Криптирай портфейл</translation>
+        <translation>Шифриране на портфейла</translation>
     </message>
     <message>
         <source>This operation needs your wallet passphrase to unlock the wallet.</source>
-        <translation>Тази операция изисква вашата парола на портфейла за отключването на портфейла.</translation>
+        <translation>Тази операция изисква Вашата парола за отключване на портфейла.</translation>
     </message>
     <message>
         <source>Unlock wallet</source>
-        <translation>Отключи портфейла</translation>
+        <translation>Отключване на портфейла</translation>
     </message>
     <message>
         <source>This operation needs your wallet passphrase to decrypt the wallet.</source>
-        <translation>Тази операция изисква вашата парола на портфейла за декриптирането на портфейла.</translation>
+        <translation>Тази операция изисква Вашата парола за дешифриране на портфейла.</translation>
     </message>
     <message>
         <source>Decrypt wallet</source>
-        <translation>Декриптирай портфейл</translation>
+        <translation>Дешифриране на портфейла</translation>
     </message>
     <message>
         <source>Change passphrase</source>
-        <translation>Промени парола</translation>
+        <translation>Смяна на паролата</translation>
     </message>
     <message>
         <source>Enter the old passphrase and new passphrase to the wallet.</source>
@@ -173,7 +173,7 @@
     </message>
     <message>
         <source>Confirm wallet encryption</source>
-        <translation>Потвърди криптирането на порфейла</translation>
+        <translation>Потвърдете на шифрирането на портфейла</translation>
     </message>
     <message>
         <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR BITCOINS&lt;/b&gt;!</source>
@@ -185,7 +185,7 @@
     </message>
     <message>
         <source>Wallet encrypted</source>
-        <translation>портфейлa е шифрован</translation>
+        <translation>Портфейлът е шифриран</translation>
     </message>
     <message>
         <source>IMPORTANT: Any previous backups you have made of your wallet file should be replaced with the newly generated, encrypted wallet file. For security reasons, previous backups of the unencrypted wallet file will become useless as soon as you start using the new, encrypted wallet.</source>
@@ -205,7 +205,7 @@
     </message>
     <message>
         <source>Wallet unlock failed</source>
-        <translation>Отключването не бе успешно</translation>
+        <translation>Неуспешно отключване на портфейла</translation>
     </message>
     <message>
         <source>The passphrase entered for the wallet decryption was incorrect.</source>
@@ -213,7 +213,7 @@
     </message>
     <message>
         <source>Wallet decryption failed</source>
-        <translation>Отключването не бе успешно</translation>
+        <translation>Дешифрирането на портфейла беше неуспешно</translation>
     </message>
     <message>
         <source>Wallet passphrase was successfully changed.</source>
@@ -221,25 +221,25 @@
     </message>
     <message>
         <source>Warning: The Caps Lock key is on!</source>
-        <translation>Внимание:Бутонът Caps Lock е включен.</translation>
+        <translation>Внимание: Caps Lock (главни букви) е включен.</translation>
     </message>
 </context>
 <context>
     <name>BanTableModel</name>
     <message>
         <source>IP/Netmask</source>
-        <translation>IP/Мрежова маска</translation>
+        <translation>IP/Netmask</translation>
     </message>
     <message>
         <source>Banned Until</source>
-        <translation>Блокиран до</translation>
+        <translation>Със забранен достъп до</translation>
     </message>
 </context>
 <context>
     <name>BitcoinGUI</name>
     <message>
         <source>Sign &amp;message...</source>
-        <translation>Подпиши съобщение...</translation>
+        <translation>Подписване на &amp;съобщение...</translation>
     </message>
     <message>
         <source>Synchronizing with network...</source>
@@ -247,87 +247,71 @@
     </message>
     <message>
         <source>&amp;Overview</source>
-        <translation>Преглед</translation>
-    </message>
-    <message>
-        <source>Node</source>
-        <translation>Възел</translation>
+        <translation>&amp;Баланс</translation>
     </message>
     <message>
         <source>Show general overview of wallet</source>
-        <translation>Покажи общ преглед на портфейла</translation>
+        <translation>Обобщена информация за портфейла</translation>
     </message>
     <message>
         <source>&amp;Transactions</source>
-        <translation>Транзакции</translation>
+        <translation>&amp;Транзакции</translation>
     </message>
     <message>
         <source>Browse transaction history</source>
-        <translation>Разгледай история на транзакциите</translation>
+        <translation>История на транзакциите</translation>
     </message>
     <message>
         <source>E&amp;xit</source>
-        <translation>Изход</translation>
+        <translation>Из&amp;ход</translation>
     </message>
     <message>
         <source>Quit application</source>
-        <translation>Излез от приложението</translation>
+        <translation>Изход от приложението</translation>
     </message>
     <message>
         <source>&amp;About %1</source>
-        <translation>За %1</translation>
+        <translation>Относно %1</translation>
     </message>
     <message>
         <source>Show information about %1</source>
-        <translation>Покажи информация за %1</translation>
+        <translation>Покажи информация относно %1</translation>
     </message>
     <message>
         <source>About &amp;Qt</source>
-        <translation>Относно Qt</translation>
+        <translation>За &amp;Qt</translation>
     </message>
     <message>
         <source>Show information about Qt</source>
-        <translation>Покажи информация отностно Qt</translation>
+        <translation>Покажи информация за Qt</translation>
     </message>
     <message>
         <source>&amp;Options...</source>
-        <translation>Настройки...</translation>
+        <translation>&amp;Опции...</translation>
     </message>
     <message>
         <source>Modify configuration options for %1</source>
-        <translation>Промени конфигурации за %1</translation>
+        <translation>Промени настройки за %1</translation>
     </message>
     <message>
         <source>&amp;Encrypt Wallet...</source>
-        <translation>Криптирай портфейл</translation>
+        <translation>&amp;Шифриране на портфейла...</translation>
     </message>
     <message>
         <source>&amp;Backup Wallet...</source>
-        <translation>Направи резервно копие на портфейла...</translation>
+        <translation>&amp;Запазване на портфейла...</translation>
     </message>
     <message>
         <source>&amp;Change Passphrase...</source>
-        <translation>Промени паролата...</translation>
-    </message>
-    <message>
-        <source>&amp;Sending addresses...</source>
-        <translation>Адреси за пращане...</translation>
-    </message>
-    <message>
-        <source>&amp;Receiving addresses...</source>
-        <translation>Адреси за получаване...</translation>
+        <translation>&amp;Смяна на паролата...</translation>
     </message>
     <message>
         <source>Open &amp;URI...</source>
-        <translation>Отвори URI</translation>
+        <translation>Отвори &amp;URI...</translation>
     </message>
     <message>
         <source>Wallet:</source>
         <translation>Портфейл</translation>
-    </message>
-    <message>
-        <source>default wallet</source>
-        <translation>Портфейл по подразбиране</translation>
     </message>
     <message>
         <source>Click to disable network activity.</source>
@@ -378,16 +362,12 @@
         <translation>Биткоин</translation>
     </message>
     <message>
-        <source>Wallet</source>
-        <translation>портфейл</translation>
-    </message>
-    <message>
         <source>&amp;Send</source>
-        <translation>&amp;изпращам</translation>
+        <translation>&amp;Изпращане</translation>
     </message>
     <message>
         <source>&amp;Receive</source>
-        <translation>&amp;получавам</translation>
+        <translation>&amp;Получаване</translation>
     </message>
     <message>
         <source>&amp;Show / Hide</source>
@@ -423,7 +403,7 @@
     </message>
     <message>
         <source>Tabs toolbar</source>
-        <translation>Лентата с инструменти</translation>
+        <translation>Раздели</translation>
     </message>
     <message>
         <source>Request payments (generates QR codes and bitcoin: URIs)</source>
@@ -467,11 +447,11 @@
     </message>
     <message>
         <source>Error</source>
-        <translation>грешка</translation>
+        <translation>Грешка</translation>
     </message>
     <message>
         <source>Warning</source>
-        <translation>Внимание</translation>
+        <translation>Предупреждение</translation>
     </message>
     <message>
         <source>Information</source>
@@ -479,11 +459,23 @@
     </message>
     <message>
         <source>Up to date</source>
-        <translation>Актуално</translation>
+        <translation>Синхронизиран</translation>
     </message>
     <message>
         <source>Show the %1 help message to get a list with possible Bitcoin command-line options</source>
         <translation>Покажи %1 помощно съобщение за да получиш лист с възможни Биткойн команди</translation>
+    </message>
+    <message>
+        <source>default wallet</source>
+        <translation>Портфейл по подразбиране</translation>
+    </message>
+    <message>
+        <source>&amp;Window</source>
+        <translation>&amp;Прозорец</translation>
+    </message>
+    <message>
+        <source>Minimize</source>
+        <translation>Минимизирай</translation>
     </message>
     <message>
         <source>%1 client</source>
@@ -495,7 +487,7 @@
     </message>
     <message>
         <source>Catching up...</source>
-        <translation>Наваксвам</translation>
+        <translation>Зарежда блокове...</translation>
     </message>
     <message>
         <source>Date: %1
@@ -529,7 +521,7 @@
     </message>
     <message>
         <source>Sent transaction</source>
-        <translation>Изпратена транзакция</translation>
+        <translation>Изходяща транзакция</translation>
     </message>
     <message>
         <source>Incoming transaction</source>
@@ -552,7 +544,7 @@
     <name>CoinControlDialog</name>
     <message>
         <source>Coin Selection</source>
-        <translation>Избор на монети</translation>
+        <translation>Избор на монета</translation>
     </message>
     <message>
         <source>Quantity:</source>
@@ -564,7 +556,7 @@
     </message>
     <message>
         <source>Amount:</source>
-        <translation>Количество:</translation>
+        <translation>Сума:</translation>
     </message>
     <message>
         <source>Fee:</source>
@@ -572,15 +564,15 @@
     </message>
     <message>
         <source>Dust:</source>
-        <translation>прах:</translation>
+        <translation>Прах:</translation>
     </message>
     <message>
         <source>After Fee:</source>
-        <translation>След такса:</translation>
+        <translation>След прилагане на ДДС</translation>
     </message>
     <message>
         <source>Change:</source>
-        <translation>Промяна:</translation>
+        <translation>Ресто</translation>
     </message>
     <message>
         <source>(un)select all</source>
@@ -592,11 +584,11 @@
     </message>
     <message>
         <source>List mode</source>
-        <translation>списък Режим</translation>
+        <translation>Списъчен режим</translation>
     </message>
     <message>
         <source>Amount</source>
-        <translation>Количество</translation>
+        <translation>Сума</translation>
     </message>
     <message>
         <source>Received with label</source>
@@ -612,35 +604,35 @@
     </message>
     <message>
         <source>Confirmations</source>
-        <translation>потвърждения</translation>
+        <translation>Потвърждения</translation>
     </message>
     <message>
         <source>Confirmed</source>
-        <translation>Потвърдено</translation>
+        <translation>Потвърдени</translation>
     </message>
     <message>
         <source>Copy address</source>
-        <translation>Копирайте адреса</translation>
+        <translation>Копирай адрес</translation>
     </message>
     <message>
         <source>Copy label</source>
-        <translation>Копиране на етикета</translation>
+        <translation>Копирай име</translation>
     </message>
     <message>
         <source>Copy amount</source>
-        <translation>Копиране на сумата</translation>
+        <translation>Копирай сума</translation>
     </message>
     <message>
         <source>Copy transaction ID</source>
-        <translation>Копиране на ID на транзакцията</translation>
+        <translation>Копирай транзакция с ID</translation>
     </message>
     <message>
         <source>Lock unspent</source>
-        <translation>Заключи неусвоени</translation>
+        <translation>Заключване на неизхарченото</translation>
     </message>
     <message>
         <source>Unlock unspent</source>
-        <translation>Отключете неизползваните</translation>
+        <translation>Отключване на неизхарченото</translation>
     </message>
     <message>
         <source>Copy quantity</source>
@@ -648,11 +640,11 @@
     </message>
     <message>
         <source>Copy fee</source>
-        <translation>Копирай такса</translation>
+        <translation>Копиране на данък добавена стойност</translation>
     </message>
     <message>
         <source>Copy after fee</source>
-        <translation>Копирайте след такса</translation>
+        <translation>Копиране след прилагане на данък добавена стойност</translation>
     </message>
     <message>
         <source>Copy bytes</source>
@@ -664,7 +656,7 @@
     </message>
     <message>
         <source>Copy change</source>
-        <translation>Промяна на копирането</translation>
+        <translation>Копирай рестото</translation>
     </message>
     <message>
         <source>(%1 locked)</source>
@@ -680,7 +672,7 @@
     </message>
     <message>
         <source>(no label)</source>
-        <translation>(без етикет)</translation>
+        <translation>(без име)</translation>
     </message>
     <message>
         <source>change from %1 (%2)</source>
@@ -695,7 +687,7 @@
     <name>EditAddressDialog</name>
     <message>
         <source>Edit Address</source>
-        <translation>Редактирайте адреса</translation>
+        <translation>Редактиране на адрес</translation>
     </message>
     <message>
         <source>&amp;Label</source>
@@ -719,7 +711,7 @@
     </message>
     <message>
         <source>Edit receiving address</source>
-        <translation>Редактиране на получаващия адрес</translation>
+        <translation>Редактиране на адрес за получаване</translation>
     </message>
     <message>
         <source>Edit sending address</source>
@@ -731,7 +723,7 @@
     </message>
     <message>
         <source>Could not unlock wallet.</source>
-        <translation>Не може да отключите портфейла.</translation>
+        <translation>Отключването на портфейла беше неуспешно.</translation>
     </message>
     <message>
         <source>New key generation failed.</source>
@@ -816,26 +808,22 @@
     </message>
     <message>
         <source>Error</source>
-        <translation>грешка</translation>
+        <translation>Грешка</translation>
     </message>
     </context>
 <context>
     <name>ModalOverlay</name>
     <message>
         <source>Form</source>
-        <translation>форма</translation>
+        <translation>Формуляр</translation>
     </message>
     <message>
         <source>Last block time</source>
         <translation>Време на последния блок</translation>
     </message>
     <message>
-        <source>Progress</source>
-        <translation>прогрес</translation>
-    </message>
-    <message>
         <source>calculating...</source>
-        <translation>изчисляване</translation>
+        <translation>Изчисляване...</translation>
     </message>
     <message>
         <source>Hide</source>
@@ -861,7 +849,7 @@
     <name>OptionsDialog</name>
     <message>
         <source>Options</source>
-        <translation>Настроики</translation>
+        <translation>Опции</translation>
     </message>
     <message>
         <source>&amp;Main</source>
@@ -872,20 +860,12 @@
         <translation>Размер на кеша в &amp;базата данни</translation>
     </message>
     <message>
-        <source>MB</source>
-        <translation>Мегабайта</translation>
-    </message>
-    <message>
         <source>Number of script &amp;verification threads</source>
         <translation>Брой на скриптове и &amp;нишки за потвърждение</translation>
     </message>
     <message>
         <source>IP address of the proxy (e.g. IPv4: 127.0.0.1 / IPv6: ::1)</source>
         <translation>IP адрес на прокси (напр. за IPv4: 127.0.0.1 / за IPv6: ::1)</translation>
-    </message>
-    <message>
-        <source>Open Configuration File</source>
-        <translation>Отворете конфигурационния файл</translation>
     </message>
     <message>
         <source>Reset all client options to default.</source>
@@ -1013,7 +993,7 @@
     </message>
     <message>
         <source>Confirm options reset</source>
-        <translation>Потвърдете опциите за нулиране</translation>
+        <translation>Потвърдете отмяната на настройките.</translation>
     </message>
     <message>
         <source>Client restart required to activate changes.</source>
@@ -1024,12 +1004,8 @@
         <translation>Клиентът ще бъде изключен. Искате ли да продължите?</translation>
     </message>
     <message>
-        <source>Configuration options</source>
-        <translation>Опции за конфигуриране</translation>
-    </message>
-    <message>
         <source>Error</source>
-        <translation>грешка</translation>
+        <translation>Грешка</translation>
     </message>
     <message>
         <source>This change would require a client restart.</source>
@@ -1044,7 +1020,7 @@
     <name>OverviewPage</name>
     <message>
         <source>Form</source>
-        <translation>форма</translation>
+        <translation>Формуляр</translation>
     </message>
     <message>
         <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Bitcoin network after a connection is established, but this process has not completed yet.</source>
@@ -1052,23 +1028,23 @@
     </message>
     <message>
         <source>Watch-only:</source>
-        <translation>Гледайте само:</translation>
+        <translation>В наблюдателен режим:</translation>
     </message>
     <message>
         <source>Available:</source>
-        <translation>На разположение:</translation>
+        <translation>Налично:</translation>
     </message>
     <message>
         <source>Your current spendable balance</source>
-        <translation>Текущото Ви разходоносно салдо</translation>
+        <translation>Вашата текуща сметка за изразходване</translation>
     </message>
     <message>
         <source>Pending:</source>
-        <translation>В очакване на:</translation>
+        <translation>Изчакващо:</translation>
     </message>
     <message>
         <source>Immature:</source>
-        <translation>Незрялото:</translation>
+        <translation>Неразвит:</translation>
     </message>
     <message>
         <source>Mined balance that has not yet matured</source>
@@ -1076,15 +1052,15 @@
     </message>
     <message>
         <source>Balances</source>
-        <translation>баланс</translation>
+        <translation>Баланс</translation>
     </message>
     <message>
         <source>Total:</source>
-        <translation>Обща сума:</translation>
+        <translation>Общо:</translation>
     </message>
     <message>
         <source>Your current total balance</source>
-        <translation>Текущото Ви общо салдо</translation>
+        <translation>Текущият ви общ баланс</translation>
     </message>
     <message>
         <source>Spendable:</source>
@@ -1092,7 +1068,7 @@
     </message>
     <message>
         <source>Recent transactions</source>
-        <translation>Последни транзакции</translation>
+        <translation>Скорошни транзакции</translation>
     </message>
     </context>
 <context>
@@ -1166,11 +1142,7 @@
     <name>PeerTableModel</name>
     <message>
         <source>User Agent</source>
-        <translation>Потребителски агент</translation>
-    </message>
-    <message>
-        <source>Ping</source>
-        <translation>пинг</translation>
+        <translation>Клиент на потребителя</translation>
     </message>
     <message>
         <source>Sent</source>
@@ -1185,7 +1157,7 @@
     <name>QObject</name>
     <message>
         <source>Amount</source>
-        <translation>Количество</translation>
+        <translation>Сума</translation>
     </message>
     <message>
         <source>Enter a Bitcoin address (e.g. %1)</source>
@@ -1209,7 +1181,7 @@
     </message>
     <message>
         <source>None</source>
-        <translation>нито един</translation>
+        <translation>Неналичен</translation>
     </message>
     <message>
         <source>N/A</source>
@@ -1278,7 +1250,7 @@
     </message>
     <message>
         <source>Client version</source>
-        <translation>Клиентска версия</translation>
+        <translation>Версия на клиента</translation>
     </message>
     <message>
         <source>&amp;Information</source>
@@ -1286,11 +1258,11 @@
     </message>
     <message>
         <source>Debug window</source>
-        <translation>Прозорец за отстраняване на грешки</translation>
+        <translation>Прозорец с грешки</translation>
     </message>
     <message>
         <source>General</source>
-        <translation>Общ</translation>
+        <translation>Основни</translation>
     </message>
     <message>
         <source>Using BerkeleyDB version</source>
@@ -1302,11 +1274,11 @@
     </message>
     <message>
         <source>Network</source>
-        <translation>мрежа</translation>
+        <translation>Мрежа</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation>име</translation>
+        <translation>Име</translation>
     </message>
     <message>
         <source>Number of connections</source>
@@ -1342,7 +1314,7 @@
     </message>
     <message>
         <source>User Agent</source>
-        <translation>Потребителски агент</translation>
+        <translation>Клиент на потребителя</translation>
     </message>
     <message>
         <source>Services</source>
@@ -1399,10 +1371,6 @@
     <message>
         <source>Clear console</source>
         <translation>Изчисти конзолата</translation>
-    </message>
-    <message>
-        <source>default wallet</source>
-        <translation>Портфейл по подразбиране</translation>
     </message>
     <message>
         <source>via %1</source>
@@ -1481,7 +1449,7 @@
     </message>
     <message>
         <source>Copy label</source>
-        <translation>Копиране на етикета</translation>
+        <translation>Копирай име</translation>
     </message>
     <message>
         <source>Copy message</source>
@@ -1489,7 +1457,7 @@
     </message>
     <message>
         <source>Copy amount</source>
-        <translation>Копиране на сумата</translation>
+        <translation>Копирай сума</translation>
     </message>
 </context>
 <context>
@@ -1524,11 +1492,11 @@
     </message>
     <message>
         <source>Amount</source>
-        <translation>Количество</translation>
+        <translation>Сума</translation>
     </message>
     <message>
         <source>Label</source>
-        <translation>Етикет</translation>
+        <translation>Име</translation>
     </message>
     <message>
         <source>Message</source>
@@ -1536,7 +1504,7 @@
     </message>
     <message>
         <source>Wallet</source>
-        <translation>портфейл</translation>
+        <translation>Портфейл</translation>
     </message>
     <message>
         <source>Error encoding URI into QR Code.</source>
@@ -1551,7 +1519,7 @@
     </message>
     <message>
         <source>Label</source>
-        <translation>Етикет</translation>
+        <translation>Име</translation>
     </message>
     <message>
         <source>Message</source>
@@ -1559,7 +1527,7 @@
     </message>
     <message>
         <source>(no label)</source>
-        <translation>(без етикет)</translation>
+        <translation>(без име)</translation>
     </message>
     <message>
         <source>(no message)</source>
@@ -1594,7 +1562,7 @@
     </message>
     <message>
         <source>Amount:</source>
-        <translation>Количество:</translation>
+        <translation>Сума:</translation>
     </message>
     <message>
         <source>Fee:</source>
@@ -1602,11 +1570,11 @@
     </message>
     <message>
         <source>After Fee:</source>
-        <translation>След такса:</translation>
+        <translation>След прилагане на ДДС</translation>
     </message>
     <message>
         <source>Change:</source>
-        <translation>Промяна:</translation>
+        <translation>Ресто</translation>
     </message>
     <message>
         <source>If this is activated, but the change address is empty or invalid, change will be sent to a newly generated address.</source>
@@ -1650,7 +1618,7 @@
     </message>
     <message>
         <source>Dust:</source>
-        <translation>прах:</translation>
+        <translation>Прах:</translation>
     </message>
     <message>
         <source>Clear &amp;All</source>
@@ -1674,15 +1642,15 @@
     </message>
     <message>
         <source>Copy amount</source>
-        <translation>Копиране на сумата</translation>
+        <translation>Копирай сума</translation>
     </message>
     <message>
         <source>Copy fee</source>
-        <translation>Копирай такса</translation>
+        <translation>Копиране на данък добавена стойност</translation>
     </message>
     <message>
         <source>Copy after fee</source>
-        <translation>Копирайте след такса</translation>
+        <translation>Копиране след прилагане на данък добавена стойност</translation>
     </message>
     <message>
         <source>Copy bytes</source>
@@ -1694,7 +1662,7 @@
     </message>
     <message>
         <source>Copy change</source>
-        <translation>Промяна на копирането</translation>
+        <translation>Копирай рестото</translation>
     </message>
     <message>
         <source>Are you sure you want to send?</source>
@@ -1742,7 +1710,7 @@
     </message>
     <message>
         <source>(no label)</source>
-        <translation>(без етикет)</translation>
+        <translation>(без име)</translation>
     </message>
 </context>
 <context>
@@ -1967,15 +1935,15 @@
     </message>
     <message>
         <source>Source</source>
-        <translation>източник</translation>
+        <translation>Източник</translation>
     </message>
     <message>
         <source>Generated</source>
-        <translation>Генериран</translation>
+        <translation>Издадени</translation>
     </message>
     <message>
         <source>From</source>
-        <translation>от</translation>
+        <translation>От</translation>
     </message>
     <message>
         <source>unknown</source>
@@ -1983,7 +1951,7 @@
     </message>
     <message>
         <source>To</source>
-        <translation>към</translation>
+        <translation>За</translation>
     </message>
     <message>
         <source>own address</source>
@@ -1999,7 +1967,7 @@
     </message>
     <message>
         <source>Credit</source>
-        <translation>кредит</translation>
+        <translation>Кредит</translation>
     </message>
     <message>
         <source>not accepted</source>
@@ -2055,7 +2023,7 @@
     </message>
     <message>
         <source>Amount</source>
-        <translation>Количество</translation>
+        <translation>Сума</translation>
     </message>
     <message>
         <source>true</source>
@@ -2085,7 +2053,7 @@
     </message>
     <message>
         <source>Label</source>
-        <translation>Етикет</translation>
+        <translation>Име</translation>
     </message>
     <message>
         <source>Open until %1</source>
@@ -2145,7 +2113,7 @@
     </message>
     <message>
         <source>(no label)</source>
-        <translation>(без етикет)</translation>
+        <translation>(без име)</translation>
     </message>
     <message>
         <source>Transaction status. Hover over this field to show number of confirmations.</source>
@@ -2220,19 +2188,19 @@
     </message>
     <message>
         <source>Copy address</source>
-        <translation>Копирайте адреса</translation>
+        <translation>Копирай адрес</translation>
     </message>
     <message>
         <source>Copy label</source>
-        <translation>Копиране на етикета</translation>
+        <translation>Копирай име</translation>
     </message>
     <message>
         <source>Copy amount</source>
-        <translation>Копиране на сумата</translation>
+        <translation>Копирай сума</translation>
     </message>
     <message>
         <source>Copy transaction ID</source>
-        <translation>Копиране на ID на транзакцията</translation>
+        <translation>Копирай транзакция с ID</translation>
     </message>
     <message>
         <source>Edit label</source>
@@ -2248,11 +2216,11 @@
     </message>
     <message>
         <source>Comma separated file (*.csv)</source>
-        <translation>Comma separated file (*.csv)</translation>
+        <translation>CSV файл (*.csv)</translation>
     </message>
     <message>
         <source>Confirmed</source>
-        <translation>Потвърдено</translation>
+        <translation>Потвърдени</translation>
     </message>
     <message>
         <source>Watch-only</source>
@@ -2268,7 +2236,7 @@
     </message>
     <message>
         <source>Label</source>
-        <translation>Етикет</translation>
+        <translation>Име</translation>
     </message>
     <message>
         <source>Address</source>
@@ -2280,7 +2248,7 @@
     </message>
     <message>
         <source>Exporting Failed</source>
-        <translation>Изнасянето се провали</translation>
+        <translation>Грешка при изнасянето</translation>
     </message>
     <message>
         <source>Exporting Successful</source>
@@ -2303,6 +2271,9 @@
     <name>UnitDisplayStatusBarControl</name>
     </context>
 <context>
+    <name>WalletController</name>
+    </context>
+<context>
     <name>WalletFrame</name>
     <message>
         <source>No wallet has been loaded.</source>
@@ -2315,7 +2286,11 @@
         <source>Send Coins</source>
         <translation>Изпращане</translation>
     </message>
-    </context>
+    <message>
+        <source>default wallet</source>
+        <translation>Портфейл по подразбиране</translation>
+    </message>
+</context>
 <context>
     <name>WalletView</name>
     <message>
@@ -2324,7 +2299,7 @@
     </message>
     <message>
         <source>Export the data in the current tab to a file</source>
-        <translation>Изнеси данните в избрания раздел към файл</translation>
+        <translation>Запишете данните от текущия раздел във файл</translation>
     </message>
     <message>
         <source>Backup Wallet</source>
@@ -2399,7 +2374,7 @@
     </message>
     <message>
         <source>Warning</source>
-        <translation>Внимание</translation>
+        <translation>Предупреждение</translation>
     </message>
     <message>
         <source>Starting network threads...</source>
@@ -2451,7 +2426,7 @@
     </message>
     <message>
         <source>Error</source>
-        <translation>грешка</translation>
+        <translation>Грешка</translation>
     </message>
 </context>
 </TS>

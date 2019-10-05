@@ -188,8 +188,8 @@
         <translation>Lompakko salattiin</translation>
     </message>
     <message>
-        <source>%1 will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your bitcoins from being stolen by malware infecting your computer.</source>
-        <translation>%1 sulkeutuu lopettaakseen salausprosessin. Muista, että salattukaan lompakko ei täysin suojaa sitä haittaohjelmien aiheuttamilta varkauksilta.</translation>
+        <source>Your wallet is now encrypted. Remember that encrypting your wallet cannot fully protect your bitcoins from being stolen by malware infecting your computer.</source>
+        <translation>Lompakkosi on nyt salattu. Muistathan, että lompakon salaus ei riitä suojaamaan bitcoinejasi viruksen tai muun haittaohjelman tekemältä varkaudelta.</translation>
     </message>
     <message>
         <source>IMPORTANT: Any previous backups you have made of your wallet file should be replaced with the newly generated, encrypted wallet file. For security reasons, previous backups of the unencrypted wallet file will become useless as soon as you start using the new, encrypted wallet.</source>
@@ -254,10 +254,6 @@
         <translation>&amp;Yleisnäkymä</translation>
     </message>
     <message>
-        <source>Node</source>
-        <translation>Solmu</translation>
-    </message>
-    <message>
         <source>Show general overview of wallet</source>
         <translation>Lompakon tilanteen yleiskatsaus</translation>
     </message>
@@ -314,24 +310,12 @@
         <translation>&amp;Vaihda Tunnuslause...</translation>
     </message>
     <message>
-        <source>&amp;Sending addresses...</source>
-        <translation>&amp;Lähetysosoitteet...</translation>
-    </message>
-    <message>
-        <source>&amp;Receiving addresses...</source>
-        <translation>&amp;Vastaanotto-osoitteet...</translation>
-    </message>
-    <message>
         <source>Open &amp;URI...</source>
         <translation>Avaa &amp;URI...</translation>
     </message>
     <message>
         <source>Wallet:</source>
         <translation>Lompakko:</translation>
-    </message>
-    <message>
-        <source>default wallet</source>
-        <translation>oletuslompakko</translation>
     </message>
     <message>
         <source>Click to disable network activity.</source>
@@ -384,10 +368,6 @@
     <message>
         <source>Bitcoin</source>
         <translation>Bitcoin</translation>
-    </message>
-    <message>
-        <source>Wallet</source>
-        <translation>Lompakko</translation>
     </message>
     <message>
         <source>&amp;Send</source>
@@ -475,7 +455,7 @@
     </message>
     <message>
         <source>Last received block was generated %1 ago.</source>
-        <translation>Viimeisin vastaanotettu lohko tuotettu %1 sitten.</translation>
+        <translation>Viimeisin vastaanotettu lohko tuotettu %1.</translation>
     </message>
     <message>
         <source>Transactions after this will not yet be visible.</source>
@@ -500,6 +480,26 @@
     <message>
         <source>Show the %1 help message to get a list with possible Bitcoin command-line options</source>
         <translation>Näytä %1 ohjeet saadaksesi listan mahdollisista Bitcoinin komentorivivalinnoista</translation>
+    </message>
+    <message>
+        <source>default wallet</source>
+        <translation>oletuslompakko</translation>
+    </message>
+    <message>
+        <source>&amp;Window</source>
+        <translation>&amp;Ikkuna</translation>
+    </message>
+    <message>
+        <source>Minimize</source>
+        <translation>Pienennä</translation>
+    </message>
+    <message>
+        <source>Restore</source>
+        <translation>Palauta</translation>
+    </message>
+    <message>
+        <source>Main Window</source>
+        <translation>Pääikkuna</translation>
     </message>
     <message>
         <source>%1 client</source>
@@ -564,6 +564,10 @@
     <message>
         <source>HD key generation is &lt;b&gt;disabled&lt;/b&gt;</source>
         <translation>HD avaimen generointi on &lt;/b&gt;pois päältä&lt;/b&gt;</translation>
+    </message>
+    <message>
+        <source>Private key &lt;b&gt;disabled&lt;/b&gt;</source>
+        <translation>Yksityisavain &lt;b&gt;ei käytössä&lt;/b&gt;</translation>
     </message>
     <message>
         <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;unlocked&lt;/b&gt;</source>
@@ -943,11 +947,7 @@
         <source>Hide</source>
         <translation>Piilota</translation>
     </message>
-    <message>
-        <source>Unknown. Syncing Headers (%1)...</source>
-        <translation>Tuntematon. Synkronoidaan tunnisteita (%1)...</translation>
-    </message>
-</context>
+    </context>
 <context>
     <name>OpenURIDialog</name>
     <message>
@@ -994,10 +994,6 @@
         <translation>&amp;Tietokannan välimuistin koko</translation>
     </message>
     <message>
-        <source>MB</source>
-        <translation>MB</translation>
-    </message>
-    <message>
         <source>Number of script &amp;verification threads</source>
         <translation>Säikeiden määrä skriptien &amp;varmistuksessa</translation>
     </message>
@@ -1030,10 +1026,6 @@
         <translation>Ulkopuoliset URL-osoitteet (esim. block explorer,) jotka esiintyvät siirrot-välilehdellä valikossa. %s URL-osoitteessa korvataan siirtotunnuksella. Useampi URL-osoite on eroteltu pystyviivalla |.</translation>
     </message>
     <message>
-        <source>Active command-line options that override above options:</source>
-        <translation>Aktiiviset komentorivivalinnat jotka ohittavat ylläolevat valinnat:</translation>
-    </message>
-    <message>
         <source>Open the %1 configuration file from the working directory.</source>
         <translation>Avaa %1 asetustiedosto työhakemistosta.</translation>
     </message>
@@ -1063,7 +1055,7 @@
     </message>
     <message>
         <source>GB</source>
-        <translation>GT</translation>
+        <translation>Gt</translation>
     </message>
     <message>
         <source>Reverting this setting requires re-downloading the entire blockchain.</source>
@@ -1481,9 +1473,33 @@
         <source>%1 ms</source>
         <translation>%1 ms</translation>
     </message>
+    <message numerus="yes">
+        <source>%n second(s)</source>
+        <translation><numerusform>%n sekunti</numerusform><numerusform>%n sekuntia</numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>%n minute(s)</source>
+        <translation><numerusform>%n minuutti</numerusform><numerusform>%n minuuttia</numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>%n hour(s)</source>
+        <translation><numerusform>%n tunti</numerusform><numerusform>%n tuntia</numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>%n day(s)</source>
+        <translation><numerusform>%n päivä</numerusform><numerusform>%n päivää</numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>%n week(s)</source>
+        <translation><numerusform>%n viikko</numerusform><numerusform>%n viikkoa</numerusform></translation>
+    </message>
     <message>
         <source>%1 and %2</source>
         <translation>%1 ja %2</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n year(s)</source>
+        <translation><numerusform>%n vuosi</numerusform><numerusform>%n vuotta</numerusform></translation>
     </message>
     <message>
         <source>%1 B</source>
@@ -1617,10 +1633,6 @@
     <message>
         <source>Wallet: </source>
         <translation>Lompakko:</translation>
-    </message>
-    <message>
-        <source>(none)</source>
-        <translation>(tyhjä)</translation>
     </message>
     <message>
         <source>&amp;Reset</source>
@@ -1791,10 +1803,6 @@
         <translation>&amp;Poista esto</translation>
     </message>
     <message>
-        <source>default wallet</source>
-        <translation>oletuslompakko</translation>
-    </message>
-    <message>
         <source>Welcome to the %1 RPC console.</source>
         <translation>Tervetuloa %1 RPC-konsoliin.</translation>
     </message>
@@ -1821,10 +1829,6 @@
     <message>
         <source>Executing command without any wallet</source>
         <translation>Suoritetaan komento ilman lomakkoa</translation>
-    </message>
-    <message>
-        <source>Executing command using "%1" wallet</source>
-        <translation>Suoritetaan komento käyttäen lompakkoa "%1"</translation>
     </message>
     <message>
         <source>(node id: %1)</source>
@@ -2111,28 +2115,12 @@
         <translation>pudota kulujen asetukset</translation>
     </message>
     <message>
-        <source>Specify a custom fee per kB (1,000 bytes) of the transaction's virtual size.
-
-Note:  Since the fee is calculated on a per-byte basis, a fee of "100 satoshis per kB" for a transaction size of 500 bytes (half of 1 kB) would ultimately yield a fee of only 50 satoshis.</source>
-        <translation>Määrittele siirtotapahtuman näennäiskooksi siirtomaksu kilotavua (1,000 tavua) kohti.
-
-Huom: Koska siirtomaksu lasketaan tavujen mukaan, niin määrittelemällä 500 tavun (puoli kt) siirrolle "100 sat / kt", johtaa tämä lopulta vain 50 satoshin maksuun.</translation>
-    </message>
-    <message>
         <source>per kilobyte</source>
         <translation>per kilotavu</translation>
     </message>
     <message>
         <source>Hide</source>
         <translation>Piilota</translation>
-    </message>
-    <message>
-        <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks. But be aware that this can end up in a never confirming transaction once there is more demand for bitcoin transactions than the network can process.</source>
-        <translation>Vähimmäispalkkion maksaminen käy hyvin, kunhan verkossa on vähemmän siirtotapahtumia kuin lohkoissa on tilaa. Huomaa, että tämä saattaa johtaa ei-koskaan-vahvistuvaan siirtoon, jos verkon käsittelykyky ylittyy.</translation>
-    </message>
-    <message>
-        <source>(read the tooltip)</source>
-        <translation>(lue työkaluvinkki)</translation>
     </message>
     <message>
         <source>Recommended:</source>
@@ -2293,10 +2281,6 @@ Huom: Koska siirtomaksu lasketaan tavujen mukaan, niin määrittelemällä 500 t
     <message>
         <source>Payment request expired.</source>
         <translation>Maksupyyntö vanhentui.</translation>
-    </message>
-    <message>
-        <source>Pay only the required fee of %1</source>
-        <translation>Maksa vain vaadittu kulu %1 </translation>
     </message>
     <message numerus="yes">
         <source>Estimated to begin confirmation within %n block(s).</source>
@@ -2708,10 +2692,6 @@ Huom: Koska siirtomaksu lasketaan tavujen mukaan, niin määrittelemällä 500 t
         <translation>Maksutapahtuman kokonaiskoko</translation>
     </message>
     <message>
-        <source>Transaction virtual size</source>
-        <translation>Tapahtuman näennäiskoko</translation>
-    </message>
-    <message>
         <source>Merchant</source>
         <translation>Kauppias</translation>
     </message>
@@ -3029,6 +3009,9 @@ Huom: Koska siirtomaksu lasketaan tavujen mukaan, niin määrittelemällä 500 t
     </message>
 </context>
 <context>
+    <name>WalletController</name>
+    </context>
+<context>
     <name>WalletFrame</name>
     <message>
         <source>No wallet has been loaded.</source>
@@ -3076,6 +3059,10 @@ Huom: Koska siirtomaksu lasketaan tavujen mukaan, niin määrittelemällä 500 t
     <message>
         <source>Could not commit transaction</source>
         <translation>Siirtoa ei voitu tehdä</translation>
+    </message>
+    <message>
+        <source>default wallet</source>
+        <translation>oletuslompakko</translation>
     </message>
 </context>
 <context>
@@ -3180,10 +3167,6 @@ Huom: Koska siirtomaksu lasketaan tavujen mukaan, niin määrittelemällä 500 t
         <translation>Tämä on esi-julkaistu kokeiluversio - Käyttö omalla vastuullasi - Ethän käytä louhimiseen tai kauppasovelluksiin.</translation>
     </message>
     <message>
-        <source>This is the transaction fee you may discard if change is smaller than dust at this level</source>
-        <translation>Voit ohittaa tämän siirtomaksun, mikäli vaihtoraha on pienempi kuin tomun arvo tällä hetkellä</translation>
-    </message>
-    <message>
         <source>Unable to replay blocks. You will need to rebuild the database using -reindex-chainstate.</source>
         <translation>Lohkoja ei voida uudelleenlukea. Joulut uudelleenrakentamaan tietokannan käyttämällä -reindex-chainstate -valitsinta.</translation>
     </message>
@@ -3228,14 +3211,6 @@ Huom: Koska siirtomaksu lasketaan tavujen mukaan, niin määrittelemällä 500 t
         <translation>Haluatko uudelleenrakentaa lohkotietokannan nyt?</translation>
     </message>
     <message>
-        <source>Error creating %s: You can't create non-HD wallets with this version.</source>
-        <translation>Virhe luodessa %s: Et voi luoda ei-HD lompakkoja tällä versiolla.</translation>
-    </message>
-    <message>
-        <source>Error creating %s: You can't create non-HD wallets with this version.</source>
-        <translation>Virhe luodessa %s: Et voi luoda ei-HD lompakkoja tällä versiolla.</translation>
-    </message>
-    <message>
         <source>Error initializing block database</source>
         <translation>Virhe alustaessa lohkotietokantaa</translation>
     </message>
@@ -3270,10 +3245,6 @@ Huom: Koska siirtomaksu lasketaan tavujen mukaan, niin määrittelemällä 500 t
     <message>
         <source>Failed to listen on any port. Use -listen=0 if you want this.</source>
         <translation>Ei onnistuttu kuuntelemaan missään portissa. Käytä -listen=0 jos haluat tätä.</translation>
-    </message>
-    <message>
-        <source>Failed to rescan the wallet during initialization</source>
-        <translation>Lompakkoa ei voitu tarkastaa alustuksen yhteydessä.</translation>
     </message>
     <message>
         <source>Importing...</source>
@@ -3352,28 +3323,12 @@ Huom: Koska siirtomaksu lasketaan tavujen mukaan, niin määrittelemällä 500 t
         <translation>Avaimia ei voitu luoda</translation>
     </message>
     <message>
-        <source>Unsupported argument -benchmark ignored, use -debug=bench.</source>
-        <translation>Argumenttia -benchmark ei tueta, käytä -debug=bench.</translation>
-    </message>
-    <message>
-        <source>Unsupported argument -debugnet ignored, use -debug=net.</source>
-        <translation>Argumenttia -debugnet ei tueta, käytä -debug=net.</translation>
-    </message>
-    <message>
-        <source>Unsupported argument -tor found, use -onion.</source>
-        <translation>Argumenttia -tor ei tueta, käytä -onion.</translation>
-    </message>
-    <message>
         <source>Unsupported logging category %s=%s.</source>
         <translation>Lokikategoriaa %s=%s ei tueta.</translation>
     </message>
     <message>
         <source>Upgrading UTXO database</source>
         <translation>Päivitetään UTXO-tietokantaa</translation>
-    </message>
-    <message>
-        <source>User Agent comment (%s) contains unsafe characters.</source>
-        <translation>User Agent -kommentti (%s) sisältää turvattomia merkkejä.</translation>
     </message>
     <message>
         <source>Verifying blocks...</source>
@@ -3394,10 +3349,6 @@ Huom: Koska siirtomaksu lasketaan tavujen mukaan, niin määrittelemällä 500 t
     <message>
         <source>You need to rebuild the database using -reindex to go back to unpruned mode.  This will redownload the entire blockchain</source>
         <translation>Palataksesi karsimattomaan tilaan joudut uudelleenrakentamaan tietokannan -reindex -valinnalla. Tämä lataa koko lohkoketjun uudestaan.</translation>
-    </message>
-    <message>
-        <source>Error loading %s: You can't disable HD on an already existing HD wallet</source>
-        <translation>Virhe ladattaessa %s: Et voi poistaa HD-ominaisuutta jo olemassa olevasta HD-lompakosta.</translation>
     </message>
     <message>
         <source>Error reading from database, shutting down.</source>
@@ -3500,32 +3451,8 @@ Huom: Koska siirtomaksu lasketaan tavujen mukaan, niin määrittelemällä 500 t
         <translation>-maxtxfee on asetettu erittäin suureksi! Tämänkokoisia kuluja saatetaan maksaa yhdessä rahansiirrossa.</translation>
     </message>
     <message>
-        <source>Error loading %s: You can't enable HD on an already existing non-HD wallet</source>
-        <translation>Virhe ladattaessa %s: Et voi ottaa HD:ta käyttöön jo olemassa olevalle ei-HD -lompakolle.</translation>
-    </message>
-    <message>
         <source>This is the transaction fee you may pay when fee estimates are not available.</source>
         <translation>Tämän siirtomaksun maksat, kun siirtomaksun arviointi ei ole käytettävissä.</translation>
-    </message>
-    <message>
-        <source>Total length of network version string (%i) exceeds maximum length (%i). Reduce the number or size of uacomments.</source>
-        <translation>Verkon versiokenttä (%i) ylittää sallitun pituuden (%i). Vähennä uacomments:in arvoa tai kokoa.</translation>
-    </message>
-    <message>
-        <source>Unsupported argument -socks found. Setting SOCKS version isn't possible anymore, only SOCKS5 proxies are supported.</source>
-        <translation>Ei tuettu argumentti -socks löytynyt. SOCKS -version asetusta ei enää tueta, ainoastaan SOCKS5 -välityspalvelimet on tuettu.</translation>
-    </message>
-    <message>
-        <source>Unsupported argument -whitelistalwaysrelay ignored, use -whitelistrelay and/or -whitelistforcerelay.</source>
-        <translation>Argumenttia -whitelistalwaysrelay ei tueta ja se ohitettiin. Käytä -whitelistrelay ja/tai -whitelistforcerelay.</translation>
-    </message>
-    <message>
-        <source>Warning: Unknown block versions being mined! It's possible unknown rules are in effect</source>
-        <translation>Varoitus: Tuntemattomia lohkoversioita louhitaan! Tuntemattomia sääntöjä saattaa olla voimassa</translation>
-    </message>
-    <message>
-        <source>Warning: Wallet file corrupt, data salvaged! Original %s saved as %s in %s; if your balance or transactions are incorrect you should restore from a backup.</source>
-        <translation>Varoitus: Lompakkotiedosto on vahingoittunut, tiedot on korjattu. Alkuperäinen %s talletettu nimellä %s kohteeseen %s; mikäli taseesi tai siirtotapahtumat ovat virheellisiä, on suositeltavaa palauttaa lompakko varmuuskopioista.</translation>
     </message>
     <message>
         <source>%s is set very high!</source>
@@ -3574,10 +3501,6 @@ Huom: Koska siirtomaksu lasketaan tavujen mukaan, niin määrittelemällä 500 t
     <message>
         <source>Insufficient funds</source>
         <translation>Lompakon saldo ei riitä</translation>
-    </message>
-    <message>
-        <source>Can't generate a change-address key. Private keys are disabled for this wallet.</source>
-        <translation>Vaihtorahaosoitetteen avainta ei voitu luoda. Yksityisavaimet on poistettu käytöstä tässä lompakossa.</translation>
     </message>
     <message>
         <source>Fee estimation failed. Fallbackfee is disabled. Wait a few blocks or enable -fallbackfee.</source>

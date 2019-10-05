@@ -3,7 +3,7 @@
     <name>AddressBookPage</name>
     <message>
         <source>Right-click to edit address or label</source>
-        <translation>Clicar derecho para editar tu dirección o etiqueta</translation>
+        <translation>Click derecho para editar tu dirección o etiqueta</translation>
     </message>
     <message>
         <source>Create a new address</source>
@@ -11,7 +11,7 @@
     </message>
     <message>
         <source>&amp;New</source>
-        <translation>y Nuevo</translation>
+        <translation>&amp;Nuevo</translation>
     </message>
     <message>
         <source>Copy the currently selected address to the system clipboard</source>
@@ -97,11 +97,7 @@
         <source>Exporting Failed</source>
         <translation>Exportación Fallida</translation>
     </message>
-    <message>
-        <source>There was an error trying to save the address list to %1. Please try again.</source>
-        <translation>Hubo un error al tratar de salvar a la lista de direcciones a %1. Por favor intente de nuevo.</translation>
-    </message>
-</context>
+    </context>
 <context>
     <name>AddressTableModel</name>
     <message>
@@ -141,7 +137,7 @@
     </message>
     <message>
         <source>Enter the new passphrase to the wallet.&lt;br/&gt;Please use a passphrase of &lt;b&gt;ten or more random characters&lt;/b&gt;, or &lt;b&gt;eight or more words&lt;/b&gt;.</source>
-        <translation>Introduzca una nueva contraseña a la cartera&lt;br/&gt;Por favor use una contraseña de&lt;b&gt;10 o más caracteres aleatorios&lt;b&gt; o &lt;b&gt;ocho o más palabras&lt;/b&gt;.</translation>
+        <translation>Introduzca una nueva contraseña a la cartera&lt;br.&gt;Por favor use una contraseña de&lt;b&gt;10 o más caracteres aleatorios&lt;b&gt; o &lt;b&gt;ocho o más palabras&lt;/b&gt;.</translation>
     </message>
     <message>
         <source>Encrypt wallet</source>
@@ -188,8 +184,8 @@
         <translation>Cartera encriptada</translation>
     </message>
     <message>
-        <source>%1 will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your bitcoins from being stolen by malware infecting your computer.</source>
-        <translation>%1 se cerrará para finalizar el proceso de encriptación. Recuerda que encriptar tu cartera no protege completamente a tus bitcoins de ser robadas por malware infectando tu computadora.</translation>
+        <source>Your wallet is now encrypted. Remember that encrypting your wallet cannot fully protect your bitcoins from being stolen by malware infecting your computer.</source>
+        <translation>Su monedero está encriptada. Recuerda que encriptar tu cartera no protege completamente a tus bitcoins de ser robadas por malware infectando tu computadora.</translation>
     </message>
     <message>
         <source>IMPORTANT: Any previous backups you have made of your wallet file should be replaced with the newly generated, encrypted wallet file. For security reasons, previous backups of the unencrypted wallet file will become useless as soon as you start using the new, encrypted wallet.</source>
@@ -254,10 +250,6 @@
         <translation>&amp;Vista previa</translation>
     </message>
     <message>
-        <source>Node</source>
-        <translation>Nodo</translation>
-    </message>
-    <message>
         <source>Show general overview of wallet</source>
         <translation>Mostrar la vista previa general de la cartera</translation>
     </message>
@@ -298,10 +290,6 @@
         <translation>&amp;Opciones</translation>
     </message>
     <message>
-        <source>Modify configuration options for %1</source>
-        <translation>Modificar las opciones de configuración para %1</translation>
-    </message>
-    <message>
         <source>&amp;Encrypt Wallet...</source>
         <translation>&amp;Encriptar cartera</translation>
     </message>
@@ -314,28 +302,8 @@
         <translation>&amp;Cambiar contraseña...</translation>
     </message>
     <message>
-        <source>&amp;Sending addresses...</source>
-        <translation>Direcciones de &amp;envío...</translation>
-    </message>
-    <message>
-        <source>&amp;Receiving addresses...</source>
-        <translation>Direcciones de &amp;recepción...</translation>
-    </message>
-    <message>
         <source>Open &amp;URI...</source>
         <translation>Abrir &amp;URL...</translation>
-    </message>
-    <message>
-        <source>Wallet:</source>
-        <translation>Cartera:</translation>
-    </message>
-    <message>
-        <source>Click to disable network activity.</source>
-        <translation>Haga clic para desactivar la actividad de la red.</translation>
-    </message>
-    <message>
-        <source>Network activity disabled.</source>
-        <translation>Actividad de red deshabilitada.</translation>
     </message>
     <message>
         <source>Reindexing blocks on disk...</source>
@@ -368,10 +336,6 @@
     <message>
         <source>Bitcoin</source>
         <translation>Bitcoin</translation>
-    </message>
-    <message>
-        <source>Wallet</source>
-        <translation>Cartera</translation>
     </message>
     <message>
         <source>&amp;Send</source>
@@ -550,10 +514,6 @@
         <translation>Opciones</translation>
     </message>
     <message>
-        <source>Active command-line options that override above options:</source>
-        <translation>Activar las opciones de linea de comando que sobre escriben las siguientes opciones:</translation>
-    </message>
-    <message>
         <source>W&amp;allet</source>
         <translation>Cartera</translation>
     </message>
@@ -641,10 +601,6 @@
         <translation>Dirección</translation>
     </message>
     <message>
-        <source>Amount</source>
-        <translation>Monto</translation>
-    </message>
-    <message>
         <source>Label</source>
         <translation>Etiqueta</translation>
     </message>
@@ -655,10 +611,6 @@
     </context>
 <context>
     <name>RecentRequestsTableModel</name>
-    <message>
-        <source>Date</source>
-        <translation>Fecha</translation>
-    </message>
     <message>
         <source>Label</source>
         <translation>Etiqueta</translation>
@@ -795,18 +747,6 @@
     </context>
 <context>
     <name>TransactionDesc</name>
-    <message>
-        <source>Date</source>
-        <translation>Fecha</translation>
-    </message>
-    <message>
-        <source>unknown</source>
-        <translation>desconocido</translation>
-    </message>
-    <message>
-        <source>Amount</source>
-        <translation>Monto</translation>
-    </message>
     </context>
 <context>
     <name>TransactionDescDialog</name>
@@ -817,10 +757,6 @@
     </context>
 <context>
     <name>TransactionTableModel</name>
-    <message>
-        <source>Date</source>
-        <translation>Fecha</translation>
-    </message>
     <message>
         <source>Label</source>
         <translation>Etiqueta</translation>
@@ -835,14 +771,6 @@
     <message>
         <source>Comma separated file (*.csv)</source>
         <translation>Arhchivo separado por comas (*.csv)</translation>
-    </message>
-    <message>
-        <source>Confirmed</source>
-        <translation>Confirmado </translation>
-    </message>
-    <message>
-        <source>Date</source>
-        <translation>Fecha</translation>
     </message>
     <message>
         <source>Label</source>
@@ -861,6 +789,9 @@
     <name>UnitDisplayStatusBarControl</name>
     </context>
 <context>
+    <name>WalletController</name>
+    </context>
+<context>
     <name>WalletFrame</name>
     </context>
 <context>
@@ -872,10 +803,6 @@
     </context>
 <context>
     <name>WalletView</name>
-    <message>
-        <source>&amp;Export</source>
-        <translation>&amp;Exportar</translation>
-    </message>
     <message>
         <source>Export the data in the current tab to a file</source>
         <translation>Exportar la información en la pestaña actual a un archivo</translation>

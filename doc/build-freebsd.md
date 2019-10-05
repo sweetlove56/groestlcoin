@@ -1,6 +1,6 @@
 FreeBSD build guide
 ======================
-(updated for FreeBSD 11.1)
+(updated for FreeBSD 12.0)
 
 This guide describes how to build groestlcoind and command-line utilities on FreeBSD.
 
@@ -10,11 +10,10 @@ This guide does not contain instructions for building the GUI.
 
 You will need the following dependencies, which can be installed as root via pkg:
 
-```
+```shell
 pkg install autoconf automake boost-libs git gmake libevent libtool openssl pkgconf
-```
 
-For the wallet (optional):
+git clone https://github.com/bitcoin/bitcoin.git
 ```
 ./contrib/install_db5.sh `pwd`
 export BDB_PREFIX="$PWD/db5"
@@ -29,17 +28,16 @@ git clone https://github.com/groestlcoin/groestlcoin
 
 ## Building Groestlcoin Core
 
-**Important**: Use `gmake` (the non-GNU `make` will exit with an error).
+**Important**: Use `gmake` (the non-GNU `make` will exit with an error):
 
-```
+With wallet:
+```shell
 ./autogen.sh
-
-./configure                  # to build with wallet OR
-./configure --disable-wallet # to build without wallet
-
-gmake
+./configure --with-gui=no
 ```
 
-*Note on debugging*: The version of `gdb` installed by default is [ancient and considered harmful](https://wiki.freebsd.org/GdbRetirement).
-It is not suitable for debugging a multi-threaded C++ program, not even for getting backtraces. Please install the package `gdb` and
-use the versioned gdb command (e.g. `gdb7111`).
+Without wallet:
+```shell
+./autogen.sh
+./configure --with-gui=no --disable-wallet
+```

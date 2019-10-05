@@ -5,7 +5,9 @@ src/groestlcoin
 src/groestlcoind
 src/groestlcoin-cli
 src/groestlcoin-tx
+src/groestlcoin-wallet
 src/test/test_groestlcoin
+src/test/test_groestlcoin_fuzzy
 src/qt/test/test_groestlcoin-qt
 
 # autoreconf
@@ -67,6 +69,7 @@ src/qt/groestlcoin-qt.includes
 *.a
 *.pb.cc
 *.pb.h
+*.dat
 
 *.log
 *.trs
@@ -119,25 +122,8 @@ test/cache/*
 libbitcoinconsensus.pc
 contrib/devtools/split-debug.sh
 
-src/qt/res_bitcoin.cpp
-src/qt/res_bitcoin_locale.cpp
-src/*.aps
+# Output from running db5 installation
+db5/
 
-my-groestlcoin.sln
-.vs
-*.cmd
-*.msi
-*.wixobj
-*.wixpdb
-upload.mak
-
-AppData
-inc
-obj
-tags
-x64_D_St
-x64_R_St
-x64_libs
-x86_D_St
-x86_R_St
-x86_libs
+# clang-check
+*.plist

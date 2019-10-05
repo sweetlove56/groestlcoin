@@ -30,14 +30,6 @@
         <translation>ప్రస్తుతం ఎంచుకున్న చిరునామా ను జాబితా నుండి తీసివేయండి</translation>
     </message>
     <message>
-        <source>Enter address or label to search</source>
-        <translation>చిరునామా లేదా ఏదైనా పేరును వెతకండి </translation>
-    </message>
-    <message>
-        <source>Export the data in the current tab to a file</source>
-        <translation>ప్రస్తుతం ఉన్న సమాచారాన్ని ఫైల్ లోనికి ఎగుమతి చేసుకోండి </translation>
-    </message>
-    <message>
         <source>&amp;Export</source>
         <translation>ఎగుమతి చేయండి</translation>
     </message>
@@ -48,10 +40,6 @@
     <message>
         <source>Choose the address to send coins to</source>
         <translation>కోయిన్స్ పంపుటకు చిరునామా ను ఎంచుకోండి</translation>
-    </message>
-    <message>
-        <source>Choose the address to receive coins with</source>
-        <translation>నాణెం అందుకోవటానికి చిరునామాను ఎంచుకోండి </translation>
     </message>
     <message>
         <source>C&amp;hoose</source>
@@ -74,14 +62,6 @@
         <translation>ఇవి మీరు అందుకునే చెల్లింపుల బిట్‌కాయిన్ చిరునామాలు. ప్రతీ లావాదేవీకి క్రొత్త అందుకునే చిరునామా వాడటం మంచిది.</translation>
     </message>
     <message>
-        <source>&amp;Copy Address</source>
-        <translation>చిరునామాను కాపీ చెయ్యండి</translation>
-    </message>
-    <message>
-        <source>Copy &amp;Label</source>
-        <translation>కాపీ &amp; ఉల్లాకు</translation>
-    </message>
-    <message>
         <source>&amp;Edit</source>
         <translation>సవరించు</translation>
     </message>
@@ -90,18 +70,10 @@
         <translation>చిరునామా జాబితాను ఎగుమతి చేయండి</translation>
     </message>
     <message>
-        <source>Comma separated file (*.csv)</source>
-        <translation>కోమా వల్ల విభజించిన ఫైల్ (*.csv)</translation>
-    </message>
-    <message>
         <source>Exporting Failed</source>
         <translation>ఎగుమతి విఫలమయ్యింది</translation>
     </message>
-    <message>
-        <source>There was an error trying to save the address list to %1. Please try again.</source>
-        <translation>చిరునామా పట్టికను %1 లోనికి ప్రోదుపరుచుటలో లోపము. మరుల ప్రయత్నించి చుడండి.</translation>
-    </message>
-</context>
+    </context>
 <context>
     <name>AddressTableModel</name>
     <message>
@@ -112,11 +84,7 @@
         <source>Address</source>
         <translation>చిరునామా</translation>
     </message>
-    <message>
-        <source>(no label)</source>
-        <translation>( ఉల్లాకు లేదు )</translation>
-    </message>
-</context>
+    </context>
 <context>
     <name>AskPassphraseDialog</name>
     <message>
@@ -134,10 +102,6 @@
     <message>
         <source>Repeat new passphrase</source>
         <translation>క్రొత్త సంకేతపదము మరలా ఇవ్వండి</translation>
-    </message>
-    <message>
-        <source>Show password</source>
-        <translation>పాస్వర్డ్ చూపించు </translation>
     </message>
     <message>
         <source>Enter the new passphrase to the wallet.&lt;br/&gt;Please use a passphrase of &lt;b&gt;ten or more random characters&lt;/b&gt;, or &lt;b&gt;eight or more words&lt;/b&gt;.</source>
@@ -178,10 +142,6 @@
         <translation>బిట్కోయిన్</translation>
     </message>
     <message>
-        <source>Wallet</source>
-        <translation>వాలెట్</translation>
-    </message>
-    <message>
         <source>&amp;Send</source>
         <translation>పంపు</translation>
     </message>
@@ -219,10 +179,6 @@
     <message>
         <source>Date</source>
         <translation>తేదీ</translation>
-    </message>
-    <message>
-        <source>(no label)</source>
-        <translation>( ఉల్లాకు లేదు )</translation>
     </message>
     </context>
 <context>
@@ -319,10 +275,6 @@
         <source>Message</source>
         <translation>సందేశం</translation>
     </message>
-    <message>
-        <source>(no label)</source>
-        <translation>( ఉల్లాకు లేదు )</translation>
-    </message>
     </context>
 <context>
     <name>SendCoinsDialog</name>
@@ -330,11 +282,7 @@
         <source>Quantity:</source>
         <translation>పరిమాణం</translation>
     </message>
-    <message>
-        <source>(no label)</source>
-        <translation>( ఉల్లాకు లేదు )</translation>
-    </message>
-</context>
+    </context>
 <context>
     <name>SendCoinsEntry</name>
     </context>
@@ -397,17 +345,9 @@
         <source>Label</source>
         <translation>ఉల్లాకు</translation>
     </message>
-    <message>
-        <source>(no label)</source>
-        <translation>( ఉల్లాకు లేదు )</translation>
-    </message>
     </context>
 <context>
     <name>TransactionView</name>
-    <message>
-        <source>Comma separated file (*.csv)</source>
-        <translation>కోమా వల్ల విభజించిన ఫైల్ (*.csv)</translation>
-    </message>
     <message>
         <source>Date</source>
         <translation>తేదీ</translation>
@@ -433,6 +373,9 @@
     <name>UnitDisplayStatusBarControl</name>
     </context>
 <context>
+    <name>WalletController</name>
+    </context>
+<context>
     <name>WalletFrame</name>
     </context>
 <context>
@@ -443,10 +386,6 @@
     <message>
         <source>&amp;Export</source>
         <translation>ఎగుమతి చేయండి</translation>
-    </message>
-    <message>
-        <source>Export the data in the current tab to a file</source>
-        <translation>ప్రస్తుతం ఉన్న సమాచారాన్ని ఫైల్ లోనికి ఎగుమతి చేసుకోండి </translation>
     </message>
     </context>
 <context>

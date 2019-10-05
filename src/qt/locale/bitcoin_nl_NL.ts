@@ -180,10 +180,6 @@
         <translation>Portemonnee versleuteld</translation>
     </message>
     <message>
-        <source>%1 will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your bitcoins from being stolen by malware infecting your computer.</source>
-        <translation>%1 zal nu sluiten om het versleutel proces te voltooien. Onthoudt dat het versleutelen van je portemonnee jouw bitcoins niet volledig van diefstal via malware kan beschermen.</translation>
-    </message>
-    <message>
         <source>IMPORTANT: Any previous backups you have made of your wallet file should be replaced with the newly generated, encrypted wallet file. For security reasons, previous backups of the unencrypted wallet file will become useless as soon as you start using the new, encrypted wallet.</source>
         <translation>BELANGRIJK: Alle vorige backups die je hebt gemaakt van het portemonnee bestand moeten vervangen worden door het nieuwe gemaakte versleutelde portemonnee bestand. Voor beveiligingsredenen zullen vorige backups van het niet versleutelde portemonnee bestand niet meer werken zodra je gebruik maakt van de nieuwe versleutelde portemonnee.</translation>
     </message>
@@ -246,10 +242,6 @@
         <translation>&amp;Overzicht</translation>
     </message>
     <message>
-        <source>Node</source>
-        <translation>Node</translation>
-    </message>
-    <message>
         <source>Show general overview of wallet</source>
         <translation>Toon algemeen overzicht van portemonnee</translation>
     </message>
@@ -306,14 +298,6 @@
         <translation>&amp;Wachtwoord Veranderen</translation>
     </message>
     <message>
-        <source>&amp;Sending addresses...</source>
-        <translation>&amp;Verzendadressen</translation>
-    </message>
-    <message>
-        <source>&amp;Receiving addresses...</source>
-        <translation>&amp;Ontvangadressen</translation>
-    </message>
-    <message>
         <source>Open &amp;URI...</source>
         <translation>Open &amp;URL...</translation>
     </message>
@@ -364,10 +348,6 @@
     <message>
         <source>Bitcoin</source>
         <translation>Bitcoin</translation>
-    </message>
-    <message>
-        <source>Wallet</source>
-        <translation>Portemonnee</translation>
     </message>
     <message>
         <source>&amp;Send</source>
@@ -993,6 +973,9 @@
     </context>
 <context>
     <name>UnitDisplayStatusBarControl</name>
+    </context>
+<context>
+    <name>WalletController</name>
     </context>
 <context>
     <name>WalletFrame</name>

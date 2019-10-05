@@ -178,10 +178,6 @@
         <translation>&amp;ภาพรวม</translation>
     </message>
     <message>
-        <source>Node</source>
-        <translation>Node/โหนด</translation>
-    </message>
-    <message>
         <source>Show general overview of wallet</source>
         <translation>แสดงภาพรวมทั่วไปของกระเป๋าเงิน</translation>
     </message>
@@ -238,14 +234,6 @@
         <translation>&amp;เปลี่ยนรหัสผ่าน...</translation>
     </message>
     <message>
-        <source>&amp;Sending addresses...</source>
-        <translation>&amp;ที่เก็บเงิน ที่จะส่ง bitcoin</translation>
-    </message>
-    <message>
-        <source>&amp;Receiving addresses...</source>
-        <translation>&amp;ที่เก็บเงิน ที่จะรับ bitcoin</translation>
-    </message>
-    <message>
         <source>Open &amp;URI...</source>
         <translation>เปิด &amp;URI</translation>
     </message>
@@ -280,10 +268,6 @@
     <message>
         <source>Bitcoin</source>
         <translation>Bitcoin</translation>
-    </message>
-    <message>
-        <source>Wallet</source>
-        <translation>กระเป๋าเงิน</translation>
     </message>
     <message>
         <source>&amp;Send</source>
@@ -396,6 +380,10 @@
     <message>
         <source>Show the %1 help message to get a list with possible Bitcoin command-line options</source>
         <translation>แสดง %1 ข้อความช่วยเหลือ เพื่อแสดงรายการ ตัวเลือกที่เป็นไปได้สำหรับ Bitcoin command-line</translation>
+    </message>
+    <message>
+        <source>&amp;Window</source>
+        <translation>&amp;วันโดว์</translation>
     </message>
     <message>
         <source>%1 client</source>
@@ -684,10 +672,6 @@
         <translation>ขนาดของ &amp;database cache</translation>
     </message>
     <message>
-        <source>MB</source>
-        <translation>MB</translation>
-    </message>
-    <message>
         <source>Number of script &amp;verification threads</source>
         <translation>จำนวนของสคริปท์ &amp;verification threads</translation>
     </message>
@@ -702,10 +686,6 @@
     <message>
         <source>Third party URLs (e.g. a block explorer) that appear in the transactions tab as context menu items. %s in the URL is replaced by transaction hash. Multiple URLs are separated by vertical bar |.</source>
         <translation>URL แบบอื่น (ยกตัวอย่าง เอ็กพลอเลอร์บล็อก) ที่อยู่ใน เมนูรายการ ลำดับ %s ใน URL จะถูกเปลี่ยนด้วย รายการแฮช URL ที่เป็นแบบหลายๆอัน จะถูกแยก โดย เครื่องหมายเส้นบาร์ตั้ง |</translation>
-    </message>
-    <message>
-        <source>Active command-line options that override above options:</source>
-        <translation>ตัวเลือก command-line แอกทีฟอยู่นี้ จะแทนที่ ตัวเลือกด้านบนนี้:</translation>
     </message>
     <message>
         <source>Reset all client options to default.</source>
@@ -1001,6 +981,9 @@
     </context>
 <context>
     <name>UnitDisplayStatusBarControl</name>
+    </context>
+<context>
+    <name>WalletController</name>
     </context>
 <context>
     <name>WalletFrame</name>

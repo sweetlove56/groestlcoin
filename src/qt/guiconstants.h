@@ -46,10 +46,13 @@ static const int MAX_URI_LENGTH = 255;
 /* Number of frames in spinner animation */
 #define SPINNER_FRAMES 36
 
-#define QAPP_ORG_NAME "Groestlcoin"
+#define QAPP_ORG_NAME "Groestkcoin"
 #define QAPP_ORG_DOMAIN "groestlcoin.org"
 #define QAPP_APP_NAME_DEFAULT "Groestlcoin-Qt"
 #define QAPP_APP_NAME_TESTNET "Groestlcoin-Qt-testnet"
 #define QAPP_APP_NAME_REGTEST "Groestlcoin-Qt-regtest"
+
+/* One gigabyte (GB) in bytes */
+static constexpr uint64_t GB_BYTES{1000000000};
 
 #endif // BITCOIN_QT_GUICONSTANTS_H

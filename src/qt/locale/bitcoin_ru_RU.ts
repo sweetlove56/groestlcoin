@@ -3,7 +3,7 @@
     <name>AddressBookPage</name>
     <message>
         <source>Right-click to edit address or label</source>
-        <translation>$Right-click to edit address or label</translation>
+        <translation>Кликните правой кнопкой для редактирования адреса или метки</translation>
     </message>
     <message>
         <source>Create a new address</source>
@@ -55,7 +55,7 @@
     </message>
     <message>
         <source>C&amp;hoose</source>
-        <translation>&amp;Выбрать</translation>
+        <translation>Выбрать</translation>
     </message>
     <message>
         <source>Sending addresses</source>
@@ -91,7 +91,7 @@
     </message>
     <message>
         <source>Comma separated file (*.csv)</source>
-        <translation>Файл, разделенный запятыми</translation>
+        <translation>Файл разделенный запятыми (*.csv)</translation>
     </message>
     <message>
         <source>Exporting Failed</source>
@@ -188,8 +188,8 @@
         <translation>Кошелек зашифрован</translation>
     </message>
     <message>
-        <source>%1 will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your bitcoins from being stolen by malware infecting your computer.</source>
-        <translation>%1 закроется сейчас для завершения процесса шифрования. Запомните что шифрование вашего кошелька не сможет полностью защитить ваши биткойны от кражи при помощи вредоносного ПО, заразившего ваш компьютер.</translation>
+        <source>Your wallet is now encrypted. Remember that encrypting your wallet cannot fully protect your bitcoins from being stolen by malware infecting your computer.</source>
+        <translation>Ваш кошелек теперь зашифрован. Помните, что шифрование вашего кошелька не может полностью защитить ваши биткойны от кражи вредоносным ПО.</translation>
     </message>
     <message>
         <source>IMPORTANT: Any previous backups you have made of your wallet file should be replaced with the newly generated, encrypted wallet file. For security reasons, previous backups of the unencrypted wallet file will become useless as soon as you start using the new, encrypted wallet.</source>
@@ -232,7 +232,7 @@
     <name>BanTableModel</name>
     <message>
         <source>IP/Netmask</source>
-        <translation>IP/Маска подсети</translation>
+        <translation>IP / маска подсети</translation>
     </message>
     <message>
         <source>Banned Until</source>
@@ -252,10 +252,6 @@
     <message>
         <source>&amp;Overview</source>
         <translation>&amp;Обзор</translation>
-    </message>
-    <message>
-        <source>Node</source>
-        <translation>Узел</translation>
     </message>
     <message>
         <source>Show general overview of wallet</source>
@@ -314,24 +310,12 @@
         <translation>&amp;Изменить пароль...</translation>
     </message>
     <message>
-        <source>&amp;Sending addresses...</source>
-        <translation>&amp;Адреса для отправки...</translation>
-    </message>
-    <message>
-        <source>&amp;Receiving addresses...</source>
-        <translation>&amp;Адреса для получения...</translation>
-    </message>
-    <message>
         <source>Open &amp;URI...</source>
         <translation>Открыть &amp;URI...</translation>
     </message>
     <message>
         <source>Wallet:</source>
         <translation>Кошелек:</translation>
-    </message>
-    <message>
-        <source>default wallet</source>
-        <translation>Кошелек по умолчанию</translation>
     </message>
     <message>
         <source>Click to disable network activity.</source>
@@ -384,10 +368,6 @@
     <message>
         <source>Bitcoin</source>
         <translation>Bitcoin Core</translation>
-    </message>
-    <message>
-        <source>Wallet</source>
-        <translation>Кошелек</translation>
     </message>
     <message>
         <source>&amp;Send</source>
@@ -498,8 +478,68 @@
         <translation>Готов</translation>
     </message>
     <message>
+        <source>&amp;Sending addresses</source>
+        <translation>&amp;Адреса для отправлений</translation>
+    </message>
+    <message>
+        <source>&amp;Receiving addresses</source>
+        <translation>&amp;Адреса для получений</translation>
+    </message>
+    <message>
+        <source>Open Wallet</source>
+        <translation>Открыть Кошелек</translation>
+    </message>
+    <message>
+        <source>Open a wallet</source>
+        <translation>Открыть кошелек</translation>
+    </message>
+    <message>
+        <source>Close Wallet...</source>
+        <translation>Закрыть Кошелек...</translation>
+    </message>
+    <message>
+        <source>Close wallet</source>
+        <translation>Закрыть кошелек</translation>
+    </message>
+    <message>
         <source>Show the %1 help message to get a list with possible Bitcoin command-line options</source>
         <translation>Показать помощь по %1, чтобы получить список доступных параметров командной строки</translation>
+    </message>
+    <message>
+        <source>default wallet</source>
+        <translation>Кошелек по умолчанию</translation>
+    </message>
+    <message>
+        <source>Opening Wallet &lt;b&gt;%1&lt;/b&gt;...</source>
+        <translation>Кошелек открывается &lt;b&gt;%1&lt;/b&gt;... </translation>
+    </message>
+    <message>
+        <source>Open Wallet Failed</source>
+        <translation>Не удалось открыть кошелек</translation>
+    </message>
+    <message>
+        <source>&amp;Window</source>
+        <translation>&amp;Окно</translation>
+    </message>
+    <message>
+        <source>Minimize</source>
+        <translation>Свернуть</translation>
+    </message>
+    <message>
+        <source>Zoom</source>
+        <translation>Увеличение</translation>
+    </message>
+    <message>
+        <source>Restore</source>
+        <translation>Восстановить</translation>
+    </message>
+    <message>
+        <source>Main Window</source>
+        <translation>Главное Окно</translation>
+    </message>
+    <message>
+        <source>%1 client</source>
+        <translation>%1 клиент</translation>
     </message>
     <message>
         <source>Connecting to peers...</source>
@@ -560,6 +600,10 @@
     <message>
         <source>HD key generation is &lt;b&gt;disabled&lt;/b&gt;</source>
         <translation>Генерация HD ключа &lt;b&gt;выключена&lt;/b&gt;</translation>
+    </message>
+    <message>
+        <source>Private key &lt;b&gt;disabled&lt;/b&gt;</source>
+        <translation>Приватный ключ &lt;b&gt;отключен&lt;/b&gt;</translation>
     </message>
     <message>
         <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;unlocked&lt;/b&gt;</source>
@@ -694,7 +738,7 @@
     </message>
     <message>
         <source>(%1 locked)</source>
-        <translation>(%1 заблоктрован)</translation>
+        <translation>(%1 заблокирован)</translation>
     </message>
     <message>
         <source>yes</source>
@@ -710,7 +754,7 @@
     </message>
     <message>
         <source>Can vary +/- %1 satoshi(s) per input.</source>
-        <translation>Может меняться +/- %1 сатоши за вход.</translation>
+        <translation>Может меняться +/- %1 сатоши(ей) за вход.</translation>
     </message>
     <message>
         <source>(no label)</source>
@@ -837,6 +881,10 @@
         <translation>Поскольку программа запущена впервые, вы должны указать где %1 будет хранить данные.</translation>
     </message>
     <message>
+        <source>When you click OK, %1 will begin to download and process the full %4 block chain (%2GB) starting with the earliest transactions in %3 when %4 initially launched.</source>
+        <translation>Когда вы нажмете ОК, %1 начнет загружать и обрабатывать полную цепочку блоков %4 (%2ГБ), начиная с самых ранних транзакций в %3, когда %4 был первоначально запущен.</translation>
+    </message>
+    <message>
         <source>This initial synchronisation is very demanding, and may expose hardware problems with your computer that had previously gone unnoticed. Each time you run %1, it will continue downloading where it left off.</source>
         <translation>Первоначальная синхронизация очень сложна и может выявить проблемы с оборудованием вашего компьютера, которые ранее оставались незамеченными. Каждый раз, когда вы запускаете %1, будет продолжена загрузка с того места, где остановился.</translation>
     </message>
@@ -886,7 +934,7 @@
     </message>
     <message numerus="yes">
         <source>(of %n GB needed)</source>
-        <translation><numerusform>(%n ГБ требуется)</numerusform><numerusform>(%n ГБ требуется)</numerusform><numerusform>(%n ГБ требуется)</numerusform><numerusform>(%n ГБ требуется)</numerusform></translation>
+        <translation><numerusform>(требуется %n ГБ)</numerusform><numerusform>(%n ГБ требуется)</numerusform><numerusform>(%n ГБ требуется)</numerusform><numerusform>(%n ГБ требуется)</numerusform></translation>
     </message>
 </context>
 <context>
@@ -936,8 +984,8 @@
         <translation>Спрятать</translation>
     </message>
     <message>
-        <source>Unknown. Syncing Headers (%1)...</source>
-        <translation>Не известно. Синхронизация заголовков (%1)...</translation>
+        <source>Unknown. Syncing Headers (%1, %2%)...</source>
+        <translation>Не известно. Синхронизация заголовков (%1, %2%)...</translation>
     </message>
 </context>
 <context>
@@ -986,10 +1034,6 @@
         <translation>Размер кеша &amp;базы данных</translation>
     </message>
     <message>
-        <source>MB</source>
-        <translation>МБ</translation>
-    </message>
-    <message>
         <source>Number of script &amp;verification threads</source>
         <translation>Количество потоков для проверки скрипта</translation>
     </message>
@@ -999,7 +1043,7 @@
     </message>
     <message>
         <source>Shows if the supplied default SOCKS5 proxy is used to reach peers via this network type.</source>
-        <translation>Показывает, используется ли прокси-сервер SOCKS5 по умолчанию для доступа к узлам через этот тип сети.</translation>
+        <translation>Показывает, используется ли прокси-сервер SOCKS5 по умолчанию, для доступа к узлам через этот тип сети.</translation>
     </message>
     <message>
         <source>Use separate SOCKS&amp;5 proxy to reach peers via Tor hidden services:</source>
@@ -1020,10 +1064,6 @@
     <message>
         <source>Third party URLs (e.g. a block explorer) that appear in the transactions tab as context menu items. %s in the URL is replaced by transaction hash. Multiple URLs are separated by vertical bar |.</source>
         <translation>Сторонние URL-адреса (например, обозреватель блоков) , которые отображаются на вкладке транзакции как элементы контекстного меню. %s в URL заменяется хэшем транзакции. Несколько URL-адресов разделены вертикальной чертой |.</translation>
-    </message>
-    <message>
-        <source>Active command-line options that override above options:</source>
-        <translation>Активные опции командной строки, которые перекрывают вышеуказанные опции:</translation>
     </message>
     <message>
         <source>Open the %1 configuration file from the working directory.</source>
@@ -1060,6 +1100,10 @@
     <message>
         <source>Reverting this setting requires re-downloading the entire blockchain.</source>
         <translation>Отмена этой настройки требует повторного скачивания всего блокчейна.</translation>
+    </message>
+    <message>
+        <source>MiB</source>
+        <translation>МиБ</translation>
     </message>
     <message>
         <source>(0 = auto, &lt;0 = leave that many cores free)</source>
@@ -1184,6 +1228,10 @@
     <message>
         <source>&amp;Third party transaction URLs</source>
         <translation>&amp;Ссылки на транзакции сторонних сервисов</translation>
+    </message>
+    <message>
+        <source>Options set in this dialog are overridden by the command line or in the configuration file:</source>
+        <translation>Параметры, установленные в этом диалоговом окне, переопределяются командной строкой или в файле конфигурации:</translation>
     </message>
     <message>
         <source>&amp;OK</source>
@@ -1332,8 +1380,16 @@
         <translation>'bitcoin://' не верный URI. Используйте 'bitcoin:' вместо этого.</translation>
     </message>
     <message>
+        <source>You are using a BIP70 URL which will be unsupported in the future.</source>
+        <translation>Вы используете URL BIP70, который не будет поддерживаться в будущем.</translation>
+    </message>
+    <message>
         <source>Payment request fetch URL is invalid: %1</source>
         <translation>Неверный URL запроса платежа: %1</translation>
+    </message>
+    <message>
+        <source>Cannot process payment request because BIP70 support was not compiled in.</source>
+        <translation>Не удалось обработать запрос на оплату, так как поддержка BIP70 не была имплементирована.</translation>
     </message>
     <message>
         <source>Invalid payment address %1</source>
@@ -1424,7 +1480,7 @@
     </message>
     <message>
         <source>Ping</source>
-        <translation>Пинг</translation>
+        <translation>Время отклика</translation>
     </message>
     <message>
         <source>Sent</source>
@@ -1475,15 +1531,15 @@
     </message>
     <message numerus="yes">
         <source>%n second(s)</source>
-        <translation><numerusform>%n секунд</numerusform><numerusform>%n секунд</numerusform><numerusform>%n секунд</numerusform><numerusform>%n секунд</numerusform></translation>
+        <translation><numerusform>%n секунда</numerusform><numerusform>%n секунд</numerusform><numerusform>%n секунд</numerusform><numerusform>%n секунд</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>%n minute(s)</source>
-        <translation><numerusform>%n минут</numerusform><numerusform>%n минут</numerusform><numerusform>%n минут</numerusform><numerusform>%n минут</numerusform></translation>
+        <translation><numerusform>%n минута</numerusform><numerusform>%n минут</numerusform><numerusform>%n минут</numerusform><numerusform>%n минут</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>%n hour(s)</source>
-        <translation><numerusform>%n час</numerusform><numerusform>%n часов</numerusform><numerusform>%n часов</numerusform><numerusform>%n часов</numerusform></translation>
+        <translation><numerusform>%n час</numerusform><numerusform>%n часа</numerusform><numerusform>%n часов</numerusform><numerusform>%n часов</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>%n day(s)</source>
@@ -1491,7 +1547,7 @@
     </message>
     <message numerus="yes">
         <source>%n week(s)</source>
-        <translation><numerusform>%n неделя</numerusform><numerusform>%n недель</numerusform><numerusform>%n недель</numerusform><numerusform>%n недель</numerusform></translation>
+        <translation><numerusform>%n недели</numerusform><numerusform>%n недель</numerusform><numerusform>%n недель</numerusform><numerusform>%n недель</numerusform></translation>
     </message>
     <message>
         <source>%1 and %2</source>
@@ -1593,6 +1649,18 @@
     <message>
         <source>Datadir</source>
         <translation>Директория данных</translation>
+    </message>
+    <message>
+        <source>To specify a non-default location of the data directory use the '%1' option.</source>
+        <translation>Чтобы указать нестандартное расположение каталога данных, используйте этот параметр '%1'.</translation>
+    </message>
+    <message>
+        <source>Blocksdir</source>
+        <translation>Директория блоков</translation>
+    </message>
+    <message>
+        <source>To specify a non-default location of the blocks directory use the '%1' option.</source>
+        <translation>Чтобы указать нестандартное расположение каталога данных с блоками, используйте этот параметр '%1'.</translation>
     </message>
     <message>
         <source>Startup time</source>
@@ -1727,6 +1795,10 @@
         <translation>Время отклика Ping</translation>
     </message>
     <message>
+        <source>The duration of a currently outstanding ping.</source>
+        <translation>Продолжительность текущего времени отклика.</translation>
+    </message>
+    <message>
         <source>Ping Wait</source>
         <translation>Отклик Подождите</translation>
     </message>
@@ -1792,23 +1864,19 @@
     </message>
     <message>
         <source>&amp;Disconnect</source>
-        <translation>&amp;Отключить</translation>
+        <translation>&amp;Отключится</translation>
     </message>
     <message>
         <source>Ban for</source>
-        <translation>Запрет</translation>
+        <translation>Забанить на</translation>
     </message>
     <message>
         <source>&amp;Unban</source>
-        <translation>Разбанить</translation>
-    </message>
-    <message>
-        <source>default wallet</source>
-        <translation>Кошелек по умолчанию</translation>
+        <translation>Отменить запрет</translation>
     </message>
     <message>
         <source>Welcome to the %1 RPC console.</source>
-        <translation>Добро пожаловать в %1 RPC сонсоль</translation>
+        <translation>Добро пожаловать в %1 RPC консоль</translation>
     </message>
     <message>
         <source>Type %1 for an overview of available commands.</source>
@@ -1820,7 +1888,7 @@
     </message>
     <message>
         <source>WARNING: Scammers have been active, telling users to type commands here, stealing their wallet contents. Do not use this console without fully understanding the ramifications of a command.</source>
-        <translation>ВНИМАНИЕ: мошенники предлагали пользователям вводить сюда команды, похищая таким образом содержимое их бумажников. Не используйте эту консоль без полного понимания смысла команд.</translation>
+        <translation>ВНИМАНИЕ: Мошенники предлагали пользователям вводить сюда команды, похищая таким образом содержимое их бумажников. Не используйте эту консоль без полного понимания смысла команд.</translation>
     </message>
     <message>
         <source>Network activity disabled</source>
@@ -1836,7 +1904,7 @@
     </message>
     <message>
         <source>(node id: %1)</source>
-        <translation>(идентификатор ноды: %1)</translation>
+        <translation>(идентификатор узла: %1)</translation>
     </message>
     <message>
         <source>via %1</source>
@@ -2135,10 +2203,6 @@ Note:  Since the fee is calculated on a per-byte basis, a fee of "100 satoshis p
         <translation>Спрятать</translation>
     </message>
     <message>
-        <source>(read the tooltip)</source>
-        <translation>(посмотрите подсказку)</translation>
-    </message>
-    <message>
         <source>Recommended:</source>
         <translation>Рекомендованное значение:</translation>
     </message>
@@ -2165,6 +2229,14 @@ Note:  Since the fee is calculated on a per-byte basis, a fee of "100 satoshis p
     <message>
         <source>Dust:</source>
         <translation>Пыль:</translation>
+    </message>
+    <message>
+        <source>When there is less transaction volume than space in the blocks, miners as well as relaying nodes may enforce a minimum fee. Paying only this minimum fee is just fine, but be aware that this can result in a never confirming transaction once there is more demand for bitcoin transactions than the network can process.</source>
+        <translation>Когда объем транзакций меньше, чем пространство в блоках, майнеры, а также ретранслирующие узлы могут устанавливать минимальную плату. Платить только эту минимальную комиссию - это хорошо, но имейте в виду, что это может привести к тому, что транзакция никогда не будет подтверждена, если будет больше биткойн-транзакций, чем может обработать сеть.</translation>
+    </message>
+    <message>
+        <source>A too low fee might result in a never confirming transaction (read the tooltip)</source>
+        <translation>Слишком низкая комиссия может привести к невозможности подтверждения транзакции (см. подсказку)</translation>
     </message>
     <message>
         <source>Confirmation time target:</source>
@@ -2252,11 +2324,15 @@ Note:  Since the fee is calculated on a per-byte basis, a fee of "100 satoshis p
     </message>
     <message>
         <source>Transaction fee</source>
-        <translation>Комиссия</translation>
+        <translation>Комиссия за транзакцию</translation>
     </message>
     <message>
         <source>Not signalling Replace-By-Fee, BIP-125.</source>
         <translation>Не сигнализирует Replace-By-Fee, BIP-125.</translation>
+    </message>
+    <message>
+        <source>Total Amount</source>
+        <translation>Общая сумма</translation>
     </message>
     <message>
         <source>Confirm send coins</source>
@@ -2297,10 +2373,6 @@ Note:  Since the fee is calculated on a per-byte basis, a fee of "100 satoshis p
     <message>
         <source>Payment request expired.</source>
         <translation>Истекло время ожидания запроса платежа</translation>
-    </message>
-    <message numerus="yes">
-        <source>Estimated to begin confirmation within %n block(s).</source>
-        <translation><numerusform>Предполагаемое подтверждение в течение %n блока.</numerusform><numerusform>Предполагаемое подтверждение в течение %n блоков.</numerusform><numerusform>Предполагаемое подтверждение в течение %n блоков.</numerusform><numerusform>Предполагаемое подтверждение в течение %n блоков.</numerusform></translation>
     </message>
     <message>
         <source>Warning: Invalid Bitcoin address</source>
@@ -2476,7 +2548,7 @@ Note:  Since the fee is calculated on a per-byte basis, a fee of "100 satoshis p
     </message>
     <message>
         <source>Sign the message to prove you own this Bitcoin address</source>
-        <translation>Подписать сообщение, чтобы доказать владение адресом Bitcoin</translation>
+        <translation>Подписать сообщение, чтобы доказать владение Bitcoin-адресом</translation>
     </message>
     <message>
         <source>Sign &amp;Message</source>
@@ -2663,6 +2735,10 @@ Note:  Since the fee is calculated on a per-byte basis, a fee of "100 satoshis p
         <source>Credit</source>
         <translation>Кредит</translation>
     </message>
+    <message numerus="yes">
+        <source>matures in %n more block(s)</source>
+        <translation><numerusform>созревает еще в %n блоках</numerusform><numerusform>созревает еще в %n блоках</numerusform><numerusform>созревает еще в %n блоках</numerusform><numerusform>созревает еще в %n блоках</numerusform></translation>
+    </message>
     <message>
         <source>not accepted</source>
         <translation>не принято</translation>
@@ -2681,7 +2757,7 @@ Note:  Since the fee is calculated on a per-byte basis, a fee of "100 satoshis p
     </message>
     <message>
         <source>Transaction fee</source>
-        <translation>Комиссия</translation>
+        <translation>Комиссия за транзакцию</translation>
     </message>
     <message>
         <source>Net amount</source>
@@ -3029,6 +3105,17 @@ Note:  Since the fee is calculated on a per-byte basis, a fee of "100 satoshis p
     </message>
 </context>
 <context>
+    <name>WalletController</name>
+    <message>
+        <source>Close wallet</source>
+        <translation>Закрыть кошелек</translation>
+    </message>
+    <message>
+        <source>Are you sure you wish to close wallet &lt;i&gt;%1&lt;/i&gt;?</source>
+        <translation>Вы уверены, что хотите закрыть кошелек &lt;i&gt;%1&lt;/i&gt;?</translation>
+    </message>
+    </context>
+<context>
     <name>WalletFrame</name>
     <message>
         <source>No wallet has been loaded.</source>
@@ -3055,7 +3142,7 @@ Note:  Since the fee is calculated on a per-byte basis, a fee of "100 satoshis p
     </message>
     <message>
         <source>Current fee:</source>
-        <translation>Текущее значение комиссии</translation>
+        <translation>Текущая комиссия:</translation>
     </message>
     <message>
         <source>Increase:</source>
@@ -3063,11 +3150,11 @@ Note:  Since the fee is calculated on a per-byte basis, a fee of "100 satoshis p
     </message>
     <message>
         <source>New fee:</source>
-        <translation>Новое значение комиссии:</translation>
+        <translation>Новая комиссия:</translation>
     </message>
     <message>
         <source>Confirm fee bump</source>
-        <translation>Подтвердите комиссию</translation>
+        <translation>Подтвердите оплату</translation>
     </message>
     <message>
         <source>Can't sign transaction.</source>
@@ -3076,6 +3163,10 @@ Note:  Since the fee is calculated on a per-byte basis, a fee of "100 satoshis p
     <message>
         <source>Could not commit transaction</source>
         <translation>Не удалось выполнить транзакцию</translation>
+    </message>
+    <message>
+        <source>default wallet</source>
+        <translation>Кошелек по умолчанию</translation>
     </message>
 </context>
 <context>
@@ -3216,8 +3307,16 @@ Note:  Since the fee is calculated on a per-byte basis, a fee of "100 satoshis p
         <translation>-maxmempool должен быть как минимум %d Мб</translation>
     </message>
     <message>
+        <source>Cannot resolve -%s address: '%s'</source>
+        <translation>Не удается разрешить -%s адрес: '%s'</translation>
+    </message>
+    <message>
         <source>Change index out of range</source>
         <translation>Изменение индекса вне диапазона</translation>
+    </message>
+    <message>
+        <source>Config setting for %s only applied on %s network when in [%s] section.</source>
+        <translation>Настройка конфигурации для %s применяется только в %s сети во [%s] разделе.</translation>
     </message>
     <message>
         <source>Copyright (C) %i-%i</source>
@@ -3257,7 +3356,7 @@ Note:  Since the fee is calculated on a per-byte basis, a fee of "100 satoshis p
     </message>
     <message>
         <source>Error loading block database</source>
-        <translation>Ошибка чтения блоков БД</translation>
+        <translation>Ошибка чтения БД блоков</translation>
     </message>
     <message>
         <source>Error opening block database</source>
@@ -3352,18 +3451,6 @@ Note:  Since the fee is calculated on a per-byte basis, a fee of "100 satoshis p
         <translation>Невозможно сгенерировать ключи</translation>
     </message>
     <message>
-        <source>Unsupported argument -benchmark ignored, use -debug=bench.</source>
-        <translation>Неподдерживаемый аргумент -benchmark пропущен, необходимо использовать -debug=bench.</translation>
-    </message>
-    <message>
-        <source>Unsupported argument -debugnet ignored, use -debug=net.</source>
-        <translation>Неподдерживаемый аргумент -debugnet пропущен, необходимо использовать -debug=net.</translation>
-    </message>
-    <message>
-        <source>Unsupported argument -tor found, use -onion.</source>
-        <translation>Обнаружен неподдерживаемый аргумент -tor, необходимо использовать -onion.</translation>
-    </message>
-    <message>
         <source>Unsupported logging category %s=%s.</source>
         <translation>Неподдерживаемая категория ведения журнала %s=%s.</translation>
     </message>
@@ -3400,16 +3487,16 @@ Note:  Since the fee is calculated on a per-byte basis, a fee of "100 satoshis p
         <translation>Вам необходимо пересобрать базу данных с помощью -reindex, чтобы вернуться к полному режиму. Это приведёт к перезагрузке всей цепи блоков</translation>
     </message>
     <message>
-        <source>Error loading %s: You can't disable HD on an already existing HD wallet</source>
-        <translation>Ошибка загрузки %s: Вы не можете отключить HD в уже существующем HD кошельке</translation>
-    </message>
-    <message>
         <source>Error reading from database, shutting down.</source>
         <translation>Ошибка чтения с базы данных, выполняется закрытие.</translation>
     </message>
     <message>
         <source>Error upgrading chainstate database</source>
         <translation>Ошибка обновления БД состояния цепи</translation>
+    </message>
+    <message>
+        <source>Error: Disk space is low for %s</source>
+        <translation>Ошибка: На диске недостаточно места для %s</translation>
     </message>
     <message>
         <source>Information</source>
@@ -3440,6 +3527,10 @@ Note:  Since the fee is calculated on a per-byte basis, a fee of "100 satoshis p
         <translation>Уменьшите -maxconnections с %d до %d, из-за ограничений системы.</translation>
     </message>
     <message>
+        <source>Section [%s] is not recognized.</source>
+        <translation>Раздел [%s] не распознан.</translation>
+    </message>
+    <message>
         <source>Signing transaction failed</source>
         <translation>Подписание транзакции завершилось неудачей</translation>
     </message>
@@ -3456,6 +3547,12 @@ Note:  Since the fee is calculated on a per-byte basis, a fee of "100 satoshis p
         <translation>Указанный -walletdir "%s" не является каталогом</translation>
     </message>
     <message>
+        <source>The specified config file %s does not exist
+</source>
+        <translation>Указанный файл конфигурации %s не существует
+</translation>
+    </message>
+    <message>
         <source>The transaction amount is too small to pay the fee</source>
         <translation>Сумма транзакции слишком мала для уплаты комиссии</translation>
     </message>
@@ -3469,7 +3566,7 @@ Note:  Since the fee is calculated on a per-byte basis, a fee of "100 satoshis p
     </message>
     <message>
         <source>Transaction too large for fee policy</source>
-        <translation>Транзакция слишком большая для правил комиссии.</translation>
+        <translation>Транзакция слишком большая для правил комиссии</translation>
     </message>
     <message>
         <source>Transaction too large</source>
@@ -3508,10 +3605,6 @@ Note:  Since the fee is calculated on a per-byte basis, a fee of "100 satoshis p
         <translation>Установлено очень большое значение -maxtxfee. Такие большие комиссии могут быть уплачены в отдельной транзакции.</translation>
     </message>
     <message>
-        <source>Error loading %s: You can't enable HD on an already existing non-HD wallet</source>
-        <translation>Ошибка загрузки %s: Вы не можете включить HD в уже существующем не-HD кошельке</translation>
-    </message>
-    <message>
         <source>This is the transaction fee you may pay when fee estimates are not available.</source>
         <translation>Это комиссия за транзакцию, которую вы можете заплатить, когда расчёт комиссии недоступен.</translation>
     </message>
@@ -3522,18 +3615,6 @@ Note:  Since the fee is calculated on a per-byte basis, a fee of "100 satoshis p
     <message>
         <source>Total length of network version string (%i) exceeds maximum length (%i). Reduce the number or size of uacomments.</source>
         <translation>Текущая длина строки версии сети (%i) превышает максимальную длину (%i). Уменьшите количество или размер uacomments.</translation>
-    </message>
-    <message>
-        <source>Unsupported argument -socks found. Setting SOCKS version isn't possible anymore, only SOCKS5 proxies are supported.</source>
-        <translation>Обнаружен не поддерживаемый аргумент -socks. Выбор версии SOCKS более невозможен, поддерживаются только прокси SOCKS5.</translation>
-    </message>
-    <message>
-        <source>Unsupported argument -whitelistalwaysrelay ignored, use -whitelistrelay and/or -whitelistforcerelay.</source>
-        <translation>Не поддерживаемый аргумент -whitelistalwaysrelay игнорируется, используйте -whitelistrelay и/или -whitelistforcerelay.</translation>
-    </message>
-    <message>
-        <source>Warning: Unknown block versions being mined! It's possible unknown rules are in effect</source>
-        <translation>Внимание: Получена неизвестная версия блока! Возможно неизвестные правила вступили в силу.</translation>
     </message>
     <message>
         <source>Warning: Wallet file corrupt, data salvaged! Original %s saved as %s in %s; if your balance or transactions are incorrect you should restore from a backup.</source>
@@ -3581,15 +3662,11 @@ Note:  Since the fee is calculated on a per-byte basis, a fee of "100 satoshis p
     </message>
     <message>
         <source>Unknown network specified in -onlynet: '%s'</source>
-        <translation>Неизвестная сеть, указанная в -onlynet: "%s"</translation>
+        <translation>Неизвестная сеть, указанная в -onlynet: '%s'</translation>
     </message>
     <message>
         <source>Insufficient funds</source>
         <translation>Недостаточно средств</translation>
-    </message>
-    <message>
-        <source>Can't generate a change-address key. Private keys are disabled for this wallet.</source>
-        <translation>Не удается создать ключ изменения адреса. Приватные ключи для этого кошелька отключены.</translation>
     </message>
     <message>
         <source>Cannot upgrade a non HD split wallet without upgrading to support pre split keypool. Please use -upgradewallet=169900 or -upgradewallet with no version specified.</source>
@@ -3597,7 +3674,7 @@ Note:  Since the fee is calculated on a per-byte basis, a fee of "100 satoshis p
     </message>
     <message>
         <source>Fee estimation failed. Fallbackfee is disabled. Wait a few blocks or enable -fallbackfee.</source>
-        <translation>Не удалось оценить сбор. Резервный сбор отключен. Подождите несколько блоков или включите -fallbackfee.</translation>
+        <translation>Не удалось оценить комиссию. Резервная комиссия отключена. Подождите несколько блоков или включите -fallbackfee.</translation>
     </message>
     <message>
         <source>Warning: Private keys detected in wallet {%s} with disabled private keys</source>
@@ -3605,31 +3682,11 @@ Note:  Since the fee is calculated on a per-byte basis, a fee of "100 satoshis p
     </message>
     <message>
         <source>Cannot write to data directory '%s'; check permissions.</source>
-        <translation>Не удается выполнить запись в каталог данных "%s"; проверьте разрешения.</translation>
+        <translation>Не удается выполнить запись в каталог данных '%s'; проверьте разрешения.</translation>
     </message>
     <message>
         <source>Loading block index...</source>
         <translation>Загрузка индекса блоков...</translation>
-    </message>
-    <message>
-        <source>Loading wallet...</source>
-        <translation>Выполняется загрузка кошелька...</translation>
-    </message>
-    <message>
-        <source>Cannot downgrade wallet</source>
-        <translation>Невозможно выполнить переход на более раннюю версию кошелька</translation>
-    </message>
-    <message>
-        <source>Rescanning...</source>
-        <translation>Выполняется повторное сканирование...</translation>
-    </message>
-    <message>
-        <source>Done loading</source>
-        <translation>Загрузка завершена</translation>
-    </message>
-    <message>
-        <source>(default: %s)</source>
-        <translation>(значение по умолчанию: %s)</translation>
     </message>
     <message>
         <source>Loading wallet...</source>

@@ -47,7 +47,7 @@
     </message>
     <message>
         <source>Choose the address to send coins to</source>
-        <translation>Välj en adress att skicka pengarna till</translation>
+        <translation>Välj en adress att skicka transaktionen till</translation>
     </message>
     <message>
         <source>Choose the address to receive coins with</source>
@@ -189,8 +189,8 @@ Försök igen.</translation>
         <translation>Plånbok krypterad</translation>
     </message>
     <message>
-        <source>%1 will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your bitcoins from being stolen by malware infecting your computer.</source>
-        <translation>%1 kommer nu att stänga ner för att slutföra krypteringen. Tänk på att en krypterad plånbok inte skyddar mot stöld om din dator är infekterad med en keylogger.</translation>
+        <source>Your wallet is now encrypted. Remember that encrypting your wallet cannot fully protect your bitcoins from being stolen by malware infecting your computer.</source>
+        <translation>Din plånbok är nu krypterad. Kom ihåg att kryptering av plånboken inte helt skyddar dina bitcoin från att stjälas av skadlig kod som infekterat din dator.</translation>
     </message>
     <message>
         <source>IMPORTANT: Any previous backups you have made of your wallet file should be replaced with the newly generated, encrypted wallet file. For security reasons, previous backups of the unencrypted wallet file will become useless as soon as you start using the new, encrypted wallet.</source>
@@ -214,7 +214,7 @@ Försök igen.</translation>
     </message>
     <message>
         <source>The passphrase entered for the wallet decryption was incorrect.</source>
-        <translation>Angiven lösenfras för dekryptering av plånboken var felaktig.</translation>
+        <translation>Lösenfrasen för dekryptering av plånboken var felaktig.</translation>
     </message>
     <message>
         <source>Wallet decryption failed</source>
@@ -237,7 +237,7 @@ Försök igen.</translation>
     </message>
     <message>
         <source>Banned Until</source>
-        <translation>Bannlyst till</translation>
+        <translation>Bannlyst tills</translation>
     </message>
 </context>
 <context>
@@ -253,10 +253,6 @@ Försök igen.</translation>
     <message>
         <source>&amp;Overview</source>
         <translation>&amp;Översikt</translation>
-    </message>
-    <message>
-        <source>Node</source>
-        <translation>Nod</translation>
     </message>
     <message>
         <source>Show general overview of wallet</source>
@@ -315,24 +311,12 @@ Försök igen.</translation>
         <translation>&amp;Byt lösenfras …</translation>
     </message>
     <message>
-        <source>&amp;Sending addresses...</source>
-        <translation>Av&amp;sändaradresser...</translation>
-    </message>
-    <message>
-        <source>&amp;Receiving addresses...</source>
-        <translation>Mottaga&amp;radresser...</translation>
-    </message>
-    <message>
         <source>Open &amp;URI...</source>
         <translation>Öppna &amp;URI...</translation>
     </message>
     <message>
         <source>Wallet:</source>
         <translation>Plånbok:</translation>
-    </message>
-    <message>
-        <source>default wallet</source>
-        <translation>Standardplånbok</translation>
     </message>
     <message>
         <source>Click to disable network activity.</source>
@@ -368,7 +352,7 @@ Försök igen.</translation>
     </message>
     <message>
         <source>Change the passphrase used for wallet encryption</source>
-        <translation>Byt lösenfras som används för kryptering av plånboken</translation>
+        <translation>Byt lösenfras för kryptering av plånbok</translation>
     </message>
     <message>
         <source>&amp;Debug window</source>
@@ -385,10 +369,6 @@ Försök igen.</translation>
     <message>
         <source>Bitcoin</source>
         <translation>Bitcoin</translation>
-    </message>
-    <message>
-        <source>Wallet</source>
-        <translation>Plånbok</translation>
     </message>
     <message>
         <source>&amp;Send</source>
@@ -499,8 +479,64 @@ Försök igen.</translation>
         <translation>Uppdaterad</translation>
     </message>
     <message>
+        <source>&amp;Sending addresses</source>
+        <translation>Av&amp;sändaradresser</translation>
+    </message>
+    <message>
+        <source>&amp;Receiving addresses</source>
+        <translation>Mottaga&amp;radresser</translation>
+    </message>
+    <message>
+        <source>Open Wallet</source>
+        <translation>Öppna plånbok</translation>
+    </message>
+    <message>
+        <source>Open a wallet</source>
+        <translation>Öppna en plånbok</translation>
+    </message>
+    <message>
+        <source>Close Wallet...</source>
+        <translation>Stäng plånbok</translation>
+    </message>
+    <message>
+        <source>Close wallet</source>
+        <translation>Stäng plånboken</translation>
+    </message>
+    <message>
         <source>Show the %1 help message to get a list with possible Bitcoin command-line options</source>
         <translation>Visa %1 hjälpmeddelande för att få en lista med möjliga Bitcoin kommandoradsalternativ.</translation>
+    </message>
+    <message>
+        <source>default wallet</source>
+        <translation>Standardplånbok</translation>
+    </message>
+    <message>
+        <source>Opening Wallet &lt;b&gt;%1&lt;/b&gt;...</source>
+        <translation>Öppnar plånboken &lt;b&gt;%1&lt;/b&gt;...</translation>
+    </message>
+    <message>
+        <source>Open Wallet Failed</source>
+        <translation>Det gick inte att öppna plånboken</translation>
+    </message>
+    <message>
+        <source>&amp;Window</source>
+        <translation>&amp;Fönster</translation>
+    </message>
+    <message>
+        <source>Minimize</source>
+        <translation>Minimera</translation>
+    </message>
+    <message>
+        <source>Zoom</source>
+        <translation>Zooma</translation>
+    </message>
+    <message>
+        <source>Restore</source>
+        <translation>Återställ</translation>
+    </message>
+    <message>
+        <source>Main Window</source>
+        <translation>Huvudfönster</translation>
     </message>
     <message>
         <source>%1 client</source>
@@ -508,7 +544,7 @@ Försök igen.</translation>
     </message>
     <message>
         <source>Connecting to peers...</source>
-        <translation>Ansluter till noder …</translation>
+        <translation>Ansluter till noder...</translation>
     </message>
     <message>
         <source>Catching up...</source>
@@ -565,6 +601,10 @@ Försök igen.</translation>
     <message>
         <source>HD key generation is &lt;b&gt;disabled&lt;/b&gt;</source>
         <translation>HD-nyckelgenerering är &lt;b&gt;inaktiverad&lt;/b&gt;</translation>
+    </message>
+    <message>
+        <source>Private key &lt;b&gt;disabled&lt;/b&gt;</source>
+        <translation>Privat nyckel &lt;b&gt;inaktiverad&lt;/b&gt;</translation>
     </message>
     <message>
         <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;unlocked&lt;/b&gt;</source>
@@ -851,7 +891,7 @@ Försök igen.</translation>
     </message>
     <message>
         <source>If you have chosen to limit block chain storage (pruning), the historical data must still be downloaded and processed, but will be deleted afterward to keep your disk usage low.</source>
-        <translation>Om du valt att begränsa storleken på blockkedjan (pruning), måste historiska data fortfarande laddas ner och behandlas, men kommer därefter att tas bort för att spara lagringsutrymme.</translation>
+        <translation>Om du valt att begränsa storleken på blockkedjan (gallring), måste historiska data ändå laddas ner och behandlas, men kommer därefter att tas bort för att spara lagringsutrymme.</translation>
     </message>
     <message>
         <source>Use the default data directory</source>
@@ -875,7 +915,7 @@ Försök igen.</translation>
     </message>
     <message>
         <source>%1 will download and store a copy of the Bitcoin block chain.</source>
-        <translation>%1 kommer att ladda ner och spara en kopia av Bitcoins blockkedja.</translation>
+        <translation>%1 kommer att ladda ner och lagra en kopia av Bitcoins blockkedja.</translation>
     </message>
     <message>
         <source>The wallet will also be stored in this directory.</source>
@@ -891,7 +931,7 @@ Försök igen.</translation>
     </message>
     <message numerus="yes">
         <source>%n GB of free space available</source>
-        <translation><numerusform>%n GB fritt utrymme kvar</numerusform><numerusform>%n GB ledigt utrymme kvar</numerusform></translation>
+        <translation><numerusform>%n GB fritt utrymme kvar</numerusform><numerusform>%n GB fritt utrymme kvar</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>(of %n GB needed)</source>
@@ -945,8 +985,8 @@ Försök igen.</translation>
         <translation>Dölj</translation>
     </message>
     <message>
-        <source>Unknown. Syncing Headers (%1)...</source>
-        <translation>Okänd. Synkar huvuden (%1)...</translation>
+        <source>Unknown. Syncing Headers (%1, %2%)...</source>
+        <translation>Okänd. Synkar huvuden (%1, %2%)...</translation>
     </message>
 </context>
 <context>
@@ -995,10 +1035,6 @@ Försök igen.</translation>
         <translation>Storleken på &amp;databascache</translation>
     </message>
     <message>
-        <source>MB</source>
-        <translation>MB</translation>
-    </message>
-    <message>
         <source>Number of script &amp;verification threads</source>
         <translation>Antalet skript&amp;verifikationstrådar</translation>
     </message>
@@ -1031,10 +1067,6 @@ Försök igen.</translation>
         <translation>Tredjeparts-URL:er (t.ex. en blockutforskare) som visas i transaktionsfliken som snabbmenyalternativ. %s i URL:en ersätts med transaktionshash. Flera URL:er separeras med vertikalt streck |.</translation>
     </message>
     <message>
-        <source>Active command-line options that override above options:</source>
-        <translation>Aktiva kommandoradsalternativ som åsidosätter alternativen ovan:</translation>
-    </message>
-    <message>
         <source>Open the %1 configuration file from the working directory.</source>
         <translation>Öppna konfigurationsfilen %1 från arbetskatalogen.</translation>
     </message>
@@ -1056,11 +1088,11 @@ Försök igen.</translation>
     </message>
     <message>
         <source>Disables some advanced features but all blocks will still be fully validated. Reverting this setting requires re-downloading the entire blockchain. Actual disk usage may be somewhat higher.</source>
-        <translation>Stänger av en del avancerade funktioner, men samtliga block kommer fortfarande att verifieras. Återställning av denna inställning kräver att den fullständiga blockkedjan laddas ned igen. Det använda hårddiskutrymmet kan öka något.</translation>
+        <translation>Stänger av vissa avancerade funktioner, men samtliga block kommer fortfarande att verifieras. Återställning av denna inställning kräver att den fullständiga blockkedjan laddas ned igen. Det använda diskutrymmet kan öka något.</translation>
     </message>
     <message>
         <source>Prune &amp;block storage to</source>
-        <translation>Trim- &amp; block-utrymme till</translation>
+        <translation>Gallra &amp;blocklagring till</translation>
     </message>
     <message>
         <source>GB</source>
@@ -1069,6 +1101,10 @@ Försök igen.</translation>
     <message>
         <source>Reverting this setting requires re-downloading the entire blockchain.</source>
         <translation>Vid avstängning av denna inställning kommer den fullständiga blockkedjan behövas laddas ned igen.</translation>
+    </message>
+    <message>
+        <source>MiB</source>
+        <translation>MiB</translation>
     </message>
     <message>
         <source>(0 = auto, &lt;0 = leave that many cores free)</source>
@@ -1195,6 +1231,10 @@ Försök igen.</translation>
         <translation>&amp;URL:er för tredjepartstransaktioner</translation>
     </message>
     <message>
+        <source>Options set in this dialog are overridden by the command line or in the configuration file:</source>
+        <translation>Alternativ som anges i denna dialog åsidosätts av kommandoraden eller i konfigurationsfilen:</translation>
+    </message>
+    <message>
         <source>&amp;OK</source>
         <translation>&amp;OK</translation>
     </message>
@@ -1228,7 +1268,7 @@ Försök igen.</translation>
     </message>
     <message>
         <source>The configuration file is used to specify advanced user options which override GUI settings. Additionally, any command-line options will override this configuration file.</source>
-        <translation>Konfigurationsfilen används för att ange avancerade användaralternativ som överskrider GUI-inställningarna. Dessutom kommer alla kommandoradsalternativ att överskrida denna konfigurationsfil.</translation>
+        <translation>Konfigurationsfilen används för att ange avancerade användaralternativ som åsidosätter inställningar i GUI. Dessutom kommer alla kommandoradsalternativ att åsidosätta denna konfigurationsfil.</translation>
     </message>
     <message>
         <source>Error</source>
@@ -1341,8 +1381,16 @@ Försök igen.</translation>
         <translation>'bitcoin://' är inte en accepterad URI. Använd 'bitcoin:' istället.</translation>
     </message>
     <message>
+        <source>You are using a BIP70 URL which will be unsupported in the future.</source>
+        <translation>Du använder en URL enligt BIP70, vilket inte kommer att stödjas i framtiden.</translation>
+    </message>
+    <message>
         <source>Payment request fetch URL is invalid: %1</source>
         <translation>Hämtningsadressen för betalningsbegäran är ogiltig: %1</translation>
+    </message>
+    <message>
+        <source>Cannot process payment request because BIP70 support was not compiled in.</source>
+        <translation>Det går inte att behandla betalningsbegäran eftersom stöd för BIP70 inte var aktiverat vid kompilering.</translation>
     </message>
     <message>
         <source>Invalid payment address %1</source>
@@ -1604,6 +1652,18 @@ Försök igen.</translation>
         <translation>Datakatalog</translation>
     </message>
     <message>
+        <source>To specify a non-default location of the data directory use the '%1' option.</source>
+        <translation>Använd alternativet '%1' för att ange en annan plats för datakatalogen än standard.</translation>
+    </message>
+    <message>
+        <source>Blocksdir</source>
+        <translation>Blockkatalog</translation>
+    </message>
+    <message>
+        <source>To specify a non-default location of the blocks directory use the '%1' option.</source>
+        <translation>Använd alternativet '%1' för att ange en annan plats för blockkatalogen än standard.</translation>
+    </message>
+    <message>
         <source>Startup time</source>
         <translation>Uppstartstid</translation>
     </message>
@@ -1814,10 +1874,6 @@ Försök igen.</translation>
     <message>
         <source>&amp;Unban</source>
         <translation>&amp;Ta bort bannlysning</translation>
-    </message>
-    <message>
-        <source>default wallet</source>
-        <translation>Standardplånbok</translation>
     </message>
     <message>
         <source>Welcome to the %1 RPC console.</source>
@@ -2152,14 +2208,6 @@ Notera: Då avgiften beräknas per byte kommer en avgift på 50 satoshi tas ut f
         <translation>Dölj</translation>
     </message>
     <message>
-        <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks. But be aware that this can end up in a never confirming transaction once there is more demand for bitcoin transactions than the network can process.</source>
-        <translation>Att bara betala den minsta avgiften är helt ok så länge transaktionsvolymen är mindre än ledigt utrymme i blocken. Men tänk på att det kan bli en en transaktion som aldrig bekräftas om efterfrågan på bitcoin-transaktioner är större än vad nätverket kan hantera.</translation>
-    </message>
-    <message>
-        <source>(read the tooltip)</source>
-        <translation>(läs verktygstips)</translation>
-    </message>
-    <message>
         <source>Recommended:</source>
         <translation>Rekommenderad:</translation>
     </message>
@@ -2186,6 +2234,14 @@ Notera: Då avgiften beräknas per byte kommer en avgift på 50 satoshi tas ut f
     <message>
         <source>Dust:</source>
         <translation>Damm:</translation>
+    </message>
+    <message>
+        <source>When there is less transaction volume than space in the blocks, miners as well as relaying nodes may enforce a minimum fee. Paying only this minimum fee is just fine, but be aware that this can result in a never confirming transaction once there is more demand for bitcoin transactions than the network can process.</source>
+        <translation>När transaktionsvolymen är mindre än utrymmet i blocken kan både brytardatorer och relänoder kräva en minimiavgift. Det är okej att bara betala denna minimiavgift, men du ska vara medveten om att det kan leda till att en transaktion aldrig bekräftas så fort efterfrågan på bitcointransaktioner är större än vad nätverket kan hantera.</translation>
+    </message>
+    <message>
+        <source>A too low fee might result in a never confirming transaction (read the tooltip)</source>
+        <translation>En alltför låg avgift kan leda till att en transaktion aldrig bekräfta (läs knappbeskrivningen)</translation>
     </message>
     <message>
         <source>Confirmation time target:</source>
@@ -2323,10 +2379,6 @@ Notera: Då avgiften beräknas per byte kommer en avgift på 50 satoshi tas ut f
         <source>Payment request expired.</source>
         <translation>Betalningsbegäran löpte ut.</translation>
     </message>
-    <message>
-        <source>Pay only the required fee of %1</source>
-        <translation>Betala endast den nödvändiga avgiften på %1</translation>
-    </message>
     <message numerus="yes">
         <source>Estimated to begin confirmation within %n block(s).</source>
         <translation><numerusform>Uppskattas till att påbörja bekräftelse inom %n block.</numerusform><numerusform>Uppskattas till att påbörja bekräftelse inom %n block.</numerusform></translation>
@@ -2345,7 +2397,7 @@ Notera: Då avgiften beräknas per byte kommer en avgift på 50 satoshi tas ut f
     </message>
     <message>
         <source>The address you selected for change is not part of this wallet. Any or all funds in your wallet may be sent to this address. Are you sure?</source>
-        <translation>Den adress du valt för växel ingår inte i denna plånbok. Några eller alla pengar i din plånbok kan komma att skickas till den här adressen. Är du säker?</translation>
+        <translation>Den adress du valt för växel ingår inte i denna plånbok. Eventuella eller alla pengar i din plånbok kan komma att skickas till den här adressen. Är du säker?</translation>
     </message>
     <message>
         <source>(no label)</source>
@@ -3062,6 +3114,21 @@ Notera: Då avgiften beräknas per byte kommer en avgift på 50 satoshi tas ut f
     </message>
 </context>
 <context>
+    <name>WalletController</name>
+    <message>
+        <source>Close wallet</source>
+        <translation>Stäng plånboken</translation>
+    </message>
+    <message>
+        <source>Are you sure you wish to close wallet &lt;i&gt;%1&lt;/i&gt;?</source>
+        <translation>Är det säkert att du vill stänga plånboken &lt;i&gt;%1&lt;/i&gt;?</translation>
+    </message>
+    <message>
+        <source>Closing the wallet for too long can result in having to resync the entire chain if pruning is enabled.</source>
+        <translation>Om plånboken är stängd under för lång tid kan hela kedjan behöva synkroniseras om, om gallring är aktiverad.</translation>
+    </message>
+</context>
+<context>
     <name>WalletFrame</name>
     <message>
         <source>No wallet has been loaded.</source>
@@ -3109,6 +3176,10 @@ Notera: Då avgiften beräknas per byte kommer en avgift på 50 satoshi tas ut f
     <message>
         <source>Could not commit transaction</source>
         <translation>Kunde inte skicka transaktion</translation>
+    </message>
+    <message>
+        <source>default wallet</source>
+        <translation>Standardplånbok</translation>
     </message>
 </context>
 <context>
@@ -3158,15 +3229,15 @@ Notera: Då avgiften beräknas per byte kommer en avgift på 50 satoshi tas ut f
     </message>
     <message>
         <source>Prune configured below the minimum of %d MiB.  Please use a higher number.</source>
-        <translation>Beskärning konfigurerad under miniminivån %d MiB. Använd ett högre värde.</translation>
+        <translation>Gallring konfigurerad under miniminivån %d MiB. Använd ett högre värde.</translation>
     </message>
     <message>
         <source>Prune: last wallet synchronisation goes beyond pruned data. You need to -reindex (download the whole blockchain again in case of pruned node)</source>
-        <translation>Beskärning: senaste plånbokssynkroniseringen ligger utanför beskurna data. Du måste använda -reindex (ladda ner hela blockkedjan igen eftersom noden beskurits)</translation>
+        <translation>Gallring: senaste plånbokssynkroniseringen ligger utanför gallrade data. Du måste använda -reindex (ladda ner hela blockkedjan igen om noden gallrats)</translation>
     </message>
     <message>
         <source>Rescans are not possible in pruned mode. You will need to use -reindex which will download the whole blockchain again.</source>
-        <translation>Omskanningar kan inte göras i beskuret läge. Du måste använda -reindex vilket kommer ladda ner hela blockkedjan igen.</translation>
+        <translation>Omskanningar kan inte göras i gallrat läge. Du måste använda -reindex vilket kommer ladda ner hela blockkedjan igen.</translation>
     </message>
     <message>
         <source>Error: A fatal internal error occurred, see debug.log for details</source>
@@ -3174,7 +3245,7 @@ Notera: Då avgiften beräknas per byte kommer en avgift på 50 satoshi tas ut f
     </message>
     <message>
         <source>Pruning blockstore...</source>
-        <translation>Rensar blockstore...</translation>
+        <translation>Gallrar blockstore...</translation>
     </message>
     <message>
         <source>Unable to start HTTP server. See debug log for details.</source>
@@ -3189,6 +3260,10 @@ Notera: Då avgiften beräknas per byte kommer en avgift på 50 satoshi tas ut f
         <translation>%s-utvecklarna</translation>
     </message>
     <message>
+        <source>Can't generate a change-address key. No keys in the internal keypool and can't generate any keys.</source>
+        <translation>Det går inte att skapa en nyckel för växel-adress. Det finns inga nycklar i den interna nyckelpoolen och det går inte att skapa några nycklar.</translation>
+    </message>
+    <message>
         <source>Cannot obtain a lock on data directory %s. %s is probably already running.</source>
         <translation>Kan inte låsa datakatalogen %s. %s körs förmodligen redan.</translation>
     </message>
@@ -3199,10 +3274,6 @@ Notera: Då avgiften beräknas per byte kommer en avgift på 50 satoshi tas ut f
     <message>
         <source>Error reading %s! All keys read correctly, but transaction data or address book entries might be missing or incorrect.</source>
         <translation>Fel vid läsning av %s! Alla nycklar lästes korrekt, men transaktionsdata eller poster i adressboken kanske saknas eller är felaktiga.</translation>
-    </message>
-    <message>
-        <source>Group outputs by address, selecting all or none, instead of selecting on a per-output basis. Privacy is improved as an address is only used once (unless someone sends to it after spending from it), but may result in slightly higher fees as suboptimal coin selection may result due to the added limitation (default: %u)</source>
-        <translation>Gruppera utgående transaktioner med adress, där samtliga eller inga används, istället för att välja vid varje utgående transaktion. Detta ökar din integritet genom att en adress enbart används en gång (om inte någon skickar till den efteråt), men kan öka dina utgifter då valet av ingående transaktioner görs suboptimalt (standardvärde: %u)</translation>
     </message>
     <message>
         <source>Please check that your computer's date and time are correct! If your clock is wrong, %s will not work properly.</source>
@@ -3234,7 +3305,7 @@ Notera: Då avgiften beräknas per byte kommer en avgift på 50 satoshi tas ut f
     </message>
     <message>
         <source>Warning: The network does not appear to fully agree! Some miners appear to be experiencing issues.</source>
-        <translation>Varning: Nätverket verkar inte vara helt överens! Några brytare verkar ha problem.</translation>
+        <translation>Varning: Nätverket verkar inte vara helt överens! Några brytare tycks ha problem.</translation>
     </message>
     <message>
         <source>Warning: We do not appear to fully agree with our peers! You may need to upgrade, or other nodes may need to upgrade.</source>
@@ -3261,6 +3332,10 @@ Notera: Då avgiften beräknas per byte kommer en avgift på 50 satoshi tas ut f
         <translation>Förändringsindexet utanför tillåtet intervall</translation>
     </message>
     <message>
+        <source>Config setting for %s only applied on %s network when in [%s] section.</source>
+        <translation>Konfigurationsinställningar för %s tillämpas bara på nätverket %s när de är i avsnitt [%s].</translation>
+    </message>
+    <message>
         <source>Copyright (C) %i-%i</source>
         <translation>Copyright (C) %i-%i</translation>
     </message>
@@ -3271,10 +3346,6 @@ Notera: Då avgiften beräknas per byte kommer en avgift på 50 satoshi tas ut f
     <message>
         <source>Do you want to rebuild the block database now?</source>
         <translation>Vill du bygga om blockdatabasen nu?</translation>
-    </message>
-    <message>
-        <source>Error creating %s: You can't create non-HD wallets with this version.</source>
-        <translation>Fel vid skapande av %s: Det är inte möjligt att skapa icke-HD plånböcker med denna version.</translation>
     </message>
     <message>
         <source>Error initializing block database</source>
@@ -3310,7 +3381,7 @@ Notera: Då avgiften beräknas per byte kommer en avgift på 50 satoshi tas ut f
     </message>
     <message>
         <source>Error: Disk space is low!</source>
-        <translation>Fel: Hårddiskutrymme är lågt!</translation>
+        <translation>Fel: Diskutrymme är lågt!</translation>
     </message>
     <message>
         <source>Failed to listen on any port. Use -listen=0 if you want this.</source>
@@ -3349,6 +3420,10 @@ Notera: Då avgiften beräknas per byte kommer en avgift på 50 satoshi tas ut f
         <translation>Den specificerade mappen för block "%s" existerar inte.</translation>
     </message>
     <message>
+        <source>Unable to create the PID file '%s': %s</source>
+        <translation>Det gick inte att skapa PID-filen '%s': %s</translation>
+    </message>
+    <message>
         <source>Upgrading txindex database</source>
         <translation>Uppgraderar txindex-databasen</translation>
     </message>
@@ -3366,11 +3441,11 @@ Notera: Då avgiften beräknas per byte kommer en avgift på 50 satoshi tas ut f
     </message>
     <message>
         <source>Prune cannot be configured with a negative value.</source>
-        <translation>Beskärning kan inte konfigureras med ett negativt värde.</translation>
+        <translation>Gallring kan inte konfigureras med ett negativt värde.</translation>
     </message>
     <message>
         <source>Prune mode is incompatible with -txindex.</source>
-        <translation>Beskärningsläge är inkompatibel med -txindex.</translation>
+        <translation>Gallringsläge är inkompatibelt med -txindex.</translation>
     </message>
     <message>
         <source>Replaying blocks...</source>
@@ -3395,18 +3470,6 @@ Notera: Då avgiften beräknas per byte kommer en avgift på 50 satoshi tas ut f
     <message>
         <source>Unable to generate keys</source>
         <translation>Lyckas inte generera nycklar</translation>
-    </message>
-    <message>
-        <source>Unsupported argument -benchmark ignored, use -debug=bench.</source>
-        <translation>Argumentet -benchmark stöds inte och ignoreras, använd -debug=bench.</translation>
-    </message>
-    <message>
-        <source>Unsupported argument -debugnet ignored, use -debug=net.</source>
-        <translation>Argumentet -debugnet stöds inte och ignoreras, använd -debug=net.</translation>
-    </message>
-    <message>
-        <source>Unsupported argument -tor found, use -onion.</source>
-        <translation>Argumentet -tor hittades men stöds inte, använd -onion.</translation>
     </message>
     <message>
         <source>Unsupported logging category %s=%s.</source>
@@ -3442,11 +3505,7 @@ Notera: Då avgiften beräknas per byte kommer en avgift på 50 satoshi tas ut f
     </message>
     <message>
         <source>You need to rebuild the database using -reindex to go back to unpruned mode.  This will redownload the entire blockchain</source>
-        <translation>Du måste bygga om databasen genom att använda -reindex för att återgå till obeskuret läge. Detta kommer att ladda ner hela blockkedjan på nytt.</translation>
-    </message>
-    <message>
-        <source>Error loading %s: You can't disable HD on an already existing HD wallet</source>
-        <translation>Fel vid inläsning av %s: Du kan inte inaktivera HD på en existerande HD-plånbok</translation>
+        <translation>Du måste bygga om databasen genom att använda -reindex för att återgå till ogallrat läge. Detta kommer att ladda ner hela blockkedjan på nytt.</translation>
     </message>
     <message>
         <source>Error reading from database, shutting down.</source>
@@ -3455,6 +3514,10 @@ Notera: Då avgiften beräknas per byte kommer en avgift på 50 satoshi tas ut f
     <message>
         <source>Error upgrading chainstate database</source>
         <translation>Fel vid uppgradering av blockdatabasen</translation>
+    </message>
+    <message>
+        <source>Error: Disk space is low for %s</source>
+        <translation>Fel: Diskutrymme är lågt för %s</translation>
     </message>
     <message>
         <source>Information</source>
@@ -3485,6 +3548,10 @@ Notera: Då avgiften beräknas per byte kommer en avgift på 50 satoshi tas ut f
         <translation>Minskar -maxconnections från %d till %d, på grund av systembegränsningar.</translation>
     </message>
     <message>
+        <source>Section [%s] is not recognized.</source>
+        <translation>Avsnitt [%s] känns inte igen.</translation>
+    </message>
+    <message>
         <source>Signing transaction failed</source>
         <translation>Signering av transaktion misslyckades</translation>
     </message>
@@ -3499,6 +3566,12 @@ Notera: Då avgiften beräknas per byte kommer en avgift på 50 satoshi tas ut f
     <message>
         <source>Specified -walletdir "%s" is not a directory</source>
         <translation>Angiven -walletdir "%s" är inte en katalog</translation>
+    </message>
+    <message>
+        <source>The specified config file %s does not exist
+</source>
+        <translation>Angiven konfigurationsfil %s finns inte
+</translation>
     </message>
     <message>
         <source>The transaction amount is too small to pay the fee</source>
@@ -3553,12 +3626,8 @@ Notera: Då avgiften beräknas per byte kommer en avgift på 50 satoshi tas ut f
         <translation>-maxtxfee är väldigt högt satt! Så höga avgifter kan komma att betalas för en enstaka transaktion.</translation>
     </message>
     <message>
-        <source>Error loading %s: You can't enable HD on an already existing non-HD wallet</source>
-        <translation>Fel vid inläsning av %s: Du kan inte aktivera HD på en existerande icke-HD plånbok</translation>
-    </message>
-    <message>
         <source>This is the transaction fee you may pay when fee estimates are not available.</source>
-        <translation>Detta är transaktionsavgiften du kan komma att betala när avgiftsuppskattning inte är tillgänglig.</translation>
+        <translation>Detta är transaktionsavgiften du kan komma att betala om avgiftsuppskattning inte är tillgänglig.</translation>
     </message>
     <message>
         <source>This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit %s and cryptographic software written by Eric Young and UPnP software written by Thomas Bernard.</source>
@@ -3567,18 +3636,6 @@ Notera: Då avgiften beräknas per byte kommer en avgift på 50 satoshi tas ut f
     <message>
         <source>Total length of network version string (%i) exceeds maximum length (%i). Reduce the number or size of uacomments.</source>
         <translation>Total längd på strängen för nätverksversion (%i) överskrider maxlängden (%i). Minska numret eller storleken på uacomments.</translation>
-    </message>
-    <message>
-        <source>Unsupported argument -socks found. Setting SOCKS version isn't possible anymore, only SOCKS5 proxies are supported.</source>
-        <translation>Argumentet -socks hittades och stöds inte. Det är inte längre möjligt att sätta SOCKS-version längre, bara SOCKS5-proxy stöds.</translation>
-    </message>
-    <message>
-        <source>Unsupported argument -whitelistalwaysrelay ignored, use -whitelistrelay and/or -whitelistforcerelay.</source>
-        <translation>Argumentet -whitelistalwaysrelay stöds inte utan ignoreras, använd -whitelistrelay och/eller -whitelistforcerelay.</translation>
-    </message>
-    <message>
-        <source>Warning: Unknown block versions being mined! It's possible unknown rules are in effect</source>
-        <translation>Varning: Okända blockversioner bryts! Det är möjligt att okända regler används</translation>
     </message>
     <message>
         <source>Warning: Wallet file corrupt, data salvaged! Original %s saved as %s in %s; if your balance or transactions are incorrect you should restore from a backup.</source>
@@ -3631,10 +3688,6 @@ Notera: Då avgiften beräknas per byte kommer en avgift på 50 satoshi tas ut f
     <message>
         <source>Insufficient funds</source>
         <translation>Otillräckligt med bitcoins</translation>
-    </message>
-    <message>
-        <source>Can't generate a change-address key. Private keys are disabled for this wallet.</source>
-        <translation>Kan inte generera en nyckel för växeladress. Privata nycklar är inaktiverade för denna plånbok.</translation>
     </message>
     <message>
         <source>Cannot upgrade a non HD split wallet without upgrading to support pre split keypool. Please use -upgradewallet=169900 or -upgradewallet with no version specified.</source>

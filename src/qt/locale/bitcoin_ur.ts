@@ -1,4 +1,4 @@
-<TS language="ur" version="2.1">
+<TS language="ur_PK" version="2.1">
 <context>
     <name>AddressBookPage</name>
     <message>
@@ -85,11 +85,7 @@
         <source>Exporting Failed</source>
         <translation>ایکسپورٹ ناکام ہوا</translation>
     </message>
-    <message>
-        <source>There was an error trying to save the address list to %1. Please try again.</source>
-        <translation>پتا فہرست محفوظ کرتے ہوئے %1 نقص کا سامنا ہوا۔ دوبارہ کوشش کریں۔</translation>
-    </message>
-</context>
+    </context>
 <context>
     <name>AddressTableModel</name>
     <message>
@@ -217,20 +213,12 @@
         <translation> پتہ</translation>
     </message>
     <message>
-        <source>Amount</source>
-        <translation>رقم</translation>
-    </message>
-    <message>
         <source>Label</source>
         <translation>لیبل</translation>
     </message>
     </context>
 <context>
     <name>RecentRequestsTableModel</name>
-    <message>
-        <source>Date</source>
-        <translation>تاریخ</translation>
-    </message>
     <message>
         <source>Label</source>
         <translation>لیبل</translation>
@@ -271,24 +259,12 @@
     </context>
 <context>
     <name>TransactionDesc</name>
-    <message>
-        <source>Date</source>
-        <translation>تاریخ</translation>
-    </message>
-    <message>
-        <source>Amount</source>
-        <translation>رقم</translation>
-    </message>
     </context>
 <context>
     <name>TransactionDescDialog</name>
     </context>
 <context>
     <name>TransactionTableModel</name>
-    <message>
-        <source>Date</source>
-        <translation>تاریخ</translation>
-    </message>
     <message>
         <source>Label</source>
         <translation>لیبل</translation>
@@ -299,10 +275,6 @@
     <message>
         <source>Comma separated file (*.csv)</source>
         <translation>کاما سے جدا فائلیں (*.csv)</translation>
-    </message>
-    <message>
-        <source>Date</source>
-        <translation>تاریخ</translation>
     </message>
     <message>
         <source>Label</source>
@@ -321,6 +293,9 @@
     <name>UnitDisplayStatusBarControl</name>
     </context>
 <context>
+    <name>WalletController</name>
+    </context>
+<context>
     <name>WalletFrame</name>
     </context>
 <context>
@@ -328,14 +303,6 @@
     </context>
 <context>
     <name>WalletView</name>
-    <message>
-        <source>&amp;Export</source>
-        <translation>برآمد</translation>
-    </message>
-    <message>
-        <source>Export the data in the current tab to a file</source>
-        <translation>موجودہ ڈیٹا کو فائیل میں محفوظ کریں</translation>
-    </message>
     </context>
 <context>
     <name>bitcoin-core</name>

@@ -19,11 +19,7 @@
     </message>
     <message>
         <source>&amp;Copy</source>
-        <translation>&amp;复制</translation>
-    </message>
-    <message>
-        <source>C&amp;lose</source>
-        <translation>关&amp;闭</translation>
+        <translation>复制(&amp;C)</translation>
     </message>
     <message>
         <source>Delete the currently selected address from the list</source>
@@ -38,24 +34,8 @@
         <translation>将当前选项卡中的数据导出到文件</translation>
     </message>
     <message>
-        <source>&amp;Export</source>
-        <translation>&amp;导出</translation>
-    </message>
-    <message>
-        <source>&amp;Delete</source>
-        <translation>&amp;删除</translation>
-    </message>
-    <message>
         <source>Choose the address to send coins to</source>
         <translation>选择想要发送币的地址</translation>
-    </message>
-    <message>
-        <source>Choose the address to receive coins with</source>
-        <translation>选择接收币的地址</translation>
-    </message>
-    <message>
-        <source>C&amp;hoose</source>
-        <translation>选&amp;择</translation>
     </message>
     <message>
         <source>Sending addresses</source>
@@ -72,18 +52,6 @@
     <message>
         <source>These are your Bitcoin addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
         <translation>这些是您的比特币接收地址。建议每个交易使用一个新的接收地址。</translation>
-    </message>
-    <message>
-        <source>&amp;Copy Address</source>
-        <translation>&amp;复制地址</translation>
-    </message>
-    <message>
-        <source>Copy &amp;Label</source>
-        <translation>复制 &amp;标记</translation>
-    </message>
-    <message>
-        <source>&amp;Edit</source>
-        <translation>&amp;编辑</translation>
     </message>
     <message>
         <source>Export Address List</source>
@@ -188,6 +156,10 @@
         <translation>加密钱包</translation>
     </message>
     <message>
+        <source>Your wallet is now encrypted. Remember that encrypting your wallet cannot fully protect your bitcoins from being stolen by malware infecting your computer.</source>
+        <translation>您的钱包现在加密了。记住，加密您的钱包并不能完全保护您的比特币不被恶意软件窃取。</translation>
+    </message>
+    <message>
         <source>IMPORTANT: Any previous backups you have made of your wallet file should be replaced with the newly generated, encrypted wallet file. For security reasons, previous backups of the unencrypted wallet file will become useless as soon as you start using the new, encrypted wallet.</source>
         <translation>重要提示：您以前对钱包文件所做的任何备份都应该替换为新的加密钱包文件。出于安全原因，一旦您开始使用新的加密钱包，以前未加密钱包文件备份将变得无用。</translation>
     </message>
@@ -230,11 +202,7 @@
         <source>IP/Netmask</source>
         <translation>IP/子网掩码</translation>
     </message>
-    <message>
-        <source>Banned Until</source>
-        <translation>禁止到</translation>
-    </message>
-</context>
+    </context>
 <context>
     <name>BitcoinGUI</name>
     <message>
@@ -246,14 +214,6 @@
         <translation>与网络同步...</translation>
     </message>
     <message>
-        <source>&amp;Overview</source>
-        <translation>&amp;概述</translation>
-    </message>
-    <message>
-        <source>Show general overview of wallet</source>
-        <translation>显示钱包的一般概述</translation>
-    </message>
-    <message>
         <source>&amp;Transactions</source>
         <translation>&amp;交易</translation>
     </message>
@@ -262,32 +222,8 @@
         <translation>浏览交易历史</translation>
     </message>
     <message>
-        <source>E&amp;xit</source>
-        <translation>退&amp;出</translation>
-    </message>
-    <message>
         <source>Quit application</source>
         <translation>退出应用</translation>
-    </message>
-    <message>
-        <source>&amp;About %1</source>
-        <translation>&amp;关于 %1</translation>
-    </message>
-    <message>
-        <source>Show information about %1</source>
-        <translation>显示关于%1的信息</translation>
-    </message>
-    <message>
-        <source>About &amp;Qt</source>
-        <translation>关于 &amp;Qt</translation>
-    </message>
-    <message>
-        <source>Show information about Qt</source>
-        <translation>显示关于 Qt 的信息</translation>
-    </message>
-    <message>
-        <source>&amp;Options...</source>
-        <translation>&amp;选项</translation>
     </message>
     <message>
         <source>&amp;Encrypt Wallet...</source>
@@ -302,16 +238,8 @@
         <translation>&amp;修改密码...</translation>
     </message>
     <message>
-        <source>Open &amp;URI...</source>
-        <translation>打开 &amp;URI</translation>
-    </message>
-    <message>
         <source>Wallet:</source>
         <translation>钱包：</translation>
-    </message>
-    <message>
-        <source>default wallet</source>
-        <translation>默认钱包</translation>
     </message>
     <message>
         <source>Click to disable network activity.</source>
@@ -319,7 +247,7 @@
     </message>
     <message>
         <source>Network activity disabled.</source>
-        <translation>禁用网络活动</translation>
+        <translation>禁用网络活动。</translation>
     </message>
     <message>
         <source>Click to enable network activity again.</source>
@@ -328,10 +256,6 @@
     <message>
         <source>Syncing Headers (%1%)...</source>
         <translation>正在同步Headers (%1%)...</translation>
-    </message>
-    <message>
-        <source>Reindexing blocks on disk...</source>
-        <translation>重新索引磁盘上的区块...</translation>
     </message>
     <message>
         <source>Proxy is &lt;b&gt;enabled&lt;/b&gt;: %1</source>
@@ -387,7 +311,7 @@
     </message>
     <message>
         <source>Sign messages with your Bitcoin addresses to prove you own them</source>
-        <translation>用您的比特币地址签署信息，以证明拥有它们</translation>
+        <translation>用您的比特币地址签名信息，以证明拥有它们</translation>
     </message>
     <message>
         <source>Verify messages to ensure they were signed with specified Bitcoin addresses</source>
@@ -422,20 +346,12 @@
         <translation>显示使用接收的地址或标签的列表</translation>
     </message>
     <message>
-        <source>Open a bitcoin: URI or payment request</source>
-        <translation>打开比特币: URI 或者支付请求</translation>
-    </message>
-    <message>
         <source>&amp;Command-line options</source>
         <translation>&amp;命令行选项</translation>
     </message>
-    <message>
-        <source>Indexing blocks on disk...</source>
-        <translation>索引磁盘上的区块...</translation>
-    </message>
-    <message>
-        <source>Processing blocks on disk...</source>
-        <translation>处理磁盘上的区块...</translation>
+    <message numerus="yes">
+        <source>%n active connection(s) to Bitcoin network</source>
+        <translation><numerusform>%n 活动的比特币网络连接</numerusform></translation>
     </message>
     <message>
         <source>%1 behind</source>
@@ -466,52 +382,44 @@
         <translation>最新的</translation>
     </message>
     <message>
-        <source>Show the %1 help message to get a list with possible Bitcoin command-line options</source>
-        <translation>显示%1帮助消息以获得包含包含Bitcoin命令行选项的列表</translation>
+        <source>&amp;Sending addresses</source>
+        <translation>&amp;发送地址</translation>
     </message>
     <message>
-        <source>%1 client</source>
-        <translation>%1 客户端</translation>
+        <source>&amp;Receiving addresses</source>
+        <translation>&amp;接受地址</translation>
+    </message>
+    <message>
+        <source>Show the %1 help message to get a list with possible Bitcoin command-line options</source>
+        <translation>显示%1帮助消息以获得可能包含Bitcoin命令行选项的列表</translation>
+    </message>
+    <message>
+        <source>Open Wallet Failed</source>
+        <translation>打开钱包失败</translation>
+    </message>
+    <message>
+        <source>&amp;Window</source>
+        <translation>&amp;窗口</translation>
+    </message>
+    <message>
+        <source>Minimize</source>
+        <translation>最小化</translation>
+    </message>
+    <message>
+        <source>Zoom</source>
+        <translation>缩放</translation>
+    </message>
+    <message>
+        <source>Restore</source>
+        <translation>恢复</translation>
+    </message>
+    <message>
+        <source>Main Window</source>
+        <translation>主窗口</translation>
     </message>
     <message>
         <source>Connecting to peers...</source>
         <translation>连接到节点...</translation>
-    </message>
-    <message>
-        <source>Date: %1
-</source>
-        <translation>日期：%1
-</translation>
-    </message>
-    <message>
-        <source>Amount: %1
-</source>
-        <translation>金额：%1
-</translation>
-    </message>
-    <message>
-        <source>Wallet: %1
-</source>
-        <translation>钱包：%1
-</translation>
-    </message>
-    <message>
-        <source>Type: %1
-</source>
-        <translation>类型：%1
-</translation>
-    </message>
-    <message>
-        <source>Label: %1
-</source>
-        <translation>标签：%1
-</translation>
-    </message>
-    <message>
-        <source>Address: %1
-</source>
-        <translation>地址：%1
-</translation>
     </message>
     <message>
         <source>Sent transaction</source>
@@ -528,6 +436,10 @@
     <message>
         <source>HD key generation is &lt;b&gt;disabled&lt;/b&gt;</source>
         <translation>HD密钥生成 &lt;b&gt;被禁止&lt;/b&gt;</translation>
+    </message>
+    <message>
+        <source>Private key &lt;b&gt;disabled&lt;/b&gt;</source>
+        <translation>私钥&lt;b&gt;被禁止&lt;/b&gt;</translation>
     </message>
     <message>
         <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;unlocked&lt;/b&gt;</source>
@@ -569,30 +481,6 @@
         <translation>粉尘：</translation>
     </message>
     <message>
-        <source>After Fee:</source>
-        <translation>扣除费用后：</translation>
-    </message>
-    <message>
-        <source>Change:</source>
-        <translation>变化：</translation>
-    </message>
-    <message>
-        <source>(un)select all</source>
-        <translation>(未)选择所有</translation>
-    </message>
-    <message>
-        <source>Tree mode</source>
-        <translation>树模式</translation>
-    </message>
-    <message>
-        <source>List mode</source>
-        <translation>列表模式</translation>
-    </message>
-    <message>
-        <source>Amount</source>
-        <translation>总计</translation>
-    </message>
-    <message>
         <source>Date</source>
         <translation>日期</translation>
     </message>
@@ -605,66 +493,12 @@
         <translation>确认</translation>
     </message>
     <message>
-        <source>Copy address</source>
-        <translation>复制地址</translation>
-    </message>
-    <message>
-        <source>Copy label</source>
-        <translation>复制标签</translation>
-    </message>
-    <message>
-        <source>Copy amount</source>
-        <translation>复制金额</translation>
-    </message>
-    <message>
-        <source>Copy transaction ID</source>
-        <translation>复制交易 ID</translation>
-    </message>
-    <message>
         <source>Lock unspent</source>
         <translation>锁定未消费的</translation>
     </message>
     <message>
-        <source>Unlock unspent</source>
-        <translation>解锁未消费</translation>
-    </message>
-    <message>
-        <source>Copy quantity</source>
-        <translation>复制数量</translation>
-    </message>
-    <message>
-        <source>Copy fee</source>
-        <translation>复制费用</translation>
-    </message>
-    <message>
-        <source>Copy after fee</source>
-        <translation>复制扣除费用</translation>
-    </message>
-    <message>
-        <source>Copy bytes</source>
-        <translation>复制字节</translation>
-    </message>
-    <message>
-        <source>Copy change</source>
-        <translation>复制改变</translation>
-    </message>
-    <message>
-        <source>(%1 locked)</source>
-        <translation>(%1 锁住)</translation>
-    </message>
-    <message>
-        <source>yes</source>
-        <translation>是的</translation>
-    </message>
-    <message>
-        <source>no</source>
-        <translation>否</translation>
-    </message>
-    <message>
         <source>This label turns red if any recipient receives an amount smaller than the current dust threshold.</source>
-        <translation>This label turns red if any recipient receives an amount smaller than the current dust threshold.
-
-如果任何接收方接收到的金额小于当前粉尘交易的阈值，则此标签将变为红色。</translation>
+        <translation>如果任何接收方接收到的金额小于当前粉尘交易的阈值，则此标签将变为红色。</translation>
     </message>
     <message>
         <source>Can vary +/- %1 satoshi(s) per input.</source>
@@ -678,14 +512,6 @@
 <context>
     <name>EditAddressDialog</name>
     <message>
-        <source>Edit Address</source>
-        <translation>编辑地址</translation>
-    </message>
-    <message>
-        <source>&amp;Label</source>
-        <translation>&amp;标签</translation>
-    </message>
-    <message>
         <source>The label associated with this address list entry</source>
         <translation>与此地址列表关联的标签</translation>
     </message>
@@ -694,101 +520,25 @@
         <translation>与此地址列表项关联的地址。只能修改为发送地址。</translation>
     </message>
     <message>
-        <source>&amp;Address</source>
-        <translation>&amp;地址</translation>
-    </message>
-    <message>
-        <source>New sending address</source>
-        <translation>新的发送地址</translation>
-    </message>
-    <message>
-        <source>Edit receiving address</source>
-        <translation>编辑接收地址</translation>
-    </message>
-    <message>
-        <source>Edit sending address</source>
-        <translation>编辑发送地址</translation>
-    </message>
-    <message>
         <source>The entered address "%1" is not a valid Bitcoin address.</source>
         <translation>输入的地址"%1"不是有效的比特币地址。</translation>
-    </message>
-    <message>
-        <source>Address "%1" already exists as a receiving address with label "%2" and so cannot be added as a sending address.</source>
-        <translation>地址“%1”作为标签为“%2”的接收地址已存在，无法新增为发送地址。</translation>
-    </message>
-    <message>
-        <source>The entered address "%1" is already in the address book with label "%2".</source>
-        <translation>输入的地址“%1”在标签为“%2”的地址簿中已存在</translation>
     </message>
     <message>
         <source>Could not unlock wallet.</source>
         <translation>不能解锁钱包</translation>
     </message>
-    <message>
-        <source>New key generation failed.</source>
-        <translation>新的密钥生成失败</translation>
-    </message>
-</context>
+    </context>
 <context>
     <name>FreespaceChecker</name>
-    <message>
-        <source>A new data directory will be created.</source>
-        <translation>新的数据目录将创建</translation>
-    </message>
-    <message>
-        <source>name</source>
-        <translation>名称</translation>
-    </message>
-    <message>
-        <source>Directory already exists. Add %1 if you intend to create a new directory here.</source>
-        <translation>目录已存在。如果你打算在此创建新目录，添加 %1。</translation>
-    </message>
-    <message>
-        <source>Path already exists, and is not a directory.</source>
-        <translation>路径已存在，并未目录。</translation>
-    </message>
-    <message>
-        <source>Cannot create data directory here.</source>
-        <translation>无法在此创建数据目录。</translation>
-    </message>
-</context>
+    </context>
 <context>
     <name>HelpMessageDialog</name>
-    <message>
-        <source>version</source>
-        <translation>版本</translation>
-    </message>
-    <message>
-        <source>(%1-bit)</source>
-        <translation>(%1-比特)</translation>
-    </message>
-    <message>
-        <source>About %1</source>
-        <translation>关于 %1</translation>
-    </message>
-    <message>
-        <source>Command-line options</source>
-        <translation>命令行选项</translation>
-    </message>
-</context>
+    </context>
 <context>
     <name>Intro</name>
     <message>
-        <source>Welcome</source>
-        <translation>欢迎</translation>
-    </message>
-    <message>
-        <source>Welcome to %1.</source>
-        <translation>欢迎到 %1。</translation>
-    </message>
-    <message>
         <source>Use the default data directory</source>
         <translation>使用默认的数据目录</translation>
-    </message>
-    <message>
-        <source>Use a custom data directory:</source>
-        <translation>使用自定数据目录</translation>
     </message>
     <message>
         <source>Bitcoin</source>
@@ -802,119 +552,19 @@
 <context>
     <name>ModalOverlay</name>
     <message>
-        <source>Form</source>
-        <translation>表格</translation>
-    </message>
-    <message>
         <source>Unknown...</source>
         <translation>未知...</translation>
-    </message>
-    <message>
-        <source>Last block time</source>
-        <translation>最后的区块时间</translation>
-    </message>
-    <message>
-        <source>calculating...</source>
-        <translation>计算中...</translation>
     </message>
     <message>
         <source>Estimated time left until synced</source>
         <translation>估计的同步剩余时间</translation>
     </message>
-    <message>
-        <source>Hide</source>
-        <translation>隐藏</translation>
-    </message>
     </context>
 <context>
     <name>OpenURIDialog</name>
-    <message>
-        <source>Open URI</source>
-        <translation>打开 URI</translation>
-    </message>
-    <message>
-        <source>Open payment request from URI or file</source>
-        <translation>从 URI 或文件打开支付请求</translation>
-    </message>
-    <message>
-        <source>URI:</source>
-        <translation>URI: </translation>
-    </message>
-    <message>
-        <source>Select payment request file</source>
-        <translation>选择支付请求文件</translation>
-    </message>
-    <message>
-        <source>Select payment request file to open</source>
-        <translation>选择支付请求文件打开</translation>
-    </message>
-</context>
+    </context>
 <context>
     <name>OptionsDialog</name>
-    <message>
-        <source>Options</source>
-        <translation>选项</translation>
-    </message>
-    <message>
-        <source>&amp;Main</source>
-        <translation>&amp;主要</translation>
-    </message>
-    <message>
-        <source>Automatically start %1 after logging in to the system.</source>
-        <translation>登录系统后自动开始 %1</translation>
-    </message>
-    <message>
-        <source>Size of &amp;database cache</source>
-        <translation>&amp;数据库缓存的大小</translation>
-    </message>
-    <message>
-        <source>Number of script &amp;verification threads</source>
-        <translation>脚本 &amp;验证线程的数量</translation>
-    </message>
-    <message>
-        <source>Hide the icon from the system tray.</source>
-        <translation>从系统托盘中隐藏图标</translation>
-    </message>
-    <message>
-        <source>&amp;Hide tray icon</source>
-        <translation>&amp;隐藏托盘图标</translation>
-    </message>
-    <message>
-        <source>Open Configuration File</source>
-        <translation>打开配置文件</translation>
-    </message>
-    <message>
-        <source>Reset all client options to default.</source>
-        <translation>重置所有客户端选项为默认</translation>
-    </message>
-    <message>
-        <source>&amp;Reset Options</source>
-        <translation>&amp;重置选项</translation>
-    </message>
-    <message>
-        <source>&amp;Network</source>
-        <translation>&amp;网络</translation>
-    </message>
-    <message>
-        <source>W&amp;allet</source>
-        <translation>钱&amp;包</translation>
-    </message>
-    <message>
-        <source>Expert</source>
-        <translation>专家</translation>
-    </message>
-    <message>
-        <source>&amp;Connect through SOCKS5 proxy (default proxy):</source>
-        <translation>&amp;通过 SOCKS5 代理连接（默认代理）</translation>
-    </message>
-    <message>
-        <source>Proxy &amp;IP:</source>
-        <translation>代理 &amp;IP：</translation>
-    </message>
-    <message>
-        <source>&amp;Port:</source>
-        <translation>&amp;端口</translation>
-    </message>
     <message>
         <source>&amp;Window</source>
         <translation>&amp;窗口</translation>
@@ -926,10 +576,6 @@
     </context>
 <context>
     <name>OverviewPage</name>
-    <message>
-        <source>Form</source>
-        <translation>表格</translation>
-    </message>
     </context>
 <context>
     <name>PaymentServer</name>
@@ -943,10 +589,6 @@
     </context>
 <context>
     <name>QObject</name>
-    <message>
-        <source>Amount</source>
-        <translation>总计</translation>
-    </message>
     </context>
 <context>
     <name>QObject::QObject</name>
@@ -956,67 +598,15 @@
     </context>
 <context>
     <name>RPCConsole</name>
-    <message>
-        <source>Last block time</source>
-        <translation>最后的区块时间</translation>
-    </message>
-    <message>
-        <source>1 &amp;hour</source>
-        <translation>1 &amp;小时</translation>
-    </message>
-    <message>
-        <source>1 &amp;day</source>
-        <translation>1 &amp;天</translation>
-    </message>
-    <message>
-        <source>1 &amp;week</source>
-        <translation>1 &amp;周</translation>
-    </message>
-    <message>
-        <source>1 &amp;year</source>
-        <translation>1 &amp;年</translation>
-    </message>
-    <message>
-        <source>&amp;Disconnect</source>
-        <translation>&amp;断开连接</translation>
-    </message>
-    <message>
-        <source>default wallet</source>
-        <translation>默认钱包</translation>
-    </message>
     </context>
 <context>
     <name>ReceiveCoinsDialog</name>
-    <message>
-        <source>&amp;Amount:</source>
-        <translation>&amp;总计：</translation>
-    </message>
-    <message>
-        <source>&amp;Label:</source>
-        <translation>&amp;标签：</translation>
-    </message>
-    <message>
-        <source>&amp;Message:</source>
-        <translation>&amp;消息：</translation>
-    </message>
-    <message>
-        <source>Copy label</source>
-        <translation>复制标签</translation>
-    </message>
-    <message>
-        <source>Copy amount</source>
-        <translation>复制金额</translation>
-    </message>
-</context>
+    </context>
 <context>
     <name>ReceiveRequestDialog</name>
     <message>
         <source>Address</source>
         <translation>地址</translation>
-    </message>
-    <message>
-        <source>Amount</source>
-        <translation>总计</translation>
     </message>
     <message>
         <source>Label</source>
@@ -1061,14 +651,6 @@
         <translation>手续费：</translation>
     </message>
     <message>
-        <source>After Fee:</source>
-        <translation>扣除费用后：</translation>
-    </message>
-    <message>
-        <source>Change:</source>
-        <translation>变化：</translation>
-    </message>
-    <message>
         <source>Choose...</source>
         <translation>选择...</translation>
     </message>
@@ -1084,10 +666,6 @@ Note:  Since the fee is calculated on a per-byte basis, a fee of "100 satoshis p
 注意:由于费用是按字节计算的，对于大小为500字节(1 kB的一半)的交易，“每kB 100 satoshis”的费用最终只会产生50 satoshis的费用。</translation>
     </message>
     <message>
-        <source>Hide</source>
-        <translation>隐藏</translation>
-    </message>
-    <message>
         <source>Send to multiple recipients at once</source>
         <translation>一次发送到多个接收</translation>
     </message>
@@ -1096,36 +674,20 @@ Note:  Since the fee is calculated on a per-byte basis, a fee of "100 satoshis p
         <translation>粉尘：</translation>
     </message>
     <message>
+        <source>When there is less transaction volume than space in the blocks, miners as well as relaying nodes may enforce a minimum fee. Paying only this minimum fee is just fine, but be aware that this can result in a never confirming transaction once there is more demand for bitcoin transactions than the network can process.</source>
+        <translation>当交易量小于块的空间时，矿工和中继节点可以强制执行最低费用。只付最低费用就可以了，但注意，一旦比特币交易的需求超出网络的处理能力，就可能导致交易无法确认。</translation>
+    </message>
+    <message>
+        <source>A too low fee might result in a never confirming transaction (read the tooltip)</source>
+        <translation>太低的费用可能导致永远无法确认交易(阅读工具提示)</translation>
+    </message>
+    <message>
         <source>Confirmation time target:</source>
         <translation>目标确认时间：</translation>
     </message>
     <message>
         <source>With Replace-By-Fee (BIP-125) you can increase a transaction's fee after it is sent. Without this, a higher fee may be recommended to compensate for increased transaction delay risk.</source>
         <translation>通过 Replace-By-Fee (BIP-125) 您可以在交易发送后增加交易费用。没有这个，可能会建议收取更高的费用，以补偿交易延迟风险的增加。</translation>
-    </message>
-    <message>
-        <source>Copy quantity</source>
-        <translation>复制数量</translation>
-    </message>
-    <message>
-        <source>Copy amount</source>
-        <translation>复制金额</translation>
-    </message>
-    <message>
-        <source>Copy fee</source>
-        <translation>复制费用</translation>
-    </message>
-    <message>
-        <source>Copy after fee</source>
-        <translation>复制扣除费用</translation>
-    </message>
-    <message>
-        <source>Copy bytes</source>
-        <translation>复制字节</translation>
-    </message>
-    <message>
-        <source>Copy change</source>
-        <translation>复制改变</translation>
     </message>
     <message>
         <source>Are you sure you want to send?</source>
@@ -1149,7 +711,7 @@ Note:  Since the fee is calculated on a per-byte basis, a fee of "100 satoshis p
     </message>
     <message>
         <source>The amount to pay must be larger than 0.</source>
-        <translation>支付的金额必须大于0。</translation>
+        <translation>支付的总额必须大于0。</translation>
     </message>
     <message>
         <source>The amount exceeds your balance.</source>
@@ -1179,9 +741,9 @@ Note:  Since the fee is calculated on a per-byte basis, a fee of "100 satoshis p
         <source>Payment request expired.</source>
         <translation>支付请求已过期。</translation>
     </message>
-    <message>
-        <source>Pay only the required fee of %1</source>
-        <translation>仅支付全额的%1</translation>
+    <message numerus="yes">
+        <source>Estimated to begin confirmation within %n block(s).</source>
+        <translation><numerusform>估计在%n块内确认。</numerusform></translation>
     </message>
     <message>
         <source>Warning: Invalid Bitcoin address</source>
@@ -1198,10 +760,6 @@ Note:  Since the fee is calculated on a per-byte basis, a fee of "100 satoshis p
 </context>
 <context>
     <name>SendCoinsEntry</name>
-    <message>
-        <source>&amp;Label:</source>
-        <translation>&amp;标签：</translation>
-    </message>
     <message>
         <source>Choose previously used address</source>
         <translation>选择以前使用的地址</translation>
@@ -1264,10 +822,6 @@ Note:  Since the fee is calculated on a per-byte basis, a fee of "100 satoshis p
         <source>Transaction fee</source>
         <translation>手续费</translation>
     </message>
-    <message>
-        <source>Amount</source>
-        <translation>总计</translation>
-    </message>
     </context>
 <context>
     <name>TransactionDescDialog</name>
@@ -1289,22 +843,6 @@ Note:  Since the fee is calculated on a per-byte basis, a fee of "100 satoshis p
     </context>
 <context>
     <name>TransactionView</name>
-    <message>
-        <source>Copy address</source>
-        <translation>复制地址</translation>
-    </message>
-    <message>
-        <source>Copy label</source>
-        <translation>复制标签</translation>
-    </message>
-    <message>
-        <source>Copy amount</source>
-        <translation>复制金额</translation>
-    </message>
-    <message>
-        <source>Copy transaction ID</source>
-        <translation>复制交易 ID</translation>
-    </message>
     <message>
         <source>Comma separated file (*.csv)</source>
         <translation>csv文件</translation>
@@ -1334,6 +872,9 @@ Note:  Since the fee is calculated on a per-byte basis, a fee of "100 satoshis p
     <name>UnitDisplayStatusBarControl</name>
     </context>
 <context>
+    <name>WalletController</name>
+    </context>
+<context>
     <name>WalletFrame</name>
     </context>
 <context>
@@ -1341,10 +882,6 @@ Note:  Since the fee is calculated on a per-byte basis, a fee of "100 satoshis p
     </context>
 <context>
     <name>WalletView</name>
-    <message>
-        <source>&amp;Export</source>
-        <translation>&amp;导出</translation>
-    </message>
     <message>
         <source>Export the data in the current tab to a file</source>
         <translation>将当前选项卡中的数据导出到文件</translation>
