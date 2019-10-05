@@ -200,6 +200,14 @@
         <translation>საფულის დაშიფვრა წარუმატებით დამთვრდა</translation>
     </message>
     <message>
+        <source>Wallet encryption failed due to an internal error. Your wallet was not encrypted.</source>
+        <translation>საფულის დაშიფრვა ვერ მოხდა შიდა შეცდომის გამო. თქვენი საფულე არ არის დაშიფრული.</translation>
+    </message>
+    <message>
+        <source>The supplied passphrases do not match.</source>
+        <translation>მოწოდებული ფრაზა-პაროლები არ ემთხვევა ერთმანეთს.</translation>
+    </message>
+    <message>
         <source>Wallet unlock failed</source>
         <translation>საფულის გახსნა წარუმატებლად შესრულდა</translation>
     </message>
@@ -995,6 +1003,10 @@
     </context>
 <context>
     <name>QRImageWidget</name>
+    <message>
+        <source>&amp;Save Image...</source>
+        <translation>გამო&amp;სახულების შენახვა...</translation>
+    </message>
     </context>
 <context>
     <name>RPCConsole</name>
@@ -1177,6 +1189,10 @@
         <translation>მისამართი</translation>
     </message>
     <message>
+        <source>Amount</source>
+        <translation>თანხა</translation>
+    </message>
+    <message>
         <source>Label</source>
         <translation>ნიშნული</translation>
     </message>
@@ -1187,6 +1203,10 @@
     </context>
 <context>
     <name>RecentRequestsTableModel</name>
+    <message>
+        <source>Date</source>
+        <translation>თარიღი</translation>
+    </message>
     <message>
         <source>Label</source>
         <translation>ნიშნული</translation>
@@ -1459,6 +1479,22 @@
 </context>
 <context>
     <name>TransactionDesc</name>
+    <message>
+        <source>Date</source>
+        <translation>თარიღი</translation>
+    </message>
+    <message>
+        <source>unknown</source>
+        <translation>უცნობია</translation>
+    </message>
+    <message>
+        <source>Transaction fee</source>
+        <translation>ტრანსაქციის საფასური - საკომისიო</translation>
+    </message>
+    <message>
+        <source>Amount</source>
+        <translation>თანხა</translation>
+    </message>
     </context>
 <context>
     <name>TransactionDescDialog</name>
@@ -1469,6 +1505,10 @@
     </context>
 <context>
     <name>TransactionTableModel</name>
+    <message>
+        <source>Date</source>
+        <translation>თარიღი</translation>
+    </message>
     <message>
         <source>Label</source>
         <translation>ნიშნული</translation>
@@ -1497,6 +1537,14 @@
         <translation>CSV ფორმატის ფაილი (*.csv)</translation>
     </message>
     <message>
+        <source>Confirmed</source>
+        <translation>დადასტურებულია</translation>
+    </message>
+    <message>
+        <source>Date</source>
+        <translation>თარიღი</translation>
+    </message>
+    <message>
         <source>Label</source>
         <translation>ნიშნული</translation>
     </message>
@@ -1517,9 +1565,21 @@
     </context>
 <context>
     <name>WalletModel</name>
+    <message>
+        <source>Send Coins</source>
+        <translation>მონეტების გაგზავნა</translation>
+    </message>
     </context>
 <context>
     <name>WalletView</name>
+    <message>
+        <source>&amp;Export</source>
+        <translation>&amp;ექსპორტი</translation>
+    </message>
+    <message>
+        <source>Export the data in the current tab to a file</source>
+        <translation>ამ ბარათიდან მონაცემების ექსპორტი ფაილში</translation>
+    </message>
     </context>
 <context>
     <name>bitcoin-core</name>

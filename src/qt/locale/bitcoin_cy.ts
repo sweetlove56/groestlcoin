@@ -314,6 +314,10 @@
         <translation>Agor &amp;URI...</translation>
     </message>
     <message>
+        <source>Wallet:</source>
+        <translation>Waled:</translation>
+    </message>
+    <message>
         <source>Click to disable network activity.</source>
         <translation>Cliciwch i anablu gweithgaredd y rhwydwaith.</translation>
     </message>
@@ -537,6 +541,10 @@
     <message>
         <source>Quantity:</source>
         <translation>Maint:</translation>
+    </message>
+    <message>
+        <source>Bytes:</source>
+        <translation>Maint</translation>
     </message>
     <message>
         <source>Amount:</source>
@@ -1011,6 +1019,10 @@
     </context>
 <context>
     <name>WalletModel</name>
+    <message>
+        <source>Send Coins</source>
+        <translation>Anfon arian</translation>
+    </message>
     <message>
         <source>Current fee:</source>
         <translation>Ffi gyfredol</translation>

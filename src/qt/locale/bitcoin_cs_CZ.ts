@@ -256,10 +256,6 @@
         <translation>&amp;Adresa</translation>
     </message>
     <message>
-        <source>New receiving address</source>
-        <translation>Nová adresa pro příjem</translation>
-    </message>
-    <message>
         <source>New sending address</source>
         <translation>Nová adresa k odeslání</translation>
     </message>
@@ -270,10 +266,6 @@
     <message>
         <source>Edit sending address</source>
         <translation>Upravit adresu k odeslání</translation>
-    </message>
-    <message>
-        <source>The entered address "%1" is already in the address book.</source>
-        <translation>Zadaná adresa "%1" se již v seznamu adres nachází.</translation>
     </message>
     <message>
         <source>Could not unlock wallet.</source>
@@ -289,10 +281,6 @@
     </context>
 <context>
     <name>HelpMessageDialog</name>
-    <message>
-        <source>Usage:</source>
-        <translation>Použití:</translation>
-    </message>
     </context>
 <context>
     <name>Intro</name>
@@ -514,10 +502,6 @@
         <translation>Potvrzeno (%1 potvrzení)</translation>
     </message>
     <message>
-        <source>This block was not received by any other nodes and will probably not be accepted!</source>
-        <translation>Tento blok nebyl přijat žádným dalším uzlem a pravděpodobně nebude akceptován!</translation>
-    </message>
-    <message>
         <source>Received with</source>
         <translation>Přijato s</translation>
     </message>
@@ -663,10 +647,6 @@
     </context>
 <context>
     <name>bitcoin-core</name>
-    <message>
-        <source>Options:</source>
-        <translation>Možnosti:</translation>
-    </message>
     <message>
         <source>Loading wallet...</source>
         <translation>Načítání peněženky...</translation>

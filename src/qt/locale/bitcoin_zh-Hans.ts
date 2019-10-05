@@ -105,12 +105,20 @@
         <translation>标签</translation>
     </message>
     <message>
+        <source>Address</source>
+        <translation>地址</translation>
+    </message>
+    <message>
         <source>(no label)</source>
         <translation>(无标签)</translation>
     </message>
 </context>
 <context>
     <name>AskPassphraseDialog</name>
+    <message>
+        <source>Show password</source>
+        <translation>保存密码</translation>
+    </message>
     <message>
         <source>Encrypt wallet</source>
         <translation>加密钱包</translation>
@@ -176,6 +184,10 @@
     </context>
 <context>
     <name>ReceiveRequestDialog</name>
+    <message>
+        <source>Address</source>
+        <translation>地址</translation>
+    </message>
     <message>
         <source>Label</source>
         <translation>标签</translation>
@@ -243,6 +255,10 @@
     <message>
         <source>Label</source>
         <translation>标签</translation>
+    </message>
+    <message>
+        <source>Address</source>
+        <translation>地址</translation>
     </message>
     <message>
         <source>Exporting Failed</source>
