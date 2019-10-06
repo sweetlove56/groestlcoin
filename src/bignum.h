@@ -8,7 +8,7 @@
 #include <stdexcept>
 #include <vector>
 #include <openssl/bn.h>
-#include "util.h" // for uint64
+#include <util/system.h> // for uint64
 
 /** Errors thrown by the bignum class */
 class bignum_error : public std::runtime_error
@@ -391,11 +391,6 @@ public:
     std::string GetHex() const
     {
         return ToString(16);
-    }
-
-    unsigned int GetSerializeSize(int nType=0, int nVersion=PROTOCOL_VERSION) const
-    {
-        return ::GetSerializeSize(getvch(), nType, nVersion);
     }
 
     template<typename Stream>
