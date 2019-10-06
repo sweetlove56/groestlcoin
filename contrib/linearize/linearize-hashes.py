@@ -128,7 +128,7 @@ if __name__ == '__main__':
     if 'min_height' not in settings:
         settings['min_height'] = 0
     if 'max_height' not in settings:
-        settings['max_height'] = 313000
+        settings['max_height'] = 2496762
     if 'rev_hash_bytes' not in settings:
         settings['rev_hash_bytes'] = 'false'
 
