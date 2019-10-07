@@ -559,10 +559,6 @@
         <translation>Adresa</translation>
     </message>
     <message>
-        <source>Amount</source>
-        <translation>Kolicina</translation>
-    </message>
-    <message>
         <source>Label</source>
         <translation>Oznaka</translation>
     </message>
@@ -573,10 +569,6 @@
     </context>
 <context>
     <name>RecentRequestsTableModel</name>
-    <message>
-        <source>Date</source>
-        <translation>Datum</translation>
-    </message>
     <message>
         <source>Label</source>
         <translation>Oznaka</translation>
@@ -633,32 +625,12 @@
     </context>
 <context>
     <name>TransactionDesc</name>
-    <message>
-        <source>Date</source>
-        <translation>Datum</translation>
-    </message>
-    <message>
-        <source>unknown</source>
-        <translation>nepoznato</translation>
-    </message>
-    <message>
-        <source>Transaction fee</source>
-        <translation>Taksa transakcije</translation>
-    </message>
-    <message>
-        <source>Amount</source>
-        <translation>Kolicina</translation>
-    </message>
     </context>
 <context>
     <name>TransactionDescDialog</name>
     </context>
 <context>
     <name>TransactionTableModel</name>
-    <message>
-        <source>Date</source>
-        <translation>Datum</translation>
-    </message>
     <message>
         <source>Label</source>
         <translation>Oznaka</translation>
@@ -673,10 +645,6 @@
     <message>
         <source>Comma separated file (*.csv)</source>
         <translation>Zarezom odvojena datoteka (*.csv) </translation>
-    </message>
-    <message>
-        <source>Date</source>
-        <translation>Datum</translation>
     </message>
     <message>
         <source>Label</source>
@@ -705,14 +673,6 @@
     </context>
 <context>
     <name>WalletView</name>
-    <message>
-        <source>&amp;Export</source>
-        <translation>&amp;Izvoz</translation>
-    </message>
-    <message>
-        <source>Export the data in the current tab to a file</source>
-        <translation>Izvoz podataka iz trenutne kartice u datoteku</translation>
-    </message>
     </context>
 <context>
     <name>bitcoin-core</name>

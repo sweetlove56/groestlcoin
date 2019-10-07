@@ -1,4 +1,4 @@
-<TS language="mk" version="2.1">
+<TS language="mk_MK" version="2.1">
 <context>
     <name>AddressBookPage</name>
     <message>
@@ -160,6 +160,10 @@
     <message>
         <source>&amp;Help</source>
         <translation>&amp;Помош</translation>
+    </message>
+    <message numerus="yes">
+        <source>Processed %n block(s) of transaction history.</source>
+        <translation><numerusform>Обработен %n блок од историјата на трансакции.</numerusform><numerusform>Обработени %n блокови од историјата на трансакции.</numerusform></translation>
     </message>
     <message>
         <source>%1 behind</source>
@@ -409,10 +413,6 @@
     </context>
 <context>
     <name>QRImageWidget</name>
-    <message>
-        <source>&amp;Save Image...</source>
-        <translation>&amp;Сними Слика...</translation>
-    </message>
     </context>
 <context>
     <name>RPCConsole</name>
@@ -483,20 +483,12 @@
         <translation>&amp;Сними Слика...</translation>
     </message>
     <message>
-        <source>Amount</source>
-        <translation>Сума</translation>
-    </message>
-    <message>
         <source>Wallet</source>
         <translation>Паричник</translation>
     </message>
     </context>
 <context>
     <name>RecentRequestsTableModel</name>
-    <message>
-        <source>Date</source>
-        <translation>Дата</translation>
-    </message>
     </context>
 <context>
     <name>SendCoinsDialog</name>
@@ -557,31 +549,15 @@
     </context>
 <context>
     <name>TransactionDesc</name>
-    <message>
-        <source>Date</source>
-        <translation>Дата</translation>
-    </message>
-    <message>
-        <source>Amount</source>
-        <translation>Сума</translation>
-    </message>
     </context>
 <context>
     <name>TransactionDescDialog</name>
     </context>
 <context>
     <name>TransactionTableModel</name>
-    <message>
-        <source>Date</source>
-        <translation>Дата</translation>
-    </message>
     </context>
 <context>
     <name>TransactionView</name>
-    <message>
-        <source>Date</source>
-        <translation>Дата</translation>
-    </message>
     </context>
 <context>
     <name>UnitDisplayStatusBarControl</name>
@@ -597,14 +573,6 @@
     </context>
 <context>
     <name>WalletView</name>
-    <message>
-        <source>&amp;Export</source>
-        <translation>&amp;Експорт</translation>
-    </message>
-    <message>
-        <source>Export the data in the current tab to a file</source>
-        <translation>Експортирај ги податоците од активното јазиче во датотека</translation>
-    </message>
     </context>
 <context>
     <name>bitcoin-core</name>

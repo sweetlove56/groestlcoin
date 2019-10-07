@@ -529,20 +529,12 @@
         <translation>&amp;Kopyan ing address</translation>
     </message>
     <message>
-        <source>Amount</source>
-        <translation>Alaga</translation>
-    </message>
-    <message>
         <source>Wallet</source>
         <translation>Wallet</translation>
     </message>
     </context>
 <context>
     <name>RecentRequestsTableModel</name>
-    <message>
-        <source>Date</source>
-        <translation>Kaaldauan</translation>
-    </message>
     </context>
 <context>
     <name>SendCoinsDialog</name>
@@ -711,22 +703,6 @@
     </context>
 <context>
     <name>TransactionDesc</name>
-    <message>
-        <source>Date</source>
-        <translation>Kaaldauan</translation>
-    </message>
-    <message>
-        <source>unknown</source>
-        <translation>e miya balu</translation>
-    </message>
-    <message>
-        <source>Transaction fee</source>
-        <translation>Bayad king Transaksion</translation>
-    </message>
-    <message>
-        <source>Amount</source>
-        <translation>Alaga</translation>
-    </message>
     </context>
 <context>
     <name>TransactionDescDialog</name>
@@ -737,21 +713,9 @@
     </context>
 <context>
     <name>TransactionTableModel</name>
-    <message>
-        <source>Date</source>
-        <translation>Kaaldauan</translation>
-    </message>
     </context>
 <context>
     <name>TransactionView</name>
-    <message>
-        <source>Confirmed</source>
-        <translation>Me-kumpirma</translation>
-    </message>
-    <message>
-        <source>Date</source>
-        <translation>Kaaldauan</translation>
-    </message>
     </context>
 <context>
     <name>UnitDisplayStatusBarControl</name>
@@ -764,10 +728,6 @@
     </context>
 <context>
     <name>WalletModel</name>
-    <message>
-        <source>Send Coins</source>
-        <translation>Magpadalang Barya</translation>
-    </message>
     </context>
 <context>
     <name>WalletView</name>

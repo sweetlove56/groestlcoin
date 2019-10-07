@@ -310,10 +310,6 @@
         <translation>Abrir y url...</translation>
     </message>
     <message>
-        <source>Wallet:</source>
-        <translation>Billetera:</translation>
-    </message>
-    <message>
         <source>Click to disable network activity.</source>
         <translation>Click para deshabilitar la actividad de red.</translation>
     </message>
@@ -332,10 +328,6 @@
     <message>
         <source>Reindexing blocks on disk...</source>
         <translation>Cargando el index de bloques...</translation>
-    </message>
-    <message>
-        <source>Proxy is &lt;b&gt;enabled&lt;/b&gt;: %1</source>
-        <translation>Proxy &lt;b&gt;habilitado&lt;/b&gt;: %1</translation>
     </message>
     <message>
         <source>Send coins to a Bitcoin address</source>
@@ -505,11 +497,6 @@
 </source>
         <translation>Cantidad: %1
 </translation>
-    </message>
-    <message>
-        <source>Wallet: %1
-</source>
-        <translation>Billetera: %1</translation>
     </message>
     <message>
         <source>Type: %1
@@ -814,10 +801,6 @@
         <translation>Al ser la primera vez que se ejecuta el programa, puede elegir donde %1 almacenará sus datos.</translation>
     </message>
     <message>
-        <source>When you click OK, %1 will begin to download and process the full %4 block chain (%2GB) starting with the earliest transactions in %3 when %4 initially launched.</source>
-        <translation>Al hacer clic OK, %1 iniciará el proceso de descarga y procesará el blockchain completo de %4 (%2 GB), iniciando desde el la transacción más antigua %3 cuando %4 se ejecutó inicialmente.</translation>
-    </message>
-    <message>
         <source>This initial synchronisation is very demanding, and may expose hardware problems with your computer that had previously gone unnoticed. Each time you run %1, it will continue downloading where it left off.</source>
         <translation>El primer proceso de sincronización consume muchos recursos, y es posible que puedan ocurrir problemas de hardware que anteriormente no hayas notado. Cada vez que ejecutes %1 automáticamente se reiniciará el proceso de sincronización desde el punto que lo dejaste anteriormente.</translation>
     </message>
@@ -975,18 +958,6 @@
         <translation>Muestra si el proxy SOCKS5 por defecto se utiliza para conectarse a pares a través de este tipo de red.</translation>
     </message>
     <message>
-        <source>Use separate SOCKS&amp;5 proxy to reach peers via Tor hidden services:</source>
-        <translation>Use SOCKS&amp;5 y proxy por separado para llegar a sus compañeros a través de los servicios ocultos de Tor:</translation>
-    </message>
-    <message>
-        <source>Hide the icon from the system tray.</source>
-        <translation>Ocultar el icono de la bandeja del sistema.</translation>
-    </message>
-    <message>
-        <source>&amp;Hide tray icon</source>
-        <translation>Ocultar icono de bandeja</translation>
-    </message>
-    <message>
         <source>Minimize instead of exit the application when the window is closed. When this option is enabled, the application will be closed only after selecting Exit in the menu.</source>
         <translation>Minimizar en vez de salir de la aplicación cuando la ventana está cerrada. Cuando se activa esta opción, la aplicación sólo se cerrará después de seleccionar Salir en el menú.</translation>
     </message>
@@ -1015,10 +986,6 @@
         <translation>&amp;Red</translation>
     </message>
     <message>
-        <source>(0 = auto, &lt;0 = leave that many cores free)</source>
-        <translation>(0 = auto, &lt;0 = deja muchos núcleos gratis)</translation>
-    </message>
-    <message>
         <source>W&amp;allet</source>
         <translation>Cartera</translation>
     </message>
@@ -1029,10 +996,6 @@
     <message>
         <source>Enable coin &amp;control features</source>
         <translation>Habilitar opciones de &amp;control de monedero</translation>
-    </message>
-    <message>
-        <source>If you disable the spending of unconfirmed change, the change from a transaction cannot be used until that transaction has at least one confirmation. This also affects how your balance is computed.</source>
-        <translation>Si deshabilita el gasto de un cambio no confirmado, el cambio de una transacción no se puede usar hasta que esa transacción tenga al menos una confirmación. Esto también afecta cómo se calcula su saldo.</translation>
     </message>
     <message>
         <source>&amp;Spend unconfirmed change</source>
@@ -1051,16 +1014,8 @@
         <translation>Aceptar conexiones externas.</translation>
     </message>
     <message>
-        <source>Allow incomin&amp;g connections</source>
-        <translation>Permitir conexiones entrantes</translation>
-    </message>
-    <message>
         <source>Connect to the Bitcoin network through a SOCKS5 proxy.</source>
         <translation>Conectar a la red de Bitcoin a través de un proxy SOCKS5</translation>
-    </message>
-    <message>
-        <source>&amp;Connect through SOCKS5 proxy (default proxy):</source>
-        <translation>Conectar a través del proxy SOCKS5 (proxy predeterminado):</translation>
     </message>
     <message>
         <source>Proxy &amp;IP:</source>
@@ -1120,10 +1075,6 @@
         <translation>&amp;Lenguaje de la interfaz:</translation>
     </message>
     <message>
-        <source>The user interface language can be set here. This setting will take effect after restarting %1.</source>
-        <translation>El idioma de la interfaz de usuario puede establecerse aquí. Esta configuración tendrá efecto después de reiniciar %1.</translation>
-    </message>
-    <message>
         <source>&amp;Unit to show amounts in:</source>
         <translation>&amp;Unidad en la que mostrar cantitades:</translation>
     </message>
@@ -1134,10 +1085,6 @@
     <message>
         <source>Whether to show coin control features or not.</source>
         <translation>Mostrar o no funcionalidad de Coin Control</translation>
-    </message>
-    <message>
-        <source>&amp;Third party transaction URLs</source>
-        <translation>URLs de transacciones de terceros</translation>
     </message>
     <message>
         <source>&amp;OK</source>
@@ -1243,10 +1190,6 @@
         <translation>Saldo total actual</translation>
     </message>
     <message>
-        <source>Your current balance in watch-only addresses</source>
-        <translation>Tu saldo actual en solo ver direcciones</translation>
-    </message>
-    <message>
         <source>Spendable:</source>
         <translation>Utilizable:</translation>
     </message>
@@ -1254,28 +1197,12 @@
         <source>Recent transactions</source>
         <translation>Transacciones recientes</translation>
     </message>
-    <message>
-        <source>Unconfirmed transactions to watch-only addresses</source>
-        <translation>Transacciones no confirmadas para ver solo direcciones</translation>
-    </message>
-    <message>
-        <source>Mined balance in watch-only addresses that has not yet matured</source>
-        <translation>Balance minero ver solo direcciones que aún no ha madurado</translation>
-    </message>
-    <message>
-        <source>Current total balance in watch-only addresses</source>
-        <translation>Saldo total actual en direcciones de solo reloj</translation>
-    </message>
-</context>
+    </context>
 <context>
     <name>PaymentServer</name>
     <message>
         <source>Payment request error</source>
         <translation>Error en la solicitud de pago</translation>
-    </message>
-    <message>
-        <source>Cannot start bitcoin: click-to-pay handler</source>
-        <translation>No se puede iniciar Bitcoin: controlador de clic para pagar</translation>
     </message>
     <message>
         <source>URI handling</source>
@@ -1290,16 +1217,8 @@
         <translation>Dirección de pago inválida %1</translation>
     </message>
     <message>
-        <source>URI cannot be parsed! This can be caused by an invalid Bitcoin address or malformed URI parameters.</source>
-        <translation>¡URI no puede ser analizado! Esto puede deberse a una dirección de Bitcoin no válida o a parámetros de URI mal formados.</translation>
-    </message>
-    <message>
         <source>Payment request file handling</source>
         <translation>Manejo del archivo de solicitud de pago</translation>
-    </message>
-    <message>
-        <source>Payment request file cannot be read! This can be caused by an invalid payment request file.</source>
-        <translation>¡El archivo de solicitud de pago no se puede leer! Esto puede deberse a un archivo de solicitud de pago no válido.</translation>
     </message>
     <message>
         <source>Payment request rejected</source>
@@ -1318,10 +1237,6 @@
         <translation>La solicitud de pago no se ha iniciado.</translation>
     </message>
     <message>
-        <source>Unverified payment requests to custom payment scripts are unsupported.</source>
-        <translation>Las solicitudes de pago no verificadas para los scripts de pago personalizados no son compatibles.</translation>
-    </message>
-    <message>
         <source>Invalid payment request.</source>
         <translation>Solicitud de pago invalida.</translation>
     </message>
@@ -1332,10 +1247,6 @@
     <message>
         <source>Refund from %1</source>
         <translation>Reembolsar desde %1</translation>
-    </message>
-    <message>
-        <source>Payment request %1 is too large (%2 bytes, allowed %3 bytes).</source>
-        <translation>Solicitud de pago %1 es muy grande (Actualmente %2 bytes, máximo %3 bytes)</translation>
     </message>
     <message>
         <source>Error communicating with %1: %2</source>
@@ -1434,10 +1345,6 @@
     <message>
         <source>%1 B</source>
         <translation>%1 B</translation>
-    </message>
-    <message>
-        <source>%1 KB</source>
-        <translation>%1 KB</translation>
     </message>
     <message>
         <source>%1 MB</source>
@@ -1638,10 +1545,6 @@
         <translation>Tiempo de Ping</translation>
     </message>
     <message>
-        <source>The duration of a currently outstanding ping.</source>
-        <translation>La duración de un ping actualmente pendiente.</translation>
-    </message>
-    <message>
         <source>Ping Wait</source>
         <translation>Espera de Ping</translation>
     </message>
@@ -1726,14 +1629,6 @@
         <translation>Usa las flechas (arriba y abajo) para navegar por el historial, y %1 para limpiar la consola.</translation>
     </message>
     <message>
-        <source>Type %1 for an overview of available commands.</source>
-        <translation>Escriba %1 para obtener una descripción general de los comandos disponibles.</translation>
-    </message>
-    <message>
-        <source>For more information on using this console type %1.</source>
-        <translation>Para obtener más información sobre el uso de esta consola, escriba %1.</translation>
-    </message>
-    <message>
         <source>WARNING: Scammers have been active, telling users to type commands here, stealing their wallet contents. Do not use this console without fully understanding the ramifications of a command.</source>
         <translation>ADVERTENCIA: No uses esta consola sin comprender las consecuencias de la ejecución de cada comando.</translation>
     </message>
@@ -1793,10 +1688,6 @@
         <translation>Mensaje opcional adjunto a la solicitud de pago, que será mostrado cuando la solicitud sea abierta. Nota: Este mensaje no será enviado con el pago a través de la red Bitcoin.</translation>
     </message>
     <message>
-        <source>An optional label to associate with the new receiving address.</source>
-        <translation>Una etiqueta opcional para asociar con la nueva dirección de recepción</translation>
-    </message>
-    <message>
         <source>Use this form to request payments. All fields are &lt;b&gt;optional&lt;/b&gt;.</source>
         <translation>Usa este formulario para solicitar un pago. Todos los campos son &lt;b&gt;opcionales&lt;/b&gt;.</translation>
     </message>
@@ -1819,10 +1710,6 @@
     <message>
         <source>&amp;Request payment</source>
         <translation>Solicitud de pago</translation>
-    </message>
-    <message>
-        <source>Show the selected request (does the same as double clicking an entry)</source>
-        <translation>Mostrar la solicitud seleccionada (hace lo mismo que hacer doble clic en una entrada)</translation>
     </message>
     <message>
         <source>Show</source>
@@ -2939,10 +2826,6 @@
         <translation>Los desarrolladores de %s</translation>
     </message>
     <message>
-        <source>This is the transaction fee you may discard if change is smaller than dust at this level</source>
-        <translation>Esta es la cuota de transacción que puede descartar si el cambio es más pequeño que el polvo a este nivel.</translation>
-    </message>
-    <message>
         <source>%d of last 100 blocks have unexpected version</source>
         <translation>%d de los últimos 100 bloques tienen una versión no esperada</translation>
     </message>
@@ -3085,14 +2968,6 @@
     <message>
         <source>Invalid -onion address or hostname: '%s'</source>
         <translation>Dirección de -onion o dominio '%s' inválido</translation>
-    </message>
-    <message>
-        <source>Invalid -proxy address or hostname: '%s'</source>
-        <translation>Dirección de -proxy o dominio ' %s' inválido</translation>
-    </message>
-    <message>
-        <source>Invalid amount for -paytxfee=&lt;amount&gt;: '%s' (must be at least %s)</source>
-        <translation>Cantidad inválida para -paytxfee=&lt;amount&gt;: '%s' (debe ser por lo menos %s)</translation>
     </message>
     <message>
         <source>Invalid netmask specified in -whitelist: '%s'</source>

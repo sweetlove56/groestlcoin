@@ -3,15 +3,15 @@
     <name>AddressBookPage</name>
     <message>
         <source>Right-click to edit address or label</source>
-        <translation>Feu clic dret per a editar l'adreça o l'etiquetaccn</translation>
+        <translation>Feu clic dret per a editar l'adreça o l'etiqueta</translation>
     </message>
     <message>
         <source>Create a new address</source>
-        <translation>Crea una nueva dirección</translation>
+        <translation>Crea una nova adreça</translation>
     </message>
     <message>
         <source>&amp;New</source>
-        <translation>&amp;Nuevo</translation>
+        <translation>&amp;Nova</translation>
     </message>
     <message>
         <source>Copy the currently selected address to the system clipboard</source>
@@ -145,7 +145,7 @@
     </message>
     <message>
         <source>Encrypt wallet</source>
-        <translation>Encripta el monedero</translation>
+        <translation>Encripta el moneder</translation>
     </message>
     <message>
         <source>This operation needs your wallet passphrase to unlock the wallet.</source>
@@ -153,7 +153,7 @@
     </message>
     <message>
         <source>Unlock wallet</source>
-        <translation>Desbloquea el monedero</translation>
+        <translation>Desbloqueja el moneder</translation>
     </message>
     <message>
         <source>This operation needs your wallet passphrase to decrypt the wallet.</source>
@@ -161,11 +161,11 @@
     </message>
     <message>
         <source>Decrypt wallet</source>
-        <translation>Desencripta el monedero</translation>
+        <translation>Desencripta el moneder</translation>
     </message>
     <message>
         <source>Change passphrase</source>
-        <translation>Cambia la contraseña</translation>
+        <translation>Canvia la contrasenya</translation>
     </message>
     <message>
         <source>Enter the old passphrase and new passphrase to the wallet.</source>
@@ -327,7 +327,7 @@
     </message>
     <message>
         <source>Syncing Headers (%1%)...</source>
-        <translation>Sincronitzant capçaleres (%1%)...</translation>
+        <translation>Sincronitzant Capçaleres (%1%)...</translation>
     </message>
     <message>
         <source>Reindexing blocks on disk...</source>
@@ -459,7 +459,7 @@
     </message>
     <message>
         <source>Information</source>
-        <translation>&amp;Informació</translation>
+        <translation>Informació</translation>
     </message>
     <message>
         <source>Up to date</source>
@@ -487,7 +487,7 @@
     </message>
     <message>
         <source>Connecting to peers...</source>
-        <translation>Connectant als iguals...</translation>
+        <translation>Connectant a altres nodes...</translation>
     </message>
     <message>
         <source>Catching up...</source>
@@ -850,7 +850,7 @@
     </message>
     <message>
         <source>Approximately %1 GB of data will be stored in this directory.</source>
-        <translation>Aproximadament %1GB de dades seran emmagetzamades en aquest directori.</translation>
+        <translation>Aproximadament %1 GB de dades s'emmagatzemaran en aquest directori.</translation>
     </message>
     <message>
         <source>%1 will download and store a copy of the Bitcoin block chain.</source>
@@ -999,7 +999,7 @@
     </message>
     <message>
         <source>Open Configuration File</source>
-        <translation>Obre el fitxer de configuració</translation>
+        <translation>Obrir el fitxer de configuració</translation>
     </message>
     <message>
         <source>Reset all client options to default.</source>
@@ -1486,7 +1486,7 @@
     </message>
     <message>
         <source>Error: %1</source>
-        <translation>Avís: %1</translation>
+        <translation>Error: %1</translation>
     </message>
 </context>
 <context>
@@ -2267,7 +2267,7 @@ Nota: Com que la comissió es calcula en funció dels bytes, una comissió de "1
     </message>
     <message>
         <source>Choose previously used address</source>
-        <translation>Escull una adreça feta servir anteriorment</translation>
+        <translation>Tria les adreces fetes servir amb anterioritat</translation>
     </message>
     <message>
         <source>This is a normal payment.</source>
@@ -2372,7 +2372,7 @@ Nota: Com que la comissió es calcula en funció dels bytes, una comissió de "1
     </message>
     <message>
         <source>Choose previously used address</source>
-        <translation>Escull una adreça feta servir anteriorment</translation>
+        <translation>Tria les adreces fetes servir amb anterioritat</translation>
     </message>
     <message>
         <source>Alt+A</source>
@@ -2529,7 +2529,7 @@ Nota: Com que la comissió es calcula en funció dels bytes, una comissió de "1
     </message>
     <message>
         <source>abandoned</source>
-        <translation>abandonada</translation>
+        <translation>abandonat</translation>
     </message>
     <message>
         <source>%1/unconfirmed</source>
@@ -2858,7 +2858,7 @@ Nota: Com que la comissió es calcula en funció dels bytes, una comissió de "1
     </message>
     <message>
         <source>Copy full transaction details</source>
-        <translation>Copia els detalls complets de la transacció</translation>
+        <translation>Copieu els detalls complets de la transacció</translation>
     </message>
     <message>
         <source>Edit label</source>
@@ -3288,7 +3288,7 @@ Nota: Com que la comissió es calcula en funció dels bytes, una comissió de "1
     </message>
     <message>
         <source>Information</source>
-        <translation>&amp;Informació</translation>
+        <translation>Informació</translation>
     </message>
     <message>
         <source>Invalid -onion address or hostname: '%s'</source>
@@ -3352,7 +3352,7 @@ Nota: Com que la comissió es calcula en funció dels bytes, una comissió de "1
     </message>
     <message>
         <source>Warning: unknown new rules activated (versionbit %i)</source>
-        <translation>Avís: regles noves desconegudes activades (versionbit %i)</translation>
+        <translation>Advertència: regles noves desconegudes activades (versionbit %i)</translation>
     </message>
     <message>
         <source>Zapping all transactions from wallet...</source>
