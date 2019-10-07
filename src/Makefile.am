@@ -98,7 +98,7 @@ endif
 endif
 
 .PHONY: FORCE check-symbols check-security
-# bitcoin core #
+# groestlcoin core #
 BITCOIN_CORE_H = \
   addrdb.h \
   addrman.h \
@@ -555,14 +555,14 @@ groestlcoin_tx_LDADD = \
 groestlcoin_tx_LDADD += $(BOOST_LIBS) $(CRYPTO_LIBS)
 #
 
-# bitcoin-wallet binary #
-groestlcoin_wallet_SOURCES = bitcoin-wallet.cpp
+# groestlcoin-wallet binary #
+groestlcoin_wallet_SOURCES = groestlcoin-wallet.cpp
 groestlcoin_wallet_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
 groestlcoin_wallet_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 groestlcoin_wallet_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if TARGET_WINDOWS
-groestlcoin_wallet_SOURCES += bitcoin-wallet-res.rc
+groestlcoin_wallet_SOURCES += groestlcoin-wallet-res.rc
 endif
 
 groestlcoin_wallet_LDADD = \

@@ -13,7 +13,7 @@ You will need the following dependencies, which can be installed as root via pkg
 ```shell
 pkg install autoconf automake boost-libs git gmake libevent libtool openssl pkgconf
 
-git clone https://github.com/bitcoin/bitcoin.git
+git clone https://github.com/groestlcoin/groestlcoin.git
 ```
 ./contrib/install_db5.sh `pwd`
 export BDB_PREFIX="$PWD/db5"

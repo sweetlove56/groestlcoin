@@ -58,12 +58,12 @@ Build Groestlcoin Core
 
 Disable-wallet mode
 --------------------
-When the intention is to run only a P2P node without a wallet, Bitcoin Core may be compiled in
+When the intention is to run only a P2P node without a wallet, Groestlcoin Core may be compiled in
 disable-wallet mode with:
 
     ./configure --disable-wallet
 
-In this case there is no dependency on Berkeley DB 4.8.
+In this case there is no dependency on Berkeley DB 5.3.
 
 Mining is also possible in disable-wallet mode using the `getblocktemplate` RPC call.
 

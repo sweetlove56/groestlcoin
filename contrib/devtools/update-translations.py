@@ -31,7 +31,7 @@ LOCALE_DIR = 'src/qt/locale'
 # Minimum number of messages for translation to be considered at all
 MIN_NUM_MESSAGES = 10
 # Regexp to check for Bitcoin addresses
-ADDRESS_REGEXP = re.compile('([13]|bc1)[a-zA-Z0-9]{30,}')
+ADDRESS_REGEXP = re.compile('([F3]|grs1)[a-zA-Z0-9]{31,}')
 
 def check_at_repository_root():
     if not os.path.exists('.git'):
@@ -126,7 +126,7 @@ def escape_cdata(text):
 
 def contains_bitcoin_addr(text, errors):
     if text is not None and ADDRESS_REGEXP.search(text) is not None:
-        errors.append('Translation "%s" contains a bitcoin address. This will be removed.' % (text))
+        errors.append('Translation "%s" contains a groestlcoin address. This will be removed.' % (text))
         return True
     return False
 
@@ -212,4 +212,3 @@ if __name__ == '__main__':
     check_at_repository_root()
     fetch_all_translations()
     postprocess_translations()
-

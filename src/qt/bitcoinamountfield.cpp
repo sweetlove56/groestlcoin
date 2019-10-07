@@ -147,7 +147,7 @@ public:
     }
 
 private:
-    int currentUnit{BitcoinUnits::BTC};
+    int currentUnit{BitcoinUnits::GRS};
     CAmount singleStep{CAmount(100000)}; // satoshis
     mutable QSize cachedMinimumSizeHint;
     bool m_allow_empty{true};

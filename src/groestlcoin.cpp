@@ -354,10 +354,9 @@ public:
         consensus.vDeployments[Consensus::DEPLOYMENT_SEGWIT].nTimeout = 1498003200; // Jun 21, 2017
 
         // The best chain should have at least this much work.
-        consensus.nMinimumChainWork = uint256S("0x00000000000000000000000000000000000000000000000579194ed4709d7098");
-
+        consensus.nMinimumChainWork = uint256S("0x000000000000000000000000000000000000000000000027504782197c37cc4b"); // groestlcoin-cli getblockheader 0000000000001ac99ec6ed599a07aed90e19deb684ca343d306089b7d0878450
         // By default assume that the signatures in ancestors of this block are valid.
-        consensus.defaultAssumeValid = uint256S("0x0000000000001474d3d5d10df88a6f4b468436e6cde57166506b25b8eaf42629"); //2372027
+        consensus.defaultAssumeValid = uint256S("0x0000000000001ac99ec6ed599a07aed90e19deb684ca343d306089b7d0878450"); // groestlcoin-cli getblockhash 2785700
 
         /**
          * The message start string is designed to be unlikely to occur in normal data.
@@ -371,8 +370,8 @@ public:
 
         nDefaultPort = 1331;
         nPruneAfterHeight = 10000000;
-				m_assumed_blockchain_size = 240;
-        m_assumed_chain_state_size = 3;
+        m_assumed_blockchain_size = 2;
+        m_assumed_chain_state_size = 1;
 
         genesis = CreateGenesisBlock(1395342829, 220035, 0x1e0fffff, 112, 0);
 
@@ -432,14 +431,15 @@ public:
               {1000000, uint256S("0x000000000df8560f2612d5f28b52ed1cf81b0f87ac0c9c7242cbcf721ca6854a")},
               {2000000, uint256S("0x00000000000434d5b8d1c3308df7b6e3fd773657dfb28f5dd2f70854ef94cc66")},
               {2372000, uint256S("0x000000000000117a4710e01e4f86d883ca491b96efa0b4f2139c4d49a9437f10")},
+              {2785000, uint256S("0x00000000000013811b5078b06f3b98aaad29b94f09d047144e473de35f481474")},
             }
           };
 
         chainTxData = ChainTxData{
-            // Data from rpc: getchaintxstats 4096 0000000000001474d3d5d10df88a6f4b468436e6cde57166506b25b8eaf42629
-            /* nTime    */ 1544355417,
-            /* nTxCount */ 3192370,
-            /* dTxRate  */ 0.0237812975073571
+            // Data from rpc: getchaintxstats 4096 0000000000001ac99ec6ed599a07aed90e19deb684ca343d306089b7d0878450
+            /* nTime    */ 1570435259,
+            /* nTxCount */ 3756125,
+            /* dTxRate  */ 0.01948955197278437
         };
 
         /* enable fallback fee on mainnet */
@@ -480,10 +480,10 @@ public:
         consensus.vDeployments[Consensus::DEPLOYMENT_SEGWIT].nTimeout = 1498003200; // Jun 21, 2017
 
         // The best chain should have at least this much work.
-        consensus.nMinimumChainWork = uint256S("0x0000000000000000000000000000000000000000000000000000182f81e84065");
+        consensus.nMinimumChainWork = uint256S("0x000000000000000000000000000000000000000000000000000023163b6d52f1"); // groestlcoin-cli -testnet getblockheader 00000027cbbb20b16ba4d6eda0bedbbca6c5a9471f8a7e626f6692c4265a1f91
 
         // By default assume that the signatures in ancestors of this block are valid.
-        consensus.defaultAssumeValid = uint256S("0x00000042947e44c7a3c7563ccc85cd6b4349aaeaa8ac050bb91b88c9735d69fc"); //887999
+        consensus.defaultAssumeValid = uint256S("0x00000027cbbb20b16ba4d6eda0bedbbca6c5a9471f8a7e626f6692c4265a1f91"); // groestlcoin-cli -testnet getblockhash 1342302
 
         pchMessageStart[0] = 0x0b;
         pchMessageStart[1] = 0x11;
@@ -492,8 +492,8 @@ public:
 
         nDefaultPort = 17777;
         nPruneAfterHeight = 1000000;
-				m_assumed_blockchain_size = 30;
-        m_assumed_chain_state_size = 2;
+        m_assumed_blockchain_size = 1;
+        m_assumed_chain_state_size = 1;
 
         /*!!!R		for (int nonce=1; nonce < 0x7FFFFFFF; ++nonce) {
          genesis = CreateGenesisBlock(1440000002, nonce, 0x1e00ffff, 3, 0);
@@ -538,14 +538,15 @@ public:
               {0		, uint256S("0x000000ffbb50fc9898cdd36ec163e6ba23230164c0052a28876255b7dcf2cd36")},
               { 50000 , uint256S("0x00000081951486bb535f8cffec8ac0641bd24b814f89641f6cc2cad737f18950")},
               { 887766 , uint256S("0x000000cc069338b7cd182dbf3e98dedd80c9ce85f26b78daaec0a6c964ffa501")},
+              { 1341000 , uint256S("0x00000022fb2732f1c237f9d90e5070e57500b19e9c65f51a2fb920b6580fc219")},
             }
         };
 
         chainTxData = ChainTxData{
-            // Data from rpc: getchaintxstats 4096 00000016a0bfcd9f06bf478e5d49843f5a7415bc25940db1f67fe3dc0d9dc9d2
-            /* nTime    */ 1544356596,
-            /* nTxCount */ 888652,
-            /* dTxRate  */ 0.01808033295128964
+            // Data from rpc: getchaintxstats 4096 00000027cbbb20b16ba4d6eda0bedbbca6c5a9471f8a7e626f6692c4265a1f91
+            /* nTime    */ 1570434649,
+            /* nTxCount */ 1349432,
+            /* dTxRate  */ 0.01850891769137033
         };
         /* enable fallback fee on testnet */
         m_fallback_fee_enabled = true;
