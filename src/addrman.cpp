@@ -363,9 +363,9 @@ void CAddrMan::Attempt_(const CService& addr, bool fCountFailure, int64_t nTime)
     }
 }
 
-static int GetRandIntFast(int nMax) {		//!!!PO
-	return rand() % nMax;
-}
+// static int GetRandIntFast(int nMax) {		//!!!PO
+//	return rand() % nMax;
+//}
 
 CAddrInfo CAddrMan::Select_(bool newOnly)
 {

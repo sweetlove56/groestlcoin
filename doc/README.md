@@ -65,7 +65,7 @@ The Groestlcoin repo's [root README](/README.md) contains relevant information o
 
 ### Miscellaneous
 - [Assets Attribution](assets-attribution.md)
-- [bitcoin.conf Configuration File](bitcoin-conf.md)
+- [groestlcoin.conf Configuration File](groestlcoin-conf.md)
 - [Files](files.md)
 - [Fuzz-testing](fuzzing.md)
 - [Reduce Traffic](reduce-traffic.md)

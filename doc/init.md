@@ -73,12 +73,12 @@ bitcoin group to do so (e.g. when `-sysperms` is specified). This does not allow
 for the listing of files under the directory.
 
 NOTE: It is not currently possible to override `datadir` in
-`/etc/bitcoin/bitcoin.conf` with the current systemd, OpenRC, and Upstart init
+`/etc/groestlcoin/groestlcoin.conf` with the current systemd, OpenRC, and Upstart init
 files out-of-the-box. This is because the command line options specified in the
 init files take precedence over the configurations in
-`/etc/bitcoin/bitcoin.conf`. However, some init systems have their own
+`/etc/groestlcoin/groestlcoin.conf`. However, some init systems have their own
 configuration mechanisms that would allow for overriding the command line
-options specified in the init files (e.g. setting `BITCOIND_DATADIR` for
+options specified in the init files (e.g. setting `GROESTLCOIND_DATADIR` for
 OpenRC).
 
 ### macOS

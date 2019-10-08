@@ -21,6 +21,6 @@ Optional<T> MakeOptional(bool condition, T&& value)
 }
 
 //! Substitute for C++17 std::nullopt
-static auto& nullopt = boost::none;
+// static auto& nullopt = boost::none;
 
 #endif // BITCOIN_OPTIONAL_H
