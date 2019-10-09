@@ -70,10 +70,6 @@
         <translation>Estas son sus direcciones Bitcoin para enviar pagos. Verifique siempre la cantidad y la dirección de recepción antes de enviar bitcoins.</translation>
     </message>
     <message>
-        <source>These are your Bitcoin addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
-        <translation>Estas son sus direcciones Bitcoin para recibir pagos. Se recomienda utilizar una nueva dirección de recepción para cada transacción</translation>
-    </message>
-    <message>
         <source>&amp;Copy Address</source>
         <translation>&amp;Copiar Dirección</translation>
     </message>
@@ -136,14 +132,6 @@
         <translation>Repita la nueva contraseña</translation>
     </message>
     <message>
-        <source>Show password</source>
-        <translation>Mostrar contraseña</translation>
-    </message>
-    <message>
-        <source>Enter the new passphrase to the wallet.&lt;br/&gt;Please use a passphrase of &lt;b&gt;ten or more random characters&lt;/b&gt;, or &lt;b&gt;eight or more words&lt;/b&gt;.</source>
-        <translation>Introduzca la nueva contraseña del monedero. &lt;br/&gt;Por favor utilice una contraseña de &lt;b&gt;diez o más carácteres aleatorios&lt;/b&gt;, o &lt;b&gt;ocho o más palabras&lt;/b&gt;.</translation>
-    </message>
-    <message>
         <source>Encrypt wallet</source>
         <translation>Cifrar monedero</translation>
     </message>
@@ -168,10 +156,6 @@
         <translation>Cambiar contraseña</translation>
     </message>
     <message>
-        <source>Enter the old passphrase and new passphrase to the wallet.</source>
-        <translation>Introduzca la contraseña antigua y la nueva para el monedero.</translation>
-    </message>
-    <message>
         <source>Confirm wallet encryption</source>
         <translation>Confirmar cifrado del monedero</translation>
     </message>
@@ -188,8 +172,8 @@
         <translation>Monedero cifrado</translation>
     </message>
     <message>
-        <source>Your wallet is now encrypted. Remember that encrypting your wallet cannot fully protect your bitcoins from being stolen by malware infecting your computer.</source>
-        <translation>Monedero encriptado. Recuerda que encriptando tu monedero no garantiza mantener a salvo tus bitcoins en caso de tener viruses en el ordenador.</translation>
+        <source>Remember that encrypting your wallet cannot fully protect your bitcoins from being stolen by malware infecting your computer.</source>
+        <translation>Recuerda que encriptando tu cartera no garantiza mantener a salvo tus bitcoins en caso de tener viruses en el ordenador.</translation>
     </message>
     <message>
         <source>IMPORTANT: Any previous backups you have made of your wallet file should be replaced with the newly generated, encrypted wallet file. For security reasons, previous backups of the unencrypted wallet file will become useless as soon as you start using the new, encrypted wallet.</source>
@@ -366,10 +350,6 @@
         <translation>&amp;Verificar mensaje...</translation>
     </message>
     <message>
-        <source>Bitcoin</source>
-        <translation>Bitcoin</translation>
-    </message>
-    <message>
         <source>&amp;Send</source>
         <translation>&amp;Enviar</translation>
     </message>
@@ -510,12 +490,8 @@
         <translation>Monedero predeterminado</translation>
     </message>
     <message>
-        <source>Opening Wallet &lt;b&gt;%1&lt;/b&gt;...</source>
-        <translation>Abriendo monedero &lt;b&gt;%1&lt;/b&gt;...</translation>
-    </message>
-    <message>
-        <source>Open Wallet Failed</source>
-        <translation>Fallo al abrir monedero</translation>
+        <source>No wallets available</source>
+        <translation>No hay carteras disponibles</translation>
     </message>
     <message>
         <source>&amp;Window</source>
@@ -528,10 +504,6 @@
     <message>
         <source>Zoom</source>
         <translation>Acercar</translation>
-    </message>
-    <message>
-        <source>Restore</source>
-        <translation>Restaurar</translation>
     </message>
     <message>
         <source>Main Window</source>
@@ -548,6 +520,14 @@
     <message>
         <source>Catching up...</source>
         <translation>Actualizando...</translation>
+    </message>
+    <message>
+        <source>Error: %1</source>
+        <translation>Error: %1</translation>
+    </message>
+    <message>
+        <source>Warning: %1</source>
+        <translation>Advertencia: %1</translation>
     </message>
     <message>
         <source>Date: %1
@@ -769,6 +749,12 @@
     </message>
 </context>
 <context>
+    <name>CreateWalletActivity</name>
+    </context>
+<context>
+    <name>CreateWalletDialog</name>
+    </context>
+<context>
     <name>EditAddressDialog</name>
     <message>
         <source>Edit Address</source>
@@ -935,7 +921,7 @@
         <source>(of %n GB needed)</source>
         <translation><numerusform>(de %n GB necesitados)</numerusform><numerusform>(de %n GB requeridos)</numerusform></translation>
     </message>
-</context>
+    </context>
 <context>
     <name>ModalOverlay</name>
     <message>
@@ -1008,6 +994,17 @@
     <message>
         <source>Select payment request file to open</source>
         <translation>Seleccionar el archivo de solicitud de pago para abrir</translation>
+    </message>
+</context>
+<context>
+    <name>OpenWalletActivity</name>
+    <message>
+        <source>default wallet</source>
+        <translation>Monedero predeterminado</translation>
+    </message>
+    <message>
+        <source>Opening Wallet &lt;b&gt;%1&lt;/b&gt;...</source>
+        <translation>Abriendo monedero &lt;b&gt;%1&lt;/b&gt;...</translation>
     </message>
 </context>
 <context>
@@ -1573,21 +1570,6 @@
         <translation>%1 GB</translation>
     </message>
     <message>
-        <source>%1 didn't yet exit safely...</source>
-        <translation>%1 no se ha cerrado de forma segura todavía...</translation>
-    </message>
-    <message>
-        <source>unknown</source>
-        <translation>desconocido</translation>
-    </message>
-</context>
-<context>
-    <name>QObject::QObject</name>
-    <message>
-        <source>Error parsing command line arguments: %1.</source>
-        <translation>Error al parsear los argumentos de la línea de comando: %1.</translation>
-    </message>
-    <message>
         <source>Error: Specified data directory "%1" does not exist.</source>
         <translation>Error: El directorio de datos «%1» especificado no existe.</translation>
     </message>
@@ -1599,6 +1581,14 @@
         <source>Error: %1</source>
         <translation>Error: %1</translation>
     </message>
+    <message>
+        <source>%1 didn't yet exit safely...</source>
+        <translation>%1 no se ha cerrado de forma segura todavía...</translation>
+    </message>
+    <message>
+        <source>unknown</source>
+        <translation>desconocido</translation>
+    </message>
 </context>
 <context>
     <name>QRImageWidget</name>
@@ -1609,6 +1599,18 @@
     <message>
         <source>&amp;Copy Image</source>
         <translation>&amp;Copiar imagen</translation>
+    </message>
+    <message>
+        <source>Resulting URI too long, try to reduce the text for label / message.</source>
+        <translation>URI resultante demasiado grande, trate de reducir el texto de etiqueta / mensaje.</translation>
+    </message>
+    <message>
+        <source>Error encoding URI into QR Code.</source>
+        <translation>Fallo al codificar URI en código QR.</translation>
+    </message>
+    <message>
+        <source>QR code support not available.</source>
+        <translation>Soporte de código QR no disponible.</translation>
     </message>
     <message>
         <source>Save QR Code</source>
@@ -1989,10 +1991,6 @@
         <translation>Historial de pagos solicitados</translation>
     </message>
     <message>
-        <source>&amp;Request payment</source>
-        <translation>&amp;Solicitar pago</translation>
-    </message>
-    <message>
         <source>Show the selected request (does the same as double clicking an entry)</source>
         <translation>Muestra la petición seleccionada (También doble clic)</translation>
     </message>
@@ -2074,14 +2072,6 @@
     <message>
         <source>Wallet</source>
         <translation>Monedero</translation>
-    </message>
-    <message>
-        <source>Resulting URI too long, try to reduce the text for label / message.</source>
-        <translation>URI resultante demasiado grande, trate de reducir el texto de etiqueta / mensaje.</translation>
-    </message>
-    <message>
-        <source>Error encoding URI into QR Code.</source>
-        <translation>Fallo al codificar URI en código QR.</translation>
     </message>
 </context>
 <context>
@@ -2302,6 +2292,14 @@ Nota: Dado que la comisión se calcula por byte, una comisión de "100 satoshis 
         <translation>%1 (%2 bloques)</translation>
     </message>
     <message>
+        <source> from wallet '%1'</source>
+        <translation>de monedero %1</translation>
+    </message>
+    <message>
+        <source>%1 to '%2'</source>
+        <translation>%1 a %2</translation>
+    </message>
+    <message>
         <source>%1 to %2</source>
         <translation>%1 a %2</translation>
     </message>
@@ -2316,10 +2314,6 @@ Nota: Dado que la comisión se calcula por byte, una comisión de "100 satoshis 
     <message>
         <source>You can increase the fee later (signals Replace-By-Fee, BIP-125).</source>
         <translation>Puede incrementar la comisión más tarde (usa Replace-By-Fee, BIP-125).</translation>
-    </message>
-    <message>
-        <source>from wallet %1</source>
-        <translation>de monedero %1</translation>
     </message>
     <message>
         <source>Please, review your transaction.</source>
@@ -2644,13 +2638,6 @@ Nota: Dado que la comisión se calcula por byte, una comisión de "100 satoshis 
     <message>
         <source>Message verified.</source>
         <translation>Mensaje verificado.</translation>
-    </message>
-</context>
-<context>
-    <name>SplashScreen</name>
-    <message>
-        <source>[testnet]</source>
-        <translation>[testnet]</translation>
     </message>
 </context>
 <context>
@@ -3118,10 +3105,6 @@ Nota: Dado que la comisión se calcula por byte, una comisión de "100 satoshis 
         <translation>Cerrar monedero</translation>
     </message>
     <message>
-        <source>Are you sure you wish to close wallet &lt;i&gt;%1&lt;/i&gt;?</source>
-        <translation>¿Está seguro que desea cerra el monedero &lt;i&gt;%1&lt;/i&gt;?</translation>
-    </message>
-    <message>
         <source>Closing the wallet for too long can result in having to resync the entire chain if pruning is enabled.</source>
         <translation>Cerrar la monedero durante demasiado tiempo puede causar resincronizado de toda la cadena si la poda es habilitado.</translation>
     </message>
@@ -3250,10 +3233,6 @@ Nota: Dado que la comisión se calcula por byte, una comisión de "100 satoshis 
         <translation>No se ha podido comenzar el servidor HTTP. Ver debug log para detalles.</translation>
     </message>
     <message>
-        <source>Bitcoin Core</source>
-        <translation>Bitcoin Core</translation>
-    </message>
-    <message>
         <source>The %s developers</source>
         <translation>Los desarrolladores de %s</translation>
     </message>
@@ -3378,10 +3357,6 @@ Nota: Dado que la comisión se calcula por byte, una comisión de "100 satoshis 
         <translation>Error al abrir base de datos de bloques.</translation>
     </message>
     <message>
-        <source>Error: Disk space is low!</source>
-        <translation>Error: ¡Espacio en disco bajo!</translation>
-    </message>
-    <message>
         <source>Failed to listen on any port. Use -listen=0 if you want this.</source>
         <translation>Ha fallado la escucha en todos los puertos. Use -listen=0 si desea esto.</translation>
     </message>
@@ -3402,6 +3377,10 @@ Nota: Dado que la comisión se calcula por byte, una comisión de "100 satoshis 
         <translation>La inicialización de la verificación de validez falló. Se está apagando %s.</translation>
     </message>
     <message>
+        <source>Invalid P2P permission: '%s'</source>
+        <translation>Permiso P2P inválido: '%s'</translation>
+    </message>
+    <message>
         <source>Invalid amount for -%s=&lt;amount&gt;: '%s'</source>
         <translation>Cantidad no valida para -%s=&lt;amount&gt;: '%s'</translation>
     </message>
@@ -3418,8 +3397,12 @@ Nota: Dado que la comisión se calcula por byte, una comisión de "100 satoshis 
         <translation>El directorio de bloques «%s» especificado no existe.</translation>
     </message>
     <message>
-        <source>Unable to create the PID file '%s': %s</source>
-        <translation>No es posible crear el fichero PID '%s': %s</translation>
+        <source>Unknown address type '%s'</source>
+        <translation>Dirección tipo '%s' desconocida</translation>
+    </message>
+    <message>
+        <source>Unknown change type '%s'</source>
+        <translation>Cambio tipo '%s' desconocido</translation>
     </message>
     <message>
         <source>Upgrading txindex database</source>
@@ -3428,6 +3411,10 @@ Nota: Dado que la comisión se calcula por byte, una comisión de "100 satoshis 
     <message>
         <source>Loading P2P addresses...</source>
         <translation>Cargando direcciones P2P ...</translation>
+    </message>
+    <message>
+        <source>Error: Disk space is too low!</source>
+        <translation>Error: ¡Espacio en disco muy bajo!</translation>
     </message>
     <message>
         <source>Loading banlist...</source>
@@ -3514,8 +3501,8 @@ Nota: Dado que la comisión se calcula por byte, una comisión de "100 satoshis 
         <translation>Error actualizando la base de datos chainstate</translation>
     </message>
     <message>
-        <source>Information</source>
-        <translation>Información</translation>
+        <source>Error: Disk space is low for %s</source>
+        <translation>Error: ¡Espacio en disco bajo por %s!</translation>
     </message>
     <message>
         <source>Invalid -onion address or hostname: '%s'</source>
@@ -3580,10 +3567,6 @@ Nota: Dado que la comisión se calcula por byte, una comisión de "100 satoshis 
         <translation>Cantidad de la transacción demasiado pequeña</translation>
     </message>
     <message>
-        <source>Transaction too large for fee policy</source>
-        <translation>Transacción demasiado grande para la política de comisiones</translation>
-    </message>
-    <message>
         <source>Transaction too large</source>
         <translation>Transacción demasiado grande, intenta dividirla en varias.</translation>
     </message>
@@ -3592,20 +3575,16 @@ Nota: Dado que la comisión se calcula por byte, una comisión de "100 satoshis 
         <translation>No es posible conectar con %s en este sistema (bind ha dado el error %s)</translation>
     </message>
     <message>
+        <source>Unable to create the PID file '%s': %s</source>
+        <translation>No es posible crear el fichero PID '%s': %s</translation>
+    </message>
+    <message>
         <source>Unable to generate initial keys</source>
         <translation>No es posible generar llaves iniciales</translation>
     </message>
     <message>
         <source>Verifying wallet(s)...</source>
         <translation>Verificando monedero(s)...</translation>
-    </message>
-    <message>
-        <source>Wallet %s resides outside wallet directory %s</source>
-        <translation>Monedero %s situado fuera del directorio de monedero %s</translation>
-    </message>
-    <message>
-        <source>Warning</source>
-        <translation>Aviso</translation>
     </message>
     <message>
         <source>Warning: unknown new rules activated (versionbit %i)</source>
@@ -3642,10 +3621,6 @@ Nota: Dado que la comisión se calcula por byte, una comisión de "100 satoshis 
     <message>
         <source>Error loading wallet %s. Duplicate -wallet filename specified.</source>
         <translation>Error cargando el monedero %s. Se ha especificado un nombre de fichero -wallet duplicado.</translation>
-    </message>
-    <message>
-        <source>Keypool ran out, please call keypoolrefill first</source>
-        <translation>Keypool se ha agotado, llame a keypoolrefill primero</translation>
     </message>
     <message>
         <source>Starting network threads...</source>
@@ -3718,10 +3693,6 @@ Nota: Dado que la comisión se calcula por byte, una comisión de "100 satoshis 
     <message>
         <source>Done loading</source>
         <translation>Se terminó de cargar</translation>
-    </message>
-    <message>
-        <source>Error</source>
-        <translation>Error</translation>
     </message>
 </context>
 </TS>

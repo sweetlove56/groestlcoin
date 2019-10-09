@@ -70,10 +70,6 @@
         <translation>これらは、あなたが知っている支払い送り先の Bitcoin アドレスです。コインを送る前に、必ず金額と送金先アドレスを確認してください。</translation>
     </message>
     <message>
-        <source>These are your Bitcoin addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
-        <translation>これらは支払いを受け取るための、あなたの Bitcoin アドレスです。トランザクションごとに新しい受け取り用アドレスを作成することが推奨されます。</translation>
-    </message>
-    <message>
         <source>&amp;Copy Address</source>
         <translation>アドレスをコピー(&amp;C)</translation>
     </message>
@@ -136,14 +132,6 @@
         <translation>新しいパスフレーズをもう一度</translation>
     </message>
     <message>
-        <source>Show password</source>
-        <translation>パスワードを表示</translation>
-    </message>
-    <message>
-        <source>Enter the new passphrase to the wallet.&lt;br/&gt;Please use a passphrase of &lt;b&gt;ten or more random characters&lt;/b&gt;, or &lt;b&gt;eight or more words&lt;/b&gt;.</source>
-        <translation>ウォレットの新しいパスフレーズを入力してください。&lt;br/&gt;&lt;b&gt;10文字以上のランダムな文字&lt;/b&gt;で構成されたものか、&lt;b&gt;8単語以上の単語&lt;/b&gt;で構成されたパスフレーズを使用してください。</translation>
-    </message>
-    <message>
         <source>Encrypt wallet</source>
         <translation>ウォレットを暗号化</translation>
     </message>
@@ -168,10 +156,6 @@
         <translation>パスフレーズの変更</translation>
     </message>
     <message>
-        <source>Enter the old passphrase and new passphrase to the wallet.</source>
-        <translation>ウォレットの古いパスフレーズおよび新しいパスフレーズを入力してください。</translation>
-    </message>
-    <message>
         <source>Confirm wallet encryption</source>
         <translation>ウォレットの暗号化の承諾</translation>
     </message>
@@ -186,10 +170,6 @@
     <message>
         <source>Wallet encrypted</source>
         <translation>ウォレットの暗号化の完了</translation>
-    </message>
-    <message>
-        <source>Your wallet is now encrypted. Remember that encrypting your wallet cannot fully protect your bitcoins from being stolen by malware infecting your computer.</source>
-        <translation>ウォレットの暗号化処理が完了しました。ウォレットを暗号化しても、コンピュータに感染したマルウェアなどによる Bitcoin の盗難を完全に防ぐことはできないことにご注意ください。</translation>
     </message>
     <message>
         <source>IMPORTANT: Any previous backups you have made of your wallet file should be replaced with the newly generated, encrypted wallet file. For security reasons, previous backups of the unencrypted wallet file will become useless as soon as you start using the new, encrypted wallet.</source>
@@ -366,10 +346,6 @@
         <translation>メッセージの検証(&amp;V)...</translation>
     </message>
     <message>
-        <source>Bitcoin</source>
-        <translation>Bitcoin</translation>
-    </message>
-    <message>
         <source>&amp;Send</source>
         <translation>送金(&amp;S)</translation>
     </message>
@@ -510,12 +486,8 @@
         <translation>デフォルトウォレット</translation>
     </message>
     <message>
-        <source>Opening Wallet &lt;b&gt;%1&lt;/b&gt;...</source>
-        <translation>ウォレット &lt;b&gt;%1&lt;/b&gt;を開いています...</translation>
-    </message>
-    <message>
-        <source>Open Wallet Failed</source>
-        <translation>ウォレットを開くことに失敗しました</translation>
+        <source>No wallets available</source>
+        <translation>ウォレットは利用できません</translation>
     </message>
     <message>
         <source>&amp;Window</source>
@@ -528,10 +500,6 @@
     <message>
         <source>Zoom</source>
         <translation>拡大／縮小</translation>
-    </message>
-    <message>
-        <source>Restore</source>
-        <translation>元に戻す</translation>
     </message>
     <message>
         <source>Main Window</source>
@@ -548,6 +516,10 @@
     <message>
         <source>Catching up...</source>
         <translation>遅延取戻し中...</translation>
+    </message>
+    <message>
+        <source>Error: %1</source>
+        <translation>エラー: %1</translation>
     </message>
     <message>
         <source>Date: %1
@@ -770,6 +742,12 @@
     </message>
 </context>
 <context>
+    <name>CreateWalletActivity</name>
+    </context>
+<context>
+    <name>CreateWalletDialog</name>
+    </context>
+<context>
     <name>EditAddressDialog</name>
     <message>
         <source>Edit Address</source>
@@ -936,7 +914,7 @@
         <source>(of %n GB needed)</source>
         <translation><numerusform>(%n GB必要)</numerusform></translation>
     </message>
-</context>
+    </context>
 <context>
     <name>ModalOverlay</name>
     <message>
@@ -983,7 +961,11 @@
         <source>Hide</source>
         <translation>隠す</translation>
     </message>
-    </context>
+    <message>
+        <source>Unknown. Syncing Headers (%1, %2%)...</source>
+        <translation>不明。ヘッダ (%1, %2%) の同期中...</translation>
+    </message>
+</context>
 <context>
     <name>OpenURIDialog</name>
     <message>
@@ -1005,6 +987,17 @@
     <message>
         <source>Select payment request file to open</source>
         <translation>支払いリクエストファイルを選択</translation>
+    </message>
+</context>
+<context>
+    <name>OpenWalletActivity</name>
+    <message>
+        <source>default wallet</source>
+        <translation>デフォルトウォレット</translation>
+    </message>
+    <message>
+        <source>Opening Wallet &lt;b&gt;%1&lt;/b&gt;...</source>
+        <translation>ウォレット &lt;b&gt;%1&lt;/b&gt;を開いています...</translation>
     </message>
 </context>
 <context>
@@ -1570,21 +1563,6 @@
         <translation>%1 GB</translation>
     </message>
     <message>
-        <source>%1 didn't yet exit safely...</source>
-        <translation>%1 はまだ安全に終了していません...</translation>
-    </message>
-    <message>
-        <source>unknown</source>
-        <translation>不明</translation>
-    </message>
-</context>
-<context>
-    <name>QObject::QObject</name>
-    <message>
-        <source>Error parsing command line arguments: %1.</source>
-        <translation>コマンドライン引数の解析時にエラーが発生しました: %1</translation>
-    </message>
-    <message>
         <source>Error: Specified data directory "%1" does not exist.</source>
         <translation>エラー: 指定されたデータ ディレクトリ "%1" は存在しません。</translation>
     </message>
@@ -1596,6 +1574,14 @@
         <source>Error: %1</source>
         <translation>エラー: %1</translation>
     </message>
+    <message>
+        <source>%1 didn't yet exit safely...</source>
+        <translation>%1 はまだ安全に終了していません...</translation>
+    </message>
+    <message>
+        <source>unknown</source>
+        <translation>不明</translation>
+    </message>
 </context>
 <context>
     <name>QRImageWidget</name>
@@ -1606,6 +1592,14 @@
     <message>
         <source>&amp;Copy Image</source>
         <translation>画像をコピー(&amp;C)</translation>
+    </message>
+    <message>
+        <source>Resulting URI too long, try to reduce the text for label / message.</source>
+        <translation>生成されたURIが長すぎです。ラベルやメッセージのテキストを短くしてください。</translation>
+    </message>
+    <message>
+        <source>Error encoding URI into QR Code.</source>
+        <translation>URIをQRコードへ変換している際にエラーが発生しました。</translation>
     </message>
     <message>
         <source>Save QR Code</source>
@@ -1986,10 +1980,6 @@
         <translation>支払いリクエスト履歴</translation>
     </message>
     <message>
-        <source>&amp;Request payment</source>
-        <translation>支払いをリクエスト(&amp;R)</translation>
-    </message>
-    <message>
         <source>Show the selected request (does the same as double clicking an entry)</source>
         <translation>選択されたリクエストを表示（項目をダブルクリックすることでも表示できます）</translation>
     </message>
@@ -2071,14 +2061,6 @@
     <message>
         <source>Wallet</source>
         <translation>ウォレット</translation>
-    </message>
-    <message>
-        <source>Resulting URI too long, try to reduce the text for label / message.</source>
-        <translation>生成されたURIが長すぎです。ラベルやメッセージのテキストを短くしてください。</translation>
-    </message>
-    <message>
-        <source>Error encoding URI into QR Code.</source>
-        <translation>URIをQRコードへ変換している際にエラーが発生しました。</translation>
     </message>
 </context>
 <context>
@@ -2313,10 +2295,6 @@ Note:  Since the fee is calculated on a per-byte basis, a fee of "100 satoshis p
     <message>
         <source>You can increase the fee later (signals Replace-By-Fee, BIP-125).</source>
         <translation>手数料は後から上乗せ可能です(Replace-By-Fee(手数料の上乗せ: BIP-125)機能が有効)。</translation>
-    </message>
-    <message>
-        <source>from wallet %1</source>
-        <translation>%1 ウォレット から</translation>
     </message>
     <message>
         <source>Please, review your transaction.</source>
@@ -2641,13 +2619,6 @@ Note:  Since the fee is calculated on a per-byte basis, a fee of "100 satoshis p
     <message>
         <source>Message verified.</source>
         <translation>メッセージは検証されました。</translation>
-    </message>
-</context>
-<context>
-    <name>SplashScreen</name>
-    <message>
-        <source>[testnet]</source>
-        <translation>[testnet]</translation>
     </message>
 </context>
 <context>
@@ -3115,10 +3086,6 @@ Note:  Since the fee is calculated on a per-byte basis, a fee of "100 satoshis p
         <translation>ウォレットを閉じる</translation>
     </message>
     <message>
-        <source>Are you sure you wish to close wallet &lt;i&gt;%1&lt;/i&gt;?</source>
-        <translation>本当にウォレット&lt;i&gt;%1&lt;/i&gt;を閉じますか？</translation>
-    </message>
-    <message>
         <source>Closing the wallet for too long can result in having to resync the entire chain if pruning is enabled.</source>
         <translation>ブロックファイル剪定が有効の場合、長期間ウォレットを起動しないと全チェーンを再度同期させる必要があるかもしれません。</translation>
     </message>
@@ -3247,10 +3214,6 @@ Note:  Since the fee is calculated on a per-byte basis, a fee of "100 satoshis p
         <translation>HTTPサーバを開始できませんでした。詳細は debug.log を参照してください。</translation>
     </message>
     <message>
-        <source>Bitcoin Core</source>
-        <translation>Bitcoin コア</translation>
-    </message>
-    <message>
         <source>The %s developers</source>
         <translation>%s の開発者</translation>
     </message>
@@ -3375,10 +3338,6 @@ Note:  Since the fee is calculated on a per-byte basis, a fee of "100 satoshis p
         <translation>ブロックデータベースのオープン時にエラーが発生しました</translation>
     </message>
     <message>
-        <source>Error: Disk space is low!</source>
-        <translation>エラー: ディスク容量が不足しています！</translation>
-    </message>
-    <message>
         <source>Failed to listen on any port. Use -listen=0 if you want this.</source>
         <translation>ポートのリッスンに失敗しました。必要であれば -listen=0 を指定してください。</translation>
     </message>
@@ -3415,8 +3374,12 @@ Note:  Since the fee is calculated on a per-byte basis, a fee of "100 satoshis p
         <translation>指定されたブロックディレクトリ "%s" は存在しません｡</translation>
     </message>
     <message>
-        <source>Unable to create the PID file '%s': %s</source>
-        <translation>PIDファイルの作成に失敗しました ('%s': %s)</translation>
+        <source>Unknown address type '%s'</source>
+        <translation>未知のアドレス形式 '%s' です</translation>
+    </message>
+    <message>
+        <source>Unknown change type '%s'</source>
+        <translation>未知のおつり用アドレス形式 '%s' です</translation>
     </message>
     <message>
         <source>Upgrading txindex database</source>
@@ -3515,10 +3478,6 @@ Note:  Since the fee is calculated on a per-byte basis, a fee of "100 satoshis p
         <translation>エラー: %s 用のディスク容量が不足しています</translation>
     </message>
     <message>
-        <source>Information</source>
-        <translation>情報</translation>
-    </message>
-    <message>
         <source>Invalid -onion address or hostname: '%s'</source>
         <translation>-onion オプションに対する不正なアドレスまたはホスト名: '%s'</translation>
     </message>
@@ -3551,6 +3510,18 @@ Note:  Since the fee is calculated on a per-byte basis, a fee of "100 satoshis p
         <translation>取引の署名に失敗しました</translation>
     </message>
     <message>
+        <source>Specified -walletdir "%s" does not exist</source>
+        <translation>指定された -walletdir "%s" は存在しません。</translation>
+    </message>
+    <message>
+        <source>Specified -walletdir "%s" is a relative path</source>
+        <translation>指定された -walletdir "%s" は相対パスです。</translation>
+    </message>
+    <message>
+        <source>Specified -walletdir "%s" is not a directory</source>
+        <translation>指定された-walletdir "%s" はディレクトリではありません。</translation>
+    </message>
+    <message>
         <source>The specified config file %s does not exist
 </source>
         <translation>指定された設定ファイル %s が存在しません｡
@@ -3569,10 +3540,6 @@ Note:  Since the fee is calculated on a per-byte basis, a fee of "100 satoshis p
         <translation>取引の金額が小さすぎます</translation>
     </message>
     <message>
-        <source>Transaction too large for fee policy</source>
-        <translation>手数料ポリシーに対してトランザクションが大きすぎます</translation>
-    </message>
-    <message>
         <source>Transaction too large</source>
         <translation>トランザクションが大きすぎます</translation>
     </message>
@@ -3581,20 +3548,16 @@ Note:  Since the fee is calculated on a per-byte basis, a fee of "100 satoshis p
         <translation>このコンピュータの %s にバインドすることができません（%s エラーが返却されました）</translation>
     </message>
     <message>
+        <source>Unable to create the PID file '%s': %s</source>
+        <translation>PIDファイルの作成に失敗しました ('%s': %s)</translation>
+    </message>
+    <message>
         <source>Unable to generate initial keys</source>
         <translation>イニシャル鍵を生成できません</translation>
     </message>
     <message>
         <source>Verifying wallet(s)...</source>
         <translation>ウォレットの確認中...</translation>
-    </message>
-    <message>
-        <source>Wallet %s resides outside wallet directory %s</source>
-        <translation>ウォレット「%s」がウォレットフォルダ「%s」の外に存在します</translation>
-    </message>
-    <message>
-        <source>Warning</source>
-        <translation>警告</translation>
     </message>
     <message>
         <source>Warning: unknown new rules activated (versionbit %i)</source>
@@ -3631,10 +3594,6 @@ Note:  Since the fee is calculated on a per-byte basis, a fee of "100 satoshis p
     <message>
         <source>Error loading wallet %s. Duplicate -wallet filename specified.</source>
         <translation>ウォレット %s の読み込み時にエラーが発生しました。重複する -wallet ファイル名が指定されました。</translation>
-    </message>
-    <message>
-        <source>Keypool ran out, please call keypoolrefill first</source>
-        <translation>キープールが枯渇しました。まずはじめに keypoolrefill を呼び出してください</translation>
     </message>
     <message>
         <source>Starting network threads...</source>
@@ -3707,10 +3666,6 @@ Note:  Since the fee is calculated on a per-byte basis, a fee of "100 satoshis p
     <message>
         <source>Done loading</source>
         <translation>読み込み完了</translation>
-    </message>
-    <message>
-        <source>Error</source>
-        <translation>エラー</translation>
     </message>
 </context>
 </TS>

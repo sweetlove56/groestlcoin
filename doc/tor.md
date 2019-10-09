@@ -32,6 +32,11 @@ outgoing connections, but more is possible.
 	                specified multiple times to allow multiple network types, e.g.
 	                ipv4, ipv6, or onion.
 
+	-onlynet=onion  Make outgoing connections only to .onion addresses. Incoming
+	                connections are not affected by this option. This option can be
+	                specified multiple times to allow multiple network types, e.g.
+	                ipv4, ipv6, or onion.
+
 In a typical situation, this suffices to run behind a Tor proxy:
 
 	./groestlcoind -proxy=127.0.0.1:9050
@@ -114,7 +119,10 @@ preconfigured and the creation of a hidden service is automatic. If permission p
 are seen with `-debug=tor` they can be resolved by adding both the user running Tor and
 the user running groestlcoind to the same group and setting permissions appropriately. On
 Debian-based systems the user running groestlcoind can be added to the debian-tor group,
-which has the appropriate permissions.
+which has the appropriate permissions. Before starting groestlcoind you will need to re-login
+to allow debian-tor group to be applied. Otherwise you will see the following notice: "tor:
+Authentication cookie /run/tor/control.authcookie could not be opened (check permissions)"
+on debug.log.
 
 An alternative authentication method is the use
 of the `-torpassword=password` option. The `password` is the clear text form that
