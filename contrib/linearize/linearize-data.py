@@ -19,6 +19,8 @@ import time
 from collections import namedtuple
 from binascii import hexlify, unhexlify
 
+import groestlcoin_hash
+
 settings = {}
 
 def hex_switchEndian(s):
@@ -48,15 +50,7 @@ def wordreverse(in_buf):
     return b''.join(out_words)
 
 def calc_hdr_hash(blk_hdr):
-    hash1 = hashlib.sha256()
-    hash1.update(blk_hdr)
-    hash1_o = hash1.digest()
-
-    hash2 = hashlib.sha256()
-    hash2.update(hash1_o)
-    hash2_o = hash2.digest()
-
-    return hash2_o
+    return groestlcoin_hash.getHash(blk_hdr, len(blk_hdr))
 
 def calc_hash_str(blk_hdr):
     hash = calc_hdr_hash(blk_hdr)
@@ -215,6 +209,8 @@ class BlockDataCopier:
             inMagic = inhdr[:4]
             if (inMagic != self.settings['netmagic']):
                 print("Invalid magic: " + hexlify(inMagic).decode('utf-8'))
+                if hexlify(inhdr).decode('utf-8') == '0000000000000000':
+                    continue
                 return
             inLenLE = inhdr[4:]
             su = struct.unpack("<I", inLenLE)
@@ -282,9 +278,9 @@ if __name__ == '__main__':
     settings['rev_hash_bytes'] = settings['rev_hash_bytes'].lower()
 
     if 'netmagic' not in settings:
-        settings['netmagic'] = 'f9beb4d9'
+        settings['netmagic'] = 'f9beb4d4'
     if 'genesis' not in settings:
-        settings['genesis'] = '000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f'
+        settings['genesis'] = '00000ac5927c594d49cc0bdb81759d0da8297eb614683d3acb62f0703b639023'
     if 'input' not in settings:
         settings['input'] = 'input'
     if 'hashlist' not in settings:
