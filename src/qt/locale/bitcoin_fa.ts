@@ -132,10 +132,6 @@
         <translation>رمز/پَس فرِیز را دوباره وارد کنید</translation>
     </message>
     <message>
-        <source>Enter the new passphrase to the wallet.&lt;br/&gt;Please use a passphrase of &lt;b&gt;ten or more random characters&lt;/b&gt;, or &lt;b&gt;eight or more words&lt;/b&gt;.</source>
-        <translation>کلمه رمز جدید را وارد کنید. &lt;br/&gt;لطفا کلمه رمزی که انتخاب میکنید &lt;b&gt;۱۰ یا بیشتر حرف تصادفی باشد &lt;b&gt; یا ۸ کلمه یا بیشتر باشد.</translation>
-    </message>
-    <message>
         <source>Encrypt wallet</source>
         <translation>رمزگذاری کیف پول</translation>
     </message>
@@ -177,16 +173,12 @@
     </message>
     <message>
         <source>Remember that encrypting your wallet cannot fully protect your bitcoins from being stolen by malware infecting your computer.</source>
-        <translation>والت رمز بندی شد .
+        <translation>والت رمز بندی شد . 
 یاد داشته باشید که پنجره رمز شده نمی تواند کلا از سرقت نرم افزارهای مخرب محافظ کند </translation>
     </message>
     <message>
         <source>IMPORTANT: Any previous backups you have made of your wallet file should be replaced with the newly generated, encrypted wallet file. For security reasons, previous backups of the unencrypted wallet file will become useless as soon as you start using the new, encrypted wallet.</source>
         <translation>مهم: هر بک‌آپ قبلی که از کیف‌پول خود گرفته‌اید، با نسخه‌ی جدید رمزنگاری‌شده جایگزین خواهد شد. به دلایل امنیتی، پس از رمزنگاری کیف‌پول، بک‌آپ‌های قدیمی شما بلااستفاده خواهد شد.</translation>
-    </message>
-    <message>
-        <source>Your wallet is now encrypted. Remember that encrypting your wallet cannot fully protect your bitcoins from being stolen by malware infecting your computer.</source>
-        <translation>کیف بیت کوین رمزنگاری شد. به یاد داشته باشید رمزنگار کردن کیف بیت کوین نمیتواند به صورت کامل بیت کوین شما را در مقابل سرقت آنها توسط بدافزارهایی که ممکن است بر روی کامپیوتر شما نصب شوند، محافظت نماید.</translation>
     </message>
     <message>
         <source>Wallet encryption failed</source>
@@ -309,10 +301,6 @@
     <message>
         <source>Wallet:</source>
         <translation>کیف پول:</translation>
-    </message>
-    <message>
-        <source>Wallet:</source>
-        <translation>کیف:</translation>
     </message>
     <message>
         <source>Click to disable network activity.</source>
@@ -509,14 +497,6 @@
     <message>
         <source>Connecting to peers...</source>
         <translation>در حال اتصال به همتاهای شبکه...</translation>
-    </message>
-    <message>
-        <source>&amp;Window</source>
-        <translation>&amp;پنجره</translation>
-    </message>
-    <message>
-        <source>Connecting to peers...</source>
-        <translation>در حال اتصال به همتایان</translation>
     </message>
     <message>
         <source>Catching up...</source>

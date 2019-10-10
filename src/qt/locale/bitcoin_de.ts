@@ -1592,7 +1592,7 @@
     </message>
     <message>
         <source>%1 h</source>
-        <translation>%1 S</translation>
+        <translation>%1 h</translation>
     </message>
     <message>
         <source>%1 m</source>
@@ -1600,7 +1600,7 @@
     </message>
     <message>
         <source>%1 s</source>
-        <translation>%1 S</translation>
+        <translation>%1 s</translation>
     </message>
     <message>
         <source>None</source>

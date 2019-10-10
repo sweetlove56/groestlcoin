@@ -331,8 +331,11 @@ public:
         consensus.BIP16Exception = uint256S("00000000005a3b7cda97b28dd1e59d872eebb990ec79ed44f494b8e6edbf015d");
         consensus.BIP34Height = 800000;
         consensus.BIP34Hash = uint256S("0x0000000007f3f37410d5f7e71a07bf09bb802d5af6726fc891f0248ad857708c");
-        consensus.BIP65Height = 2464000;
-        consensus.BIP66Height = 800000;
+        consensus.BIP65Height = 2464000; // 00000000000030f90269dd2c0fb5f7502f332cd183b1596817f0cc4cfd6966b1
+        consensus.BIP66Height = 800000; // 0000000007f3f37410d5f7e71a07bf09bb802d5af6726fc891f0248ad857708c
+				consensus.CSVHeight = 1439424; // 00000000023a4b8e347ca3b40fe9f3001203a49c77046d4d1ae4c2c87b00bdd6
+        consensus.SegwitHeight = 1439424; // 00000000023a4b8e347ca3b40fe9f3001203a49c77046d4d1ae4c2c87b00bdd6
+        consensus.MinBIP9WarningHeight = consensus.BIP65Height + consensus.nMinerConfirmationWindow;
         consensus.powLimit = uint256S("00000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
         consensus.nPowTargetTimespan = 14 * 24 * 60 * 60; // two weeks
         consensus.nPowTargetSpacing = 60;
@@ -342,16 +345,6 @@ public:
         consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].bit = 28;
         consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].nStartTime = 1199145601; // January 1, 2008
         consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].nTimeout = 1230767999; // December 31, 2008
-
-        // Deployment of BIP68, BIP112, and BIP113.
-        consensus.vDeployments[Consensus::DEPLOYMENT_CSV].bit = 0;
-        consensus.vDeployments[Consensus::DEPLOYMENT_CSV].nStartTime = 1484956800; // Jan 21, 2017
-        consensus.vDeployments[Consensus::DEPLOYMENT_CSV].nTimeout = 1498003200; // Jun 21, 2017
-
-        // Deployment of SegWit (BIP141 and BIP143)
-        consensus.vDeployments[Consensus::DEPLOYMENT_SEGWIT].bit = 1;
-        consensus.vDeployments[Consensus::DEPLOYMENT_SEGWIT].nStartTime = 1484956800; // Jan 21, 2017
-        consensus.vDeployments[Consensus::DEPLOYMENT_SEGWIT].nTimeout = 1498003200; // Jun 21, 2017
 
         // The best chain should have at least this much work.
         consensus.nMinimumChainWork = uint256S("0x000000000000000000000000000000000000000000000027504782197c37cc4b"); // groestlcoin-cli getblockheader 0000000000001ac99ec6ed599a07aed90e19deb684ca343d306089b7d0878450
@@ -417,7 +410,7 @@ public:
         //!!!?        fMiningRequiresPeers = true;
         fDefaultConsistencyChecks = false;
         fRequireStandard = true;
-        fMineBlocksOnDemand = false;
+        m_is_test_chain = false;
 
         #ifdef _MSC_VER //!!!
         checkpointData = CCheckpointData{
@@ -441,9 +434,6 @@ public:
             /* nTxCount */ 3756125,
             /* dTxRate  */ 0.01948955197278437
         };
-
-        /* enable fallback fee on mainnet */
-        m_fallback_fee_enabled = true;
   	}
 };
 static CMainParams mainParams;
@@ -458,8 +448,11 @@ public:
         consensus.BIP16Exception = uint256S("000000458242a5d60e943f0a9945c29040b32be35582d1bfd47b5c536f10ac30");
         consensus.BIP34Height = 286;
         consensus.BIP34Hash = uint256S("0x0000004b7778ba253a75b716c55b2c6609b5fb97691b3260978f9ce4a633106d");
-        consensus.BIP65Height = 982000;
-        consensus.BIP66Height = 286;
+        consensus.BIP65Height = 982000; // 000000204a7e703f80543d9329d4b90e4269e08f36ad746cfe145add340b8738
+        consensus.BIP66Height = 286; // 0000004b7778ba253a75b716c55b2c6609b5fb97691b3260978f9ce4a633106d
+				consensus.CSVHeight = 6048; // 00000045ca094ba21d5ae2820b526cd4973b49746737b2e6b5b02c5ddba0ea26
+        consensus.SegwitHeight = 6048; // 00000045ca094ba21d5ae2820b526cd4973b49746737b2e6b5b02c5ddba0ea26
+        consensus.MinBIP9WarningHeight = consensus.BIP65Height + consensus.nMinerConfirmationWindow;
         consensus.powLimit = uint256S("000000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
         consensus.nPowTargetSpacing = 60;
         consensus.fPowAllowMinDifficultyBlocks = true;
@@ -468,16 +461,6 @@ public:
         consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].bit = 28;
         consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].nStartTime = 1199145601; // January 1, 2008
         consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].nTimeout = 1230767999; // December 31, 2008
-
-        // Deployment of BIP68, BIP112, and BIP113.
-        consensus.vDeployments[Consensus::DEPLOYMENT_CSV].bit = 0;
-        consensus.vDeployments[Consensus::DEPLOYMENT_CSV].nStartTime = 1484956800; // Jan 21, 2017
-        consensus.vDeployments[Consensus::DEPLOYMENT_CSV].nTimeout = 1498003200; // Jun 21, 2017
-
-        // Deployment of SegWit (BIP141, BIP143, and BIP147)
-        consensus.vDeployments[Consensus::DEPLOYMENT_SEGWIT].bit = 1;
-        consensus.vDeployments[Consensus::DEPLOYMENT_SEGWIT].nStartTime = 1484956800; // Jan 21, 2017
-        consensus.vDeployments[Consensus::DEPLOYMENT_SEGWIT].nTimeout = 1498003200; // Jun 21, 2017
 
         // The best chain should have at least this much work.
         consensus.nMinimumChainWork = uint256S("0x000000000000000000000000000000000000000000000000000023163b6d52f1"); // groestlcoin-cli -testnet getblockheader 00000027cbbb20b16ba4d6eda0bedbbca6c5a9471f8a7e626f6692c4265a1f91
@@ -526,7 +509,7 @@ public:
         //!!!?        fMiningRequiresPeers = false;			//GRS  Testnet can have single node
         fDefaultConsistencyChecks = false;
         fRequireStandard = false;
-        fMineBlocksOnDemand = false;
+        m_is_test_chain = true;
 
 
         #ifdef _MSC_VER
@@ -548,8 +531,6 @@ public:
             /* nTxCount */ 1349432,
             /* dTxRate  */ 0.01850891769137033
         };
-        /* enable fallback fee on testnet */
-        m_fallback_fee_enabled = true;
   	}
 };
 static CTestNetParams testNetParams;
@@ -567,6 +548,9 @@ public:
         consensus.BIP34Hash = uint256();
         consensus.BIP65Height = 1351; // BIP65 activated on regtest (Used in functional tests)
         consensus.BIP66Height = 1251; // BIP66 activated on regtest (Used in functional tests)
+				consensus.CSVHeight = 432; // CSV activated on regtest (Used in rpc activation tests)
+        consensus.SegwitHeight = 0; // SEGWIT is always activated on regtest unless overridden
+        consensus.MinBIP9WarningHeight = 0;
         consensus.powLimit = uint256S("00ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
         consensus.nPowTargetSpacing = 1;
         consensus.fPowAllowMinDifficultyBlocks = true;
@@ -575,12 +559,6 @@ public:
         consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].bit = 28;
         consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].nStartTime = 0;
         consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].nTimeout = Consensus::BIP9Deployment::NO_TIMEOUT;
-        consensus.vDeployments[Consensus::DEPLOYMENT_CSV].bit = 0;
-        consensus.vDeployments[Consensus::DEPLOYMENT_CSV].nStartTime = 0;
-        consensus.vDeployments[Consensus::DEPLOYMENT_CSV].nTimeout = Consensus::BIP9Deployment::NO_TIMEOUT;
-        consensus.vDeployments[Consensus::DEPLOYMENT_SEGWIT].bit = 1;
-        consensus.vDeployments[Consensus::DEPLOYMENT_SEGWIT].nStartTime = Consensus::BIP9Deployment::ALWAYS_ACTIVE;
-        consensus.vDeployments[Consensus::DEPLOYMENT_SEGWIT].nTimeout = Consensus::BIP9Deployment::NO_TIMEOUT;
 
         // The best chain should have at least this much work.
         consensus.nMinimumChainWork = uint256S("0x00");
@@ -598,7 +576,7 @@ public:
 				m_assumed_blockchain_size = 0;
         m_assumed_chain_state_size = 0;
 
-				UpdateVersionBitsParametersFromArgs(args);
+				UpdateActivationParametersFromArgs(args);
 
         genesis = CreateGenesisBlock(1440000002, 6556309, 0x1e00ffff, 3, 0);
         consensus.hashGenesisBlock = genesis.GetHash();
@@ -608,8 +586,8 @@ public:
         vSeeds.clear();      //!< Regtest mode doesn't have any DNS seeds.
 
         fDefaultConsistencyChecks = true;
-        fRequireStandard = false;
-        fMineBlocksOnDemand = true;
+				fRequireStandard = true;
+        m_is_test_chain = true;
 
         #ifdef _MSC_VER
         checkpointData = CCheckpointData{
@@ -634,9 +612,6 @@ public:
         base58Prefixes[EXT_SECRET_KEY] = { 0x04, 0x35, 0x83, 0x94 };
 
         bech32_hrp = "grsrt";
-
-        /* enable fallback fee on regtest */
-        m_fallback_fee_enabled = true;
    }
 	 /**
 		* Allows modifying the Version Bits regtest parameters.
@@ -646,11 +621,22 @@ public:
 			 consensus.vDeployments[d].nStartTime = nStartTime;
 			 consensus.vDeployments[d].nTimeout = nTimeout;
 	 }
-	 void UpdateVersionBitsParametersFromArgs(const ArgsManager& args);
+	 void UpdateActivationParametersFromArgs(const ArgsManager& args);
 };
 
-void CRegTestParams::UpdateVersionBitsParametersFromArgs(const ArgsManager& args)
-{
+void CRegTestParams::UpdateActivationParametersFromArgs(const ArgsManager& args)
+ {
+ 	  if (gArgs.IsArgSet("-segwitheight")) {
+		    int64_t height = gArgs.GetArg("-segwitheight", consensus.SegwitHeight);
+		    if (height < -1 || height >= std::numeric_limits<int>::max()) {
+				   throw std::runtime_error(strprintf("Activation height %ld for segwit is out of valid range. Use -1 to disable segwit.", height));
+		    } else if (height == -1) {
+				    LogPrintf("Segwit disabled for testing\n");
+				    height = std::numeric_limits<int>::max();
+		    }
+		    consensus.SegwitHeight = static_cast<int>(height);
+    }
+
     if (!args.IsArgSet("-vbparams")) return;
 
     for (const std::string& strDeployment : args.GetArgs("-vbparams")) {

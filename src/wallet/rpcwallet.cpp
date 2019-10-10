@@ -3323,7 +3323,7 @@ static UniValue bumpfee(const JSONRPCRequest& request)
             "                         the dust threshold."},
                             {"fee_rate", RPCArg::Type::NUM, /* default */ "fallback to 'confTarget'", "FeeRate (NOT total fee) to pay, in " + CURRENCY_UNIT + " per kB\n"
             "                         Specify a fee rate instead of relying on the built-in fee estimator.\n"
-            "                         Must be at least 0.0001 BTC per kB higher than the current transaction fee rate.\n"},
+            "                         Must be at least 0.0001 GRS per kB higher than the current transaction fee rate.\n"},
                             {"replaceable", RPCArg::Type::BOOL, /* default */ "true", "Whether the new transaction should still be\n"
             "                         marked bip-125 replaceable. If true, the sequence numbers in the transaction will\n"
             "                         be left unchanged from the original. If false, any input sequence numbers in the\n"
@@ -3378,7 +3378,7 @@ static UniValue bumpfee(const JSONRPCRequest& request)
             coin_control.m_confirm_target = ParseConfirmTarget(options["confTarget"], pwallet->chain().estimateMaxBlocks());
         } else if (options.exists("totalFee")) {
             if (!pwallet->chain().rpcEnableDeprecated("totalFee")) {
-                throw JSONRPCError(RPC_INVALID_PARAMETER, "totalFee argument has been deprecated and will be removed in 0.20. Please use -deprecatedrpc=totalFee to continue using this argument until removal.");
+                throw JSONRPCError(RPC_INVALID_PARAMETER, "totalFee argument has been deprecated and will be removed in 2.20.0. Please use -deprecatedrpc=totalFee to continue using this argument until removal.");
             }
             totalFee = options["totalFee"].get_int64();
             if (totalFee <= 0) {

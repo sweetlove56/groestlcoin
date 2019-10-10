@@ -3374,10 +3374,6 @@ Poznámka: Jelikož je poplatek počítaný za bajt, poplatek o hodnotě "100 sa
         <translation>Zadaný adresář bloků "%s" neexistuje.</translation>
     </message>
     <message>
-        <source>Unable to create the PID file '%s': %s</source>
-        <translation>Nebylo možné vytvořit soubor PID '%s': %s</translation>
-    </message>
-    <message>
         <source>Upgrading txindex database</source>
         <translation>Aktualizuje se txindex databáze</translation>
     </message>

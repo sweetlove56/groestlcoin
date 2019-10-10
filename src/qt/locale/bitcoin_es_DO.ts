@@ -364,10 +364,6 @@
         <translation>&amp;Ventana</translation>
     </message>
     <message>
-        <source>&amp;Window</source>
-        <translation>&amp;Ventana</translation>
-    </message>
-    <message>
         <source>Catching up...</source>
         <translation>Alcanzando...</translation>
     </message>

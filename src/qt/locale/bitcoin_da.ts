@@ -1207,10 +1207,6 @@
         <translation>MiB</translation>
     </message>
     <message>
-        <source>MiB</source>
-        <translation>MiB</translation>
-    </message>
-    <message>
         <source>(0 = auto, &lt;0 = leave that many cores free)</source>
         <translation>(0 = auto, &lt;0 = efterlad så mange kerner fri)</translation>
     </message>

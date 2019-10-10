@@ -56,7 +56,7 @@ After running `./autogen.sh`, which generates the `./configure` file, use `./con
 --without-gui
 ```
 
-If you do need the wallet enabled, it is common for devs to add `--with-incompatible-bdb`. This uses your system bdb version for the wallet, so you don't have to find a copy of bdb 4.8. Wallets from such a build will be incompatible with any release binary (and vice versa), so use with caution on mainnet.
+If you do need the wallet enabled, it is common for devs to add `--with-incompatible-bdb`. This uses your system bdb version for the wallet, so you don't have to find a copy of bdb 5.3. Wallets from such a build will be incompatible with any release binary (and vice versa), so use with caution on mainnet.
 
 ### Make use of your threads with `make -j`
 
@@ -73,9 +73,9 @@ When rebuilding during development, note that running `make`, without giving a t
 Obviously, it is important to build and run the tests at appropriate times -- but when you just want a quick compile to check your work, consider picking one or a set of build targets relevant to what you're working on, e.g.:
 
 ```sh
-make src/bitcoind src/bitcoin-cli
-make src/qt/bitcoin-qt
-make -C src bitcoin_bench
+make src/groestlcoind src/groestlcoin-cli
+make src/qt/groestlcoin-qt
+make -C src groestlcoin_bench
 ```
 
 (You can and should combine this with `-j`, as above, for a parallel build.)
@@ -173,7 +173,7 @@ When looking at other's pull requests, it may make sense to add the following se
 ```
 [remote "upstream-pull"]
         fetch = +refs/pull/*:refs/remotes/upstream-pull/*
-        url = git@github.com:bitcoin/bitcoin.git
+        url = git@github.com:groestlcoin/groestlcoin.git
 ```
 
 This will add an `upstream-pull` remote to your git repository, which can be fetched using `git fetch --all` or `git fetch upstream-pull`. Afterwards, you can use `upstream-pull/NUMBER/head` in arguments to `git show`, `git checkout` and anywhere a commit id would be acceptable to see the changes from pull request NUMBER.

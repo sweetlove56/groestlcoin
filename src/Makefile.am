@@ -256,7 +256,7 @@ obj/build.h: FORCE
 	  "$(abs_top_srcdir)"
 libgroestlcoin_util_a-clientversion.$(OBJEXT): obj/build.h
 
-# server: shared between bitcoind and bitcoin-qt
+# server: shared between groestlcoind and groestlcoin-qt
 # Contains code accessing mempool and chain state that is meant to be separated
 # from wallet and gui code (see node/README.md). Shared code should go in
 # libgroestlcoin_common or libgroestlcoin_util libraries, instead.
@@ -312,7 +312,7 @@ libgroestlcoin_server_a_SOURCES = \
   $(BITCOIN_CORE_H)
 
 if ENABLE_WALLET
-libbitcoin_server_a_SOURCES += wallet/init.cpp
+libgroestlcoin_server_a_SOURCES += wallet/init.cpp
 endif
 if !ENABLE_WALLET
 libgroestlcoin_server_a_SOURCES += dummywallet.cpp

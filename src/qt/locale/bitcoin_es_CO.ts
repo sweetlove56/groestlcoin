@@ -474,10 +474,6 @@
         <translation>%1 cliente</translation>
     </message>
     <message>
-        <source>&amp;Window</source>
-        <translation>Ventana</translation>
-    </message>
-    <message>
         <source>Connecting to peers...</source>
         <translation>Conectando a pares...</translation>
     </message>
@@ -2835,9 +2831,6 @@
         <translation>Unidad en la que se muestran las cantidades. Haga clic para seleccionar otra unidad.</translation>
     </message>
 </context>
-<context>
-    <name>WalletController</name>
-    </context>
 <context>
     <name>WalletController</name>
     </context>

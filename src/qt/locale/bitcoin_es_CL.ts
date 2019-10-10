@@ -475,11 +475,6 @@ Exportar los datos en la pestaña actual a un archivo</translation>
         <translation>Ventana principal</translation>
     </message>
     <message>
-        <source>&amp;Window</source>
-        <translation>y windows
-</translation>
-    </message>
-    <message>
         <source>%1 client</source>
         <translation>%1 cliente</translation>
     </message>

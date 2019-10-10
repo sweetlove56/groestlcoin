@@ -2301,10 +2301,6 @@ Huom: Koska siirtomaksu lasketaan tavujen mukaan, niin määrittelemällä 500 t
         <translation>Voit korottaa palkkiota myöhemmin (osoittaa Replace-By-Fee:tä, BIP-125).</translation>
     </message>
     <message>
-        <source>from wallet %1</source>
-        <translation>lompakosta %1</translation>
-    </message>
-    <message>
         <source>Please, review your transaction.</source>
         <translation>Tarkistathan siirtosi.</translation>
     </message>
