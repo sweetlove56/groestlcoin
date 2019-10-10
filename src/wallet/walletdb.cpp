@@ -657,8 +657,6 @@ DBErrors WalletBatch::ZapWalletTx(std::vector<CWalletTx>& vWtx)
 
 void MaybeCompactWalletDB()
 {
-    // Make this thread recognisable as the wallet flushing thread
-    RenameThread("groestlcoin-wallet");
 
     static std::atomic<bool> fOneThread(false);
     if (fOneThread.exchange(true)) {
