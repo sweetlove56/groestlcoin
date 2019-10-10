@@ -353,6 +353,11 @@ public:
         consensus.vDeployments[Consensus::DEPLOYMENT_SEGWIT].nStartTime = 1484956800; // Jan 21, 2017
         consensus.vDeployments[Consensus::DEPLOYMENT_SEGWIT].nTimeout = 1498003200; // Jun 21, 2017
 
+        // Deployment of BIP65
+        consensus.vDeployments[Consensus::DEPLOYMENT_BIP65].bit = 5;
+        consensus.vDeployments[Consensus::DEPLOYMENT_BIP65].nStartTime = 1484956800; // Jan 21, 2017
+        consensus.vDeployments[Consensus::DEPLOYMENT_BIP65].nTimeout = 1498003200; // Jun 21, 2017
+
         // The best chain should have at least this much work.
         consensus.nMinimumChainWork = uint256S("0x000000000000000000000000000000000000000000000027504782197c37cc4b"); // groestlcoin-cli getblockheader 0000000000001ac99ec6ed599a07aed90e19deb684ca343d306089b7d0878450
         // By default assume that the signatures in ancestors of this block are valid.
