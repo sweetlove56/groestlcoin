@@ -69,7 +69,7 @@ static std::vector<TranslationTable> g_translationTable = {
 	}, { L"bitcoin"		, L"groestlcoin"
 	}, { L"Bitcion"   , L"Groestlcoin"
 	}, { L"satoshi"		, L"gro"
-	}, { L"sat "		  , L"gro "
+	}, { L"sat"		  , L"gro"
 	}, { L"BITCOIN"		, L"GROESTLCOIN"
  }, { L"BITCOINS"	, L"GROESTLCOINS"
 	}, { L"БИТКОИНЫ"	, L"ГРЁСТЛКОИНЫ"		// ru
@@ -241,7 +241,7 @@ void BitcoinCore::shutdown()
 }
 
 static int qt_argc = 1;
-static const char* qt_argv = "bitcoin-qt";
+static const char* qt_argv = "groestlcoin-qt";
 
 BitcoinApplication::BitcoinApplication(interfaces::Node& node):
     QApplication(qt_argc, const_cast<char **>(&qt_argv)),
