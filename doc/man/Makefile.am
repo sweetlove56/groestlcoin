@@ -21,9 +21,3 @@ if BUILD_BITCOIN_WALLET
   dist_man1_MANS+=groestlcoin-wallet.1
 endif
 endif
-
-if ENABLE_WALLET
-if BUILD_BITCOIN_WALLET
-  dist_man1_MANS+=bitcoin-wallet.1
-endif
-endif
