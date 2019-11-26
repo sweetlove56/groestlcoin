@@ -13,9 +13,9 @@
 
 #define CLIENT_VERSION_IS_RELEASE true
 
-#define COPYRIGHT_YEAR 2019
+#define COPYRIGHT_YEAR 2020
 
-#define BUILD_DESC "v2.19.0"
+#define BUILD_DESC "v2.19.1"
 
 #define COPYRIGHT_HOLDERS "The %s developers"
 #define COPYRIGHT_HOLDERS_FINAL "The Groestlcoin Core developers"

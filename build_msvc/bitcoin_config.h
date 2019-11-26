@@ -29,7 +29,7 @@
 #define COPYRIGHT_HOLDERS_SUBSTITUTION "Groestlcoin Core"
 
 /* Copyright year */
-#define COPYRIGHT_YEAR 2019
+#define COPYRIGHT_YEAR 2020
 
 /* Define to 1 to enable wallet functions */
 #define ENABLE_WALLET 1
@@ -346,7 +346,7 @@
 #define PACKAGE_NAME "Groestlcoin Core"
 
 /* Define to the full name and version of this package. */
-#define PACKAGE_STRING "Groestlcoin Core 2.19.0"
+#define PACKAGE_STRING "Groestlcoin Core 2.19.1"
 
 /* Define to the one symbol short name of this package. */
 #define PACKAGE_TARNAME "bitcoin"
@@ -355,7 +355,7 @@
 #define PACKAGE_URL "https://groestlcoin.org/"
 
 /* Define to the version of this package. */
-#define PACKAGE_VERSION "2.19.0"
+#define PACKAGE_VERSION "2.19.1"
 
 /* Define to necessary symbol if this constant uses a non-standard name on
    your system. */

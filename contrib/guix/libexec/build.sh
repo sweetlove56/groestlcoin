@@ -129,7 +129,7 @@ fi
 
 # Determine the full path to our source tarball
 SOURCEDIST="$(find "${OUTDIR}/src" -name 'groestlcoin-*.tar.gz')"
-# Determine our distribution name (e.g. groestlcoin-2.18.1)
+# Determine our distribution name (e.g. groestlcoin-2.18.2)
 DISTNAME="$(basename "$SOURCEDIST" '.tar.gz')"
 
 ###########################

@@ -1,4 +1,4 @@
-Groestlcoin Core version 2.19.0 is now available from:
+Groestlcoin Core version 2.19.1 is now available from:
 
   <https://groestlcoin.org/downloads/>
 
@@ -193,7 +193,7 @@ GUI changes
   type may be changed with the `-addresstype` configuration option.
   (#15711, #16497)
 
-- In 2.18.1, a `./configure` flag was introduced to allow disabling BIP70 support in the GUI (support was enabled by default). In 2.19.1, this flag is now __disabled__ by default. If you want to compile Groestlcoin Core with BIP70 support in the GUI, you can pass `--enable-bip70` to `./configure`. (#15584)
+- In 2.18.2, a `./configure` flag was introduced to allow disabling BIP70 support in the GUI (support was enabled by default). In 2.19.1, this flag is now __disabled__ by default. If you want to compile Groestlcoin Core with BIP70 support in the GUI, you can pass `--enable-bip70` to `./configure`. (#15584)
 
 Deprecated or removed configuration options
 -------------------------------------------
@@ -213,13 +213,13 @@ Deprecated or removed RPCs
 
 - `bumpfee` has a new `fee_rate` option as a replacement for the deprecated `totalFee`. (#16727)
 
-- `generate` is now removed after being deprecated in Groestlcoin Core 2.18.1
+- `generate` is now removed after being deprecated in Groestlcoin Core 2.18.2
   Use the `generatetoaddress` RPC instead. (#15492)
 
 P2P changes
 -----------
 
-- BIP 61 reject messages were deprecated in v2.18.1 They are now disabled
+- BIP 61 reject messages were deprecated in v2.18.2 They are now disabled
   by default, but can be enabled by setting the `-enablebip61` command
   line option.  BIP 61 reject messages will be removed entirely in a
   future version of Groestlcoin Core. (#14054)
