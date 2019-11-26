@@ -1,4 +1,4 @@
-Groestlcoin Core version *2.18.1* is now available from:
+Groestlcoin Core version *2.18.2* is now available from:
 
   <https://groestlcoin.org/downloads/>
 
@@ -316,7 +316,7 @@ in the Low-level Changes section below.
 
 - `createwallet` now has an optional `blank` argument that can be used
   to create a blank wallet. Blank wallets do not have any keys or HD
-  seed.  They cannot be opened in software older than 2.18.1 Once a blank
+  seed.  They cannot be opened in software older than 2.18.2 Once a blank
   wallet has a HD seed set (by using `sethdseed`) or private keys,
   scripts, addresses, and other watch only things have been imported,
   the wallet is no longer blank and can be opened in 2.17.2. Encrypting
@@ -409,7 +409,7 @@ other Groestlcoin software and services.
   generating P2SH-wrapped segwit addresses when users want to receive
   payments. These addresses are backwards compatible with all
   widely-used software.  Starting with Groestlcoin Core 2.20.1 (expected about
-  a year after 2.18.1), Groestlcoin Core will default to native segwit
+  a year after 2.18.2), Groestlcoin Core will default to native segwit
   addresses (bech32) that provide additional fee savings and other
   benefits. Currently, many wallets and services already support sending
   to bech32 addresses, and if the Groestlcoin Core project sees enough

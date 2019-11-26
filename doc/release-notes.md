@@ -1,4 +1,4 @@
-Groestlcoin Core version *2.18.1* is now available from:
+Groestlcoin Core version *2.18.2* is now available from:
 
   <https://groestlcoin.org/downloads/>
 

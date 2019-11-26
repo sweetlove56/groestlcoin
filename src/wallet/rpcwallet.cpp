@@ -3395,7 +3395,7 @@ UniValue generate(const JSONRPCRequest& request)
 
     if (!IsDeprecatedRPCEnabled("generate")) {
         throw JSONRPCError(RPC_METHOD_DEPRECATED, "The wallet generate rpc method is deprecated and will be fully removed in v2.19.1 "
-            "To use generate in v2.18.1, restart groestlcoind with -deprecatedrpc=generate.\n"
+            "To use generate in v2.18.2, restart groestlcoind with -deprecatedrpc=generate.\n"
             "Clients should transition to using the node rpc method generatetoaddress\n");
     }
 

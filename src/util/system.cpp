@@ -1206,12 +1206,12 @@ int GetNumCores()
 
 std::string CopyrightHolders(const std::string& strPrefix)
 {
-	std::string prefix2014 = strPrefix;					//GRS
-	size_t index2009 = strPrefix.find("2009");
-	if (index2009 != std::string::npos)
-	prefix2014.replace(index2009, 4, "2014");
+  std::string prefix2014 = strPrefix;					//GRS
+  size_t index2009 = strPrefix.find("2009");
+  if (index2009 != std::string::npos)
+  prefix2014.replace(index2009, 4, "2014");
     const auto copyright_devs = strprintf(_(COPYRIGHT_HOLDERS), COPYRIGHT_HOLDERS_SUBSTITUTION);
-    std::string strCopyrightHolders = prefix2014 + copyright_devs
+    std::string strCopyrightHolders = prefix2014 + copyright_devs;
 
     // Make sure Bitcoin Core copyright is not removed by accident
     if (copyright_devs.find("Bitcoin Core") == std::string::npos) {

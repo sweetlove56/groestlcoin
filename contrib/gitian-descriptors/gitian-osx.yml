@@ -1,5 +1,5 @@
 ---
-name: "groestlcoin-osx-2.18.1"
+name: "groestlcoin-osx-2.18.2"
 enable_cache: true
 suites:
 - "bionic"
