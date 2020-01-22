@@ -114,6 +114,7 @@ BITCOIN_CORE_H = \
   groestlcoin.h \
   sphlib/sph_types.h \
   sphlib/sph_groestl.h \
+  chainparams.h \
   chainparamsbase.h \
   chainparamsseeds.h \
   checkpoints.h \
@@ -229,9 +230,6 @@ BITCOIN_CORE_H = \
   zmq/zmqnotificationinterface.h \
   zmq/zmqpublishnotifier.h \
   zmq/zmqrpc.h
-
-
-#!!! excluded  chainparams.h
 
 obj/build.h: FORCE
 	@$(MKDIR_P) $(builddir)/obj
