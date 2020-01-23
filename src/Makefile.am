@@ -112,6 +112,7 @@ BITCOIN_CORE_H = \
   chain.h \
   bignum.h \
   groestlcoin.h \
+  grs-config.h \
   sphlib/sph_types.h \
   sphlib/sph_groestl.h \
   chainparams.h \
