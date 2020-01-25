@@ -51,7 +51,7 @@ Test for LowS signatures before relaying
 -----------------------------------------
 
 Make the node require the canonical 'low-s' encoding for ECDSA signatures when
-relaying or mining.  This removes a nuisance malleability vector. Consensus behavior 
+relaying or mining.  This removes a nuisance malleability vector. Consensus behavior
 is unchanged.
 
 If widely deployed this change would eliminate the last remaining known vector
@@ -135,7 +135,7 @@ Previous versions of Groestlcoin Core had their mempool limited by checking
 a transaction's fees against the node's minimum relay fee. There was no
 upper bound on the size of the mempool and attackers could send a large
 number of transactions paying just slighly more than the default minimum
-relay fee to crash nodes with relatively low RAM. 
+relay fee to crash nodes with relatively low RAM.
 
 Groestlcoin Core 2.13.3 will have a strict maximum size on the mempool. The
 default value is 300 MB and can be configured with the `-maxmempool`
@@ -465,7 +465,7 @@ This release includes a soft fork deployment to enforce BIP65, BIP68,
 BIP112, BIP113, BIP141, BIP143 and BIP147 using the BIP9 deployment mechanism.
 
 The deployment sets the block version number to 0x20000023 between
-midnight 21th Jan 2017 and midnight 21th June 2017 to signal readiness for 
+midnight 21th Jan 2017 and midnight 21th June 2017 to signal readiness for
 deployment. The version number consists of 0x20000000 to indicate version
 bits together with setting bit 0, bit 1 and bit 5 to indicate support for this combined
 deployment, shown as "csv", "segwit" and "bip65" in the `getblockchaininfo` RPC call.
@@ -482,7 +482,7 @@ deployment, shown as "csv", "segwit" and "bip65" in the `getblockchaininfo` RPC 
 BIP65 soft fork to enforce OP_CHECKLOCKTIMEVERIFY opcode
 --------------------------------------------------------
 This release includes several changes related to the [BIP65][] soft fork
-which redefines the existing OP_NOP2 opcode as OP_CHECKLOCKTIMEVERIFY(CLTV) 
+which redefines the existing OP_NOP2 opcode as OP_CHECKLOCKTIMEVERIFY(CLTV)
 so that a transaction output can be made unspendable until aspecified point in the future.
 
 BIP68 soft fork to enforce sequence locks for relative locktime
@@ -566,7 +566,7 @@ For this reason the default was changed to 300 MiB in this release.
 For nodes on low-memory systems, the database cache can be changed back to
 100 MiB (or to another value) by either:
 
-- Adding `dbcache=100` in bitcoin.conf
+- Adding `dbcache=100` in groestlcoin.conf
 - Changing it in the GUI under `Options → Size of database cache`
 
 Note that the database cache setting has the most performance impact
@@ -742,9 +742,9 @@ Low-level P2P changes
 - The transaction relay mechanism used to relay one quarter of all transactions
   instantly, while queueing up the rest and sending them out in batch. As
   this resulted in chains of dependent transactions being reordered, it
-  systematically hurt transaction relay. The relay code now always batches transactions 
-  announcements while also sorting them according to dependency order. This significantly 
-  reduces orphan transactions. To compensate for the removal of instant relay, the frequency 
+  systematically hurt transaction relay. The relay code now always batches transactions
+  announcements while also sorting them according to dependency order. This significantly
+  reduces orphan transactions. To compensate for the removal of instant relay, the frequency
   of batch sending was doubled for outgoing peers.
 
 - The BIP35 `mempool` command is also subject to batch processing.
@@ -780,10 +780,10 @@ Low-level RPC changes
 
 - Asm script outputs replacements for OP_NOP2 and OP_NOP3
 
-  - OP_NOP2 has been renamed to OP_CHECKLOCKTIMEVERIFY by [BIP 
+  - OP_NOP2 has been renamed to OP_CHECKLOCKTIMEVERIFY by [BIP
 65](https://github.com/bitcoin/bips/blob/master/bip-0065.mediawiki)
 
-  - OP_NOP3 has been renamed to OP_CHECKSEQUENCEVERIFY by [BIP 
+  - OP_NOP3 has been renamed to OP_CHECKSEQUENCEVERIFY by [BIP
 112](https://github.com/bitcoin/bips/blob/master/bip-0112.mediawiki)
 
   - The following outputs are affected by this change:

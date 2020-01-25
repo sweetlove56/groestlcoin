@@ -5,20 +5,44 @@
 # See "man systemd.service" for details.
 
 # Note that almost all daemon options could be specified in
-# /etc/groestlcoin/groestlcoin.conf
+# /etc/groestlcoin/groestlcoin.conf, except for those explicitly specified as arguments
+# in ExecStart=
 
 [Unit]
 Description=Groestlcoin daemon
 After=network.target
 
 [Service]
-ExecStart=/usr/bin/groestlcoind -daemon -conf=/etc/groestlcoin/groestlcoin.conf -pid=/run/groestlcoind/groestlcoind.pid
-# Creates /run/groestlcoind owned by groestlcoin
-RuntimeDirectory=groestlcoind
-User=groestlcoin
+ExecStart=/usr/bin/groestlcoind -daemon \
+                            -pid=/run/groestlcoind/groestlcoind.pid \
+                            -conf=/etc/groestlcoin/groestlcoin.conf \
+                            -datadir=/var/lib/groestlcoind
+
+# Process management
+####################
+
 Type=forking
 PIDFile=/run/groestlcoind/groestlcoind.pid
 Restart=on-failure
+
+# Directory creation and permissions
+####################################
+
+# Run as groestlcoin:groestlcoin
+User=groestlcoin
+Group=groestlcoin
+
+# /run/groestlcoind
+RuntimeDirectory=groestlcoind
+RuntimeDirectoryMode=0710
+
+# /etc/groestlcoin
+ConfigurationDirectory=groestlcoin
+ConfigurationDirectoryMode=0710
+
+# /var/lib/groestlcoind
+StateDirectory=groestlcoind
+StateDirectoryMode=0710
 
 # Hardening measures
 ####################

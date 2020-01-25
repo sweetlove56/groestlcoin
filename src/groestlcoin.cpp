@@ -11,14 +11,19 @@
 #include "arith_uint256.h"
 #include "chain.h"
 #include "chainparams.h"
+#include "chainparamsseeds.h"
 #include "consensus/merkle.h"
 #include "consensus/params.h"
-#include "utilstrencodings.h"
 #include "crypto/sha256.h"
 
 #include "bignum.h"
 
-#include "chainparamsseeds.h"
+#include "util/system.h"
+#include "util/strencodings.h"
+#include "versionbitsinfo.h"
+
+#include "boost/algorithm/string/classification.hpp"
+#include "boost/algorithm/string/split.hpp"
 
 #ifdef _MSC_VER
 #	include <intrin.h>
@@ -315,21 +320,8 @@ static CBlock CreateGenesisBlock(uint32_t nTime, uint32_t nNonce, uint32_t nBits
 	return CreateGenesisBlock(pszTimestamp, genesisOutputScript, nTime, nNonce, nBits, nVersion, genesisReward);
 }
 
-void CChainParams::UpdateVersionBitsParameters(Consensus::DeploymentPos d, int64_t nStartTime, int64_t nTimeout)
-{
-	consensus.vDeployments[d].nStartTime = nStartTime;
-	consensus.vDeployments[d].nTimeout = nTimeout;
-}
-
 /**
  * Main network
- */
-/**
- * What makes a good checkpoint block?
- * + Is surrounded by blocks with reasonable timestamps
- *   (no blocks before with a timestamp after, none after with
- *    timestamp before)
- * + Contains no strange transactions
  */
 
 class CMainParams : public CChainParams {
@@ -367,10 +359,9 @@ public:
         consensus.vDeployments[Consensus::DEPLOYMENT_BIP65].nTimeout = 1498003200; // Jun 21, 2017
 
         // The best chain should have at least this much work.
-        consensus.nMinimumChainWork = uint256S("0x00000000000000000000000000000000000000000000000579194ed4709d7098");
-
+        consensus.nMinimumChainWork = uint256S("0x000000000000000000000000000000000000000000000027504782197c37cc4b"); // groestlcoin-cli getblockheader 0000000000001ac99ec6ed599a07aed90e19deb684ca343d306089b7d0878450
         // By default assume that the signatures in ancestors of this block are valid.
-        consensus.defaultAssumeValid = uint256S("0x0000000000001474d3d5d10df88a6f4b468436e6cde57166506b25b8eaf42629"); //2372027
+        consensus.defaultAssumeValid = uint256S("0x0000000000001ac99ec6ed599a07aed90e19deb684ca343d306089b7d0878450"); // groestlcoin-cli getblockhash 2785700
 
         /**
          * The message start string is designed to be unlikely to occur in normal data.
@@ -384,7 +375,8 @@ public:
 
         nDefaultPort = 1331;
         nPruneAfterHeight = 10000000;
-
+        m_assumed_blockchain_size = 2;
+        m_assumed_chain_state_size = 1;
 
         genesis = CreateGenesisBlock(1395342829, 220035, 0x1e0fffff, 112, 0);
 
@@ -444,14 +436,15 @@ public:
               {1000000, uint256S("0x000000000df8560f2612d5f28b52ed1cf81b0f87ac0c9c7242cbcf721ca6854a")},
               {2000000, uint256S("0x00000000000434d5b8d1c3308df7b6e3fd773657dfb28f5dd2f70854ef94cc66")},
               {2372000, uint256S("0x000000000000117a4710e01e4f86d883ca491b96efa0b4f2139c4d49a9437f10")},
+              {2785000, uint256S("0x00000000000013811b5078b06f3b98aaad29b94f09d047144e473de35f481474")},
             }
           };
 
         chainTxData = ChainTxData{
-            // Data from rpc: getchaintxstats 4096 0000000000001474d3d5d10df88a6f4b468436e6cde57166506b25b8eaf42629
-            /* nTime    */ 1544355417,
-            /* nTxCount */ 3192370,
-            /* dTxRate  */ 0.0237812975073571
+            // Data from rpc: getchaintxstats 4096 0000000000001ac99ec6ed599a07aed90e19deb684ca343d306089b7d0878450
+            /* nTime    */ 1570435259,
+            /* nTxCount */ 3756125,
+            /* dTxRate  */ 0.01948955197278437
         };
 
         /* enable fallback fee on mainnet */
@@ -492,10 +485,10 @@ public:
         consensus.vDeployments[Consensus::DEPLOYMENT_SEGWIT].nTimeout = 1498003200; // Jun 21, 2017
 
         // The best chain should have at least this much work.
-        consensus.nMinimumChainWork = uint256S("0x0000000000000000000000000000000000000000000000000000182f81e84065");
+        consensus.nMinimumChainWork = uint256S("0x000000000000000000000000000000000000000000000000000023163b6d52f1"); // groestlcoin-cli -testnet getblockheader 00000027cbbb20b16ba4d6eda0bedbbca6c5a9471f8a7e626f6692c4265a1f91
 
         // By default assume that the signatures in ancestors of this block are valid.
-        consensus.defaultAssumeValid = uint256S("0x00000042947e44c7a3c7563ccc85cd6b4349aaeaa8ac050bb91b88c9735d69fc"); //887999
+        consensus.defaultAssumeValid = uint256S("0x00000027cbbb20b16ba4d6eda0bedbbca6c5a9471f8a7e626f6692c4265a1f91"); // groestlcoin-cli -testnet getblockhash 1342302
 
         pchMessageStart[0] = 0x0b;
         pchMessageStart[1] = 0x11;
@@ -504,6 +497,8 @@ public:
 
         nDefaultPort = 17777;
         nPruneAfterHeight = 1000000;
+        m_assumed_blockchain_size = 1;
+        m_assumed_chain_state_size = 1;
 
         /*!!!R		for (int nonce=1; nonce < 0x7FFFFFFF; ++nonce) {
          genesis = CreateGenesisBlock(1440000002, nonce, 0x1e00ffff, 3, 0);
@@ -522,7 +517,7 @@ public:
         vSeeds.clear();
         vSeeds.push_back("testnet-seed1.groestlcoin.org");
         vSeeds.push_back("testnet-seed2.groestlcoin.org");
-        
+
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,111);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,196);
         base58Prefixes[SECRET_KEY] =     std::vector<unsigned char>(1,239);
@@ -548,14 +543,15 @@ public:
               {0		, uint256S("0x000000ffbb50fc9898cdd36ec163e6ba23230164c0052a28876255b7dcf2cd36")},
               { 50000 , uint256S("0x00000081951486bb535f8cffec8ac0641bd24b814f89641f6cc2cad737f18950")},
               { 887766 , uint256S("0x000000cc069338b7cd182dbf3e98dedd80c9ce85f26b78daaec0a6c964ffa501")},
+              { 1341000 , uint256S("0x00000022fb2732f1c237f9d90e5070e57500b19e9c65f51a2fb920b6580fc219")},
             }
         };
 
         chainTxData = ChainTxData{
-            // Data from rpc: getchaintxstats 4096 00000016a0bfcd9f06bf478e5d49843f5a7415bc25940db1f67fe3dc0d9dc9d2
-            /* nTime    */ 1544356596,
-            /* nTxCount */ 888652,
-            /* dTxRate  */ 0.01808033295128964
+            // Data from rpc: getchaintxstats 4096 00000027cbbb20b16ba4d6eda0bedbbca6c5a9471f8a7e626f6692c4265a1f91
+            /* nTime    */ 1570434649,
+            /* nTxCount */ 1349432,
+            /* dTxRate  */ 0.01850891769137033
         };
         /* enable fallback fee on testnet */
         m_fallback_fee_enabled = true;
@@ -568,14 +564,14 @@ static CTestNetParams testNetParams;
  */
 class CRegTestParams : public CMainParams {
 public:
-    CRegTestParams() {
+    explicit CRegTestParams(const ArgsManager& args) {
         strNetworkID = "regtest";
 
         consensus.BIP16Exception = uint256(); // always enforce P2SH BIP16 on regtest
         consensus.BIP34Height = 100000000; // BIP34 has not activated on regtest (far in the future so block v1 are not rejected in tests)
         consensus.BIP34Hash = uint256();
-        consensus.BIP65Height = 1351; // BIP65 activated on regtest (Used in rpc activation tests)
-        consensus.BIP66Height = 1251; // BIP66 activated on regtest (Used in rpc activation tests)
+        consensus.BIP65Height = 1351; // BIP65 activated on regtest (Used in functional tests)
+        consensus.BIP66Height = 1251; // BIP66 activated on regtest (Used in functional tests)
         consensus.powLimit = uint256S("00ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
         consensus.nPowTargetSpacing = 1;
         consensus.fPowAllowMinDifficultyBlocks = true;
@@ -604,6 +600,10 @@ public:
         nDefaultPort = 18888;
 
         nPruneAfterHeight = 1000;
+				m_assumed_blockchain_size = 0;
+        m_assumed_chain_state_size = 0;
+
+				UpdateVersionBitsParametersFromArgs(args);
 
         genesis = CreateGenesisBlock(1440000002, 6556309, 0x1e00ffff, 3, 0);
         consensus.hashGenesisBlock = genesis.GetHash();
@@ -643,23 +643,64 @@ public:
         /* enable fallback fee on regtest */
         m_fallback_fee_enabled = true;
    }
+	 /**
+		* Allows modifying the Version Bits regtest parameters.
+		*/
+	 void UpdateVersionBitsParameters(Consensus::DeploymentPos d, int64_t nStartTime, int64_t nTimeout)
+	 {
+			 consensus.vDeployments[d].nStartTime = nStartTime;
+			 consensus.vDeployments[d].nTimeout = nTimeout;
+	 }
+	 void UpdateVersionBitsParametersFromArgs(const ArgsManager& args);
 };
 
-static std::unique_ptr<CChainParams> globalChainParams;
+void CRegTestParams::UpdateVersionBitsParametersFromArgs(const ArgsManager& args)
+{
+    if (!args.IsArgSet("-vbparams")) return;
+
+    for (const std::string& strDeployment : args.GetArgs("-vbparams")) {
+        std::vector<std::string> vDeploymentParams;
+        boost::split(vDeploymentParams, strDeployment, boost::is_any_of(":"));
+        if (vDeploymentParams.size() != 3) {
+            throw std::runtime_error("Version bits parameters malformed, expecting deployment:start:end");
+        }
+        int64_t nStartTime, nTimeout;
+        if (!ParseInt64(vDeploymentParams[1], &nStartTime)) {
+            throw std::runtime_error(strprintf("Invalid nStartTime (%s)", vDeploymentParams[1]));
+        }
+        if (!ParseInt64(vDeploymentParams[2], &nTimeout)) {
+            throw std::runtime_error(strprintf("Invalid nTimeout (%s)", vDeploymentParams[2]));
+        }
+        bool found = false;
+        for (int j=0; j < (int)Consensus::MAX_VERSION_BITS_DEPLOYMENTS; ++j) {
+            if (vDeploymentParams[0] == VersionBitsDeploymentInfo[j].name) {
+                UpdateVersionBitsParameters(Consensus::DeploymentPos(j), nStartTime, nTimeout);
+                found = true;
+                LogPrintf("Setting version bits activation parameters for %s to start=%ld, timeout=%ld\n", vDeploymentParams[0], nStartTime, nTimeout);
+                break;
+            }
+        }
+        if (!found) {
+            throw std::runtime_error(strprintf("Invalid deployment (%s)", vDeploymentParams[0]));
+        }
+    }
+}
+
+static std::unique_ptr<const CChainParams> globalChainParams;
 
 const CChainParams &Params() {
 	assert(globalChainParams);
 	return *globalChainParams;
 }
 
-std::unique_ptr<CChainParams> CreateChainParams(const std::string& chain)
+std::unique_ptr<const CChainParams> CreateChainParams(const std::string& chain)
 {
 	if (chain == CBaseChainParams::MAIN)
 		return std::unique_ptr<CChainParams>(new CMainParams());
 	else if (chain == CBaseChainParams::TESTNET)
 		return std::unique_ptr<CChainParams>(new CTestNetParams());
 	else if (chain == CBaseChainParams::REGTEST)
-		return std::unique_ptr<CChainParams>(new CRegTestParams());
+		return std::unique_ptr<CChainParams>(new CRegTestParams(gArgs));
 	throw std::runtime_error(strprintf("%s: Unknown chain %s.", __func__, chain));
 }
 
@@ -667,9 +708,4 @@ void SelectParams(const std::string& network)
 {
 	SelectBaseParams(network);
 	globalChainParams = CreateChainParams(network);
-}
-
-void UpdateVersionBitsParameters(Consensus::DeploymentPos d, int64_t nStartTime, int64_t nTimeout)
-{
-	globalChainParams->UpdateVersionBitsParameters(d, nStartTime, nTimeout);
 }
