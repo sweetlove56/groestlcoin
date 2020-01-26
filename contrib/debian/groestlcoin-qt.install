@@ -1,6 +1,0 @@
-usr/local/bin/groestlcoin-qt usr/bin
-share/pixmaps/groestlcoin32.xpm usr/share/pixmaps
-share/pixmaps/groestlcoin16.xpm usr/share/pixmaps
-share/pixmaps/groestlcoin128.png usr/share/pixmaps
-debian/groestlcoin-qt.desktop usr/share/applications
-debian/groestlcoin-qt.protocol usr/share/kde4/services/
