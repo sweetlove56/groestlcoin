@@ -349,7 +349,7 @@
 #define PACKAGE_STRING "Groestlcoin Core 2.19.1"
 
 /* Define to the one symbol short name of this package. */
-#define PACKAGE_TARNAME "bitcoin"
+#define PACKAGE_TARNAME "groestlcoin"
 
 /* Define to the home page for this package. */
 #define PACKAGE_URL "https://groestlcoin.org/"
