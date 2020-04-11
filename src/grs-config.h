@@ -7,7 +7,7 @@
 #define PACKAGE_NAME "Groestlcoin Core"
 
 #define CLIENT_VERSION_MAJOR 2
-#define CLIENT_VERSION_MINOR 19
+#define CLIENT_VERSION_MINOR 20
 #define CLIENT_VERSION_REVISION 1
 #define CLIENT_VERSION_BUILD 0
 
@@ -15,7 +15,7 @@
 
 #define COPYRIGHT_YEAR 2020
 
-#define BUILD_DESC "v2.19.1"
+#define BUILD_DESC "v2.20.1"
 
 #define COPYRIGHT_HOLDERS "The %s developers"
 #define COPYRIGHT_HOLDERS_FINAL "The Groestlcoin Core developers"
