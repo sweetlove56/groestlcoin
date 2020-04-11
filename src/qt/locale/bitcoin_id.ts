@@ -374,14 +374,6 @@
         <translation>Ubah kata kunci yang digunakan untuk enkripsi dompet</translation>
     </message>
     <message>
-        <source>&amp;Debug window</source>
-        <translation>&amp;Jendela Debug</translation>
-    </message>
-    <message>
-        <source>Open debugging and diagnostic console</source>
-        <translation>Buka konsol debug dan diagnosa</translation>
-    </message>
-    <message>
         <source>&amp;Verify message...</source>
         <translation>&amp;Verifikasi pesan...</translation>
     </message>
@@ -440,10 +432,6 @@
     <message>
         <source>Show the list of used receiving addresses and labels</source>
         <translation>Tampilkan daftar alamat dan label yang diterima</translation>
-    </message>
-    <message>
-        <source>Open a bitcoin: URI or payment request</source>
-        <translation>Buka URI bitcoin: atau permintaan pembayaran</translation>
     </message>
     <message>
         <source>&amp;Command-line options</source>
@@ -924,10 +912,6 @@
         <translation>versi</translation>
     </message>
     <message>
-        <source>(%1-bit)</source>
-        <translation>(%1-bit)</translation>
-    </message>
-    <message>
         <source>About %1</source>
         <translation>Tentang %1</translation>
     </message>
@@ -1073,24 +1057,8 @@
 <context>
     <name>OpenURIDialog</name>
     <message>
-        <source>Open URI</source>
-        <translation>Buka URI</translation>
-    </message>
-    <message>
-        <source>Open payment request from URI or file</source>
-        <translation>Buka permintaan pembayaran dari URI atau data</translation>
-    </message>
-    <message>
         <source>URI:</source>
         <translation>URI:</translation>
-    </message>
-    <message>
-        <source>Select payment request file</source>
-        <translation>Pilih data permintaan pembayaran</translation>
-    </message>
-    <message>
-        <source>Select payment request file to open</source>
-        <translation>Pilih data permintaan pembayaran yang akan dibuka</translation>
     </message>
 </context>
 <context>
@@ -1481,18 +1449,6 @@
         <translation>'bitcoin://' bukanlah alamat URI yang valid. Silakan gunakan 'bitcoin:'.</translation>
     </message>
     <message>
-        <source>You are using a BIP70 URL which will be unsupported in the future.</source>
-        <translation>Anda menggunakan URL BIP70 yang akan tidak lagi didukung di masa mendatang.</translation>
-    </message>
-    <message>
-        <source>Payment request fetch URL is invalid: %1</source>
-        <translation>URL permintaan pembayaran tidak valid: %1</translation>
-    </message>
-    <message>
-        <source>Cannot process payment request because BIP70 support was not compiled in.</source>
-        <translation>Tidak dapat memproses pembayaran karena dukungan BIP70 tidak disertakan didalamnya.</translation>
-    </message>
-    <message>
         <source>Due to widespread security flaws in BIP70 it's strongly recommended that any merchant instructions to switch wallets be ignored.</source>
         <translation>Berhubung kelemahan keamanan yang meluas di BIP70, sangat disarankan agar instruksi pedagang untuk mengganti dompet diabaikan.</translation>
     </message>
@@ -1511,66 +1467,6 @@
     <message>
         <source>Payment request file handling</source>
         <translation>Pengelolaan file permintaan pembayaran</translation>
-    </message>
-    <message>
-        <source>Payment request file cannot be read! This can be caused by an invalid payment request file.</source>
-        <translation>File permintaan pembayaran tidak bisa dibaca! Hal ini bisa disebabkan karena file permintaan pembayaran tidak valid.</translation>
-    </message>
-    <message>
-        <source>Payment request rejected</source>
-        <translation>Permintaan pembayaran ditolak</translation>
-    </message>
-    <message>
-        <source>Payment request network doesn't match client network.</source>
-        <translation>Jaringan permintaan pembayaran tidak sesuai dengan jaringan klien.</translation>
-    </message>
-    <message>
-        <source>Payment request expired.</source>
-        <translation>Permintaan pembayaran telah kadaluarsa.</translation>
-    </message>
-    <message>
-        <source>Payment request is not initialized.</source>
-        <translation>Permintaan pembayaran tidak terinisialisasi</translation>
-    </message>
-    <message>
-        <source>Unverified payment requests to custom payment scripts are unsupported.</source>
-        <translation>Tidak mendukung pemprosesan pembayaran yang tidak terverifikasi pada script pembayaran khusus.</translation>
-    </message>
-    <message>
-        <source>Invalid payment request.</source>
-        <translation>Permintaan pembayaran tidak valid.</translation>
-    </message>
-    <message>
-        <source>Requested payment amount of %1 is too small (considered dust).</source>
-        <translation>Permintaan jumlah pembayaran %1 terlalu kecil (dianggap "dust transaction").</translation>
-    </message>
-    <message>
-        <source>Refund from %1</source>
-        <translation>Pengembalian dana dari %1</translation>
-    </message>
-    <message>
-        <source>Payment request %1 is too large (%2 bytes, allowed %3 bytes).</source>
-        <translation>Permintaan pembayaran %1 terlalu besar (%2 bita, diperbolehkan %3 bita)</translation>
-    </message>
-    <message>
-        <source>Error communicating with %1: %2</source>
-        <translation>Terjadi kesalahan komunikasi dengan %1: %2</translation>
-    </message>
-    <message>
-        <source>Payment request cannot be parsed!</source>
-        <translation>Permintaan pembayaran tidak dapat di parse!</translation>
-    </message>
-    <message>
-        <source>Bad response from server %1</source>
-        <translation>Respon buruk dari server %1</translation>
-    </message>
-    <message>
-        <source>Network request error</source>
-        <translation>Kesalahan permintaan jaringan</translation>
-    </message>
-    <message>
-        <source>Payment acknowledged</source>
-        <translation>Pembayaran yang diakui</translation>
     </message>
 </context>
 <context>
@@ -1747,10 +1643,6 @@
     <message>
         <source>&amp;Information</source>
         <translation>&amp;Informasi</translation>
-    </message>
-    <message>
-        <source>Debug window</source>
-        <translation>Jendela debug</translation>
     </message>
     <message>
         <source>General</source>
@@ -2291,10 +2183,6 @@
         <translation>Peringatan: Perkiraan biaya saat ini tidak memungkinkan.</translation>
     </message>
     <message>
-        <source>collapse fee-settings</source>
-        <translation>tutup pengaturan biaya</translation>
-    </message>
-    <message>
         <source>Specify a custom fee per kB (1,000 bytes) of the transaction's virtual size.
 
 Note:  Since the fee is calculated on a per-byte basis, a fee of "100 satoshis per kB" for a transaction size of 500 bytes (half of 1 kB) would ultimately yield a fee of only 50 satoshis.</source>
@@ -2526,10 +2414,6 @@ Catatan: Karena biaya dihitung berdasarkan per byte, biaya "100 satoshi per kB" 
         <translation>Pilih alamat yang telah digunakan sebelumnya</translation>
     </message>
     <message>
-        <source>This is a normal payment.</source>
-        <translation>Ini adalah pembayaran normal</translation>
-    </message>
-    <message>
         <source>The Bitcoin address to send the payment to</source>
         <translation>Alamat Bitcoin untuk mengirim pembayaran</translation>
     </message>
@@ -2588,17 +2472,6 @@ Catatan: Karena biaya dihitung berdasarkan per byte, biaya "100 satoshi per kB" 
     <message>
         <source>Memo:</source>
         <translation>Catatan Peringatan:</translation>
-    </message>
-    <message>
-        <source>Enter a label for this address to add it to your address book</source>
-        <translation>Masukkan label alamat ini untuk menambahkannya ke buku alamat Anda</translation>
-    </message>
-</context>
-<context>
-    <name>SendConfirmationDialog</name>
-    <message>
-        <source>Yes</source>
-        <translation>Ya</translation>
     </message>
 </context>
 <context>

@@ -374,14 +374,6 @@
         <translation>Zmeniť heslo použité na šifrovanie peňaženky</translation>
     </message>
     <message>
-        <source>&amp;Debug window</source>
-        <translation>&amp;Okno pre ladenie</translation>
-    </message>
-    <message>
-        <source>Open debugging and diagnostic console</source>
-        <translation>Otvor konzolu pre ladenie a diagnostiku</translation>
-    </message>
-    <message>
         <source>&amp;Verify message...</source>
         <translation>O&amp;veriť správu...</translation>
     </message>
@@ -440,10 +432,6 @@
     <message>
         <source>Show the list of used receiving addresses and labels</source>
         <translation>Zobraziť zoznam použitých prijímacích adries a ich popisov</translation>
-    </message>
-    <message>
-        <source>Open a bitcoin: URI or payment request</source>
-        <translation>Otvoriť bitcoin URI alebo výzvu k platbe</translation>
     </message>
     <message>
         <source>&amp;Command-line options</source>
@@ -924,10 +912,6 @@
         <translation>verzia</translation>
     </message>
     <message>
-        <source>(%1-bit)</source>
-        <translation>(%1-bit)</translation>
-    </message>
-    <message>
         <source>About %1</source>
         <translation>O %1</translation>
     </message>
@@ -1073,24 +1057,8 @@
 <context>
     <name>OpenURIDialog</name>
     <message>
-        <source>Open URI</source>
-        <translation>Otvoriť URI</translation>
-    </message>
-    <message>
-        <source>Open payment request from URI or file</source>
-        <translation>Otvoriť požiadavku na zaplatenie z URI alebo súboru</translation>
-    </message>
-    <message>
         <source>URI:</source>
         <translation>URI:</translation>
-    </message>
-    <message>
-        <source>Select payment request file</source>
-        <translation>Vyberte súbor s výzvou k platbe</translation>
-    </message>
-    <message>
-        <source>Select payment request file to open</source>
-        <translation>Vyberte ktorý súbor s výzvou na platbu otvoriť</translation>
     </message>
 </context>
 <context>
@@ -1481,18 +1449,6 @@
         <translation>'bitcoin://' je neplatná URI. Použite 'bitcoin:'</translation>
     </message>
     <message>
-        <source>You are using a BIP70 URL which will be unsupported in the future.</source>
-        <translation>Používate adresu URL typu BIP70, ktorá nebude v budúcnosti podporovaná.</translation>
-    </message>
-    <message>
-        <source>Payment request fetch URL is invalid: %1</source>
-        <translation>URL pre stiahnutie výzvy na zaplatenie je neplatné: %1</translation>
-    </message>
-    <message>
-        <source>Cannot process payment request because BIP70 support was not compiled in.</source>
-        <translation>Nemožno spracovať žiadosť o platbu, pretože podpora pre BIP70 nebola zahrnutá.</translation>
-    </message>
-    <message>
         <source>Due to widespread security flaws in BIP70 it's strongly recommended that any merchant instructions to switch wallets be ignored.</source>
         <translation>Kvôli mnohým bezpečnostným chybám v BIP70 sa dôrazne odporúča ignorovať inštrukcie na prepínanie peňaženiek od akýchkoľvek obchodníkov.</translation>
     </message>
@@ -1511,66 +1467,6 @@
     <message>
         <source>Payment request file handling</source>
         <translation>Obsluha súboru s požiadavkou na platbu</translation>
-    </message>
-    <message>
-        <source>Payment request file cannot be read! This can be caused by an invalid payment request file.</source>
-        <translation>Súbor s výzvou na zaplatenie sa nedá čítať! To môže byť spôsobené aj neplatným súborom s výzvou.</translation>
-    </message>
-    <message>
-        <source>Payment request rejected</source>
-        <translation>Požiadavka na platbu zamietnutá</translation>
-    </message>
-    <message>
-        <source>Payment request network doesn't match client network.</source>
-        <translation>Sieť požiadavky na platbu nie je zhodná so sieťou klienta.</translation>
-    </message>
-    <message>
-        <source>Payment request expired.</source>
-        <translation>Vypršala platnosť požiadavky na platbu.</translation>
-    </message>
-    <message>
-        <source>Payment request is not initialized.</source>
-        <translation>Požiadavka na platbu nie je inicializovaná</translation>
-    </message>
-    <message>
-        <source>Unverified payment requests to custom payment scripts are unsupported.</source>
-        <translation>Program nepodporuje neoverené platobné požiadavky na vlastné skripty.</translation>
-    </message>
-    <message>
-        <source>Invalid payment request.</source>
-        <translation>Chybná požiadavka na platbu.</translation>
-    </message>
-    <message>
-        <source>Requested payment amount of %1 is too small (considered dust).</source>
-        <translation>Požadovaná suma platby %1 je príliš nízka (považovaná za prach).</translation>
-    </message>
-    <message>
-        <source>Refund from %1</source>
-        <translation>Vrátenie z  %1</translation>
-    </message>
-    <message>
-        <source>Payment request %1 is too large (%2 bytes, allowed %3 bytes).</source>
-        <translation>Požiadavka na platbu %1 je príliš veľká (%2 bajtov, povolené je %3 bajtov).</translation>
-    </message>
-    <message>
-        <source>Error communicating with %1: %2</source>
-        <translation>Chyba komunikácie s %1: %2</translation>
-    </message>
-    <message>
-        <source>Payment request cannot be parsed!</source>
-        <translation>Požiadavka na platbu nemôže byť analyzovaná!</translation>
-    </message>
-    <message>
-        <source>Bad response from server %1</source>
-        <translation>Zlá odpoveď zo servera %1</translation>
-    </message>
-    <message>
-        <source>Network request error</source>
-        <translation>Chyba požiadavky siete</translation>
-    </message>
-    <message>
-        <source>Payment acknowledged</source>
-        <translation>Platba potvrdená</translation>
     </message>
 </context>
 <context>
@@ -1747,10 +1643,6 @@
     <message>
         <source>&amp;Information</source>
         <translation>&amp;Informácie</translation>
-    </message>
-    <message>
-        <source>Debug window</source>
-        <translation>Okno pre ladenie</translation>
     </message>
     <message>
         <source>General</source>
@@ -2294,10 +2186,6 @@
         <translation>Upozornenie: teraz nie je možné poplatok odhadnúť.</translation>
     </message>
     <message>
-        <source>collapse fee-settings</source>
-        <translation>zbaliť nastavenia poplatkov</translation>
-    </message>
-    <message>
         <source>Specify a custom fee per kB (1,000 bytes) of the transaction's virtual size.
 
 Note:  Since the fee is calculated on a per-byte basis, a fee of "100 satoshis per kB" for a transaction size of 500 bytes (half of 1 kB) would ultimately yield a fee of only 50 satoshis.</source>
@@ -2482,10 +2370,6 @@ Poznámka: Keďže poplatok je počítaný za bajt, poplatok o hodnote "100 sato
         <translation>Vytvorenie transakcie zlyhalo!</translation>
     </message>
     <message>
-        <source>The transaction was rejected with the following reason: %1</source>
-        <translation>Transakcia bola odmietnutá z nasledujúceho dôvodu: %1</translation>
-    </message>
-    <message>
         <source>A fee higher than %1 is considered an absurdly high fee.</source>
         <translation>Poplatok vyšší ako %1 sa považuje za neprimerane vysoký.</translation>
     </message>
@@ -2535,10 +2419,6 @@ Poznámka: Keďže poplatok je počítaný za bajt, poplatok o hodnote "100 sato
     <message>
         <source>Choose previously used address</source>
         <translation>Vybrať predtým použitú adresu</translation>
-    </message>
-    <message>
-        <source>This is a normal payment.</source>
-        <translation>Toto je normálna platba.</translation>
     </message>
     <message>
         <source>The Bitcoin address to send the payment to</source>
@@ -2599,17 +2479,6 @@ Poznámka: Keďže poplatok je počítaný za bajt, poplatok o hodnote "100 sato
     <message>
         <source>Memo:</source>
         <translation>Poznámka:</translation>
-    </message>
-    <message>
-        <source>Enter a label for this address to add it to your address book</source>
-        <translation>Zadajte popis pre túto adresu pre pridanie do adresára</translation>
-    </message>
-</context>
-<context>
-    <name>SendConfirmationDialog</name>
-    <message>
-        <source>Yes</source>
-        <translation>áno</translation>
     </message>
 </context>
 <context>
@@ -3347,10 +3216,6 @@ Poznámka: Keďže poplatok je počítaný za bajt, poplatok o hodnote "100 sato
         <translation>Redukovanie: posledná synchronizácia peňaženky prebehla pred časmi blokov v redukovaných dátach. Je potrebné vykonať -reindex (v prípade redukovaného režimu stiahne znovu celý reťazec blokov)</translation>
     </message>
     <message>
-        <source>Rescans are not possible in pruned mode. You will need to use -reindex which will download the whole blockchain again.</source>
-        <translation>V redukovanom režime nie je možné reťazec blokov preskenovať. Musíte vykonať -reindex, čo znova stiahne celý reťaec blokov.</translation>
-    </message>
-    <message>
         <source>Error: A fatal internal error occurred, see debug.log for details</source>
         <translation>Chyba: Vyskytla sa interná chyba, pre viac informácií zobrazte debug.log</translation>
     </message>
@@ -3739,10 +3604,6 @@ Poznámka: Keďže poplatok je počítaný za bajt, poplatok o hodnote "100 sato
     <message>
         <source>This is the transaction fee you may pay when fee estimates are not available.</source>
         <translation>Toto je poplatok za transakciu keď odhad poplatkov ešte nie je k dispozícii.</translation>
-    </message>
-    <message>
-        <source>This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit %s and cryptographic software written by Eric Young and UPnP software written by Thomas Bernard.</source>
-        <translation>Tento produkt zahŕňa programy vyvinuté projektom OpenSSL pre použitie v OpenSSL Toolkite %s a kryptografický program od Erika Younga a program UPnP od Thomasa Bernarda.</translation>
     </message>
     <message>
         <source>Total length of network version string (%i) exceeds maximum length (%i). Reduce the number or size of uacomments.</source>

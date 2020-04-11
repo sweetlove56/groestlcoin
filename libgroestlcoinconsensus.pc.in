@@ -8,4 +8,3 @@ Description: Library for the Groestlcoin consensus protocol.
 Version: @PACKAGE_VERSION@
 Libs: -L${libdir} -lgroestlcoinconsensus
 Cflags: -I${includedir}
-Requires.private: libcrypto

@@ -350,14 +350,6 @@
         <translation>지갑 암호화에 사용되는 암호를 변경합니다</translation>
     </message>
     <message>
-        <source>&amp;Debug window</source>
-        <translation>디버그 창(&amp;D)</translation>
-    </message>
-    <message>
-        <source>Open debugging and diagnostic console</source>
-        <translation>디버깅 및 진단 콘솔을 엽니다</translation>
-    </message>
-    <message>
         <source>&amp;Verify message...</source>
         <translation>메시지 검증(&amp;V)...</translation>
     </message>
@@ -416,10 +408,6 @@
     <message>
         <source>Show the list of used receiving addresses and labels</source>
         <translation>한번 이상 사용된 받는 주소와 라벨의 목록을 보여줍니다</translation>
-    </message>
-    <message>
-        <source>Open a bitcoin: URI or payment request</source>
-        <translation>bitcoin: URI 또는 지불요청 열기</translation>
     </message>
     <message>
         <source>&amp;Command-line options</source>
@@ -848,10 +836,6 @@
         <translation>버전</translation>
     </message>
     <message>
-        <source>(%1-bit)</source>
-        <translation>(%1-비트)</translation>
-    </message>
-    <message>
         <source>About %1</source>
         <translation>%1 정보</translation>
     </message>
@@ -985,24 +969,8 @@
 <context>
     <name>OpenURIDialog</name>
     <message>
-        <source>Open URI</source>
-        <translation>URI 열기</translation>
-    </message>
-    <message>
-        <source>Open payment request from URI or file</source>
-        <translation>지불 요청 URI 또는 파일 열기</translation>
-    </message>
-    <message>
         <source>URI:</source>
         <translation>URI:</translation>
-    </message>
-    <message>
-        <source>Select payment request file</source>
-        <translation>지불 요청 파일을 선택하세요</translation>
-    </message>
-    <message>
-        <source>Select payment request file to open</source>
-        <translation>지불 요청 파일을 열기 위해서 선택하세요</translation>
     </message>
 </context>
 <context>
@@ -1385,18 +1353,6 @@
         <translation>'bitcoin://"은 잘못된 URI입니다. 'bitcoin:'을 사용하십시오.</translation>
     </message>
     <message>
-        <source>You are using a BIP70 URL which will be unsupported in the future.</source>
-        <translation>지금 사용하고 있는 BIP70 URL은 나중에 지원되지 않을 수 있습니다.</translation>
-    </message>
-    <message>
-        <source>Payment request fetch URL is invalid: %1</source>
-        <translation>지불 요청의 URL이 올바르지 않습니다: %1</translation>
-    </message>
-    <message>
-        <source>Cannot process payment request because BIP70 support was not compiled in.</source>
-        <translation>BIP70 기능이 포함되지 않아서 지불 요청을 처리할 수 없습니다.</translation>
-    </message>
-    <message>
         <source>Invalid payment address %1</source>
         <translation>잘못된 지불 주소 %1</translation>
     </message>
@@ -1407,66 +1363,6 @@
     <message>
         <source>Payment request file handling</source>
         <translation>지불 요청 파일 처리중</translation>
-    </message>
-    <message>
-        <source>Payment request file cannot be read! This can be caused by an invalid payment request file.</source>
-        <translation>지불 요청 파일을 읽을 수 없습니다. 이것은 잘못된 지불 요청 파일에 의해 발생하는 오류일 수 있습니다.</translation>
-    </message>
-    <message>
-        <source>Payment request rejected</source>
-        <translation>지불 요청이 거부됨</translation>
-    </message>
-    <message>
-        <source>Payment request network doesn't match client network.</source>
-        <translation>지불 요청 네트워크가 클라이언트 네트워크와 일치하지 않습니다.</translation>
-    </message>
-    <message>
-        <source>Payment request expired.</source>
-        <translation>지불 요청이 만료되었습니다.</translation>
-    </message>
-    <message>
-        <source>Payment request is not initialized.</source>
-        <translation>지불 요청이 초기화 되지 않았습니다.</translation>
-    </message>
-    <message>
-        <source>Unverified payment requests to custom payment scripts are unsupported.</source>
-        <translation>임의로 변경한 결제 스크립트 기반의 지불 요청 양식은 검증되기 전까지는 지원되지 않습니다.</translation>
-    </message>
-    <message>
-        <source>Invalid payment request.</source>
-        <translation>잘못된 지불 요청입니다.</translation>
-    </message>
-    <message>
-        <source>Requested payment amount of %1 is too small (considered dust).</source>
-        <translation>요청한 금액 %1의 양이 너무 적습니다. (더스트로 간주)</translation>
-    </message>
-    <message>
-        <source>Refund from %1</source>
-        <translation>%1 으로부터의 환불</translation>
-    </message>
-    <message>
-        <source>Payment request %1 is too large (%2 bytes, allowed %3 bytes).</source>
-        <translation>지불 요청 %1은 너무 큽니다 (%2 바이트, %3 바이트까지 허용됩니다).</translation>
-    </message>
-    <message>
-        <source>Error communicating with %1: %2</source>
-        <translation>%1과의 통신 오류: %2</translation>
-    </message>
-    <message>
-        <source>Payment request cannot be parsed!</source>
-        <translation>지불요청을 파싱할 수 없습니다.</translation>
-    </message>
-    <message>
-        <source>Bad response from server %1</source>
-        <translation>서버 %1로 부터 잘못된 반응</translation>
-    </message>
-    <message>
-        <source>Network request error</source>
-        <translation>네트워크 요청 오류</translation>
-    </message>
-    <message>
-        <source>Payment acknowledged</source>
-        <translation>지불이 승인됨</translation>
     </message>
 </context>
 <context>
@@ -1639,10 +1535,6 @@
     <message>
         <source>&amp;Information</source>
         <translation>정보(&amp;I)</translation>
-    </message>
-    <message>
-        <source>Debug window</source>
-        <translation>디버그 창</translation>
     </message>
     <message>
         <source>General</source>
@@ -2181,10 +2073,6 @@
         <translation>경고: 지금은 수수료 예측이 불가능합니다.</translation>
     </message>
     <message>
-        <source>collapse fee-settings</source>
-        <translation>수수료 설정 접기</translation>
-    </message>
-    <message>
         <source>Specify a custom fee per kB (1,000 bytes) of the transaction's virtual size.
 
 Note:  Since the fee is calculated on a per-byte basis, a fee of "100 satoshis per kB" for a transaction size of 500 bytes (half of 1 kB) would ultimately yield a fee of only 50 satoshis.</source>
@@ -2357,10 +2245,6 @@ Note:  Since the fee is calculated on a per-byte basis, a fee of "100 satoshis p
         <translation>거래 생성에 실패했습니다!</translation>
     </message>
     <message>
-        <source>The transaction was rejected with the following reason: %1</source>
-        <translation>거래가 다음과 같은 이유로 거부되었습니다: %1</translation>
-    </message>
-    <message>
         <source>A fee higher than %1 is considered an absurdly high fee.</source>
         <translation>%1 보다 큰 수수료는 지나치게 높은 수수료 입니다.</translation>
     </message>
@@ -2410,10 +2294,6 @@ Note:  Since the fee is calculated on a per-byte basis, a fee of "100 satoshis p
     <message>
         <source>Choose previously used address</source>
         <translation>이전에 사용한 주소를 선택하기</translation>
-    </message>
-    <message>
-        <source>This is a normal payment.</source>
-        <translation>이것은 정상적인 지불입니다.</translation>
     </message>
     <message>
         <source>The Bitcoin address to send the payment to</source>
@@ -2474,17 +2354,6 @@ Note:  Since the fee is calculated on a per-byte basis, a fee of "100 satoshis p
     <message>
         <source>Memo:</source>
         <translation>메모:</translation>
-    </message>
-    <message>
-        <source>Enter a label for this address to add it to your address book</source>
-        <translation>주소록에 추가하려면 라벨을 입력하세요</translation>
-    </message>
-</context>
-<context>
-    <name>SendConfirmationDialog</name>
-    <message>
-        <source>Yes</source>
-        <translation>예</translation>
     </message>
 </context>
 <context>
@@ -3214,10 +3083,6 @@ Note:  Since the fee is calculated on a per-byte basis, a fee of "100 satoshis p
         <translation>블록 축소: 마지막 지갑 동기화 지점이 축소된 데이터보다 과거의 것 입니다. -reindex가 필요합니다 (축소된 노드의 경우 모든 블록체인을 재다운로드합니다)</translation>
     </message>
     <message>
-        <source>Rescans are not possible in pruned mode. You will need to use -reindex which will download the whole blockchain again.</source>
-        <translation>블록 축소 모드에서는 재검색이 불가능 합니다. -reindex 명령을 사용해서 모든 블록체인을 다시 다운로드 해야 합니다.</translation>
-    </message>
-    <message>
         <source>Error: A fatal internal error occurred, see debug.log for details</source>
         <translation>오류: 치명적인 내부 오류가 발생했습니다, 자세한 내용은 debug.log 를 확인해주세요.</translation>
     </message>
@@ -3582,10 +3447,6 @@ Note:  Since the fee is calculated on a per-byte basis, a fee of "100 satoshis p
     <message>
         <source>This is the transaction fee you may pay when fee estimates are not available.</source>
         <translation>이것은 수수료 추정을 이용할 수 없을 때 사용되는 거래 수수료입니다.</translation>
-    </message>
-    <message>
-        <source>This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit %s and cryptographic software written by Eric Young and UPnP software written by Thomas Bernard.</source>
-        <translation>이 제품에는 OpenSSL 프로젝트에서 OpenSSL Toolkit %s으로 사용하기 위해 개발 한 소프트웨어와 에릭 영이 작성한 암호화 소프트웨어 및 토머스 버나드가 작성한 UPnP 소프트웨어가 포함되어 있습니다.</translation>
     </message>
     <message>
         <source>Total length of network version string (%i) exceeds maximum length (%i). Reduce the number or size of uacomments.</source>

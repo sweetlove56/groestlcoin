@@ -687,14 +687,10 @@
 <context>
     <name>OpenURIDialog</name>
     <message>
-        <source>Open URI</source>
-        <translation>URI zabaldu</translation>
-    </message>
-    <message>
         <source>URI:</source>
         <translation>URI: </translation>
     </message>
-    </context>
+</context>
 <context>
     <name>OpenWalletActivity</name>
     <message>
@@ -957,13 +953,6 @@
         <source>Pay To:</source>
         <translation>Honi ordaindu:</translation>
     </message>
-    <message>
-        <source>Enter a label for this address to add it to your address book</source>
-        <translation>Emaiozu helbide honi izenburu bat, zure helbide-liburuan horrela ager dadin</translation>
-    </message>
-</context>
-<context>
-    <name>SendConfirmationDialog</name>
     </context>
 <context>
     <name>ShutdownWindow</name>

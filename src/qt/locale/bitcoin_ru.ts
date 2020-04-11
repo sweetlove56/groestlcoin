@@ -374,14 +374,6 @@
         <translation>Изменить пароль, используемый для шифрования кошелька</translation>
     </message>
     <message>
-        <source>&amp;Debug window</source>
-        <translation>&amp;Окно отладки</translation>
-    </message>
-    <message>
-        <source>Open debugging and diagnostic console</source>
-        <translation>Открыть консоль отладки и диагностики</translation>
-    </message>
-    <message>
         <source>&amp;Verify message...</source>
         <translation>&amp;Проверить сообщение...</translation>
     </message>
@@ -440,10 +432,6 @@
     <message>
         <source>Show the list of used receiving addresses and labels</source>
         <translation>Показать список использованных адресов и меток получателей</translation>
-    </message>
-    <message>
-        <source>Open a bitcoin: URI or payment request</source>
-        <translation>Открыть биткойн: URI или запрос платежа</translation>
     </message>
     <message>
         <source>&amp;Command-line options</source>
@@ -924,10 +912,6 @@
         <translation>версия</translation>
     </message>
     <message>
-        <source>(%1-bit)</source>
-        <translation>(%1-бит)</translation>
-    </message>
-    <message>
         <source>About %1</source>
         <translation>О %1</translation>
     </message>
@@ -1014,7 +998,11 @@
         <source>(of %n GB needed)</source>
         <translation><numerusform>(требуется %n ГБ)</numerusform><numerusform>(%n ГБ требуется)</numerusform><numerusform>(%n ГБ требуется)</numerusform><numerusform>(%n ГБ требуется)</numerusform></translation>
     </message>
-    </context>
+    <message numerus="yes">
+        <source>(%n GB needed for full chain)</source>
+        <translation><numerusform>(%n ГБ необходимо для полного блокчейна)</numerusform><numerusform>(%n ГБ необходимо для полного блокчейна)</numerusform><numerusform>(%n ГБ необходимо для полного блокчейна)</numerusform><numerusform>(%n ГБ необходимо для полного блокчейна)</numerusform></translation>
+    </message>
+</context>
 <context>
     <name>ModalOverlay</name>
     <message>
@@ -1069,28 +1057,20 @@
 <context>
     <name>OpenURIDialog</name>
     <message>
-        <source>Open URI</source>
-        <translation>Открыть URI</translation>
-    </message>
-    <message>
-        <source>Open payment request from URI or file</source>
-        <translation>Открыть запрос на оплату из URI или файла</translation>
-    </message>
-    <message>
         <source>URI:</source>
         <translation>URI:</translation>
-    </message>
-    <message>
-        <source>Select payment request file</source>
-        <translation>Выберите файл запроса платежа</translation>
-    </message>
-    <message>
-        <source>Select payment request file to open</source>
-        <translation>Выберите файл запроса платежа для открытия</translation>
     </message>
 </context>
 <context>
     <name>OpenWalletActivity</name>
+    <message>
+        <source>Open wallet failed</source>
+        <translation>Не удалось открыть кошелёк </translation>
+    </message>
+    <message>
+        <source>Open wallet warning</source>
+        <translation>Кошелёк открыт</translation>
+    </message>
     <message>
         <source>Open wallet failed</source>
         <translation>Не удалось открыть кошелёк </translation>
@@ -1477,16 +1457,12 @@
         <translation>'bitcoin://' не верный URI. Используйте 'bitcoin:' вместо этого.</translation>
     </message>
     <message>
-        <source>You are using a BIP70 URL which will be unsupported in the future.</source>
-        <translation>Вы используете URL BIP70, который не будет поддерживаться в будущем.</translation>
+        <source>Due to widespread security flaws in BIP70 it's strongly recommended that any merchant instructions to switch wallets be ignored.</source>
+        <translation>Из-за широко распространенных недостатков безопасности в BIP70 настоятельно рекомендуется игнорировать любые торговые инструкции по переключению кошельков.</translation>
     </message>
     <message>
-        <source>Payment request fetch URL is invalid: %1</source>
-        <translation>Неверный URL запроса платежа: %1</translation>
-    </message>
-    <message>
-        <source>Cannot process payment request because BIP70 support was not compiled in.</source>
-        <translation>Не удалось обработать запрос на оплату, так как поддержка BIP70 не была имплементирована.</translation>
+        <source>If you are receiving this error you should request the merchant provide a BIP21 compatible URI.</source>
+        <translation>Если вы получили эту ошибку, вам следует запросить у продавца BIP21 совместимый URI.</translation>
     </message>
     <message>
         <source>Due to widespread security flaws in BIP70 it's strongly recommended that any merchant instructions to switch wallets be ignored.</source>
@@ -1507,66 +1483,6 @@
     <message>
         <source>Payment request file handling</source>
         <translation>Обработка запроса платежа</translation>
-    </message>
-    <message>
-        <source>Payment request file cannot be read! This can be caused by an invalid payment request file.</source>
-        <translation>Файл запроса платежа не может быть прочитан! Обычно это происходит из-за неверного файла запроса платежа.</translation>
-    </message>
-    <message>
-        <source>Payment request rejected</source>
-        <translation>Запрос платежа отклонен</translation>
-    </message>
-    <message>
-        <source>Payment request network doesn't match client network.</source>
-        <translation>Сеть запроса платежа не совпадает с сетью клиента.</translation>
-    </message>
-    <message>
-        <source>Payment request expired.</source>
-        <translation>Истекло время ожидания запроса платежа</translation>
-    </message>
-    <message>
-        <source>Payment request is not initialized.</source>
-        <translation>Запрос платежа не инициализирован</translation>
-    </message>
-    <message>
-        <source>Unverified payment requests to custom payment scripts are unsupported.</source>
-        <translation>Непроверенные запросы платежей с нестандартными платёжными сценариями не поддерживаются.</translation>
-    </message>
-    <message>
-        <source>Invalid payment request.</source>
-        <translation>Неверный запрос платежа.</translation>
-    </message>
-    <message>
-        <source>Requested payment amount of %1 is too small (considered dust).</source>
-        <translation>Запрошенная сумма платежа %1 слишком мала (считается пылью).</translation>
-    </message>
-    <message>
-        <source>Refund from %1</source>
-        <translation>Возврат от %1</translation>
-    </message>
-    <message>
-        <source>Payment request %1 is too large (%2 bytes, allowed %3 bytes).</source>
-        <translation>Запрос платежа %1 слишком большой (%2 байтов, разрешено %3 байтов).</translation>
-    </message>
-    <message>
-        <source>Error communicating with %1: %2</source>
-        <translation>Ошибка связи с %1: %2</translation>
-    </message>
-    <message>
-        <source>Payment request cannot be parsed!</source>
-        <translation>Запрос платежа не понятен!</translation>
-    </message>
-    <message>
-        <source>Bad response from server %1</source>
-        <translation>Неправильный ответ от сервера %1</translation>
-    </message>
-    <message>
-        <source>Network request error</source>
-        <translation>Ошибка сетевого запроса</translation>
-    </message>
-    <message>
-        <source>Payment acknowledged</source>
-        <translation>Оплата подтверждена</translation>
     </message>
 </context>
 <context>
@@ -1743,10 +1659,6 @@
     <message>
         <source>&amp;Information</source>
         <translation>Информация</translation>
-    </message>
-    <message>
-        <source>Debug window</source>
-        <translation>Окно отладки</translation>
     </message>
     <message>
         <source>General</source>
@@ -2289,10 +2201,6 @@
         <translation>Предупреждение: оценка комиссии в данный момент невозможна.</translation>
     </message>
     <message>
-        <source>collapse fee-settings</source>
-        <translation>свернуть настройки комиссионных</translation>
-    </message>
-    <message>
         <source>Specify a custom fee per kB (1,000 bytes) of the transaction's virtual size.
 
 Note:  Since the fee is calculated on a per-byte basis, a fee of "100 satoshis per kB" for a transaction size of 500 bytes (half of 1 kB) would ultimately yield a fee of only 50 satoshis.</source>
@@ -2335,6 +2243,10 @@ Note:  Since the fee is calculated on a per-byte basis, a fee of "100 satoshis p
     <message>
         <source>Dust:</source>
         <translation>Пыль:</translation>
+    </message>
+    <message>
+        <source>Hide transaction fee settings</source>
+        <translation>Скрыть настройки комиссий</translation>
     </message>
     <message>
         <source>When there is less transaction volume than space in the blocks, miners as well as relaying nodes may enforce a minimum fee. Paying only this minimum fee is just fine, but be aware that this can result in a never confirming transaction once there is more demand for bitcoin transactions than the network can process.</source>
@@ -2453,6 +2365,10 @@ Note:  Since the fee is calculated on a per-byte basis, a fee of "100 satoshis p
         <translation>Подтвердить отправку монет</translation>
     </message>
     <message>
+        <source>Send</source>
+        <translation>Отправить</translation>
+    </message>
+    <message>
         <source>The recipient address is not valid. Please recheck.</source>
         <translation>Адрес получателя неверный. Пожалуйста, перепроверьте.</translation>
     </message>
@@ -2475,10 +2391,6 @@ Note:  Since the fee is calculated on a per-byte basis, a fee of "100 satoshis p
     <message>
         <source>Transaction creation failed!</source>
         <translation>Создание транзакции завершилось неудачей!</translation>
-    </message>
-    <message>
-        <source>The transaction was rejected with the following reason: %1</source>
-        <translation>Транзакция была отменена по следующей причине: %1</translation>
     </message>
     <message>
         <source>A fee higher than %1 is considered an absurdly high fee.</source>
@@ -2530,10 +2442,6 @@ Note:  Since the fee is calculated on a per-byte basis, a fee of "100 satoshis p
     <message>
         <source>Choose previously used address</source>
         <translation>Выбрать предыдущий использованный адрес</translation>
-    </message>
-    <message>
-        <source>This is a normal payment.</source>
-        <translation>Это нормальный платёж.</translation>
     </message>
     <message>
         <source>The Bitcoin address to send the payment to</source>
@@ -2594,17 +2502,6 @@ Note:  Since the fee is calculated on a per-byte basis, a fee of "100 satoshis p
     <message>
         <source>Memo:</source>
         <translation>Примечание:</translation>
-    </message>
-    <message>
-        <source>Enter a label for this address to add it to your address book</source>
-        <translation>Введите метку для этого адреса, чтобы добавить его в свою адресную книгу</translation>
-    </message>
-</context>
-<context>
-    <name>SendConfirmationDialog</name>
-    <message>
-        <source>Yes</source>
-        <translation>Да</translation>
     </message>
 </context>
 <context>
@@ -2723,6 +2620,10 @@ Note:  Since the fee is calculated on a per-byte basis, a fee of "100 satoshis p
     <message>
         <source>Wallet unlock was cancelled.</source>
         <translation>Разблокирование кошелька было отменено.</translation>
+    </message>
+    <message>
+        <source>No error</source>
+        <translation>Без ошибок</translation>
     </message>
     <message>
         <source>Private key for the entered address is not available.</source>
@@ -3342,10 +3243,6 @@ Note:  Since the fee is calculated on a per-byte basis, a fee of "100 satoshis p
         <translation>Удаление: последняя синхронизация кошелька вышла за рамки удаленных данных. Вам нужен -reindex (скачать всю цепь блоков в случае удаленного узла)</translation>
     </message>
     <message>
-        <source>Rescans are not possible in pruned mode. You will need to use -reindex which will download the whole blockchain again.</source>
-        <translation>Повторное сканирование не возможно в режиме удаления. Вам надо будет использовать -reindex, который загрузит заново всю цепь блоков.</translation>
-    </message>
-    <message>
         <source>Error: A fatal internal error occurred, see debug.log for details</source>
         <translation>Ошибка: произошла критическая внутренняя ошибка, для получения деталей см. debug.log</translation>
     </message>
@@ -3444,6 +3341,14 @@ Note:  Since the fee is calculated on a per-byte basis, a fee of "100 satoshis p
     <message>
         <source>Corrupted block database detected</source>
         <translation>БД блоков повреждена</translation>
+    </message>
+    <message>
+        <source>Could not find asmap file %s</source>
+        <translation>Не могу найти asmap файл %s</translation>
+    </message>
+    <message>
+        <source>Could not parse asmap file %s</source>
+        <translation>Не могу разобрать asmap файл %s</translation>
     </message>
     <message>
         <source>Do you want to rebuild the block database now?</source>
@@ -3734,10 +3639,6 @@ Note:  Since the fee is calculated on a per-byte basis, a fee of "100 satoshis p
     <message>
         <source>This is the transaction fee you may pay when fee estimates are not available.</source>
         <translation>Это комиссия за транзакцию, которую вы можете заплатить, когда расчёт комиссии недоступен.</translation>
-    </message>
-    <message>
-        <source>This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit %s and cryptographic software written by Eric Young and UPnP software written by Thomas Bernard.</source>
-        <translation>Этот продукт включает ПО, разработанное OpenSSL Project для использования в OpenSSL Toolkit %s и криптографическое ПО, написанное Eric Young и ПО для работы с UPnP, написанное Thomas Bernard.</translation>
     </message>
     <message>
         <source>Total length of network version string (%i) exceeds maximum length (%i). Reduce the number or size of uacomments.</source>
