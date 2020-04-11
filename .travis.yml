@@ -185,7 +185,7 @@ jobs:
         homebrew:
           packages:
           - libtool
-          - berkeley-db4
+          - berkeley-db5
           - boost
           - miniupnpc
           - qt
