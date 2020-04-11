@@ -16,8 +16,6 @@
 #include "consensus/params.h"
 #include "crypto/sha256.h"
 
-#include "bignum.h"
-
 #include "util/system.h"
 #include "util/strencodings.h"
 #include "versionbitsinfo.h"
@@ -28,31 +26,6 @@
 #ifdef _MSC_VER
 #	include <intrin.h>
 #endif
-
-extern "C" {
-
-#if !defined(UCFG_LIBEXT) && (defined(_M_IX86) || defined(_M_X64)) && defined(_MSC_VER)
-
-	static __inline void Cpuid(int a[4], int level) {
-#	ifdef _MSC_VER
-		__cpuid(a, level);
-#	else
-		__cpuid(level, a[0], a[1], a[2], a[3]);
-#	endif
-	}
-
-	char g_bHasSse2;
-
-	static int InitBignumFuns() {
-		int a[4];
-		::Cpuid(a, 1);
-		g_bHasSse2 = a[3] & 0x02000000;
-		return 1;
-	}
-
-	static int s_initBignumFuns = InitBignumFuns();
-#endif // defined(_M_IX86) || defined(_M_X64)
-} // "C"
 
 using namespace std;
 
@@ -150,11 +123,13 @@ unsigned int static DarkGravityWave(const CBlockIndex* pindexLast, const CBlockH
     int64_t PastBlocksMin = 12;
     int64_t PastBlocksMax = 120;
     int64_t CountBlocks = 0;
-    CBigNum PastDifficultyAverage;
-    CBigNum PastDifficultyAveragePrev;
+    arith_uint256 PastDifficultyAverage;
+    arith_uint256 PastDifficultyAveragePrev;
+
+    const arith_uint256 bnPowLimit = UintToArith256(params.powLimit);
 
     if (BlockLastSolved == NULL || BlockLastSolved->nHeight == 0 || BlockLastSolved->nHeight < PastBlocksMin) {
-		return UintToArith256(params.powLimit).GetCompact();
+        return bnPowLimit.GetCompact();
 	}
 
     for (unsigned int i = 1; BlockReading && BlockReading->nHeight > 0; i++) {
@@ -163,7 +138,7 @@ unsigned int static DarkGravityWave(const CBlockIndex* pindexLast, const CBlockH
 
         if(CountBlocks <= PastBlocksMin) {
             if (CountBlocks == 1) { PastDifficultyAverage.SetCompact(BlockReading->nBits); }
-            else { PastDifficultyAverage = ((CBigNum().SetCompact(BlockReading->nBits) - PastDifficultyAveragePrev) / CountBlocks) + PastDifficultyAveragePrev; }
+            else { PastDifficultyAverage = ((arith_uint256().SetCompact(BlockReading->nBits) - PastDifficultyAveragePrev) / CountBlocks) + PastDifficultyAveragePrev; }
             PastDifficultyAveragePrev = PastDifficultyAverage;
         }
 
@@ -186,7 +161,7 @@ unsigned int static DarkGravityWave(const CBlockIndex* pindexLast, const CBlockH
         BlockReading = BlockReading->pprev;
     }
 
-    CBigNum bnNew(PastDifficultyAverage);
+    arith_uint256 bnNew(PastDifficultyAverage);
     if (nBlockTimeCount != 0 && nBlockTimeCount2 != 0) {
             double SmartAverage = (((nBlockTimeAverage)*0.7)+((nBlockTimeSum2 / nBlockTimeCount2)*0.3));
             if(SmartAverage < 1) SmartAverage = 1;
@@ -204,9 +179,8 @@ unsigned int static DarkGravityWave(const CBlockIndex* pindexLast, const CBlockH
             bnNew /= nTargetTimespan;
     }
 
-    if (bnNew > CBigNum(params.powLimit)){
-        bnNew = CBigNum(params.powLimit);
-    }
+    if (bnNew > bnPowLimit)
+        bnNew = bnPowLimit;
 
     return bnNew.GetCompact();
 }
@@ -220,11 +194,13 @@ unsigned int static DarkGravityWave3(const CBlockIndex* pindexLast, const CBlock
     int64_t PastBlocksMin = 24;
     int64_t PastBlocksMax = 24;
     int64_t CountBlocks = 0;
-    CBigNum PastDifficultyAverage;
-    CBigNum PastDifficultyAveragePrev;
+    arith_uint256 PastDifficultyAverage;
+    arith_uint256 PastDifficultyAveragePrev;
+
+    const arith_uint256 bnPowLimit = UintToArith256(params.powLimit);
 
     if (BlockLastSolved == NULL || BlockLastSolved->nHeight == 0 || BlockLastSolved->nHeight < PastBlocksMin) {
-		return UintToArith256(params.powLimit).GetCompact();
+        return bnPowLimit.GetCompact();
     }
 
     for (unsigned int i = 1; BlockReading && BlockReading->nHeight > 0; i++) {
@@ -233,7 +209,7 @@ unsigned int static DarkGravityWave3(const CBlockIndex* pindexLast, const CBlock
 
         if(CountBlocks <= PastBlocksMin) {
             if (CountBlocks == 1) { PastDifficultyAverage.SetCompact(BlockReading->nBits); }
-            else { PastDifficultyAverage = ((PastDifficultyAveragePrev * CountBlocks)+(CBigNum().SetCompact(BlockReading->nBits))) / (CountBlocks+1); }
+            else { PastDifficultyAverage = ((PastDifficultyAveragePrev * CountBlocks)+(arith_uint256().SetCompact(BlockReading->nBits))) / (CountBlocks+1); }
             PastDifficultyAveragePrev = PastDifficultyAverage;
         }
 
@@ -247,7 +223,7 @@ unsigned int static DarkGravityWave3(const CBlockIndex* pindexLast, const CBlock
         BlockReading = BlockReading->pprev;
     }
 
-    CBigNum bnNew(PastDifficultyAverage);
+    arith_uint256 bnNew(PastDifficultyAverage);
 
     int64_t nTargetTimespan = CountBlocks*nTargetSpacing;
 
@@ -260,9 +236,9 @@ unsigned int static DarkGravityWave3(const CBlockIndex* pindexLast, const CBlock
     bnNew *= nActualTimespan;
     bnNew /= nTargetTimespan;
 
-	if (bnNew > CBigNum(params.powLimit)) {
-		bnNew = CBigNum(params.powLimit);
-	}
+    if (bnNew > bnPowLimit)
+        bnNew = bnPowLimit;
+
     return bnNew.GetCompact();
 }
 //----------------------
@@ -302,7 +278,6 @@ static CBlock CreateGenesisBlock(const char* pszTimestamp, const CScript& genesi
 	genesis.hashMerkleRoot = BlockMerkleRoot(genesis);
 	return genesis;
 }
-
 /**
 * Build the genesis block. Note that the output of its generation
 * transaction cannot be spent since it did not originally exist in the
