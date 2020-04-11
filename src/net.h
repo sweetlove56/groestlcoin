@@ -75,10 +75,6 @@ static const bool DEFAULT_UPNP = USE_UPNP;
 #else
 static const bool DEFAULT_UPNP = false;
 #endif
-/** The maximum number of entries in mapAskFor */
-static const size_t MAPASKFOR_MAX_SZ = MAX_INV_SZ;
-/** The maximum number of entries in setAskFor (larger due to getdata latency)*/
-static const size_t SETASKFOR_MAX_SZ = 2 * MAX_INV_SZ;
 /** The maximum number of peer connections to maintain. */
 static const unsigned int DEFAULT_MAX_PEER_CONNECTIONS = 125;
 /** The default for -maxuploadtarget. 0 = Unlimited */
@@ -656,7 +652,7 @@ public:
 class V1TransportDeserializer final : public TransportDeserializer
 {
 private:
-    mutable XCoin::GroestlHasher hasher;
+    mutable XCoin::GroestlHasher hasher; //GRS
     mutable uint256 data_hash;
     bool in_data;                   // parsing header (false) or data (true)
     CDataStream hdrbuf;             // partially received header
@@ -999,8 +995,6 @@ public:
         LOCK(cs_inventory);
         vBlockHashesToAnnounce.push_back(hash);
     }
-
-    void AskFor(const CInv& inv);
 
     void CloseSocketDisconnect();
 

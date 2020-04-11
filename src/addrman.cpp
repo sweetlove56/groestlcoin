@@ -12,15 +12,15 @@
 
 int CAddrInfo::GetTriedBucket(const uint256& nKey, const std::vector<bool> &asmap) const
 {
-    CDataStream ss1(SER_GETHASH, 0);
-    std::vector<unsigned char> vchKey = GetKey();
-    ss1 << nKey << vchKey;
-    uint64_t hash1 = XCoin::HashGroestl(XCoin::ConstBuf(ss1.begin(), ss1.end())).GetCheapHash();
+    CDataStream ss1(SER_GETHASH, 0); //GRS
+    std::vector<unsigned char> vchKey = GetKey(); //GRS
+    ss1 << nKey << vchKey; //GRS
+    uint64_t hash1 = XCoin::HashGroestl(XCoin::ConstBuf(ss1.begin(), ss1.end())).GetCheapHash();  //GRS
 
-    CDataStream ss2(SER_GETHASH, 0);
-    std::vector<unsigned char> vchGroupKey = GetGroup(asmap);
-    ss2 << nKey << vchGroupKey << (hash1 % ADDRMAN_TRIED_BUCKETS_PER_GROUP);
-    uint64_t hash2 = XCoin::HashGroestl(XCoin::ConstBuf(ss2.begin(), ss2.end())).GetCheapHash();
+    CDataStream ss2(SER_GETHASH, 0); //GRS
+    std::vector<unsigned char> vchGroupKey = GetGroup(asmap); //GRS
+    ss2 << nKey << vchGroupKey << (hash1 % ADDRMAN_TRIED_BUCKETS_PER_GROUP); //GRS
+    uint64_t hash2 = XCoin::HashGroestl(XCoin::ConstBuf(ss2.begin(), ss2.end())).GetCheapHash(); //GRS
 
     int tried_bucket = hash2 % ADDRMAN_TRIED_BUCKET_COUNT;
     uint32_t mapped_as = GetMappedAS(asmap);
@@ -30,15 +30,15 @@ int CAddrInfo::GetTriedBucket(const uint256& nKey, const std::vector<bool> &asma
 
 int CAddrInfo::GetNewBucket(const uint256& nKey, const CNetAddr& src, const std::vector<bool> &asmap) const
 {
-    CDataStream ss1(SER_GETHASH, 0);
-    std::vector<unsigned char> vchGroupKey = GetGroup(asmap);
-    std::vector<unsigned char> vchSourceGroupKey = src.GetGroup(asmap);
-    ss1 << nKey << vchGroupKey << vchSourceGroupKey;
-    uint64_t hash1 = XCoin::HashGroestl(XCoin::ConstBuf(ss1.begin(), ss1.end())).GetCheapHash();
+    CDataStream ss1(SER_GETHASH, 0); //GRS
+    std::vector<unsigned char> vchGroupKey = GetGroup(asmap); //GRS
+    std::vector<unsigned char> vchSourceGroupKey = src.GetGroup(asmap); //GRS
+    ss1 << nKey << vchGroupKey << vchSourceGroupKey; //GRS
+    uint64_t hash1 = XCoin::HashGroestl(XCoin::ConstBuf(ss1.begin(), ss1.end())).GetCheapHash(); //GRS
 
-    CDataStream ss2(SER_GETHASH, 0);
-    ss2 << nKey << vchSourceGroupKey << (hash1 % ADDRMAN_NEW_BUCKETS_PER_SOURCE_GROUP);
-    uint64_t hash2 = XCoin::HashGroestl(XCoin::ConstBuf(ss2.begin(), ss2.end())).GetCheapHash();
+    CDataStream ss2(SER_GETHASH, 0); //GRS
+    ss2 << nKey << vchSourceGroupKey << (hash1 % ADDRMAN_NEW_BUCKETS_PER_SOURCE_GROUP); //GRS
+    uint64_t hash2 = XCoin::HashGroestl(XCoin::ConstBuf(ss2.begin(), ss2.end())).GetCheapHash(); //GRS
 
     int new_bucket = hash2 % ADDRMAN_NEW_BUCKET_COUNT;
     uint32_t mapped_as = GetMappedAS(asmap);
@@ -48,9 +48,9 @@ int CAddrInfo::GetNewBucket(const uint256& nKey, const CNetAddr& src, const std:
 
 int CAddrInfo::GetBucketPosition(const uint256 &nKey, bool fNew, int nBucket) const
 {
-    CDataStream ss1(SER_GETHASH, 0);
-	ss1 << nKey << (fNew ? 'N' : 'K') << nBucket << GetKey();
-    uint64_t hash1 = XCoin::HashGroestl(XCoin::ConstBuf(ss1.begin(), ss1.end())).GetCheapHash();
+    CDataStream ss1(SER_GETHASH, 0); //GRS
+	  ss1 << nKey << (fNew ? 'N' : 'K') << nBucket << GetKey(); //GRS
+    uint64_t hash1 = XCoin::HashGroestl(XCoin::ConstBuf(ss1.begin(), ss1.end())).GetCheapHash(); //GRS
     return hash1 % ADDRMAN_BUCKET_SIZE;
 }
 

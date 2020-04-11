@@ -720,8 +720,8 @@ CNetMessage V1TransportDeserializer::GetMessage(const CMessageHeader::MessageSta
 }
 
 void V1TransportSerializer::prepareForTransport(CSerializedNetMsg& msg, std::vector<unsigned char>& header) {
-    // GRS create dbl-groestl512 checksum
-    uint256 hash = XCoin::HashMessage(XCoin::ConstBuf(msg.data.begin(), msg.data.end());
+    // create dbl-sha256 checksum
+    uint256 hash = XCoin::HashMessage(XCoin::ConstBuf(msg.data.begin(), msg.data.end())); //GRS
 
     // create header
     CMessageHeader hdr(Params().MessageStart(), msg.command.c_str(), msg.data.size());
