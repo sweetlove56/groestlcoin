@@ -110,7 +110,6 @@ BITCOIN_CORE_H = \
   blockencodings.h \
   blockfilter.h \
   chain.h \
-  bignum.h \
   groestlcoin.h \
   grs-config.h \
   sphlib/sph_types.h \

@@ -919,9 +919,6 @@
     <ClInclude Include="wallet\wallet_ismine.h">
       <Filter>Header Files\wallet</Filter>
     </ClInclude>
-    <ClInclude Include="bignum.h">
-      <Filter>Header Files\grs</Filter>
-    </ClInclude>
     <ClInclude Include="cuckoocache.h">
       <Filter>Header Files</Filter>
     </ClInclude>
