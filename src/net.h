@@ -673,7 +673,7 @@ private:
         nHdrPos = 0;
         nDataPos = 0;
         data_hash.SetNull();
-        hasher = XCoin::GroestlHasher();
+        hasher = XCoin::GroestlHasher(); // GRS
     }
 
 public:
