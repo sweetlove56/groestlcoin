@@ -386,7 +386,7 @@ public:
         fDefaultConsistencyChecks = false;
         fRequireStandard = true;
         m_is_test_chain = false;
-				m_is_mockable_chain = false;
+        m_is_mockable_chain = false;
 
         #ifdef _MSC_VER //!!!
         checkpointData = CCheckpointData{
@@ -486,7 +486,7 @@ public:
         fDefaultConsistencyChecks = false;
         fRequireStandard = false;
         m_is_test_chain = true;
-				m_is_mockable_chain = false;
+        m_is_mockable_chain = false;
 
 
         #ifdef _MSC_VER
@@ -564,7 +564,7 @@ public:
         fDefaultConsistencyChecks = true;
 				fRequireStandard = true;
         m_is_test_chain = true;
-				m_is_mockable_chain = true;
+        m_is_mockable_chain = true;
 
         #ifdef _MSC_VER
         checkpointData = CCheckpointData{
