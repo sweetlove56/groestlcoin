@@ -68,6 +68,7 @@ The Groestlcoin repo's [root README](/README.md) contains relevant information o
 - [groestlcoin.conf Configuration File](groestlcoin-conf.md)
 - [Files](files.md)
 - [Fuzz-testing](fuzzing.md)
+- [Reduce Memory](reduce-memory.md)
 - [Reduce Traffic](reduce-traffic.md)
 - [Tor Support](tor.md)
 - [Init Scripts (systemd/upstart/openrc)](init.md)

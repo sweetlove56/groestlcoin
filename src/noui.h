@@ -14,7 +14,13 @@ bool noui_ThreadSafeQuestion(const std::string& /* ignored interactive message *
 /** Non-GUI handler, which only logs a message. */
 void noui_InitMessage(const std::string& message);
 
-/** Connect all bitcoind signal handlers */
+/** Connect all groestlcoind signal handlers */
 void noui_connect();
+
+/** Suppress all groestlcoind signal handlers. Used to suppress output during test runs that produce expected errors */
+void noui_suppress();
+
+/** Reconnects the regular Non-GUI handlers after having used noui_suppress */
+void noui_reconnect();
 
 #endif // BITCOIN_NOUI_H

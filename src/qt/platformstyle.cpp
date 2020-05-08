@@ -4,8 +4,6 @@
 
 #include <qt/platformstyle.h>
 
-#include <qt/guiconstants.h>
-
 #include <QApplication>
 #include <QColor>
 #include <QImage>
@@ -116,13 +114,6 @@ QIcon PlatformStyle::SingleColorIcon(const QIcon& icon) const
     return ColorizeIcon(icon, SingleColor());
 }
 
-QIcon PlatformStyle::TextColorIcon(const QString& filename) const
-{
-    if (!colorizeIcons)
-        return QIcon(filename);
-    return ColorizeIcon(filename, TextColor());
-}
-
 QIcon PlatformStyle::TextColorIcon(const QIcon& icon) const
 {
     if (!colorizeIcons)
@@ -145,4 +136,3 @@ const PlatformStyle *PlatformStyle::instantiate(const QString &platformId)
     }
     return nullptr;
 }
-

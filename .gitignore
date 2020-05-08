@@ -34,6 +34,7 @@ libtool
 src/config/groestlcoin-config.h
 src/config/groestlcoin-config.h.in
 src/config/stamp-h1
+src/obj
 share/setup.nsi
 share/qt/Info.plist
 
@@ -78,6 +79,10 @@ src/qt/groestlcoin-qt.includes
 *.json.h
 *.raw.h
 
+# Only ignore unexpected patches
+*.patch
+!depends/patches/**/*.patch
+
 #libtool object files
 *.lo
 *.la
@@ -85,9 +90,13 @@ src/qt/groestlcoin-qt.includes
 # Compilation and Qt preprocessor part
 *.qm
 Makefile
+!depends/Makefile
 groestlcoin-qt
 Groestlcoin-Qt.app
 background.tiff*
+
+# Qt Creator
+Makefile.am.user
 
 # Unit-tests
 Makefile.test
@@ -127,3 +136,7 @@ db5/
 
 # clang-check
 *.plist
+
+osx_volname
+dist/
+*.background.tiff

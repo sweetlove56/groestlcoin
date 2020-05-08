@@ -3,10 +3,10 @@ Repository Tools
 
 ### [Developer tools](/contrib/devtools) ###
 Specific tools for developers working on this repository.
-Contains the script `github-merge.py` for merging GitHub pull requests securely and signing them using GPG.
+Additional tools, including the `github-merge.py` script, are available in the [maintainer-tools](https://github.com/bitcoin-core/bitcoin-maintainer-tools) repository.
 
 ### [Verify-Commits](/contrib/verify-commits) ###
-Tool to verify that every merge commit was signed by a developer using the above `github-merge.py` script.
+Tool to verify that every merge commit was signed by a developer using the `github-merge.py` script.
 
 ### [Linearize](/contrib/linearize) ###
 Construct a linear, no-fork, best version of the blockchain.
@@ -24,7 +24,7 @@ Build Tools and Keys
 ### Packaging ###
 The [Debian](/contrib/debian) subfolder contains the copyright file.
 
-All other packaging related files can be found in the [bitcoin-core/packaging](https://github.com/bitcoin-core/packaging) repository.
+All other packaging related files can be found in the [Groestlcoin/packaging](https://github.com/Groestlcoin/packaging) repository.
 
 ### [Gitian-descriptors](/contrib/gitian-descriptors) ###
 Files used during the gitian build process. For more information about gitian, see the [the Bitcoin Core documentation repository](https://github.com/bitcoin-core/docs).

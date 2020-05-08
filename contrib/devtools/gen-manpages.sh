@@ -16,7 +16,7 @@ BITCOINQT=${GROESTLCOINQT:-$BINDIR/qt/groestlcoin-qt}
 [ ! -x $BITCOIND ] && echo "$BITCOIND not found or not executable." && exit 1
 
 # The autodetected version git tag can screw up manpage output a little bit
-GRSVER=($($BITCOINCLI --version | head -n1 | awk -F'[ -]' '{ print $6, $7 }'))
+read -r -a GRSVER <<< "$($BITCOINCLI --version | head -n1 | awk -F'[ -]' '{ print $6, $7 }')"
 
 # Create a footer file with copyright content.
 # This gets autodetected fine for groestlcoind if --version-string is not set,
