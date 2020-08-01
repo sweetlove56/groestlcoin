@@ -329,3 +329,12 @@ Build system
 
 - Support is provided for building with the Android Native Development
   Kit (NDK).
+
+PSBT changes
+------------
+
+PSBTs will contain both the non-witness utxo and the witness utxo for segwit
+inputs in order to restore compatibility with wallet software that are now
+requiring the full previous transaction for segwit inputs. The witness utxo
+is still provided to maintain compatibility with software which relied on its
+existence to determine whether an input was segwit.
