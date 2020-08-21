@@ -1,14 +1,13 @@
-### MacDeploy ###
+# MacOS Deployment
 
-For Snow Leopard (which uses [Python 2.6](http://www.python.org/download/releases/2.6/)), you will need the param_parser package:
+The `macdeployqtplus` script should not be run manually. Instead, after building as usual:
 
-	sudo easy_install argparse
+```bash
+make deploy
+```
 
-This script should not be run manually, instead, after building as usual:
+During the deployment process, the disk image window will pop up briefly
+when the fancy settings are applied. This is normal, please do not interfere,
+the process will unmount the DMG and cleanup before finishing.
 
-	make deploy
-
-During the process, the disk image window will pop up briefly where the fancy
-settings are applied. This is normal, please do not interfere.
-
-When finished, it will produce `Groestlcoin-Core.dmg`.
+When complete, it will have produced `Groestlcoin-Qt.dmg`.

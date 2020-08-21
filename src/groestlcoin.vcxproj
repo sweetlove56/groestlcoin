@@ -653,7 +653,6 @@
     <ClInclude Include="addrman.h" />
     <ClInclude Include="alert.h" />
     <ClInclude Include="base58.h" />
-    <ClInclude Include="bignum.h" />
     <ClInclude Include="bloom.h" />
     <ClInclude Include="chain.h" />
     <ClInclude Include="chainparams.h" />

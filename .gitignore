@@ -1,13 +1,15 @@
 *.tar.gz
 
 *.exe
+*.pdb
 src/groestlcoin
 src/groestlcoind
 src/groestlcoin-cli
 src/groestlcoin-tx
 src/groestlcoin-wallet
+src/test/fuzz
+!src/test/fuzz/*.*
 src/test/test_groestlcoin
-src/test/test_groestlcoin_fuzzy
 src/qt/test/test_groestlcoin-qt
 
 # autoreconf
@@ -27,6 +29,7 @@ build-aux/m4/ltversion.m4
 build-aux/missing
 build-aux/compile
 build-aux/test-driver
+config.cache
 config.log
 config.status
 configure
@@ -91,7 +94,7 @@ src/qt/groestlcoin-qt.includes
 *.qm
 Makefile
 !depends/Makefile
-groestlcoin-qt
+src/qt/groestlcoin-qt
 Groestlcoin-Qt.app
 background.tiff*
 
@@ -108,6 +111,9 @@ qrc_*.cpp
 # Mac specific
 .DS_Store
 build
+
+# Previous releases
+releases
 
 #lcov
 *.gcno

@@ -11,7 +11,7 @@ Running
 For benchmarks purposes you only need to compile `groestlcoin_bench`. Beware of configuring without `--enable-debug` as this would impact
 benchmarking by unlatching log printers and lock analysis.
 
-    make -C src bench_groestlcoin
+    make -C src groestlcoin_bench
 
 After compiling groestlcoin-core, the benchmarks can be run with:
 
@@ -27,7 +27,7 @@ AssembleBlock, 5, 700, 1.79954, 0.000510913, 0.000517018, 0.000514497
 Help
 ---------------------
 
-    src/bench/bench_bitcoin --help
+    src/bench/bench_groestlcoin --help
 
 To print options like scaling factor or per-benchmark filter.
 
@@ -39,10 +39,3 @@ More benchmarks are needed for, in no particular order:
 - Memory pool
 - Cuckoo Cache
 - P2P throughput
-
-Going Further
---------------------
-
-To monitor Bitcoin Core performance more in depth (like reindex or IBD): https://github.com/chaincodelabs/bitcoinperf
-
-To generate Flame Graphs for Bitcoin Core: https://github.com/eklitzke/bitcoin/blob/flamegraphs/doc/flamegraphs.md
