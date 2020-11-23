@@ -142,9 +142,7 @@ public:
      * Returns the first 64 bits from the resulting hash.
      */
     inline uint64_t GetCheapHash() {
-        uint256 result; // GRS
-        ctx.Finalize(result.begin()); // GRS
-        ctx.Reset().Write(result.begin(), CSHA256::OUTPUT_SIZE).Finalize(result.begin()); // GRS
+        uint256 result = GetHash();
         return ReadLE64(result.begin());
     }
 
