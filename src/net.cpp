@@ -791,7 +791,7 @@ Optional<CNetMessage> V1TransportDeserializer::GetMessage(const std::chrono::mic
 
 void V1TransportSerializer::prepareForTransport(CSerializedNetMsg& msg, std::vector<unsigned char>& header) {
     // create dbl-groestl512 checksum
-    uint256 hash = XCoin::HashMessage(XCoin::ConstBuf(msg.data.begin(), msg.data.end())); //GRS
+    uint256 hash = XCoin::HashMessage(XCoin::ConstBuf(msg.data)); // GRS
 
     // create header
     CMessageHeader hdr(Params().MessageStart(), msg.m_type.c_str(), msg.data.size());
