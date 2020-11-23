@@ -15,7 +15,7 @@ int CAddrInfo::GetTriedBucket(const uint256& nKey, const std::vector<bool> &asma
     CDataStream ss1(SER_GETHASH, 0); //GRS
     std::vector<unsigned char> vchKey = GetKey(); //GRS
     ss1 << nKey << vchKey; //GRS
-    uint64_t hash1 = XCoin::HashGroestl(XCoin::ConstBuf(ss1.begin(), ss1.end())).GetCheapHash();  //GRS
+    uint64_t hash1 = XCoin::HashGroestl(XCoin::ConstBuf(ss1.begin(), ss1.end())).GetCheapHash(); //GRS
 
     CDataStream ss2(SER_GETHASH, 0); //GRS
     std::vector<unsigned char> vchGroupKey = GetGroup(asmap); //GRS

@@ -12,7 +12,7 @@ class ArgsManager;
 
 /**
  * CBaseChainParams defines the base parameters (shared between groestlcoin-cli and groestlcoind)
- * of a given instance of the Bitcoin system.
+ * of a given instance of the Groestlcoin system.
  */
 class CBaseChainParams
 {

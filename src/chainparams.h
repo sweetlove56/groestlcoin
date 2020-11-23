@@ -42,8 +42,6 @@ struct ChainTxData {
     double dTxRate;   //!< estimated number of transactions per second after that timestamp
 };
 
-typedef std::vector<std::vector<unsigned char> > CAlertKeys;	//GRS
-
 /**
  * CChainParams defines various tweakable parameters of a given instance of the
  * Bitcoin system. There are three: the main network on which people trade goods

@@ -74,7 +74,7 @@ uint256 MessageHash(const std::string& message)
     CHashWriter hasher(SER_GETHASH, 0);
     hasher << MESSAGE_MAGIC << message;
 
-    return hasher.GetHash();
+    return hasher.GetHash(); // GRS uses single sha256
 }
 
 std::string SigningResultString(const SigningResult res)
