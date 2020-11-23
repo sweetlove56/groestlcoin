@@ -76,6 +76,21 @@ struct modifiedentry_iter {
     }
 };
 
+// This matches the calculation in CompareTxMemPoolEntryByAncestorFee,
+// except operating on CTxMemPoolModifiedEntry.
+// TODO: refactor to avoid duplication of this logic.
+struct CompareModifiedEntry {
+    bool operator()(const CTxMemPoolModifiedEntry &a, const CTxMemPoolModifiedEntry &b) const
+    {
+        double f1 = (double)a.nModFeesWithAncestors * b.nSizeWithAncestors;
+        double f2 = (double)b.nModFeesWithAncestors * a.nSizeWithAncestors;
+        if (f1 == f2) {
+            return CTxMemPool::CompareIteratorByHash()(a.iter, b.iter);
+        }
+        return f1 > f2;
+    }
+};
+
 // A comparator that sorts transactions based on number of ancestors.
 // This is sufficient to sort an ancestor package in an order that is valid
 // to appear in a block.
