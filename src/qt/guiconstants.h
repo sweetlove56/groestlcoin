@@ -46,6 +46,7 @@ static const int TOOLTIP_WRAP_THRESHOLD = 80;
 #define QAPP_ORG_DOMAIN "groestlcoin.org"
 #define QAPP_APP_NAME_DEFAULT "Groestlcoin-Qt"
 #define QAPP_APP_NAME_TESTNET "Groestlcoin-Qt-testnet"
+#define QAPP_APP_NAME_SIGNET "Groestlcoin-Qt-signet"
 #define QAPP_APP_NAME_REGTEST "Groestlcoin-Qt-regtest"
 
 /* One gigabyte (GB) in bytes */

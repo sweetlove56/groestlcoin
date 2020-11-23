@@ -5,9 +5,11 @@
 src/groestlcoin
 src/groestlcoind
 src/groestlcoin-cli
+src/groestlcoin-gui
+src/groestlcoin-node
 src/groestlcoin-tx
 src/groestlcoin-wallet
-src/test/fuzz
+src/test/fuzz/*
 !src/test/fuzz/*.*
 src/test/test_groestlcoin
 src/qt/test/test_groestlcoin-qt
@@ -121,7 +123,10 @@ releases
 /*.info
 test_bitcoin.coverage/
 total.coverage/
+fuzz.coverage/
 coverage_percent.txt
+/cov_tool_wrapper.sh
+qa-assets/
 
 #build tests
 linux-coverage-build
@@ -129,6 +134,7 @@ linux-build
 win32-build
 test/config.ini
 test/cache/*
+test/.mypy_cache/
 
 !src/leveldb*/Makefile
 
