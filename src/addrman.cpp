@@ -9,19 +9,12 @@
 #include <logging.h>
 #include <serialize.h>
 #include <streams.h>
+#include <groestlcoin.h>
 
 int CAddrInfo::GetTriedBucket(const uint256& nKey, const std::vector<bool> &asmap) const
 {
-    CDataStream ss1(SER_GETHASH, 0); //GRS
-    std::vector<unsigned char> vchKey = GetKey(); //GRS
-    ss1 << nKey << vchKey; //GRS
-    uint64_t hash1 = XCoin::HashGroestl(XCoin::ConstBuf(ss1.begin(), ss1.end())).GetCheapHash(); //GRS
-
-    CDataStream ss2(SER_GETHASH, 0); //GRS
-    std::vector<unsigned char> vchGroupKey = GetGroup(asmap); //GRS
-    ss2 << nKey << vchGroupKey << (hash1 % ADDRMAN_TRIED_BUCKETS_PER_GROUP); //GRS
-    uint64_t hash2 = XCoin::HashGroestl(XCoin::ConstBuf(ss2.begin(), ss2.end())).GetCheapHash(); //GRS
-
+    uint64_t hash1 = (CHashWriter(SER_GETHASH, 0) << nKey << GetKey()).GetCheapHash();
+    uint64_t hash2 = (CHashWriter(SER_GETHASH, 0) << nKey << GetGroup(asmap) << (hash1 % ADDRMAN_TRIED_BUCKETS_PER_GROUP)).GetCheapHash();
     int tried_bucket = hash2 % ADDRMAN_TRIED_BUCKET_COUNT;
     uint32_t mapped_as = GetMappedAS(asmap);
     LogPrint(BCLog::NET, "IP %s mapped to AS%i belongs to tried bucket %i\n", ToStringIP(), mapped_as, tried_bucket);
@@ -30,16 +23,9 @@ int CAddrInfo::GetTriedBucket(const uint256& nKey, const std::vector<bool> &asma
 
 int CAddrInfo::GetNewBucket(const uint256& nKey, const CNetAddr& src, const std::vector<bool> &asmap) const
 {
-    CDataStream ss1(SER_GETHASH, 0); //GRS
-    std::vector<unsigned char> vchGroupKey = GetGroup(asmap); //GRS
-    std::vector<unsigned char> vchSourceGroupKey = src.GetGroup(asmap); //GRS
-    ss1 << nKey << vchGroupKey << vchSourceGroupKey; //GRS
-    uint64_t hash1 = XCoin::HashGroestl(XCoin::ConstBuf(ss1.begin(), ss1.end())).GetCheapHash(); //GRS
-
-    CDataStream ss2(SER_GETHASH, 0); //GRS
-    ss2 << nKey << vchSourceGroupKey << (hash1 % ADDRMAN_NEW_BUCKETS_PER_SOURCE_GROUP); //GRS
-    uint64_t hash2 = XCoin::HashGroestl(XCoin::ConstBuf(ss2.begin(), ss2.end())).GetCheapHash(); //GRS
-
+    std::vector<unsigned char> vchSourceGroupKey = src.GetGroup(asmap);
+    uint64_t hash1 = (CHashWriter(SER_GETHASH, 0) << nKey << GetGroup(asmap) << vchSourceGroupKey).GetCheapHash();
+    uint64_t hash2 = (CHashWriter(SER_GETHASH, 0) << nKey << vchSourceGroupKey << (hash1 % ADDRMAN_NEW_BUCKETS_PER_SOURCE_GROUP)).GetCheapHash();
     int new_bucket = hash2 % ADDRMAN_NEW_BUCKET_COUNT;
     uint32_t mapped_as = GetMappedAS(asmap);
     LogPrint(BCLog::NET, "IP %s mapped to AS%i belongs to new bucket %i\n", ToStringIP(), mapped_as, new_bucket);
@@ -48,9 +34,7 @@ int CAddrInfo::GetNewBucket(const uint256& nKey, const CNetAddr& src, const std:
 
 int CAddrInfo::GetBucketPosition(const uint256 &nKey, bool fNew, int nBucket) const
 {
-    CDataStream ss1(SER_GETHASH, 0); //GRS
-	  ss1 << nKey << (fNew ? 'N' : 'K') << nBucket << GetKey(); //GRS
-    uint64_t hash1 = XCoin::HashGroestl(XCoin::ConstBuf(ss1.begin(), ss1.end())).GetCheapHash(); //GRS
+    uint64_t hash1 = (CHashWriter(SER_GETHASH, 0) << nKey << (fNew ? 'N' : 'K') << nBucket << GetKey()).GetCheapHash();
     return hash1 % ADDRMAN_BUCKET_SIZE;
 }
 
