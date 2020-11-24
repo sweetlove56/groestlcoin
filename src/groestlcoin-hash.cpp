@@ -53,7 +53,7 @@ uint256 HashForSignature(const ConstBuf& cbuf) {
 	return r;
 }
 
-void GroestlHasher::Finalize(unsigned char h[32]) {
+void GroestlHasher::Finalize(Span<unsigned char> output) {
 	auto c = (sph_groestl512_context*)ctx;
 	uint256 hash[4];
 	sph_groestl512_close(c, static_cast<void*>(&hash[0]));
@@ -62,13 +62,19 @@ void GroestlHasher::Finalize(unsigned char h[32]) {
 	sph_groestl512_init(&c2);
 	sph_groestl512(&c2, static_cast<const void*>(&hash[0]), 64);
 	sph_groestl512_close(&c2, static_cast<void*>(&hash[2]));
-	memcpy(h, static_cast<void*>(&hash[2]), 32);
+	memcpy(output.begin(), static_cast<void*>(&hash[2]), 32);
 }
 
 GroestlHasher& GroestlHasher::Write(const unsigned char *data, size_t len) {
 	auto c = (sph_groestl512_context*)ctx;
 	sph_groestl512(c, data, len);
 	return *this;
+}
+
+GroestlHasher& GroestlHasher::Write(Span<const unsigned char> input) {
+	auto c = (sph_groestl512_context*)ctx;
+	sph_groestl512(c, input.begin(), input.size());
+    return *this;
 }
 
 GroestlHasher::GroestlHasher() {

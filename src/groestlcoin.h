@@ -17,6 +17,16 @@ public:
 	const unsigned char *P;
 	size_t Size;
 
+	ConstBuf(Span<const unsigned char> p) {
+		if (p.begin() == p.end()) {
+			P = 0;
+			Size = 0;
+		} else {
+			P = (unsigned char*)(p.begin());
+            Size = p.size();
+		}
+	}
+
 	template <typename T>
 	ConstBuf(const T pb, const T pe) {
 		if (pb == pe) {
@@ -53,8 +63,9 @@ class GroestlHasher {
 private:
 	void *ctx;
 public:
-	void Finalize(unsigned char hash[32]);
+	void Finalize(Span<unsigned char> output);
 	GroestlHasher& Write(const unsigned char *data, size_t len);
+	GroestlHasher& Write(Span<const unsigned char> input);
 	GroestlHasher();
 	GroestlHasher(GroestlHasher&& x);
 	~GroestlHasher();
@@ -82,7 +93,7 @@ public:
 	// invalidates the object
 	uint256 GetHash() {
 		uint256 result;
-		ctx.Finalize((unsigned char*)&result);
+		ctx.Finalize(result);
 		return result;
 	}
 
