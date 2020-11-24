@@ -9,6 +9,7 @@
 #include "amount.h"
 #include "uint256.h"
 #include "serialize.h"
+#include <crypto/common.h>
 
 namespace XCoin {
 
@@ -96,6 +97,14 @@ public:
 		ctx.Finalize(result);
 		return result;
 	}
+
+	/**
+     * Returns the first 64 bits from the resulting hash.
+     */
+    inline uint64_t GetCheapHash() {
+        uint256 result = GetHash();
+        return ReadLE64(result.begin());
+    }
 
 	template<typename T>
 	CGroestlHashWriter& operator<<(const T& obj) {
