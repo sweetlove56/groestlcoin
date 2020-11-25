@@ -333,8 +333,8 @@ public:
         consensus.vDeployments[Consensus::DEPLOYMENT_TAPROOT].nStartTime = 1199145601; // January 1, 2008
         consensus.vDeployments[Consensus::DEPLOYMENT_TAPROOT].nTimeout = 1230767999; // December 31, 2008
 
-        consensus.nMinimumChainWork = uint256S("0x000000000000000000000000000000000000000000000027504782197c37cc4b"); // groestlcoin-cli getblockheader 0000000000001ac99ec6ed599a07aed90e19deb684ca343d306089b7d0878450
-        consensus.defaultAssumeValid = uint256S("0x0000000000001ac99ec6ed599a07aed90e19deb684ca343d306089b7d0878450"); // groestlcoin-cli getblockhash 2785700
+        consensus.nMinimumChainWork = uint256S("0x0000000000000000000000000000000000000000000000a7cca8445c18bc1b28"); // groestlcoin-cli getblockheader 0000000000000abf98908046db181c15e9604952ee61bdebf3599ddbf857e43a
+        consensus.defaultAssumeValid = uint256S("0x0000000000000abf98908046db181c15e9604952ee61bdebf3599ddbf857e43a"); // groestlcoin-cli getblockhash 3354300
 
         /**
          * The message start string is designed to be unlikely to occur in normal data.
@@ -347,7 +347,7 @@ public:
         pchMessageStart[3] = 0xd4;
         nDefaultPort = 1331;
         nPruneAfterHeight = 10000000;
-        m_assumed_blockchain_size = 2;
+        m_assumed_blockchain_size = 5;
         m_assumed_chain_state_size = 1;
 
         genesis = CreateGenesisBlock(1395342829, 220035, 0x1e0fffff, 112, 0);
@@ -397,10 +397,10 @@ public:
         };
 
         chainTxData = ChainTxData{
-            // Data from RPC: getchaintxstats 4096 0000000000001ac99ec6ed599a07aed90e19deb684ca343d306089b7d0878450
-            /* nTime    */ 1570435259,
-            /* nTxCount */ 3756125,
-            /* dTxRate  */ 0.01948955197278437
+            // Data from RPC: getchaintxstats 4096 0000000000000abf98908046db181c15e9604952ee61bdebf3599ddbf857e43a
+            /* nTime    */ 1606293682,
+            /* nTxCount */ 4415183,
+            /* dTxRate  */ 0.01856615937761523,
         };
     }
 };
@@ -440,8 +440,8 @@ public:
         consensus.vDeployments[Consensus::DEPLOYMENT_TAPROOT].nStartTime = 1199145601; // January 1, 2008
         consensus.vDeployments[Consensus::DEPLOYMENT_TAPROOT].nTimeout = 1230767999; // December 31, 2008
 
-        consensus.nMinimumChainWork = uint256S("0x000000000000000000000000000000000000000000000000000023163b6d52f1"); // groestlcoin-cli -testnet getblockheader 00000027cbbb20b16ba4d6eda0bedbbca6c5a9471f8a7e626f6692c4265a1f91
-        consensus.defaultAssumeValid = uint256S("0x00000027cbbb20b16ba4d6eda0bedbbca6c5a9471f8a7e626f6692c4265a1f91"); // groestlcoin-cli -testnet getblockhash 1342302
+        consensus.nMinimumChainWork = uint256S("0x00000000000000000000000000000000000000000000000000002e49c7d755f4"); // groestlcoin-cli -testnet getblockheader 000000cd4a4bde646a3083be528a808e20bbee561b8c14808ffd832a2e532616
+        consensus.defaultAssumeValid = uint256S("0x000000cd4a4bde646a3083be528a808e20bbee561b8c14808ffd832a2e532616"); // groestlcoin-cli -testnet getblockhash 1901500
 
         pchMessageStart[0] = 0x0b;
         pchMessageStart[1] = 0x11;
@@ -449,7 +449,7 @@ public:
         pchMessageStart[3] = 0x07;
         nDefaultPort = 17777;
         nPruneAfterHeight = 1000000;
-        m_assumed_blockchain_size = 1;
+        m_assumed_blockchain_size = 2;
         m_assumed_chain_state_size = 1;
 
         genesis = CreateGenesisBlock(1440000002, 6556309, 0x1e00ffff, 3, 0);
@@ -492,10 +492,10 @@ public:
         };
 
         chainTxData = ChainTxData{
-            // Data from RPC: getchaintxstats 4096 00000027cbbb20b16ba4d6eda0bedbbca6c5a9471f8a7e626f6692c4265a1f91
-            /* nTime    */ 1570434649,
-            /* nTxCount */ 1349432,
-            /* dTxRate  */ 0.01850891769137033
+            // Data from RPC: getchaintxstats 4096 000000cd4a4bde646a3083be528a808e20bbee561b8c14808ffd832a2e532616
+            /* nTime    */ 1606298658,
+            /* nTxCount */ 1915564,
+            /* dTxRate  */ 0.01756233296119625,
         };
     }
 };
