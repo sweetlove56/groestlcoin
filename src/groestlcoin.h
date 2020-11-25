@@ -9,6 +9,7 @@
 #include "amount.h"
 #include "uint256.h"
 #include "serialize.h"
+#include <crypto/common.h>
 
 namespace XCoin {
 
@@ -16,6 +17,16 @@ class ConstBuf {
 public:
 	const unsigned char *P;
 	size_t Size;
+
+	ConstBuf(Span<const unsigned char> p) {
+		if (p.begin() == p.end()) {
+			P = 0;
+			Size = 0;
+		} else {
+			P = (unsigned char*)(p.begin());
+            Size = p.size();
+		}
+	}
 
 	template <typename T>
 	ConstBuf(const T pb, const T pe) {
@@ -53,8 +64,9 @@ class GroestlHasher {
 private:
 	void *ctx;
 public:
-	void Finalize(unsigned char hash[32]);
+	void Finalize(Span<unsigned char> output);
 	GroestlHasher& Write(const unsigned char *data, size_t len);
+	GroestlHasher& Write(Span<const unsigned char> input);
 	GroestlHasher();
 	GroestlHasher(GroestlHasher&& x);
 	~GroestlHasher();
@@ -82,9 +94,17 @@ public:
 	// invalidates the object
 	uint256 GetHash() {
 		uint256 result;
-		ctx.Finalize((unsigned char*)&result);
+		ctx.Finalize(result);
 		return result;
 	}
+
+	/**
+     * Returns the first 64 bits from the resulting hash.
+     */
+    inline uint64_t GetCheapHash() {
+        uint256 result = GetHash();
+        return ReadLE64(result.begin());
+    }
 
 	template<typename T>
 	CGroestlHashWriter& operator<<(const T& obj) {

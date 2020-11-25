@@ -383,7 +383,8 @@ void SetupServerArgs(NodeContext& node)
     const auto regtestBaseParams = CreateBaseChainParams(CBaseChainParams::REGTEST);
     const auto defaultChainParams = CreateChainParams(argsman, CBaseChainParams::MAIN);
     const auto testnetChainParams = CreateChainParams(argsman, CBaseChainParams::TESTNET);
-    const auto signetChainParams = CreateChainParams(argsman, CBaseChainParams::SIGNET);
+    // TODO: SigNet will be testnet until a genesis hash is generated
+    const auto signetChainParams = CreateChainParams(argsman, CBaseChainParams::TESTNET);
     const auto regtestChainParams = CreateChainParams(argsman, CBaseChainParams::REGTEST);
 
     // Hidden Options
