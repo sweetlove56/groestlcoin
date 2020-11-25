@@ -1,4 +1,4 @@
-*After branching off for a major version release of Bitcoin Core, use this
+*After branching off for a major version release of Groestlcoin Core, use this
 template to create the initial release notes draft.*
 
 *The release notes draft is a temporary file that can be added to by anyone. See
@@ -6,7 +6,7 @@ template to create the initial release notes draft.*
 for the process.*
 
 *Create the draft, named* "*version* Release Notes Draft"
-*(e.g. "0.20.0 Release Notes Draft"), as a collaborative wiki in:*
+*(e.g. "2.20.0 Release Notes Draft"), as a collaborative wiki in:*
 
 https://github.com/bitcoin-core/bitcoin-devwiki/wiki/
 
@@ -15,58 +15,54 @@ https://github.com/bitcoin-core/bitcoin-devwiki/wiki/
 *version* Release Notes Draft
 ===============================
 
-Bitcoin Core version *version* is now available from:
+Groestlcoin Core version *version* is now available from:
 
-  <https://bitcoincore.org/bin/bitcoin-core-*version*/>
+  <https://groestlcoin.org/downloads/>
 
 This release includes new features, various bug fixes and performance
 improvements, as well as updated translations.
 
 Please report bugs using the issue tracker at GitHub:
 
-  <https://github.com/bitcoin/bitcoin/issues>
-
-To receive security and update notifications, please subscribe to:
-
-  <https://bitcoincore.org/en/list/announcements/join/>
+  <https://github.com/groestlcoin/groestlcoin/issues>
 
 How to Upgrade
 ==============
 
 If you are running an older version, shut it down. Wait until it has completely
 shut down (which might take a few minutes in some cases), then run the
-installer (on Windows) or just copy over `/Applications/Bitcoin-Qt` (on Mac)
-or `bitcoind`/`bitcoin-qt` (on Linux).
+installer (on Windows) or just copy over `/Applications/Groestlcoin-Qt` (on Mac)
+or `groestlcoind`/`groestlcoin-qt` (on Linux).
 
-Upgrading directly from a version of Bitcoin Core that has reached its EOL is
+Upgrading directly from a version of Groestlcoin Core that has reached its EOL is
 possible, but it might take some time if the data directory needs to be migrated. Old
-wallet versions of Bitcoin Core are generally supported.
+wallet versions of Groestlcoin Core are generally supported.
 
 Compatibility
 ==============
 
 During this release cycle, work has been done to ensure that the codebase is fully
 compatible with C++17. The intention is to begin using C++17 features starting
-with the 0.22.0 release. This means that a compiler that supports C++17 will be
-required to compile 0.22.0.
+with the 2.22.0 release. This means that a compiler that supports C++17 will be
+required to compile 2.22.0.
 
-Bitcoin Core is supported and extensively tested on operating systems
-using the Linux kernel, macOS 10.12+, and Windows 7 and newer.  Bitcoin
+Groestlcoin Core is supported and extensively tested on operating systems
+using the Linux kernel, macOS 10.12+, and Windows 7 and newer. Groestlcoin
 Core should also work on most other Unix-like systems but is not as
-frequently tested on them.  It is not recommended to use Bitcoin Core on
+frequently tested on them.  It is not recommended to use Groestlcoin Core on
 unsupported systems.
 
-From Bitcoin Core 0.20.0 onwards, macOS versions earlier than 10.12 are no
-longer supported. Additionally, Bitcoin Core does not yet change appearance
+From Groestlcoin Core 2.20.1 onwards, macOS versions earlier than 10.12 are no
+longer supported. Additionally, Groestlcoin Core does not yet change appearance
 when macOS "dark mode" is activated.
 
 The node's known peers are persisted to disk in a file called `peers.dat`. The
 format of this file has been changed in a backwards-incompatible way in order to
 accommodate the storage of Tor v3 and other BIP155 addresses. This means that if
-the file is modified by 0.21.0 or newer then older versions will not be able to
+the file is modified by 2.21.0 or newer then older versions will not be able to
 read it. Those old versions, in the event of a downgrade, will log an error
 message "Incorrect keysize in addrman deserialization" and will continue normal
-operation as if the file was missing, creating a new empty one. (#19954)
+operation as if the file was missing, creating a new empty one.
 
 Notable changes
 ===============
@@ -80,7 +76,7 @@ P2P and network changes
   message or the transaction is removed from the mempool for other reasons.
   The node will not track the broadcast status of transactions submitted to the
   node using P2P relay. This version reduces the initial broadcast guarantees
-  for wallet transactions submitted via P2P to a node running the wallet. (#18038)
+  for wallet transactions submitted via P2P to a node running the wallet.
 
 - The size of the set of transactions that peers have announced and we consider
   for requests has been reduced from 100000 to 5000 (per peer), and further
@@ -88,30 +84,29 @@ P2P and network changes
   (very) large batches of transactions, exceptions can be made for trusted
   peers using the "relay" network permission. For localhost for example it can
   be enabled using the command line option `-whitelist=relay@127.0.0.1`.
-  (#19988)
 
 - The Tor onion service that is automatically created by setting the
   `-listenonion` configuration parameter will now be created as a Tor v3 service
   instead of Tor v2. The private key that was used for Tor v2 (if any) will be
   left untouched in the `onion_private_key` file in the data directory (see
-  `-datadir`) and can be removed if not needed. Bitcoin Core will no longer
+  `-datadir`) and can be removed if not needed. Groestlcoin Core will no longer
   attempt to read it. The private key for the Tor v3 service will be saved in a
   file named `onion_v3_private_key`. To use the deprecated Tor v2 service (not
   recommended), then `onion_private_key` can be copied over
   `onion_v3_private_key`, e.g.
-  `cp -f onion_private_key onion_v3_private_key`. (#19954)
+  `cp -f onion_private_key onion_v3_private_key`.
 
 Updated RPCs
 ------------
 
 - The `getpeerinfo` RPC now has additional `last_block` and `last_transaction`
   fields that return the UNIX epoch time of the last block and the last valid
-  transaction received from each peer. (#19731)
+  transaction received from each peer.
 
 - `getnetworkinfo` now returns two new fields, `connections_in` and
   `connections_out`, that provide the number of inbound and outbound peer
   connections. These new fields are in addition to the existing `connections`
-  field, which returns the total number of peer connections. (#19405)
+  field, which returns the total number of peer connections.
 
 - Exposed transaction version numbers are now treated as unsigned 32-bit
   integers instead of signed 32-bit integers. This matches their treatment in
@@ -119,7 +114,6 @@ Updated RPCs
   (matching previous behavior of smaller than 1 or greater than 2 being
   non-standard). Note that this includes the joinpsbt command, which combines
   partially-signed transactions by selecting the highest version number.
-  (#16525)
 
 - `getmempoolinfo` now returns an additional `unbroadcastcount` field. The
   mempool tracks locally submitted transactions until their initial broadcast
@@ -132,38 +126,37 @@ Updated RPCs
   peer. `getmempoolancestors` and `getmempooldescendants` are also updated.
 
 - The `bumpfee`, `fundrawtransaction`, `sendmany`, `sendtoaddress`, and `walletcreatefundedpsbt`
-RPC commands have been updated to include two new fee estimation methods "BTC/kB" and "sat/B".
+RPC commands have been updated to include two new fee estimation methods "GRS/kB" and "gro/B".
 The target is the fee expressed explicitly in the given form. Note that use of this feature
-will trigger BIP 125 (replace-by-fee) opt-in. (#11413)
+will trigger BIP 125 (replace-by-fee) opt-in.
 
 - In addition, the `estimate_mode` parameter is now case insensitive for all of
-  the above RPC commands. (#11413)
+  the above RPC commands.
 
 - The `bumpfee` command now uses `conf_target` rather than `confTarget` in the
-  options. (#11413)
+  options.
 
 - The `getpeerinfo` RPC no longer returns the `banscore` field unless the configuration
   option `-deprecatedrpc=banscore` is used. The `banscore` field will be fully
-  removed in the next major release. (#19469)
+  removed in the next major release.
 
 - The `testmempoolaccept` RPC returns `vsize` and a `fees` object with the `base` fee
-  if the transaction would pass validation. (#19940)
+  if the transaction would pass validation.
 
 - The `getpeerinfo` RPC now returns a `connection_type` field. This indicates
   the type of connection established with the peer. It will return one of six
   options. For more information, see the `getpeerinfo` help documentation.
-  (#19725)
 
 - The `getpeerinfo` RPC no longer returns the `addnode` field by default. This
   field will be fully removed in the next major release.  It can be accessed
   with the configuration option `-deprecatedrpc=getpeerinfo_addnode`. However,
   it is recommended to instead use the `connection_type` field (it will return
-  `manual` when addnode is true). (#19725)
+  `manual` when addnode is true).
 
 - The `walletcreatefundedpsbt` RPC call will now fail with
   `Insufficient funds` when inputs are manually selected but are not enough to cover
   the outputs and fee. Additional inputs can automatically be added through the
-  new `add_inputs` option. (#16377)
+  new `add_inputs` option.
 
 - The `fundrawtransaction` RPC now supports `add_inputs` option that when `false`
   prevents adding more inputs if necessary and consequently the RPC fails.
@@ -175,7 +168,7 @@ New RPCs
 
 - The `getindexinfo` RPC returns the actively running indices of the node,
   including their current sync status and height. It also accepts an `index_name`
-  to specify returning only the status of that index. (#19550)
+  to specify returning only the status of that index.
 
 Build System
 ------------
@@ -185,133 +178,132 @@ Updated settings
 
 - The same ZeroMQ notification (e.g. `-zmqpubhashtx=address`) can now be
   specified multiple times to publish the same notification to different ZeroMQ
-  sockets. (#18309)
+  sockets.
 
 - The `-banscore` configuration option, which modified the default threshold for
   disconnecting and discouraging misbehaving peers, has been removed as part of
-  changes in 0.20.1 and in this release to the handling of misbehaving peers.
-  Refer to "Changes regarding misbehaving peers" in the 0.20.1 release notes for
-  details. (#19464)
+  changes in 2.20.1 and in this release to the handling of misbehaving peers.
+  Refer to "Changes regarding misbehaving peers" in the 2.20.1 release notes for
+  details.
 
-- The `-debug=db` logging category, which was deprecated in 0.20 and replaced by
-  `-debug=walletdb` to distinguish it from `coindb`, has been removed. (#19202)
+- The `-debug=db` logging category, which was deprecated in 2.20 and replaced by
+  `-debug=walletdb` to distinguish it from `coindb`, has been removed.
 
 - A `download` permission has been extracted from the `noban` permission. For
   compatibility, `noban` implies the `download` permission, but this may change
   in future releases. Refer to the help of the affected settings `-whitebind`
-  and `-whitelist` for more details. (#19191)
+  and `-whitelist` for more details.
 
 - Netmasks that contain 1-bits after 0-bits (the 1-bits are not contiguous on
   the left side, e.g. 255.0.255.255) are no longer accepted. They are invalid
   according to RFC 4632. Netmasks are used in the `-rpcallowip` and `-whitelist`
-  configuration options and in the `setban` RPC. (#19628)
+  configuration options and in the `setban` RPC.
 
 Changes to Wallet or GUI related settings can be found in the GUI or Wallet  section below.
 
 Tools and Utilities
 -------------------
 
-- The `connections` field of `bitcoin-cli -getinfo` is expanded to return a JSON
+- The `connections` field of `groestlcoin-cli -getinfo` is expanded to return a JSON
   object with `in`, `out` and `total` numbers of peer connections. It previously
-  returned a single integer value for the total number of peer connections. (#19405)
+  returned a single integer value for the total number of peer connections.
 
-- A new `bitcoin-cli -generate` command, equivalent to RPC `generatenewaddress`
+- A new `groestlcoin-cli -generate` command, equivalent to RPC `generatenewaddress`
   followed by `generatetoaddress`, can generate blocks for command line testing
   purposes. This is a client-side version of the
-  former `generate` RPC. See the help for details. (#19133)
+  former `generate` RPC. See the help for details.
 
-- The `bitcoin-cli -getinfo` command now displays the wallet name and balance for
+- The `groestlcoin-cli -getinfo` command now displays the wallet name and balance for
   each of the loaded wallets when more than one is loaded (e.g. in multiwallet
-  mode) and a wallet is not specified with `-rpcwallet`. (#18594)
+  mode) and a wallet is not specified with `-rpcwallet`.
 
 New settings
 ------------
 
 - The `startupnotify` option is used to specify a command to
-  execute when Bitcoin Core has finished with its startup
-  sequence. (#15367)
+  execute when Groestlcoin Core has finished with its startup
+  sequence.
 
 Wallet
 ------
 
 - Backwards compatibility has been dropped for two `getaddressinfo` RPC
-  deprecations, as notified in the 0.20 release notes. The deprecated `label`
+  deprecations, as notified in the 2.20 release notes. The deprecated `label`
   field has been removed as well as the deprecated `labels` behavior of
   returning a JSON object containing `name` and `purpose` key-value pairs. Since
-  0.20, the `labels` field returns a JSON array of label names. (#19200)
+  2.20, the `labels` field returns a JSON array of label names.
 
 - To improve wallet privacy, the frequency of wallet rebroadcast attempts is
   reduced from approximately once every 15 minutes to once every 12-36 hours.
   To maintain a similar level of guarantee for initial broadcast of wallet
   transactions, the mempool tracks these transactions as a part of the newly
   introduced unbroadcast set. See the "P2P and network changes" section for
-  more information on the unbroadcast set. (#18038)
+  more information on the unbroadcast set.
 
 - The `sendtoaddress` and `sendmany` RPCs accept an optional `verbose=True`
-  argument to also return the fee reason about the sent tx. (#19501)
+  argument to also return the fee reason about the sent tx.
 
 - The wallet can create a transaction without change even when the keypool is
-  empty. Previously it failed. (#17219)
+  empty. Previously it failed.
 
 - The `-salvagewallet` startup option has been removed. A new `salvage` command
-  has been added to the `bitcoin-wallet` tool which performs the salvage
-  operations that `-salvagewallet` did. (#18918)
+  has been added to the `groestlcoin-wallet` tool which performs the salvage
+  operations that `-salvagewallet` did.
 
 - A new configuration flag `-maxapsfee` has been added, which sets the max
   allowed avoid partial spends (APS) fee. It defaults to 0 (i.e. fee is the
   same with and without APS). Setting it to -1 will disable APS, unless
-  `-avoidpartialspends` is set. (#14582)
+  `-avoidpartialspends` is set.
 
 - The wallet will now avoid partial spends (APS) by default, if this does not
   result in a difference in fees compared to the non-APS variant. The allowed
   fee threshold can be adjusted using the new `-maxapsfee` configuration
-  option. (#14582)
+  option.
 
 - The `createwallet`, `loadwallet`, and `unloadwallet` RPCs now accept
   `load_on_startup` options to modify the settings list. Unless these options
   are explicitly set to true or false, the list is not modified, so the RPC
-  methods remain backwards compatible. (#15937)
+  methods remain backwards compatible.
 
 - A new `send` RPC with similar syntax to `walletcreatefundedpsbt`, including
   support for coin selection and a custom fee rate. The `send` RPC is
   experimental and may change in subsequent releases. Using it is encouraged
   once it's no longer experimental: `sendmany` and `sendtoaddress` may be
-  deprecated in a future release. (#16378)
+  deprecated in a future release.
 
 - `fundrawtransaction` and `walletcreatefundedpsbt` when used with the
   `lockUnspents` argument now lock manually selected coins, in addition to
   automatically selected coins. Note that locked coins are never used in
-  automatic coin selection, but can still be manually selected. (#18244)
+  automatic coin selection, but can still be manually selected.
 
 - The `-zapwallettxes` startup option has been removed and its functionality
   removed from the wallet.  This option was originally intended to allow for
   the fee bumping of transactions that did not signal RBF. This functionality
-  has been superseded with the abandon transaction feature. (#19671)
+  has been superseded with the abandon transaction feature.
 
 - The error code when no wallet is loaded, but a wallet RPC is called, has been
   changed from `-32601` (method not found) to `-18` (wallet not found).
-  (#20101)
 
 ### Automatic wallet creation removed
 
-Bitcoin Core will no longer automatically create new wallets on startup. It will
+Groestlcoin Core will no longer automatically create new wallets on startup. It will
 load existing wallets specified by `-wallet` options on the command line or in
-`bitcoin.conf` or `settings.json` files. And by default it will also load a
+`groestlcoin.conf` or `settings.json` files. And by default it will also load a
 top-level unnamed ("") wallet. However, if specified wallets don't exist,
-Bitcoin Core will now just log warnings instead of creating new wallets with
+Groestlcoin Core will now just log warnings instead of creating new wallets with
 new keys and addresses like previous releases did.
 
 New wallets can be created through the GUI (which has a more prominent create
-wallet option), through the `bitcoin-cli createwallet` or `bitcoin-wallet
-create` commands, or the `createwallet` RPC. (#15454)
+wallet option), through the `groestlcoin-cli createwallet` or `groestlcoin-wallet
+create` commands, or the `createwallet` RPC.
 
 ### Experimental Descriptor Wallets
 
 Please note that Descriptor Wallets are still experimental and not all expected functionality
 is available. Additionally there may be some bugs and current functions may change in the future.
-Bugs and missing functionality can be reported to the [issue tracker](https://github.com/bitcoin/bitcoin/issues).
+Bugs and missing functionality can be reported to the [issue tracker](https://github.com/groestlcoin/groestlcoin/issues).
 
-0.21 introduces a new type of wallet - Descriptor Wallets. Descriptor Wallets store
+2.21 introduces a new type of wallet - Descriptor Wallets. Descriptor Wallets store
 scriptPubKey information using descriptors. This is in contrast to the Legacy Wallet
 structure where keys are used to generate scriptPubKeys and addresses. Because of this
 shift to being script based instead of key based, many of the confusing things that Legacy
@@ -320,9 +312,9 @@ of "mine" for scripts which is simpler and more intuitive than that used by Lega
 Descriptor Wallets also uses different semantics for watch-only things and imports.
 
 As Descriptor Wallets are a new type of wallet, their introduction does not affect existing wallets.
-Users who already have a Bitcoin Core wallet can continue to use it as they did before without
+Users who already have a Groestlcoin Core wallet can continue to use it as they did before without
 any change in behavior. Newly created Legacy Wallets (which is the default type of wallet) will
-behave as they did in previous versions of Bitcoin Core.
+behave as they did in previous versions of Groestlcoin Core.
 
 The differences between Descriptor Wallets and Legacy Wallets are largely limited to non user facing
 things. They are intended to behave similarly except for the import/export and watchonly functionality
@@ -338,7 +330,7 @@ In the GUI, a checkbox has been added to the Create Wallet Dialog to indicate th
 Descriptor Wallet should be created.
 
 Without those options being set, a Legacy Wallet will be created instead. Additionally the
-Default Wallet created upon first startup of Bitcoin Core will be a Legacy Wallet.
+Default Wallet created upon first startup of Groestlcoin Core will be a Legacy Wallet.
 
 #### `IsMine` Semantics
 
@@ -419,33 +411,32 @@ descriptors with private keys for now as explained earlier.
 
 #### BIP 44/49/84 Support
 
-The change to using descriptors changes the default derivation paths used by Bitcoin Core
+The change to using descriptors changes the default derivation paths used by Groestlcoin Core
 to adhere to BIP 44/49/84. Descriptors with different derivation paths can be imported without
 issue.
 
 ### Wallet RPC changes
 
 - The `upgradewallet` RPC replaces the `-upgradewallet` command line option.
-  (#15761)
 - The `settxfee` RPC will fail if the fee was set higher than the `-maxtxfee`
   command line setting. The wallet will already fail to create transactions
-  with fees higher than `-maxtxfee`. (#18467)
+  with fees higher than `-maxtxfee`.
 
 GUI changes
 -----------
 
 - Wallets created or loaded in the GUI will now be automatically loaded on
-  startup, so they don't need to be manually reloaded next time Bitcoin Core is
+  startup, so they don't need to be manually reloaded next time Groestlcoin Core is
   started. The list of wallets to load on startup is stored in
-  `\<datadir\>/settings.json` and augments any command line or `bitcoin.conf`
+  `\<datadir\>/settings.json` and augments any command line or `groestlcoin.conf`
   `-wallet=` settings that specify more wallets to load. Wallets that are
   unloaded in the GUI get removed from the settings list so they won't load
-  again automatically next startup. (#19754)
+  again automatically next startup.
 
 - The GUI Peers window no longer displays a "Ban Score" field. This is part of
-  changes in 0.20.1 and in this release to the handling of misbehaving
-  peers. Refer to "Changes regarding misbehaving peers" in the 0.20.1 release
-  notes for details. (#19512)
+  changes in 2.20.1 and in this release to the handling of misbehaving
+  peers. Refer to "Changes regarding misbehaving peers" in the 2.20.1 release
+  notes for details.
 
 Low-level changes
 =================
@@ -463,11 +454,11 @@ RPC
   `-26` to `-25`. The error string has been changed from "absurdly-high-fee" to
   "Fee exceeds maximum configured by user (e.g. -maxtxfee, maxfeerate)." The
   `testmempoolaccept` RPC returns `max-fee-exceeded` rather than `absurdly-high-fee`
-  as the `reject-reason`. (#19339)
+  as the `reject-reason`.
 
 - To make wallet and rawtransaction RPCs more consistent, the error message for
   exceeding maximum feerate has been changed to "Fee exceeds maximum configured by user
-  (e.g. -maxtxfee, maxfeerate)." (#19339)
+  (e.g. -maxtxfee, maxfeerate)."
 
 Tests
 -----
