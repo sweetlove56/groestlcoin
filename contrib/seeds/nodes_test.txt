@@ -1,5 +1,5 @@
 # List of fixed seed nodes for testnet
 
+wsrq6xvwue34rxuvhlt62kfoeous5tyuokabznqlt7qknr3jxojwt2qd.onion:17777
 4ob2v2hpht6krdta.onion:17777
 7bmwzyc2faisc7ct.onion:17777
-
