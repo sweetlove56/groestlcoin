@@ -330,8 +330,8 @@ public:
 
         // Deployment of Taproot (BIPs 340-342)
         consensus.vDeployments[Consensus::DEPLOYMENT_TAPROOT].bit = 2;
-        consensus.vDeployments[Consensus::DEPLOYMENT_TAPROOT].nStartTime = 1199145601; // January 1, 2008
-        consensus.vDeployments[Consensus::DEPLOYMENT_TAPROOT].nTimeout = 1230767999; // December 31, 2008
+        consensus.vDeployments[Consensus::DEPLOYMENT_TAPROOT].nStartTime = 1607990401; // December 15, 2020
+        consensus.vDeployments[Consensus::DEPLOYMENT_TAPROOT].nTimeout = 1640908799; // December 31, 2021
 
         consensus.nMinimumChainWork = uint256S("0x0000000000000000000000000000000000000000000000a7cca8445c18bc1b28"); // groestlcoin-cli getblockheader 0000000000000abf98908046db181c15e9604952ee61bdebf3599ddbf857e43a
         consensus.defaultAssumeValid = uint256S("0x0000000000000abf98908046db181c15e9604952ee61bdebf3599ddbf857e43a"); // groestlcoin-cli getblockhash 3354300
@@ -437,8 +437,8 @@ public:
 
         // Deployment of Taproot (BIPs 340-342)
         consensus.vDeployments[Consensus::DEPLOYMENT_TAPROOT].bit = 2;
-        consensus.vDeployments[Consensus::DEPLOYMENT_TAPROOT].nStartTime = 1199145601; // January 1, 2008
-        consensus.vDeployments[Consensus::DEPLOYMENT_TAPROOT].nTimeout = 1230767999; // December 31, 2008
+        consensus.vDeployments[Consensus::DEPLOYMENT_TAPROOT].nStartTime = 1607990401; // December 15, 2020
+        consensus.vDeployments[Consensus::DEPLOYMENT_TAPROOT].nTimeout = 1640908799; // December 31, 2021
 
         consensus.nMinimumChainWork = uint256S("0x00000000000000000000000000000000000000000000000000002e49c7d755f4"); // groestlcoin-cli -testnet getblockheader 000000cd4a4bde646a3083be528a808e20bbee561b8c14808ffd832a2e532616
         consensus.defaultAssumeValid = uint256S("0x000000cd4a4bde646a3083be528a808e20bbee561b8c14808ffd832a2e532616"); // groestlcoin-cli -testnet getblockhash 1901500
