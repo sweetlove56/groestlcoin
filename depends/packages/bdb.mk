@@ -17,7 +17,6 @@ endef
 
 define $(package)_preprocess_cmds
   patch -p1 < $($(package)_patch_dir)/clang_cxx_11.patch && \
-  sed -i.old 's/WinIoCtl.h/winioctl.h/' src/dbinc/win_db.h && \
   cp -f $(BASEDIR)/config.guess $(BASEDIR)/config.sub dist
 endef
 
