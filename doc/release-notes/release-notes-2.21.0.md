@@ -18,8 +18,8 @@ installer (on Windows) or just copy over `/Applications/Groestlcoin-Qt` (on Mac)
 or `groestlcoind`/`groestlcoin-qt` (on Linux).
 
 Upgrading directly from a version of Groestlcoin Core that has reached its EOL is
-possible, but it might take some time if the data directory needs to be migrated. Old
-wallet versions of Groestlcoin Core are generally supported.
+possible, but it might take some time if the data directory needs to be migrated.
+Old wallet versions of Groestlcoin Core are generally supported.
 
 Compatibility
 ==============
@@ -59,7 +59,9 @@ and BIP342 using the BIP9 deployment mechanism.
 The deployment sets the block version number to 0x20000004 between
 midnight 15th Dec 2020 and midnight 31th Dec 2021 to signal readiness for
 deployment. The version number consists of 0x20000000 to indicate version
-bits together with setting bit 2, shown as "taproot" in the `getblockchaininfo` RPC call.
+bits together with setting bit 2, shown as "taproot" in the `getblockchaininfo`
+RPC call. Please note it will keep generating blocks with version 0x20000004 until
+"taproot" is activated at which point is will automatically unset bit 2.
 
 [BIP340]: https://github.com/bitcoin/bips/blob/master/bip-0340.mediawiki
 [BIP341]: https://github.com/bitcoin/bips/blob/master/bip-0341.mediawiki
