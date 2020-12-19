@@ -27,7 +27,7 @@ const std::string CLIENT_NAME("Groestlcoin");
 //! git will put "#define GIT_COMMIT_ID ..." on the next line inside archives. $Format:%n#define GIT_COMMIT_ID "%H"$
 
 #ifdef BUILD_GIT_TAG
-    #define BUILD_DESC "v2.21.0"    //GRS
+    #define BUILD_DESC BUILD_GIT_TAG
     #define BUILD_SUFFIX ""
 #else
     #define BUILD_DESC "v" STRINGIZE(CLIENT_VERSION_MAJOR) "." STRINGIZE(CLIENT_VERSION_MINOR) \
