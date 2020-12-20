@@ -31,9 +31,9 @@ const std::string CLIENT_NAME("Groestlcoin");
     #define BUILD_SUFFIX ""
 #else
     #define BUILD_DESC "v" STRINGIZE(CLIENT_VERSION_MAJOR) "." STRINGIZE(CLIENT_VERSION_MINOR) \
-                       "." STRINGIZE(CLIENT_VERSION_REVISION) "." STRINGIZE(CLIENT_VERSION_BUILD)
+                       "." STRINGIZE(CLIENT_VERSION_REVISION)
     #ifdef BUILD_GIT_COMMIT
-        #define BUILD_SUFFIX "-" BUILD_GIT_COMMIT
+        #define BUILD_SUFFIX
     #elif defined(GIT_COMMIT_ID)
         #define BUILD_SUFFIX "-g" GIT_COMMIT_ID
     #else
