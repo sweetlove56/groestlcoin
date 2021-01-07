@@ -3188,6 +3188,8 @@ void PeerManager::ProcessMessage(CNode& pfrom, const std::string& msg_type, CDat
                 MaybePunishNodeForBlock(pfrom.GetId(), state, /*via_compact_block*/ true, "invalid header via cmpctblock");
                 return;
             }
+          } else {
+             LogPrint(BCLog::NET, "[CMPCTBLOCK] New block header addr=%s\n", pfrom.addr.ToString());
         }
 
         // When we succeed in decoding a block's txids from a cmpctblock
@@ -3359,6 +3361,7 @@ void PeerManager::ProcessMessage(CNode& pfrom, const std::string& msg_type, CDat
             m_chainman.ProcessNewBlock(m_chainparams, pblock, /*fForceProcessing=*/true, &fNewBlock);
             if (fNewBlock) {
                 pfrom.nLastBlockTime = GetTime();
+                 LogPrint(BCLog::NET, "[CMPCTBLOCK] New block header %s addr=%s coinbase=%s vout=%s\n", pblock->GetHash().ToString(), pfrom.addr.ToString(), HexStr(pblock->vtx[0]->vin[0].scriptSig), HexStr(pblock->vtx[0]->vout[0].scriptPubKey));
             } else {
                 LOCK(cs_main);
                 mapBlockSource.erase(pblock->GetHash());
@@ -3449,6 +3452,7 @@ void PeerManager::ProcessMessage(CNode& pfrom, const std::string& msg_type, CDat
             m_chainman.ProcessNewBlock(m_chainparams, pblock, /*fForceProcessing=*/true, &fNewBlock);
             if (fNewBlock) {
                 pfrom.nLastBlockTime = GetTime();
+                 LogPrint(BCLog::NET, "[BLOCKTXN] New block header %s addr=%s coinbase=%s vout=%s\n", pblock->GetHash().ToString(), pfrom.addr.ToString(), HexStr(pblock->vtx[0]->vin[0].scriptSig), HexStr(pblock->vtx[0]->vout[0].scriptPubKey));
             } else {
                 LOCK(cs_main);
                 mapBlockSource.erase(pblock->GetHash());
@@ -3511,6 +3515,7 @@ void PeerManager::ProcessMessage(CNode& pfrom, const std::string& msg_type, CDat
         m_chainman.ProcessNewBlock(m_chainparams, pblock, forceProcessing, &fNewBlock);
         if (fNewBlock) {
             pfrom.nLastBlockTime = GetTime();
+             LogPrint(BCLog::NET, "[BLOCK] New block header %s addr=%s coinbase=%s vout=%s\n", pblock->GetHash().ToString(), pfrom.addr.ToString(), HexStr(pblock->vtx[0]->vin[0].scriptSig), HexStr(pblock->vtx[0]->vout[0].scriptPubKey));
         } else {
             LOCK(cs_main);
             mapBlockSource.erase(pblock->GetHash());
