@@ -108,7 +108,7 @@ endif
 endif
 
 if BUILD_BITCOIN_UTIL
-  bin_PROGRAMS += bitcoin-util
+  bin_PROGRAMS += groestlcoin-util
 endif
 
 .PHONY: FORCE check-symbols check-security

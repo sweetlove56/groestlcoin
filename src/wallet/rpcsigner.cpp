@@ -36,7 +36,7 @@ static RPCHelpMan enumeratesigners()
             if (!wallet) return NullUniValue;
 
             const std::string command = gArgs.GetArg("-signer", "");
-            if (command == "") throw JSONRPCError(RPC_WALLET_ERROR, "Error: restart bitcoind with -signer=<cmd>");
+            if (command == "") throw JSONRPCError(RPC_WALLET_ERROR, "Error: restart groestlcoind with -signer=<cmd>");
             std::string chain = gArgs.GetChainName();
             UniValue signers_res = UniValue::VARR;
             try {
@@ -64,7 +64,7 @@ static RPCHelpMan signerdisplayaddress()
         "signerdisplayaddress",
         "Display address on an external signer for verification.\n",
         {
-            {"address",     RPCArg::Type::STR, RPCArg::Optional::NO, /* default_val */ "", "bitcoin address to display"},
+            {"address",     RPCArg::Type::STR, RPCArg::Optional::NO, /* default_val */ "", "groestlcoin address to display"},
         },
         RPCResult{RPCResult::Type::NONE,"",""},
         RPCExamples{""},

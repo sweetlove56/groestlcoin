@@ -7,11 +7,11 @@ getcoins.py
 
 A script to call a faucet to get Signet coins.
 
-Syntax: `getcoins.py [-h|--help] [-c|--cmd=<bitcoin-cli path>] [-f|--faucet=<faucet URL>] [-a|--addr=<signet bech32 address>] [-p|--password=<faucet password>] [--] [<bitcoin-cli args>]`
+Syntax: `getcoins.py [-h|--help] [-c|--cmd=<groestlcoin-cli path>] [-f|--faucet=<faucet URL>] [-a|--addr=<signet bech32 address>] [-p|--password=<faucet password>] [--] [<groestlcoin-cli args>]`
 
-* `--cmd` lets you customize the bitcoin-cli path. By default it will look for it in the PATH
-* `--faucet` lets you specify which faucet to use; the faucet is assumed to be compatible with https://github.com/kallewoof/bitcoin-faucet
-* `--addr` lets you specify a Signet address; by default, the address must be a bech32 address. This and `--cmd` above complement each other (i.e. you do not need `bitcoin-cli` if you use `--addr`)
+* `--cmd` lets you customize the groestlcoin-cli path. By default it will look for it in the PATH
+* `--faucet` lets you specify which faucet to use; the faucet is assumed to be compatible with https://github.com/groestlcoin/groestlcoin-faucet
+* `--addr` lets you specify a Signet address; by default, the address must be a bech32 address. This and `--cmd` above complement each other (i.e. you do not need `groestlcoin-cli` if you use `--addr`)
 * `--password` lets you specify a faucet password; this is handy if you are in a classroom and set up your own faucet for your students; (above faucet does not limit by IP when password is enabled)
 
 If using the default network, invoking the script with no arguments should be sufficient under normal
@@ -23,25 +23,26 @@ miner
 
 To mine the first block in your custom chain, you can run:
 
+    pip3 install groestlcoin_hash
     cd src/
-    CLI="./bitcoin-cli -conf=mysignet.conf"
-    MINER="..contrib/signet/miner"
-    GRIND="./bitcoin-util grind"
+    CLI="./groestlcoin-cli"
+    MINER="../contrib/signet/miner"
+    GRIND="./groestlcoin-util grind"
     ADDR=$($CLI -signet getnewaddress)
-    $MINER --cli="$CLI" generate --grind-cmd="$GRIND" --address="$ADDR" --set-block-time=-1
+    $MINER --cli="$CLI" generate --grind-cmd="$GRIND" --address="$ADDR" --nbits=1e0377ae --set-block-time=-1
 
 This will mine a block with the current timestamp. If you want to backdate the chain, you can give a different timestamp to --set-block-time.
 
 You will then need to pick a difficulty target. Since signet chains are primarily protected by a signature rather than proof of work, there is no need to spend as much energy as possible mining, however you may wish to choose to spend more time than the absolute minimum. The calibrate subcommand can be used to pick a target, eg:
 
     $MINER calibrate --grind-cmd="$GRIND"
-    nbits=1e00f403 for 25s average mining time
+    nbits=1e0377ae for 60s average mining time
 
-It defaults to estimating an nbits value resulting in 25s average time to find a block, but the --seconds parameter can be used to pick a different target, or the --nbits parameter can be used to estimate how long it will take for a given difficulty.
+It defaults to estimating an nbits value resulting in 60s average time to find a block, but the --seconds parameter can be used to pick a different target, or the --nbits parameter can be used to estimate how long it will take for a given difficulty.
 
 Using the --ongoing parameter will then cause the signet miner to create blocks indefinitely. It will pick the time between blocks so that difficulty is adjusted to match the provided --nbits value.
 
-    $MINER --cli="$CLI" generate --grind-cmd="$GRIND" --address="$ADDR" --nbits=1e00f403 --ongoing
+    $MINER --cli="$CLI" generate --grind-cmd="$GRIND" --address="$ADDR" --nbits=1e0377ae --ongoing
 
 Other options
 -------------
@@ -77,4 +78,3 @@ These steps can instead be done explicitly:
       $CLI -signet -stdin submitblock
 
 This is intended to allow you to replace part of the pipeline for further experimentation, if desired.
-
