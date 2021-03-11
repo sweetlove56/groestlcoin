@@ -411,7 +411,7 @@ if USE_SQLITE
 libgroestlcoin_wallet_a_SOURCES += wallet/sqlite.cpp
 endif
 if USE_BDB
-libbitcoin_wallet_a_SOURCES += wallet/bdb.cpp wallet/salvage.cpp
+libgroestlcoin_wallet_a_SOURCES += wallet/bdb.cpp wallet/salvage.cpp
 endif
 
 libgroestlcoin_wallet_tool_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
