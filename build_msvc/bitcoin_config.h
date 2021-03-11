@@ -15,13 +15,10 @@
 #define CLIENT_VERSION_IS_RELEASE true
 
 /* Major version */
-#define CLIENT_VERSION_MAJOR 2
+#define CLIENT_VERSION_MAJOR 21
 
 /* Minor version */
-#define CLIENT_VERSION_MINOR 21
-
-/* Build revision */
-#define CLIENT_VERSION_REVISION 0
+#define CLIENT_VERSION_MINOR 99
 
 /* Copyright holder(s) before %s replacement */
 #define COPYRIGHT_HOLDERS "The %s developers"
@@ -38,6 +35,12 @@
 /* Define to 1 to enable wallet functions */
 #define ENABLE_WALLET 1
 
+/* Define to 1 to enable BDB wallet */
+#define USE_BDB 1
+
+/* Define to 1 to enable SQLite wallet */
+#define USE_SQLITE 1
+
 /* Define to 1 to enable ZMQ functions */
 #define ENABLE_ZMQ 1
 
@@ -47,14 +50,11 @@
 /* define if the Boost::Filesystem library is available */
 #define HAVE_BOOST_FILESYSTEM /**/
 
-/* define if the Boost::Process library is available */
-#define HAVE_BOOST_PROCESS /**/
+/* define if external signer support is enabled (requires Boost::Process) */
+#define ENABLE_EXTERNAL_SIGNER /**/
 
 /* define if the Boost::System library is available */
 #define HAVE_BOOST_SYSTEM /**/
-
-/* define if the Boost::Thread library is available */
-#define HAVE_BOOST_THREAD /**/
 
 /* define if the Boost::Unit_Test_Framework library is available */
 #define HAVE_BOOST_UNIT_TEST_FRAMEWORK /**/
@@ -253,7 +253,7 @@
 #define PACKAGE_NAME "Groestlcoin Core"
 
 /* Define to the full name and version of this package. */
-#define PACKAGE_STRING "Groestlcoin Core 2.21.0"
+#define PACKAGE_STRING "Groestlcoin Core 21.99.0"
 
 /* Define to the one symbol short name of this package. */
 #define PACKAGE_TARNAME "groestlcoin"
@@ -262,7 +262,7 @@
 #define PACKAGE_URL "https://groestlcoin.org/"
 
 /* Define to the version of this package. */
-#define PACKAGE_VERSION "2.21.0"
+#define PACKAGE_VERSION "21.99.0"
 
 /* Define to necessary symbol if this constant uses a non-standard name on
    your system. */

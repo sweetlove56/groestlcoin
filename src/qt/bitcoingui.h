@@ -49,6 +49,7 @@ struct BlockAndHeaderTipInfo;
 QT_BEGIN_NAMESPACE
 class QAction;
 class QComboBox;
+class QDateTime;
 class QMenu;
 class QProgressBar;
 class QProgressDialog;
@@ -316,9 +317,6 @@ public Q_SLOTS:
 
     /** Show progress dialog e.g. for verifychain */
     void showProgress(const QString &title, int nProgress);
-
-    /** When hideTrayIcon setting is changed in OptionsModel hide or show the icon accordingly. */
-    void setTrayIconVisible(bool);
 
     void showModalOverlay();
 };

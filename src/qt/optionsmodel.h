@@ -45,9 +45,10 @@ public:
 
     enum OptionID {
         StartAtStartup,         // bool
-        HideTrayIcon,           // bool
+        ShowTrayIcon,           // bool
         MinimizeToTray,         // bool
         MapPortUPnP,            // bool
+        MapPortNatpmp,          // bool
         MinimizeOnClose,        // bool
         ProxyUse,               // bool
         ProxyIP,                // QString
@@ -58,6 +59,7 @@ public:
         DisplayUnit,            // BitcoinUnits::Unit
         ThirdPartyTxUrls,       // QString
         Language,               // QString
+        UseEmbeddedMonospacedFont, // bool
         CoinControlFeatures,    // bool
         ThreadsScriptVerif,     // int
         Prune,                  // bool
@@ -78,11 +80,12 @@ public:
     void setDisplayUnit(const QVariant &value);
 
     /* Explicit getters */
-    bool getHideTrayIcon() const { return fHideTrayIcon; }
+    bool getShowTrayIcon() const { return m_show_tray_icon; }
     bool getMinimizeToTray() const { return fMinimizeToTray; }
     bool getMinimizeOnClose() const { return fMinimizeOnClose; }
     int getDisplayUnit() const { return nDisplayUnit; }
     QString getThirdPartyTxUrls() const { return strThirdPartyTxUrls; }
+    bool getUseEmbeddedMonospacedFont() const { return m_use_embedded_monospaced_font; }
     bool getCoinControlFeatures() const { return fCoinControlFeatures; }
     const QString& getOverriddenByCommandLine() { return strOverriddenByCommandLine; }
 
@@ -100,12 +103,13 @@ public:
 private:
     interfaces::Node* m_node = nullptr;
     /* Qt-only settings */
-    bool fHideTrayIcon;
+    bool m_show_tray_icon;
     bool fMinimizeToTray;
     bool fMinimizeOnClose;
     QString language;
     int nDisplayUnit;
     QString strThirdPartyTxUrls;
+    bool m_use_embedded_monospaced_font;
     bool fCoinControlFeatures;
     /* settings that were overridden by command-line */
     QString strOverriddenByCommandLine;
@@ -118,7 +122,8 @@ private:
 Q_SIGNALS:
     void displayUnitChanged(int unit);
     void coinControlFeaturesChanged(bool);
-    void hideTrayIconChanged(bool);
+    void showTrayIconChanged(bool);
+    void useEmbeddedMonospacedFontChanged(bool);
 };
 
 #endif // BITCOIN_QT_OPTIONSMODEL_H

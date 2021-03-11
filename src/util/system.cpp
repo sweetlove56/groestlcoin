@@ -3,14 +3,16 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#include <sync.h>
 #include <util/system.h>
 
-#ifdef HAVE_BOOST_PROCESS
+#ifdef ENABLE_EXTERNAL_SIGNER
 #include <boost/process.hpp>
-#endif // HAVE_BOOST_PROCESS
+#endif // ENABLE_EXTERNAL_SIGNER
 
 #include <chainparamsbase.h>
+#include <sync.h>
+#include <util/check.h>
+#include <util/getuniquepath.h>
 #include <util/strencodings.h>
 #include <util/string.h>
 #include <util/translation.h>
@@ -123,7 +125,7 @@ void ReleaseDirectoryLocks()
 
 bool DirIsWritable(const fs::path& directory)
 {
-    fs::path tmpFile = directory / fs::unique_path();
+    fs::path tmpFile = GetUniquePath(directory);
 
     FILE* file = fsbridge::fopen(tmpFile, "a");
     if (!file) return false;
@@ -310,8 +312,22 @@ bool ArgsManager::ParseParameters(int argc, const char* const argv[], std::strin
             key[0] = '-';
 #endif
 
-        if (key[0] != '-')
+        if (key[0] != '-') {
+            if (!m_accept_any_command && m_command.empty()) {
+                // The first non-dash arg is a registered command
+                Optional<unsigned int> flags = GetArgFlags(key);
+                if (!flags || !(*flags & ArgsManager::COMMAND)) {
+                    error = strprintf("Invalid command '%s'", argv[i]);
+                    return false;
+                }
+            }
+            m_command.push_back(key);
+            while (++i < argc) {
+                // The remaining args are command args
+                m_command.push_back(argv[i]);
+            }
             break;
+        }
 
         // Transform --foo to -foo
         if (key.length() > 1 && key[1] == '-')
@@ -359,6 +375,26 @@ Optional<unsigned int> ArgsManager::GetArgFlags(const std::string& name) const
     return nullopt;
 }
 
+std::optional<const ArgsManager::Command> ArgsManager::GetCommand() const
+{
+    Command ret;
+    LOCK(cs_args);
+    auto it = m_command.begin();
+    if (it == m_command.end()) {
+        // No command was passed
+        return std::nullopt;
+    }
+    if (!m_accept_any_command) {
+        // The registered command
+        ret.command = *(it++);
+    }
+    while (it != m_command.end()) {
+        // The unregistered command and args (if any)
+        ret.args.push_back(*(it++));
+    }
+    return ret;
+}
+
 std::vector<std::string> ArgsManager::GetArgs(const std::string& strArg) const
 {
     std::vector<std::string> result;
@@ -398,7 +434,7 @@ bool ArgsManager::GetSettingsPath(fs::path* filepath, bool temp) const
     }
     if (filepath) {
         std::string settings = GetArg("-settings", BITCOIN_SETTINGS_FILENAME);
-        *filepath = fs::absolute(temp ? settings + ".tmp" : settings, GetDataDir(/* net_specific= */ true));
+        *filepath = fsbridge::AbsPathJoin(GetDataDir(/* net_specific= */ true), temp ? settings + ".tmp" : settings);
     }
     return true;
 }
@@ -504,8 +540,22 @@ void ArgsManager::ForceSetArg(const std::string& strArg, const std::string& strV
     m_settings.forced_settings[SettingName(strArg)] = strValue;
 }
 
+void ArgsManager::AddCommand(const std::string& cmd, const std::string& help, const OptionsCategory& cat)
+{
+    Assert(cmd.find('=') == std::string::npos);
+    Assert(cmd.at(0) != '-');
+
+    LOCK(cs_args);
+    m_accept_any_command = false; // latch to false
+    std::map<std::string, Arg>& arg_map = m_available_args[cat];
+    auto ret = arg_map.emplace(cmd, Arg{"", help, ArgsManager::COMMAND});
+    Assert(ret.second); // Fail on duplicate commands
+}
+
 void ArgsManager::AddArg(const std::string& name, const std::string& help, unsigned int flags, const OptionsCategory& cat)
 {
+    Assert((flags & ArgsManager::COMMAND) == 0); // use AddCommand
+
     // Split arg name from its help param
     size_t eq_index = name.find('=');
     if (eq_index == std::string::npos) {
@@ -1047,25 +1097,34 @@ bool FileCommit(FILE *file)
         LogPrintf("%s: FlushFileBuffers failed: %d\n", __func__, GetLastError());
         return false;
     }
-#else
-    #if HAVE_FDATASYNC
-    if (fdatasync(fileno(file)) != 0 && errno != EINVAL) { // Ignore EINVAL for filesystems that don't support sync
-        LogPrintf("%s: fdatasync failed: %d\n", __func__, errno);
-        return false;
-    }
-    #elif defined(MAC_OSX) && defined(F_FULLFSYNC)
+#elif defined(MAC_OSX) && defined(F_FULLFSYNC)
     if (fcntl(fileno(file), F_FULLFSYNC, 0) == -1) { // Manpage says "value other than -1" is returned on success
         LogPrintf("%s: fcntl F_FULLFSYNC failed: %d\n", __func__, errno);
         return false;
     }
-    #else
+#elif HAVE_FDATASYNC
+    if (fdatasync(fileno(file)) != 0 && errno != EINVAL) { // Ignore EINVAL for filesystems that don't support sync
+        LogPrintf("%s: fdatasync failed: %d\n", __func__, errno);
+        return false;
+    }
+#else
     if (fsync(fileno(file)) != 0 && errno != EINVAL) {
         LogPrintf("%s: fsync failed: %d\n", __func__, errno);
         return false;
     }
-    #endif
 #endif
     return true;
+}
+
+void DirectoryCommit(const fs::path &dirname)
+{
+#ifndef WIN32
+    FILE* file = fsbridge::fopen(dirname, "r");
+    if (file) {
+        fsync(fileno(file));
+        fclose(file);
+    }
+#endif
 }
 
 bool TruncateFile(FILE *file, unsigned int length) {
@@ -1188,7 +1247,7 @@ void runCommand(const std::string& strCommand)
 }
 #endif
 
-#ifdef HAVE_BOOST_PROCESS
+#ifdef ENABLE_EXTERNAL_SIGNER
 UniValue RunCommandParseJSON(const std::string& str_command, const std::string& str_std_in)
 {
     namespace bp = boost::process;
@@ -1223,7 +1282,7 @@ UniValue RunCommandParseJSON(const std::string& str_command, const std::string& 
 
     return result_json;
 }
-#endif // HAVE_BOOST_PROCESS
+#endif // ENABLE_EXTERNAL_SIGNER
 
 void SetupEnvironment()
 {
@@ -1306,7 +1365,7 @@ fs::path AbsPathForConfigVal(const fs::path& path, bool net_specific)
     if (path.is_absolute()) {
         return path;
     }
-    return fs::absolute(path, GetDataDir(net_specific));
+    return fsbridge::AbsPathJoin(GetDataDir(net_specific), path);
 }
 
 void ScheduleBatchPriority()

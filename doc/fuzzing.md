@@ -33,7 +33,7 @@ $ CC=clang CXX=clang++ ./configure --enable-fuzz --with-sanitizers=address,fuzze
 # macOS users: If you have problem with this step then make sure to read "macOS hints for
 # libFuzzer" on https://github.com/bitcoin/bitcoin/blob/master/doc/fuzzing.md#macos-hints-for-libfuzzer
 $ make
-$ src/test/fuzz/process_message
+$ FUZZ=process_message src/test/fuzz/fuzz
 # abort fuzzing using ctrl-c
 ```
 
@@ -47,7 +47,7 @@ If you specify a corpus directory then any new coverage increasing inputs will b
 
 ```sh
 $ mkdir -p process_message-seeded-from-thin-air/
-$ src/test/fuzz/process_message process_message-seeded-from-thin-air/
+$ FUZZ=process_message src/test/fuzz/fuzz process_message-seeded-from-thin-air/
 INFO: Seed: 840522292
 INFO: Loaded 1 modules   (424174 inline 8-bit counters): 424174 [0x55e121ef9ab8, 0x55e121f613a6),
 INFO: Loaded 1 PC tables (424174 PCs): 424174 [0x55e121f613a8,0x55e1225da288),
@@ -91,7 +91,7 @@ To fuzz `process_message` using the [`bitcoin-core/qa-assets`](https://github.co
 
 ```sh
 $ git clone https://github.com/bitcoin-core/qa-assets
-$ src/test/fuzz/process_message qa-assets/fuzz_seed_corpus/process_message/
+$ FUZZ=process_message src/test/fuzz/fuzz qa-assets/fuzz_seed_corpus/process_message/
 INFO: Seed: 1346407872
 INFO: Loaded 1 modules   (424174 inline 8-bit counters): 424174 [0x55d8a9004ab8, 0x55d8a906c3a6),
 INFO: Loaded 1 PC tables (424174 PCs): 424174 [0x55d8a906c3a8,0x55d8a96e5288),
@@ -150,7 +150,7 @@ $ make
 # try compiling using: AFL_NO_X86=1 make
 $ mkdir -p inputs/ outputs/
 $ echo A > inputs/thin-air-input
-$ afl/afl-fuzz -i inputs/ -o outputs/ -- src/test/fuzz/bech32
+$ FUZZ=bech32 afl/afl-fuzz -i inputs/ -o outputs/ -- src/test/fuzz/fuzz
 # You may have to change a few kernel parameters to test optimally - afl-fuzz
 # will print an error and suggestion if so.
 ```
@@ -174,7 +174,81 @@ $ cd ..
 $ CC=$(pwd)/honggfuzz/hfuzz_cc/hfuzz-clang CXX=$(pwd)/honggfuzz/hfuzz_cc/hfuzz-clang++ ./configure --enable-fuzz --with-sanitizers=address,undefined
 $ make
 $ mkdir -p inputs/
-$ honggfuzz/honggfuzz -i inputs/ -- src/test/fuzz/process_message
+$ FUZZ=process_message honggfuzz/honggfuzz -i inputs/ -- src/test/fuzz/fuzz
 ```
 
 Read the [Honggfuzz documentation](https://github.com/google/honggfuzz/blob/master/docs/USAGE.md) for more information.
+
+## Fuzzing the Bitcoin Core P2P layer using Honggfuzz NetDriver
+
+Honggfuzz NetDriver allows for very easy fuzzing of TCP servers such as Bitcoin
+Core without having to write any custom fuzzing harness. The `bitcoind` server
+process is largely fuzzed without modification.
+
+This makes the fuzzing highly realistic: a bug reachable by the fuzzer is likely
+also remotely triggerable by an untrusted peer.
+
+To quickly get started fuzzing the P2P layer using Honggfuzz NetDriver:
+
+```sh
+$ mkdir bitcoin-honggfuzz-p2p/
+$ cd bitcoin-honggfuzz-p2p/
+$ git clone https://github.com/bitcoin/bitcoin
+$ cd bitcoin/
+$ ./autogen.sh
+$ git clone https://github.com/google/honggfuzz
+$ cd honggfuzz/
+$ make
+$ cd ..
+$ CC=$(pwd)/honggfuzz/hfuzz_cc/hfuzz-clang \
+      CXX=$(pwd)/honggfuzz/hfuzz_cc/hfuzz-clang++ \
+      ./configure --disable-wallet --with-gui=no \
+                  --with-sanitizers=address,undefined
+$ git apply << "EOF"
+diff --git a/src/bitcoind.cpp b/src/bitcoind.cpp
+index 455a82e39..2faa3f80f 100644
+--- a/src/bitcoind.cpp
++++ b/src/bitcoind.cpp
+@@ -158,7 +158,11 @@ static bool AppInit(int argc, char* argv[])
+     return fRet;
+ }
+
++#ifdef HFND_FUZZING_ENTRY_FUNCTION_CXX
++HFND_FUZZING_ENTRY_FUNCTION_CXX(int argc, char* argv[])
++#else
+ int main(int argc, char* argv[])
++#endif
+ {
+ #ifdef WIN32
+     util::WinCmdLineArgs winArgs;
+diff --git a/src/net.cpp b/src/net.cpp
+index cf987b699..636a4176a 100644
+--- a/src/net.cpp
++++ b/src/net.cpp
+@@ -709,7 +709,7 @@ int V1TransportDeserializer::readHeader(const char *pch, unsigned int nBytes)
+     }
+
+     // Check start string, network magic
+-    if (memcmp(hdr.pchMessageStart, m_chain_params.MessageStart(), CMessageHeader::MESSAGE_START_SIZE) != 0) {
++    if (false && memcmp(hdr.pchMessageStart, m_chain_params.MessageStart(), CMessageHeader::MESSAGE_START_SIZE) != 0) { // skip network magic checking
+         LogPrint(BCLog::NET, "HEADER ERROR - MESSAGESTART (%s, %u bytes), received %s, peer=%d\n", hdr.GetCommand(), hdr.nMessageSize, HexStr(hdr.pchMessageStart), m_node_id);
+         return -1;
+     }
+@@ -768,7 +768,7 @@ Optional<CNetMessage> V1TransportDeserializer::GetMessage(const std::chrono::mic
+     RandAddEvent(ReadLE32(hash.begin()));
+
+     // Check checksum and header command string
+-    if (memcmp(hash.begin(), hdr.pchChecksum, CMessageHeader::CHECKSUM_SIZE) != 0) {
++    if (false && memcmp(hash.begin(), hdr.pchChecksum, CMessageHeader::CHECKSUM_SIZE) != 0) { // skip checksum checking
+         LogPrint(BCLog::NET, "CHECKSUM ERROR (%s, %u bytes), expected %s was %s, peer=%d\n",
+                  SanitizeString(msg->m_command), msg->m_message_size,
+                  HexStr(Span<uint8_t>(hash.begin(), hash.begin() + CMessageHeader::CHECKSUM_SIZE)),
+EOF
+$ make -C src/ bitcoind
+$ mkdir -p inputs/
+$ honggfuzz/honggfuzz --exit_upon_crash --quiet --timeout 4 -n 1 -Q \
+      -E HFND_TCP_PORT=18444 -f inputs/ -- \
+          src/bitcoind -regtest -discover=0 -dns=0 -dnsseed=0 -listenonion=0 \
+                       -nodebuglogfile -bind=127.0.0.1:18444 -logthreadnames \
+                       -debug
+```

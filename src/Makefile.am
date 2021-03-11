@@ -2,6 +2,10 @@
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
+# Pattern rule to print variables, e.g. make print-top_srcdir
+print-%:
+	@echo '$*' = '$($*)'
+
 DIST_SUBDIRS = secp256k1 univalue
 
 AM_LDFLAGS = $(LIBTOOL_LDFLAGS) $(HARDENED_LDFLAGS) $(GPROF_LDFLAGS) $(SANITIZER_LDFLAGS)
@@ -92,13 +96,19 @@ endif
 if BUILD_BITCOIN_CLI
   bin_PROGRAMS += groestlcoin-cli
 endif
+
 if BUILD_BITCOIN_TX
   bin_PROGRAMS += groestlcoin-tx
 endif
+
 if ENABLE_WALLET
 if BUILD_BITCOIN_WALLET
   bin_PROGRAMS += groestlcoin-wallet
 endif
+endif
+
+if BUILD_BITCOIN_UTIL
+  bin_PROGRAMS += bitcoin-util
 endif
 
 .PHONY: FORCE check-symbols check-security
@@ -142,6 +152,7 @@ BITCOIN_CORE_H = \
   fs.h \
   httprpc.h \
   httpserver.h \
+  i2p.h \
   index/base.h \
   index/blockfilterindex.h \
   index/disktxpos.h \
@@ -156,6 +167,7 @@ BITCOIN_CORE_H = \
   key_io.h \
   logging.h \
   logging/timer.h \
+  mapport.h \
   memusage.h \
   merkleblock.h \
   miner.h \
@@ -217,28 +229,35 @@ BITCOIN_CORE_H = \
   timedata.h \
   torcontrol.h \
   txdb.h \
-  txrequest.h \
   txmempool.h \
+  txorphanage.h \
+  txrequest.h \
   undo.h \
   util/asmap.h \
   util/bip32.h \
   util/bytevectorhash.h \
   util/check.h \
+  util/epochguard.h \
   util/error.h \
   util/fees.h \
+  util/getuniquepath.h \
   util/golombrice.h \
+  util/hasher.h \
   util/macros.h \
   util/memory.h \
   util/message.h \
   util/moneystr.h \
   util/rbf.h \
+  util/readwritefile.h \
   util/ref.h \
   util/settings.h \
+  util/sock.h \
   util/spanparsing.h \
   util/string.h \
   util/system.h \
   util/threadnames.h \
   util/time.h \
+  util/trace.h \
   util/translation.h \
   util/ui_change_type.h \
   util/url.h \
@@ -253,10 +272,14 @@ BITCOIN_CORE_H = \
   wallet/context.h \
   wallet/crypter.h \
   wallet/db.h \
+  wallet/dump.h \
+  wallet/external_signer.h \
+  wallet/external_signer_scriptpubkeyman.h \
   wallet/feebumper.h \
   wallet/fees.h \
   wallet/ismine.h \
   wallet/load.h \
+  wallet/rpcsigner.h \
   wallet/rpcwallet.h \
   wallet/salvage.h \
   wallet/scriptpubkeyman.h \
@@ -283,7 +306,7 @@ libgroestlcoin_util_a-clientversion.$(OBJEXT): obj/build.h
 # Contains code accessing mempool and chain state that is meant to be separated
 # from wallet and gui code (see node/README.md). Shared code should go in
 # libgroestlcoin_common or libgroestlcoin_util libraries, instead.
-libgroestlcoin_server_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(MINIUPNPC_CPPFLAGS) $(EVENT_CFLAGS) $(EVENT_PTHREADS_CFLAGS)
+libgroestlcoin_server_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(MINIUPNPC_CPPFLAGS) $(NATPMP_CPPFLAGS) $(EVENT_CFLAGS) $(EVENT_PTHREADS_CFLAGS)
 libgroestlcoin_server_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 libgroestlcoin_server_a_SOURCES = \
   addrdb.cpp \
@@ -297,18 +320,19 @@ libgroestlcoin_server_a_SOURCES = \
   flatfile.cpp \
   httprpc.cpp \
   httpserver.cpp \
+  i2p.cpp \
   index/base.cpp \
   index/blockfilterindex.cpp \
   index/txindex.cpp \
   init.cpp \
-  interfaces/chain.cpp \
-  interfaces/node.cpp \
+  mapport.cpp \
   miner.cpp \
   net.cpp \
   net_processing.cpp \
   node/coin.cpp \
   node/coinstats.cpp \
   node/context.cpp \
+  node/interfaces.cpp \
   node/psbt.cpp \
   node/transaction.cpp \
   node/ui_interface.cpp \
@@ -330,8 +354,9 @@ libgroestlcoin_server_a_SOURCES = \
   timedata.cpp \
   torcontrol.cpp \
   txdb.cpp \
-  txrequest.cpp \
   txmempool.cpp \
+  txorphanage.cpp \
+  txrequest.cpp \
   validation.cpp \
   validationinterface.cpp \
   versionbits.cpp \
@@ -361,18 +386,20 @@ endif
 libgroestlcoin_wallet_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(SQLITE_CFLAGS)
 libgroestlcoin_wallet_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 libgroestlcoin_wallet_a_SOURCES = \
-  interfaces/wallet.cpp \
-  wallet/bdb.cpp \
   wallet/coincontrol.cpp \
   wallet/context.cpp \
   wallet/crypter.cpp \
   wallet/db.cpp \
+  wallet/dump.cpp \
+  wallet/external_signer_scriptpubkeyman.cpp \
+  wallet/external_signer.cpp \
   wallet/feebumper.cpp \
   wallet/fees.cpp \
+  wallet/interfaces.cpp \
   wallet/load.cpp \
   wallet/rpcdump.cpp \
+  wallet/rpcsigner.cpp \
   wallet/rpcwallet.cpp \
-  wallet/salvage.cpp \
   wallet/scriptpubkeyman.cpp \
   wallet/wallet.cpp \
   wallet/walletdb.cpp \
@@ -382,6 +409,9 @@ libgroestlcoin_wallet_a_SOURCES = \
 
 if USE_SQLITE
 libgroestlcoin_wallet_a_SOURCES += wallet/sqlite.cpp
+endif
+if USE_BDB
+libbitcoin_wallet_a_SOURCES += wallet/bdb.cpp wallet/salvage.cpp
 endif
 
 libgroestlcoin_wallet_tool_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
@@ -409,6 +439,8 @@ crypto_libgroestlcoin_crypto_base_a_SOURCES = \
   crypto/hmac_sha512.h \
   crypto/poly1305.h \
   crypto/poly1305.cpp \
+  crypto/muhash.h \
+  crypto/muhash.cpp \
   crypto/ripemd160.cpp \
   crypto/ripemd160.h \
   crypto/sha1.cpp \
@@ -543,10 +575,14 @@ libgroestlcoin_util_a_SOURCES = \
   util/bytevectorhash.cpp \
   util/error.cpp \
   util/fees.cpp \
+  util/getuniquepath.cpp \
+  util/hasher.cpp \
+  util/sock.cpp \
   util/system.cpp \
   util/message.cpp \
   util/moneystr.cpp \
   util/rbf.cpp \
+  util/readwritefile.cpp \
   util/settings.cpp \
   util/threadnames.cpp \
   util/spanparsing.cpp \
@@ -599,7 +635,7 @@ groestlcoin_bin_ldadd = \
   $(LIBMEMENV) \
   $(LIBSECP256K1)
 
-groestlcoin_bin_ldadd += $(BOOST_LIBS) $(BDB_LIBS) $(MINIUPNPC_LIBS) $(EVENT_PTHREADS_LIBS) $(EVENT_LIBS) $(ZMQ_LIBS) $(SQLITE_LIBS)
+groestlcoin_bin_ldadd += $(BOOST_LIBS) $(BDB_LIBS) $(MINIUPNPC_LIBS) $(NATPMP_LIBS) $(EVENT_PTHREADS_LIBS) $(EVENT_LIBS) $(ZMQ_LIBS) $(SQLITE_LIBS)
 
 groestlcoind_SOURCES = $(groestlcoin_daemon_sources)
 groestlcoind_CPPFLAGS = $(groestlcoin_bin_cppflags)
@@ -665,7 +701,28 @@ groestlcoin_wallet_SOURCES += groestlcoin-wallet-res.rc
 endif
 #
 
-# groestlcoinconsensus library #
+# groestlcoin-util binary #
+groestlcoin_util_SOURCES = groestlcoin-util.cpp
+groestlcoin_util_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
+groestlcoin_util_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+groestlcoin_util_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS) $(PTHREAD_FLAGS)
+
+if TARGET_WINDOWS
+groestlcoin_util_SOURCES += groestlcoin-util-res.rc
+endif
+
+groestlcoin_util_LDADD = \
+  $(LIBBITCOIN_COMMON) \
+  $(LIBBITCOIN_UTIL) \
+  $(LIBUNIVALUE) \
+  $(LIBBITCOIN_CONSENSUS) \
+  $(LIBBITCOIN_CRYPTO) \
+  $(LIBSECP256K1)
+
+groestlcoin_util_LDADD += $(BOOST_LIBS)
+#
+
+# groestlvvcoinconsensus library #
 if BUILD_BITCOIN_LIBS
 include_HEADERS = script/groestlcoinconsensus.h
 libgroestlcoinconsensus_la_SOURCES = support/cleanse.cpp $(crypto_libgroestlcoin_crypto_base_a_SOURCES) $(libgroestlcoin_consensus_a_SOURCES)
@@ -745,13 +802,13 @@ endif
 
 if GLIBC_BACK_COMPAT
 	@echo "Checking glibc back compat..."
-	$(AM_V_at) READELF=$(READELF) CPPFILT=$(CPPFILT) $(PYTHON) $(top_srcdir)/contrib/devtools/symbol-check.py $(bin_PROGRAMS)
+	$(AM_V_at) CPPFILT=$(CPPFILT) $(PYTHON) $(top_srcdir)/contrib/devtools/symbol-check.py $(bin_PROGRAMS)
 endif
 
 check-security: $(bin_PROGRAMS)
 if HARDEN
 	@echo "Checking binary security..."
-	$(AM_V_at) READELF=$(READELF) OBJDUMP=$(OBJDUMP) OTOOL=$(OTOOL) $(PYTHON) $(top_srcdir)/contrib/devtools/security-check.py $(bin_PROGRAMS)
+	$(AM_V_at) OBJDUMP=$(OBJDUMP) OTOOL=$(OTOOL) $(PYTHON) $(top_srcdir)/contrib/devtools/security-check.py $(bin_PROGRAMS)
 endif
 
 if EMBEDDED_LEVELDB

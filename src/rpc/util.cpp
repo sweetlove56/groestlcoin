@@ -1,4 +1,4 @@
-// Copyright (c) 2017-2020 The Bitcoin Core developers
+// Copyright (c) 2017-2021 The Bitcoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -113,23 +113,6 @@ std::vector<unsigned char> ParseHexO(const UniValue& o, std::string strKey)
     return ParseHexV(find_value(o, strKey), strKey);
 }
 
-CoinStatsHashType ParseHashType(const UniValue& param, const CoinStatsHashType default_type)
-{
-    if (param.isNull()) {
-        return default_type;
-    } else {
-        std::string hash_type_input = param.get_str();
-
-        if (hash_type_input == "hash_serialized_2") {
-            return CoinStatsHashType::HASH_SERIALIZED;
-        } else if (hash_type_input == "none") {
-            return CoinStatsHashType::NONE;
-        } else {
-            throw JSONRPCError(RPC_INVALID_PARAMETER, strprintf("%d is not a valid hash_type", hash_type_input));
-        }
-    }
-}
-
 std::string HelpExampleCli(const std::string& methodname, const std::string& args)
 {
     return "> groestlcoin-cli " + methodname + " " + args + "\n";
@@ -209,7 +192,7 @@ CTxDestination AddAndGetMultisigDestination(const int required, const std::vecto
     return dest;
 }
 
-class DescribeAddressVisitor : public boost::static_visitor<UniValue>
+class DescribeAddressVisitor
 {
 public:
     explicit DescribeAddressVisitor() {}
@@ -267,7 +250,7 @@ public:
 
 UniValue DescribeAddress(const CTxDestination& dest)
 {
-    return boost::apply_visitor(DescribeAddressVisitor(), dest);
+    return std::visit(DescribeAddressVisitor(), dest);
 }
 
 unsigned int ParseConfirmTarget(const UniValue& value, unsigned int max_target)
@@ -549,6 +532,24 @@ std::string RPCHelpMan::ToString() const
     return ret;
 }
 
+void RPCHelpMan::AppendArgMap(UniValue& arr) const
+{
+    for (int i{0}; i < int(m_args.size()); ++i) {
+        const auto& arg = m_args.at(i);
+        std::vector<std::string> arg_names;
+        boost::split(arg_names, arg.m_names, boost::is_any_of("|"));
+        for (const auto& arg_name : arg_names) {
+            UniValue map{UniValue::VARR};
+            map.push_back(m_name);
+            map.push_back(i);
+            map.push_back(arg_name);
+            map.push_back(arg.m_type == RPCArg::Type::STR ||
+                          arg.m_type == RPCArg::Type::STR_HEX);
+            arr.push_back(map);
+        }
+    }
+}
+
 std::string RPCArg::GetFirstName() const
 {
     return m_names.substr(0, m_names.find("|"));
@@ -562,10 +563,10 @@ std::string RPCArg::GetName() const
 
 bool RPCArg::IsOptional() const
 {
-    if (m_fallback.which() == 1) {
+    if (m_fallback.index() == 1) {
         return true;
     } else {
-        return RPCArg::Optional::NO != boost::get<RPCArg::Optional>(m_fallback);
+        return RPCArg::Optional::NO != std::get<RPCArg::Optional>(m_fallback);
     }
 }
 
@@ -609,10 +610,10 @@ std::string RPCArg::ToDescriptionString() const
         }
         } // no default case, so the compiler can warn about missing cases
     }
-    if (m_fallback.which() == 1) {
-        ret += ", optional, default=" + boost::get<std::string>(m_fallback);
+    if (m_fallback.index() == 1) {
+        ret += ", optional, default=" + std::get<std::string>(m_fallback);
     } else {
-        switch (boost::get<RPCArg::Optional>(m_fallback)) {
+        switch (std::get<RPCArg::Optional>(m_fallback)) {
         case RPCArg::Optional::OMITTED: {
             // nothing to do. Element is treated as if not present and has no default value
             break;

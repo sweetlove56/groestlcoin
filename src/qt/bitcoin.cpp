@@ -44,6 +44,7 @@
 
 #include <QApplication>
 #include <QDebug>
+#include <QFontDatabase>
 #include <QLibraryInfo>
 #include <QLocale>
 #include <QMessageBox>
@@ -51,6 +52,7 @@
 #include <QThread>
 #include <QTimer>
 #include <QTranslator>
+#include <QtGlobal>
 
 #if defined(QT_STATICPLUGIN)
 #include <QtPlugin>
@@ -149,7 +151,7 @@ static void RegisterMetaTypes()
   #ifdef ENABLE_WALLET
     qRegisterMetaType<WalletModel*>();
   #endif
-    // Register typedefs (see http://qt-project.org/doc/qt-5/qmetatype.html#qRegisterMetaType)
+    // Register typedefs (see https://doc.qt.io/qt-5/qmetatype.html#qRegisterMetaType)
     // IMPORTANT: if CAmount is no longer a typedef use the normal variant above (see https://doc.qt.io/qt-5/qmetatype.html#qRegisterMetaType-1)
     qRegisterMetaType<CAmount>("CAmount");
     qRegisterMetaType<size_t>("size_t");
@@ -339,7 +341,7 @@ void BitcoinApplication::createWindow(const NetworkStyle *networkStyle)
 void BitcoinApplication::createSplashScreen(const NetworkStyle *networkStyle)
 {
     assert(!m_splash);
-    m_splash = new SplashScreen(nullptr, networkStyle);
+    m_splash = new SplashScreen(networkStyle);
     // We don't hold a direct pointer to the splash screen after creation, but the splash
     // screen will take care of deleting itself when finish() happens.
     m_splash->show();
@@ -538,11 +540,17 @@ int GuiMain(int argc, char* argv[])
 
     // Generate high-dpi pixmaps
     QApplication::setAttribute(Qt::AA_UseHighDpiPixmaps);
-#if QT_VERSION >= 0x050600
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
+
+#if (QT_VERSION <= QT_VERSION_CHECK(5, 9, 8)) && defined(Q_OS_MACOS)
+    const auto os_name = QSysInfo::prettyProductName();
+    if (os_name.startsWith("macOS 11") || os_name.startsWith("macOS 10.16")) {
+        QApplication::setStyle("fusion");
+    }
 #endif
 
     BitcoinApplication app;
+    QFontDatabase::addApplicationFont(":/fonts/monospace");
 
     /// 2. Parse command-line options. We do this after qt in order to show an error if there are problems parsing these
     // Command-line options take precedence:

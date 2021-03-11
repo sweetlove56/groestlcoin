@@ -1,4 +1,4 @@
-// Copyright (c) 2020 The Bitcoin Core developers
+// Copyright (c) 2020-2021 The Bitcoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -15,12 +15,12 @@
 #include <string>
 #include <vector>
 
-void initialize()
+void initialize_pow()
 {
     SelectParams(CBaseChainParams::MAIN);
 }
 
-void test_one_input(const std::vector<uint8_t>& buffer)
+FUZZ_TARGET_INIT(pow, initialize_pow)
 {
     FuzzedDataProvider fuzzed_data_provider(buffer.data(), buffer.size());
     const Consensus::Params& consensus_params = Params().GetConsensus();
@@ -43,7 +43,10 @@ void test_one_input(const std::vector<uint8_t>& buffer)
                 current_block.nHeight = current_height;
             }
             if (fuzzed_data_provider.ConsumeBool()) {
-                current_block.nTime = fixed_time + current_height * consensus_params.nPowTargetSpacing;
+                const uint32_t seconds = current_height * consensus_params.nPowTargetSpacing;
+                if (!AdditionOverflow(fixed_time, seconds)) {
+                    current_block.nTime = fixed_time + seconds;
+                }
             }
             if (fuzzed_data_provider.ConsumeBool()) {
                 current_block.nBits = fixed_bits;

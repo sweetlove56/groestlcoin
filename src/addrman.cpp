@@ -11,6 +11,8 @@
 #include <streams.h>
 #include <groestlcoin.h>
 
+#include <cmath>
+
 int CAddrInfo::GetTriedBucket(const uint256& nKey, const std::vector<bool> &asmap) const
 {
     uint64_t hash1 = (XCoin::CGroestlHashWriter(SER_GETHASH, 0) << nKey << GetKey()).GetCheapHash();
@@ -623,7 +625,7 @@ CAddrInfo CAddrMan::SelectTriedCollision_()
         return CAddrInfo();
     }
 
-    CAddrInfo& newInfo = mapInfo[id_new];
+    const CAddrInfo& newInfo = mapInfo[id_new];
 
     // which tried bucket to move the entry to
     int tried_bucket = newInfo.GetTriedBucket(nKey, m_asmap);

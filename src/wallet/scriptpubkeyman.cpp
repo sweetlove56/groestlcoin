@@ -3,13 +3,17 @@
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include <key_io.h>
+#include <logging.h>
 #include <outputtype.h>
 #include <script/descriptor.h>
 #include <script/sign.h>
 #include <util/bip32.h>
 #include <util/strencodings.h>
 #include <util/string.h>
+#include <util/system.h>
+#include <util/time.h>
 #include <util/translation.h>
+#include <wallet/external_signer.h>
 #include <wallet/scriptpubkeyman.h>
 
 //! Value for the first BIP 32 hardened derivation. Can be used as a bit mask and as a value. See BIP 32 for more details.
@@ -91,8 +95,7 @@ IsMineResult IsMineInner(const LegacyScriptPubKeyMan& keystore, const CScript& s
     TxoutType whichType = Solver(scriptPubKey, vSolutions);
 
     CKeyID keyID;
-    switch (whichType)
-    {
+    switch (whichType) {
     case TxoutType::NONSTANDARD:
     case TxoutType::NULL_DATA:
     case TxoutType::WITNESS_UNKNOWN:
@@ -191,7 +194,7 @@ IsMineResult IsMineInner(const LegacyScriptPubKeyMan& keystore, const CScript& s
         }
         break;
     }
-    }
+    } // no default case, so the compiler can warn about missing cases
 
     if (ret == IsMineResult::NO && keystore.HaveWatchOnly(scriptPubKey)) {
         ret = std::max(ret, IsMineResult::WATCH_ONLY);
@@ -2261,4 +2264,17 @@ const std::vector<CScript> DescriptorScriptPubKeyMan::GetScriptPubKeys() const
         script_pub_keys.push_back(script_pub_key.first);
     }
     return script_pub_keys;
+}
+
+bool DescriptorScriptPubKeyMan::GetDescriptorString(std::string& out, bool priv) const
+{
+    LOCK(cs_desc_man);
+    if (m_storage.IsLocked()) {
+        return false;
+    }
+
+    FlatSigningProvider provider;
+    provider.keys = GetKeys();
+
+    return m_wallet_descriptor.descriptor->ToNormalizedString(provider, out, priv);
 }

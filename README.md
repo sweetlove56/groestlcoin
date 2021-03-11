@@ -28,6 +28,8 @@ The algorithm was written as a candidate for sha3
 
 https://bitcointalk.org/index.php?topic=525926.0
 
+Further information about Groestlcoin Core is available in the [doc folder](/doc).
+
 What is Groestlcoin?
 -----------------
 
@@ -36,9 +38,6 @@ anyone, anywhere in the world. Groestlcoin uses peer-to-peer technology to opera
 with no central authority: managing transactions and issuing money are carried
 out collectively by the network. Groestlcoin Core is the name of open source
 software which enables the use of this currency.
-
-For more information, as well as an immediately useable, binary version of
-the Groestlcoin Core software, see https://www.groestlcoin.org/download.
 
 License
 -------
@@ -74,10 +73,6 @@ Development tips and tricks
 Run configure with the --enable-debug option, then make. Or run configure with
 CXXFLAGS="-g -ggdb -O0" or whatever debug flags you need.
 
-**debug.log**
-
-If the code is behaving strangely, take a look in the debug.log file in the data directory;
-error and debugging message are written there.
 
 The -debug=... command-line option controls debugging; running with just -debug will turn
 on all categories (and give you a very large debug.log file).
@@ -94,9 +89,5 @@ If you are testing something that can run on one machine, run with the -regtest 
 In regression test mode blocks can be created on-demand; see qa/rpc-tests/ for tests
 that run in -regest mode.
 
-**DEBUG_LOCKORDER**
-
-Groestlcoin Core is a multithreaded application, and deadlocks or other multithreading bugs
-can be very difficult to track down. Compiling with -DDEBUG_LOCKORDER (configure
-CXXFLAGS="-DDEBUG_LOCKORDER -g") inserts run-time checks to keep track of what locks
-are held, and adds warning to the debug.log file if inconsistencies are detected.
+**Important**: We do not accept translation changes as GitHub pull requests because the next
+pull from Transifex would automatically overwrite them again.

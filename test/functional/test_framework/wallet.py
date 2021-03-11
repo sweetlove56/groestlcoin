@@ -32,6 +32,15 @@ class MiniWallet:
         self._address = ADDRESS_BCRT1_P2WSH_OP_TRUE
         self._scriptPubKey = hex_str_to_bytes(self._test_node.validateaddress(self._address)['scriptPubKey'])
 
+    def scan_blocks(self, *, start=1, num):
+        """Scan the blocks for self._address outputs and add them to self._utxos"""
+        for i in range(start, start + num):
+            block = self._test_node.getblock(blockhash=self._test_node.getblockhash(i), verbosity=2)
+            for tx in block['tx']:
+                for out in tx['vout']:
+                    if out['scriptPubKey']['hex'] == self._scriptPubKey.hex():
+                        self._utxos.append({'txid': tx['txid'], 'vout': out['n'], 'value': out['value']})
+
     def generate(self, num_blocks):
         """Generate blocks with coinbase outputs to the internal address, and append the outputs to the internal list"""
         blocks = self._test_node.generatetoaddress(num_blocks, self._address)
@@ -40,9 +49,20 @@ class MiniWallet:
             self._utxos.append({'txid': cb_tx['txid'], 'vout': 0, 'value': cb_tx['vout'][0]['value']})
         return blocks
 
-    def get_utxo(self):
-        """Return the last utxo. Can be used to get the change output immediately after a send_self_transfer"""
-        return self._utxos.pop()
+    def get_utxo(self, *, txid=''):
+        """
+        Returns a utxo and marks it as spent (pops it from the internal list)
+
+        Args:
+        txid (string), optional: get the first utxo we find from a specific transaction
+
+        Note: Can be used to get the change output immediately after a send_self_transfer
+        """
+        index = -1  # by default the last utxo
+        if txid:
+            utxo = next(filter(lambda utxo: txid == utxo['txid'], self._utxos))
+            index = self._utxos.index(utxo)
+        return self._utxos.pop(index)
 
     def send_self_transfer(self, *, fee_rate=Decimal("0.003"), from_node, utxo_to_spend=None):
         """Create and send a tx with the specified fee_rate. Fee may be exact or at most one satoshi higher than needed."""
@@ -60,9 +80,9 @@ class MiniWallet:
         tx.wit.vtxinwit[0].scriptWitness.stack = [CScript([OP_TRUE])]
         tx_hex = tx.serialize().hex()
 
-        txid = from_node.sendrawtransaction(tx_hex)
-        self._utxos.append({'txid': txid, 'vout': 0, 'value': send_value})
-        tx_info = from_node.getmempoolentry(txid)
+        tx_info = from_node.testmempoolaccept([tx_hex])[0]
+        self._utxos.append({'txid': tx_info['txid'], 'vout': 0, 'value': send_value})
+        from_node.sendrawtransaction(tx_hex)
         assert_equal(tx_info['vsize'], vsize)
-        assert_equal(tx_info['fee'], fee)
-        return {'txid': txid, 'wtxid': tx_info['wtxid'], 'hex': tx_hex}
+        assert_equal(tx_info['fees']['base'], fee)
+        return {'txid': tx_info['txid'], 'wtxid': tx_info['wtxid'], 'hex': tx_hex}

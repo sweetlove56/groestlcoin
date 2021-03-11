@@ -15,10 +15,10 @@
 #include <txmempool.h>
 #include <util/check.h>
 #include <util/string.h>
+#include <util/vector.h>
 
 #include <type_traits>
-
-#include <boost/thread/thread.hpp>
+#include <vector>
 
 /** This is connected to the logger. Can be used to redirect logs to any other log */
 extern const std::function<void(const std::string&)> G_TEST_LOG_FUN;
@@ -79,18 +79,23 @@ struct BasicTestingSetup {
     explicit BasicTestingSetup(const std::string& chainName = CBaseChainParams::MAIN, const std::vector<const char*>& extra_args = {});
     ~BasicTestingSetup();
 
-private:
     const fs::path m_path_root;
 };
 
-/** Testing setup that configures a complete environment.
- * Included are coins database, script check threads setup.
+/** Testing setup that performs all steps up until right before
+ * ChainstateManager gets initialized. Meant for testing ChainstateManager
+ * initialization behaviour.
  */
-struct TestingSetup : public BasicTestingSetup {
-    boost::thread_group threadGroup;
+struct ChainTestingSetup : public BasicTestingSetup {
 
+    explicit ChainTestingSetup(const std::string& chainName = CBaseChainParams::MAIN, const std::vector<const char*>& extra_args = {});
+    ~ChainTestingSetup();
+};
+
+/** Testing setup that configures a complete environment.
+ */
+struct TestingSetup : public ChainTestingSetup {
     explicit TestingSetup(const std::string& chainName = CBaseChainParams::MAIN, const std::vector<const char*>& extra_args = {});
-    ~TestingSetup();
 };
 
 /** Identical to TestingSetup, but chain set to regtest */
@@ -107,7 +112,7 @@ class CScript;
  * Testing fixture that pre-creates a 100-block REGTEST-mode block chain
  */
 struct TestChain100Setup : public RegTestingSetup {
-    TestChain100Setup();
+    TestChain100Setup(bool deterministic = false);
 
     /**
      * Create a new block with just given transactions, coinbase paying to
@@ -116,11 +121,54 @@ struct TestChain100Setup : public RegTestingSetup {
     CBlock CreateAndProcessBlock(const std::vector<CMutableTransaction>& txns,
                                  const CScript& scriptPubKey);
 
+    //! Mine a series of new blocks on the active chain.
+    void mineBlocks(int num_blocks);
+
+    /**
+     * Create a transaction and submit to the mempool.
+     *
+     * @param input_transaction  The transaction to spend
+     * @param input_vout         The vout to spend from the input_transaction
+     * @param input_height       The height of the block that included the input_transaction
+     * @param input_signing_key  The key to spend the input_transaction
+     * @param output_destination Where to send the output
+     * @param output_amount      How much to send
+     */
+    CMutableTransaction CreateValidMempoolTransaction(CTransactionRef input_transaction,
+                                                      int input_vout,
+                                                      int input_height,
+                                                      CKey input_signing_key,
+                                                      CScript output_destination,
+                                                      CAmount output_amount = CAmount(1 * COIN));
+
     ~TestChain100Setup();
 
+    bool m_deterministic;
     std::vector<CTransactionRef> m_coinbase_txns; // For convenience, coinbase transactions
     CKey coinbaseKey; // private/public key needed to spend coinbase transactions
 };
+
+
+struct TestChain100DeterministicSetup : public TestChain100Setup {
+    TestChain100DeterministicSetup() : TestChain100Setup(true) { }
+};
+
+/**
+ * Make a test setup that has disk access to the debug.log file disabled. Can
+ * be used in "hot loops", for example fuzzing or benchmarking.
+ */
+template <class T = const BasicTestingSetup>
+std::unique_ptr<T> MakeNoLogFileContext(const std::string& chain_name = CBaseChainParams::REGTEST, const std::vector<const char*>& extra_args = {})
+{
+    const std::vector<const char*> arguments = Cat(
+        {
+            "-nodebuglogfile",
+            "-nodebug",
+        },
+        extra_args);
+
+    return std::make_unique<T>(chain_name, arguments);
+}
 
 class CTxMemPoolEntry;
 
@@ -138,8 +186,8 @@ struct TestMemPoolEntryHelper
         nFee(0), nTime(0), nHeight(1),
         spendsCoinbase(false), sigOpCost(4) { }
 
-    CTxMemPoolEntry FromTx(const CMutableTransaction& tx);
-    CTxMemPoolEntry FromTx(const CTransactionRef& tx);
+    CTxMemPoolEntry FromTx(const CMutableTransaction& tx) const;
+    CTxMemPoolEntry FromTx(const CTransactionRef& tx) const;
 
     // Change the default value
     TestMemPoolEntryHelper &Fee(CAmount _fee) { nFee = _fee; return *this; }

@@ -53,11 +53,12 @@ Paths
 
 All three configurations assume several paths that might need to be adjusted.
 
-Binary:              `/usr/bin/groestlcoind`
-Configuration file:  `/etc/groestlcoin/groestlcoin.conf`
-Data directory:      `/var/lib/groestlcoind`
-PID file:            `/var/run/groestlcoind/groestlcoind.pid` (OpenRC and Upstart) or `/run/groestlcoind/groestlcoind.pid` (systemd)
-Lock file:           `/var/lock/subsys/groestlcoind` (CentOS)
+    Binary:              /usr/bin/groestlcoind
+    Configuration file:  /etc/groestlcoin/groestlcoin.conf
+    Data directory:      /var/lib/groestlcoind
+    PID file:            /var/run/groestlcoind/groestlcoind.pid (OpenRC and Upstart) or
+                         /run/groestlcoind/groestlcoind.pid (systemd)
+    Lock file:           /var/lock/subsys/groestlcoind (CentOS)
 
 The PID directory (if applicable) and data directory should both be owned by the
 groestlcoin user and group. It is advised for security reasons to make the
@@ -83,10 +84,10 @@ OpenRC).
 
 ### macOS
 
-Binary:              `/usr/local/bin/groestlcoind`
-Configuration file:  `~/Library/Application Support/Groestlcoin/groestlcoin.conf`
-Data directory:      `~/Library/Application Support/Groestlcoin`
-Lock file:           `~/Library/Application Support/Groestlcoin/.lock`
+    Binary:              /usr/local/bin/groestlcoind
+    Configuration file:  ~/Library/Application Support/Groestlcoin/groestlcoin.conf
+    Data directory:      ~/Library/Application Support/Groestlcoin
+    Lock file:           ~/Library/Application Support/Groestlcoin/.lock
 
 Installing Service Configuration
 -----------------------------------
