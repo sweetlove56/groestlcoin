@@ -1,42 +1,42 @@
-#!/sbin/runscript
+#!/sbin/openrc-run
 
-# backward compatibility for existing gentoo layout
+# backward compatibility for existing gentoo layout 
 #
-if [ -d "/var/lib/groestlcoin/.groestlcoin" ]; then
-	GROESTLCOIND_DEFAULT_DATADIR="/var/lib/groestlcoin/.groestlcoin"
+if [ -d "/var/lib/bitcoin/.bitcoin" ]; then
+	BITCOIND_DEFAULT_DATADIR="/var/lib/bitcoin/.bitcoin"
 else
-	GROESTLCOIND_DEFAULT_DATADIR="/var/lib/groestlcoind"
+	BITCOIND_DEFAULT_DATADIR="/var/lib/bitcoind"
 fi
 
-GROESTLCOIND_CONFIGFILE=${GROESTLCOIND_CONFIGFILE:-/etc/groestlcoin/groestlcoin.conf}
-GROESTLCOIND_PIDDIR=${GROESTLCOIND_PIDDIR:-/var/run/groestlcoind}
-GROESTLCOIND_PIDFILE=${GROESTLCOIND_PIDFILE:-${GROESTLCOIND_PIDDIR}/groestlcoind.pid}
-GROESTLCOIND_DATADIR=${GROESTLCOIND_DATADIR:-${GROESTLCOIND_DEFAULT_DATADIR}}
-GROESTLCOIND_USER=${GROESTLCOIND_USER:-${GROESTLCOIN_USER:-groestlcoin}}
-GROESTLCOIND_GROUP=${GROESTLCOIND_GROUP:-groestlcoin}
-GROESTLCOIND_BIN=${GROESTLCOIND_BIN:-/usr/bin/groestlcoind}
-GROESTLCOIND_NICE=${GROESTLCOIND_NICE:-${NICELEVEL:-0}}
-GROESTLCOIND_OPTS="${GROESTLCOIND_OPTS:-${GROESTLCOIN_OPTS}}"
+BITCOIND_CONFIGFILE=${BITCOIND_CONFIGFILE:-/etc/bitcoin/bitcoin.conf}
+BITCOIND_PIDDIR=${BITCOIND_PIDDIR:-/var/run/bitcoind}
+BITCOIND_PIDFILE=${BITCOIND_PIDFILE:-${BITCOIND_PIDDIR}/bitcoind.pid}
+BITCOIND_DATADIR=${BITCOIND_DATADIR:-${BITCOIND_DEFAULT_DATADIR}}
+BITCOIND_USER=${BITCOIND_USER:-${BITCOIN_USER:-bitcoin}}
+BITCOIND_GROUP=${BITCOIND_GROUP:-bitcoin}
+BITCOIND_BIN=${BITCOIND_BIN:-/usr/bin/bitcoind}
+BITCOIND_NICE=${BITCOIND_NICE:-${NICELEVEL:-0}}
+BITCOIND_OPTS="${BITCOIND_OPTS:-${BITCOIN_OPTS}}"
 
-name="GroestlCoin Core Daemon"
-description="GroestlCoin cryptocurrency P2P network daemon"
+name="Bitcoin Core Daemon"
+description="Bitcoin cryptocurrency P2P network daemon"
 
-command="/usr/bin/groestlcoind"
-command_args="-pid=\"${GROESTLCOIND_PIDFILE}\" \
-		-conf=\"${GROESTLCOIND_CONFIGFILE}\" \
-		-datadir=\"${GROESTLCOIND_DATADIR}\" \
+command="/usr/bin/bitcoind"
+command_args="-pid=\"${BITCOIND_PIDFILE}\" \
+		-conf=\"${BITCOIND_CONFIGFILE}\" \
+		-datadir=\"${BITCOIND_DATADIR}\" \
 		-daemon \
-		${GROESTLCOIND_OPTS}"
+		${BITCOIND_OPTS}"
 
-required_files="${GROESTLCOIND_CONFIGFILE}"
-start_stop_daemon_args="-u ${GROESTLCOIND_USER} \
-			-N ${GROESTLCOIND_NICE} -w 2000"
-pidfile="${GROESTLCOIND_PIDFILE}"
+required_files="${BITCOIND_CONFIGFILE}"
+start_stop_daemon_args="-u ${BITCOIND_USER} \
+			-N ${BITCOIND_NICE} -w 2000"
+pidfile="${BITCOIND_PIDFILE}"
 
 # The retry schedule to use when stopping the daemon. Could be either
 # a timeout in seconds or multiple signal/timeout pairs (like
 # "SIGKILL/180 SIGTERM/300")
-retry="${GROESTLCOIND_SIGTERM_TIMEOUT}"
+retry="${BITCOIND_SIGTERM_TIMEOUT}"
 
 depend() {
 	need localmount net
@@ -50,41 +50,42 @@ start_pre() {
 	checkpath \
 	-d \
 	--mode 0750 \
-	--owner "${GROESTLCOIND_USER}:${GROESTLCOIND_GROUP}" \
-	"${GROESTLCOIND_DATADIR}"
+	--owner "${BITCOIND_USER}:${BITCOIND_GROUP}" \
+	"${BITCOIND_DATADIR}"
 
 	checkpath \
 	-d \
 	--mode 0755 \
-	--owner "${GROESTLCOIND_USER}:${GROESTLCOIND_GROUP}" \
-	"${GROESTLCOIND_PIDDIR}"
+	--owner "${BITCOIND_USER}:${BITCOIND_GROUP}" \
+	"${BITCOIND_PIDDIR}"
 
 	checkpath -f \
-	-o ${GROESTLCOIND_USER}:${GROESTLCOIND_GROUP} \
+	-o "${BITCOIND_USER}:${BITCOIND_GROUP}" \
 	-m 0660 \
-	${GROESTLCOIND_CONFIGFILE}
+	"${BITCOIND_CONFIGFILE}"
 
 	checkconfig || return 1
 }
 
 checkconfig()
 {
-	if ! grep -qs '^rpcpassword=' "${GROESTLCOIND_CONFIGFILE}" ; then
+	if grep -qs '^rpcuser=' "${BITCOIND_CONFIGFILE}" && \
+		! grep -qs '^rpcpassword=' "${BITCOIND_CONFIGFILE}" ; then
 		eerror ""
-		eerror "ERROR: You must set a secure rpcpassword to run groestlcoind."
-		eerror "The setting must appear in ${GROESTLCOIND_CONFIGFILE}"
+		eerror "ERROR: You must set a secure rpcpassword to run bitcoind."
+		eerror "The setting must appear in ${BITCOIND_CONFIGFILE}"
 		eerror ""
 		eerror "This password is security critical to securing wallets "
 		eerror "and must not be the same as the rpcuser setting."
-		eerror "You can generate a suitable random password using the following"
+		eerror "You can generate a suitable random password using the following "
 		eerror "command from the shell:"
 		eerror ""
 		eerror "bash -c 'tr -dc a-zA-Z0-9 < /dev/urandom | head -c32 && echo'"
 		eerror ""
-		eerror "It is also recommended that you also set alertnotify so you are "
+		eerror "It is recommended that you also set alertnotify so you are "
 		eerror "notified of problems:"
 		eerror ""
-		eerror "ie: alertnotify=echo %%s | mail -s \"Groestlcoin Alert\"" \
+		eerror "ie: alertnotify=echo %%s | mail -s \"Bitcoin Alert\"" \
 			"admin@foo.com"
 		eerror ""
 		return 1

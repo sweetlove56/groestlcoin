@@ -922,7 +922,7 @@ AC_CHECK_DECLS([getifaddrs, freeifaddrs],,,
 )
 AC_CHECK_DECLS([strnlen])
 
-dnl These are used for daemonization in bitcoind
+dnl These are used for daemonization in groestlcoind
 AC_CHECK_DECLS([fork])
 AC_CHECK_DECLS([setsid])
 
