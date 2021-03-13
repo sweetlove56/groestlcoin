@@ -7,7 +7,6 @@
 
 #include <tinyformat.h>
 #include <util/system.h>
-#include <util/memory.h>
 
 #include <assert.h>
 #include <memory>
@@ -45,13 +44,13 @@ const CBaseChainParams& BaseParams()
 std::unique_ptr<CBaseChainParams> CreateBaseChainParams(const std::string& chain)
 {
     if (chain == CBaseChainParams::MAIN) {
-        return MakeUnique<CBaseChainParams>("", 1441, 1444);
+        return std::make_unique<CBaseChainParams>("", 1441, 1444);
     } else if (chain == CBaseChainParams::TESTNET) {
-        return MakeUnique<CBaseChainParams>("testnet3", 17766, 17764);
+        return std::make_unique<CBaseChainParams>("testnet3", 17766, 17764);
     } else if (chain == CBaseChainParams::SIGNET) {
-        return MakeUnique<CBaseChainParams>("signet", 31441, 31444);
+        return std::make_unique<CBaseChainParams>("signet", 31441, 31444);
     } else if (chain == CBaseChainParams::REGTEST) {
-        return MakeUnique<CBaseChainParams>("regtest", 18443, 18445);
+        return std::make_unique<CBaseChainParams>("regtest", 18443, 18445);
     }
     throw std::runtime_error(strprintf("%s: Unknown chain %s.", __func__, chain));
 }
