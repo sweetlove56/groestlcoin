@@ -61,9 +61,9 @@ The patch will be accepted if there is broad consensus that it is a good thing.
 Developers should expect to rework and resubmit patches if the code doesn't
 match the project's coding conventions or are controversial.
 
-The `master` branch is regularly built and tested, but is not guaranteed to be
+The `master` branch is regularly built (see `doc/build-*.md` for instructions) and tested, but is not guaranteed to be
 completely stable. [Tags](https://github.com/groestlcoin/groestlcoin/tags) are created
-regularly to indicate new official, stable release versions of Groestlcoin.
+regularly from release branches to indicate new official, stable release versions of Groestlcoin Core.
 
 Development tips and tricks
 ---------------------------
@@ -86,8 +86,11 @@ Run with the -testnet option to run with "play groestlcoins" on the test network
 are testing multi-machine code that needs to operate across the internet.
 
 If you are testing something that can run on one machine, run with the -regtest option.
-In regression test mode blocks can be created on-demand; see qa/rpc-tests/ for tests
-that run in -regest mode.
+
+Translations
+------------
+
+Translations are periodically pulled from Transifex and merged into the git repository.
 
 **Important**: We do not accept translation changes as GitHub pull requests because the next
 pull from Transifex would automatically overwrite them again.
