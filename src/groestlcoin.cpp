@@ -408,12 +408,11 @@ public:
         };
     }
 };
-static CMainParams mainParams;
 
 /**
  * Testnet (v3)
  */
-class CTestNetParams : public CMainParams {
+class CTestNetParams : public CChainParams {
 public:
     CTestNetParams() {
         strNetworkID = CBaseChainParams::TESTNET;
@@ -507,7 +506,6 @@ public:
         };
     }
 };
-static CTestNetParams testNetParams;
 
 /**
  * Signet
@@ -619,7 +617,7 @@ public:
 /**
  * Regression test
  */
-class CRegTestParams : public CMainParams {
+class CRegTestParams : public CChainParams {
 public:
     explicit CRegTestParams(const ArgsManager& args) {
         strNetworkID =  CBaseChainParams::REGTEST;
