@@ -18,7 +18,7 @@ After=network-online.target
 Wants=network-online.target
 
 [Service]
-ExecStart=/usr/bin/groestlcoind -daemon \
+ExecStart=/usr/bin/groestlcoind -daemonwait \
                             -pid=/run/groestlcoind/groestlcoind.pid \
                             -conf=/etc/groestlcoin/groestlcoin.conf \
                             -datadir=/var/lib/groestlcoind
@@ -33,6 +33,7 @@ ExecStartPre=/bin/chgrp groestlcoin /etc/groestlcoin
 Type=forking
 PIDFile=/run/groestlcoind/groestlcoind.pid
 Restart=on-failure
+TimeoutStartSec=infinity
 TimeoutStopSec=600
 
 # Directory creation and permissions
