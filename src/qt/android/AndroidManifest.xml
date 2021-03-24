@@ -14,7 +14,7 @@
         <activity android:configChanges="orientation|uiMode|screenLayout|screenSize|smallestScreenSize|layoutDirection|locale|fontScale|keyboard|keyboardHidden|navigation|mcc|mnc|density"
                   android:name="org.groestlcoin.qt.BitcoinQtActivity"
                   android:label="Groestlcoin Core"
-                  android:icon="@drawable/bitcoin"
+                  android:icon="@drawable/groestlcoin"
                   android:screenOrientation="unspecified"
                   android:launchMode="singleTop">
             <intent-filter>
