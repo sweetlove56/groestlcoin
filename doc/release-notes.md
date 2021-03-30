@@ -47,9 +47,7 @@ Core should also work on most other Unix-like systems but is not as
 frequently tested on them.  It is not recommended to use Groestlcoin Core on
 unsupported systems.
 
-From Groestlcoin Core 0.22.0 onwards, macOS versions earlier than 10.14 are no
-longer supported. Additionally, Groestlcoin Core does not yet change appearance
-when macOS "dark mode" is activated.
+From Groestlcoin Core 22.0 onwards, macOS versions earlier than 10.14 are no longer supported.
 
 Notable changes
 ===============
@@ -64,6 +62,21 @@ Updated RPCs
   `addnode`, the `connection_type` field returns manual. Instead of
   `whitelisted`, the `permissions` field indicates if the peer has special
   privileges. The `banscore` field has simply been removed. (#20755)
+
+- The following RPCs:  `gettxout`, `getrawtransaction`, `decoderawtransaction`,
+  `decodescript`, `gettransaction`, and REST endpoints: `/rest/tx`,
+  `/rest/getutxos`, `/rest/block` deprecated the following fields (which are no
+  longer returned in the responses by default): `addresses`, `reqSigs`.
+  The `-deprecatedrpc=addresses` flag must be passed for these fields to be
+  included in the RPC response. This flag/option will be available until v23, at which
+  point the deprecation will be removed entirely. Note that these fields are attributes of
+  the `scriptPubKey` object returned in the RPC response. However, in the response
+  of `decodescript` these fields are top-level attributes, and included again as attributes
+  of the `scriptPubKey` object. (#20286)
+
+- When creating a hex-encoded bitcoin transaction using the `bitcoin-tx` utility
+  with the `-json` option set, the following fields: `addresses`, `reqSigs` are no longer
+  returned in the tx output of the response. (#20286)
 
 Changes to Wallet or GUI related RPCs can be found in the GUI or Wallet section below.
 
@@ -101,6 +114,10 @@ Low-level changes
 
 RPC
 ---
+- The RPC server can process a limited number of simultaneous RPC requests.
+  Previously, if this limit was exceeded, `bitcoind` would respond with
+  [status code 500 (`HTTP_INTERNAL_SERVER_ERROR`)](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#5xx_server_errors).
+  Now it returns status code 503 (`HTTP_SERVICE_UNAVAILABLE`). (#18335)
 
 Tests
 -----
