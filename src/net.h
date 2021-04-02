@@ -549,8 +549,9 @@ public:
     std::vector<CAddress> vAddrToSend;
     std::unique_ptr<CRollingBloomFilter> m_addr_known{nullptr};
     bool fGetAddr{false};
-    std::chrono::microseconds m_next_addr_send GUARDED_BY(cs_sendProcessing){0};
-    std::chrono::microseconds m_next_local_addr_send GUARDED_BY(cs_sendProcessing){0};
+    Mutex m_addr_send_times_mutex;
+    std::chrono::microseconds m_next_addr_send GUARDED_BY(m_addr_send_times_mutex){0};
+    std::chrono::microseconds m_next_local_addr_send GUARDED_BY(m_addr_send_times_mutex){0};
 
     struct TxRelay {
         mutable RecursiveMutex cs_filter;
@@ -1017,8 +1018,8 @@ public:
 
     void SetAsmap(std::vector<bool> asmap) { addrman.m_asmap = std::move(asmap); }
 
-    /** Return true if the peer has been connected for long enough to do inactivity checks. */
-    bool RunInactivityChecks(const CNode& node) const;
+    /** Return true if we should disconnect the peer for failing an inactivity check. */
+    bool ShouldRunInactivityChecks(const CNode& node, std::optional<int64_t> now=std::nullopt) const;
 
 private:
     struct ListenSocket {

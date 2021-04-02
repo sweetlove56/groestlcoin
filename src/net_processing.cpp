@@ -33,6 +33,7 @@
 #include <util/system.h>
 #include <validation.h>
 
+#include <algorithm>
 #include <memory>
 #include <optional>
 #include <typeinfo>
@@ -317,8 +318,13 @@ private:
     void PushNodeVersion(CNode& pnode, int64_t nTime);
 
     /** Send a ping message every PING_INTERVAL or if requested via RPC. May
-     *  mark the peer to be disconnected if a ping has timed out. */
-    void MaybeSendPing(CNode& node_to, Peer& peer);
+     *  mark the peer to be disconnected if a ping has timed out.
+     *  We use mockable time for ping timeouts, so setmocktime may cause pings
+     *  to time out. */
+    void MaybeSendPing(CNode& node_to, Peer& peer, std::chrono::microseconds now);
+
+    /** Send `addr` messages on a regular schedule. */
+    void MaybeSendAddr(CNode& node, std::chrono::microseconds current_time);
 
     const CChainParams& m_chainparams;
     CConnman& m_connman;
@@ -476,19 +482,70 @@ private:
     /** Offset into vExtraTxnForCompact to insert the next tx */
     size_t vExtraTxnForCompactIt GUARDED_BY(g_cs_orphans) = 0;
 
+    /** Check whether the last unknown block a peer advertised is not yet known. */
     void ProcessBlockAvailability(NodeId nodeid) EXCLUSIVE_LOCKS_REQUIRED(cs_main);
+    /** Update tracking information about which blocks a peer is assumed to have. */
     void UpdateBlockAvailability(NodeId nodeid, const uint256& hash) EXCLUSIVE_LOCKS_REQUIRED(cs_main);
     bool CanDirectFetch() EXCLUSIVE_LOCKS_REQUIRED(cs_main);
+
+    /**
+     * To prevent fingerprinting attacks, only send blocks/headers outside of
+     * the active chain if they are no more than a month older (both in time,
+     * and in best equivalent proof of work) than the best header chain we know
+     * about and we fully-validated them at some point.
+     */
     bool BlockRequestAllowed(const CBlockIndex* pindex) EXCLUSIVE_LOCKS_REQUIRED(cs_main);
     bool AlreadyHaveBlock(const uint256& block_hash) EXCLUSIVE_LOCKS_REQUIRED(cs_main);
     void ProcessGetBlockData(CNode& pfrom, Peer& peer, const CInv& inv);
+
+    /**
+     * Validation logic for compact filters request handling.
+     *
+     * May disconnect from the peer in the case of a bad request.
+     *
+     * @param[in]   peer            The peer that we received the request from
+     * @param[in]   filter_type     The filter type the request is for. Must be basic filters.
+     * @param[in]   start_height    The start height for the request
+     * @param[in]   stop_hash       The stop_hash for the request
+     * @param[in]   max_height_diff The maximum number of items permitted to request, as specified in BIP 157
+     * @param[out]  stop_index      The CBlockIndex for the stop_hash block, if the request can be serviced.
+     * @param[out]  filter_index    The filter index, if the request can be serviced.
+     * @return                      True if the request can be serviced.
+     */
     bool PrepareBlockFilterRequest(CNode& peer,
                                    BlockFilterType filter_type, uint32_t start_height,
                                    const uint256& stop_hash, uint32_t max_height_diff,
                                    const CBlockIndex*& stop_index,
                                    BlockFilterIndex*& filter_index);
+
+    /**
+     * Handle a cfilters request.
+     *
+     * May disconnect from the peer in the case of a bad request.
+     *
+     * @param[in]   peer            The peer that we received the request from
+     * @param[in]   vRecv           The raw message received
+     */
     void ProcessGetCFilters(CNode& peer, CDataStream& vRecv);
+
+    /**
+     * Handle a cfheaders request.
+     *
+     * May disconnect from the peer in the case of a bad request.
+     *
+     * @param[in]   peer            The peer that we received the request from
+     * @param[in]   vRecv           The raw message received
+     */
     void ProcessGetCFHeaders(CNode& peer, CDataStream& vRecv);
+
+    /**
+     * Handle a getcfcheckpt request.
+     *
+     * May disconnect from the peer in the case of a bad request.
+     *
+     * @param[in]   peer            The peer that we received the request from
+     * @param[in]   vRecv           The raw message received
+     */
     void ProcessGetCFCheckPt(CNode& peer, CDataStream& vRecv);
 };
 } // namespace
@@ -742,7 +799,6 @@ static bool PeerHasHeader(CNodeState *state, const CBlockIndex *pindex) EXCLUSIV
     return false;
 }
 
-/** Check whether the last unknown block a peer advertised is not yet known. */
 void PeerManagerImpl::ProcessBlockAvailability(NodeId nodeid) {
     CNodeState *state = State(nodeid);
     assert(state != nullptr);
@@ -758,7 +814,6 @@ void PeerManagerImpl::ProcessBlockAvailability(NodeId nodeid) {
     }
 }
 
-/** Update tracking information about which blocks a peer is assumed to have. */
 void PeerManagerImpl::UpdateBlockAvailability(NodeId nodeid, const uint256 &hash) {
     CNodeState *state = State(nodeid);
     assert(state != nullptr);
@@ -1185,16 +1240,6 @@ bool PeerManagerImpl::MaybePunishNodeForTx(NodeId nodeid, const TxValidationStat
     return false;
 }
 
-
-//////////////////////////////////////////////////////////////////////////////
-//
-// blockchain -> download logic notification
-//
-
-// To prevent fingerprinting attacks, only send blocks/headers outside of the
-// active chain if they are no more than a month older (both in time, and in
-// best equivalent proof of work) than the best header chain we know about and
-// we fully-validated them at some point.
 bool PeerManagerImpl::BlockRequestAllowed(const CBlockIndex* pindex)
 {
     AssertLockHeld(cs_main);
@@ -2095,20 +2140,6 @@ void PeerManagerImpl::ProcessOrphanTx(std::set<uint256>& orphan_work_set)
     m_mempool.check(m_chainman.ActiveChainstate());
 }
 
-/**
- * Validation logic for compact filters request handling.
- *
- * May disconnect from the peer in the case of a bad request.
- *
- * @param[in]   peer            The peer that we received the request from
- * @param[in]   filter_type     The filter type the request is for. Must be basic filters.
- * @param[in]   start_height    The start height for the request
- * @param[in]   stop_hash       The stop_hash for the request
- * @param[in]   max_height_diff The maximum number of items permitted to request, as specified in BIP 157
- * @param[out]  stop_index      The CBlockIndex for the stop_hash block, if the request can be serviced.
- * @param[out]  filter_index    The filter index, if the request can be serviced.
- * @return                      True if the request can be serviced.
- */
 bool PeerManagerImpl::PrepareBlockFilterRequest(CNode& peer,
                                                 BlockFilterType filter_type, uint32_t start_height,
                                                 const uint256& stop_hash, uint32_t max_height_diff,
@@ -2162,14 +2193,6 @@ bool PeerManagerImpl::PrepareBlockFilterRequest(CNode& peer,
     return true;
 }
 
-/**
- * Handle a cfilters request.
- *
- * May disconnect from the peer in the case of a bad request.
- *
- * @param[in]   peer            The peer that we received the request from
- * @param[in]   vRecv           The raw message received
- */
 void PeerManagerImpl::ProcessGetCFilters(CNode& peer, CDataStream& vRecv)
 {
     uint8_t filter_type_ser;
@@ -2201,14 +2224,6 @@ void PeerManagerImpl::ProcessGetCFilters(CNode& peer, CDataStream& vRecv)
     }
 }
 
-/**
- * Handle a cfheaders request.
- *
- * May disconnect from the peer in the case of a bad request.
- *
- * @param[in]   peer            The peer that we received the request from
- * @param[in]   vRecv           The raw message received
- */
 void PeerManagerImpl::ProcessGetCFHeaders(CNode& peer, CDataStream& vRecv)
 {
     uint8_t filter_type_ser;
@@ -2253,14 +2268,6 @@ void PeerManagerImpl::ProcessGetCFHeaders(CNode& peer, CDataStream& vRecv)
     m_connman.PushMessage(&peer, std::move(msg));
 }
 
-/**
- * Handle a getcfcheckpt request.
- *
- * May disconnect from the peer in the case of a bad request.
- *
- * @param[in]   peer            The peer that we received the request from
- * @param[in]   vRecv           The raw message received
- */
 void PeerManagerImpl::ProcessGetCFCheckPt(CNode& peer, CDataStream& vRecv)
 {
     uint8_t filter_type_ser;
@@ -4111,13 +4118,9 @@ void PeerManagerImpl::CheckForStaleTipAndEvictPeers()
     }
 }
 
-void PeerManagerImpl::MaybeSendPing(CNode& node_to, Peer& peer)
+void PeerManagerImpl::MaybeSendPing(CNode& node_to, Peer& peer, std::chrono::microseconds now)
 {
-    // Use mockable time for ping timeouts.
-    // This means that setmocktime may cause pings to time out.
-    auto now = GetTime<std::chrono::microseconds>();
-
-    if (m_connman.RunInactivityChecks(node_to) && peer.m_ping_nonce_sent &&
+    if (m_connman.ShouldRunInactivityChecks(node_to) && peer.m_ping_nonce_sent &&
         now > peer.m_ping_start.load() + std::chrono::seconds{TIMEOUT_INTERVAL}) {
         LogPrint(BCLog::NET, "ping timeout: %fs peer=%d\n", 0.000001 * count_microseconds(now - peer.m_ping_start.load()), peer.m_id);
         node_to.fDisconnect = true;
@@ -4152,6 +4155,75 @@ void PeerManagerImpl::MaybeSendPing(CNode& node_to, Peer& peer)
             peer.m_ping_nonce_sent = 0;
             m_connman.PushMessage(&node_to, msgMaker.Make(NetMsgType::PING));
         }
+    }
+}
+
+void PeerManagerImpl::MaybeSendAddr(CNode& node, std::chrono::microseconds current_time)
+{
+    // Nothing to do for non-address-relay peers
+    if (!node.RelayAddrsWithConn()) return;
+
+    assert(node.m_addr_known);
+
+    LOCK(node.m_addr_send_times_mutex);
+    // Periodically advertise our local address to the peer.
+    if (fListen && !m_chainman.ActiveChainstate().IsInitialBlockDownload() &&
+        node.m_next_local_addr_send < current_time) {
+        // If we've sent before, clear the bloom filter for the peer, so that our
+        // self-announcement will actually go out.
+        // This might be unnecessary if the bloom filter has already rolled
+        // over since our last self-announcement, but there is only a small
+        // bandwidth cost that we can incur by doing this (which happens
+        // once a day on average).
+        if (node.m_next_local_addr_send != 0us) {
+            node.m_addr_known->reset();
+        }
+        if (std::optional<CAddress> local_addr = GetLocalAddrForPeer(&node)) {
+            FastRandomContext insecure_rand;
+            node.PushAddress(*local_addr, insecure_rand);
+        }
+        node.m_next_local_addr_send = PoissonNextSend(current_time, AVG_LOCAL_ADDRESS_BROADCAST_INTERVAL);
+    }
+
+    // We sent an `addr` message to this peer recently. Nothing more to do.
+    if (current_time <= node.m_next_addr_send) return;
+
+    node.m_next_addr_send = PoissonNextSend(current_time, AVG_ADDRESS_BROADCAST_INTERVAL);
+
+    if (!Assume(node.vAddrToSend.size() <= MAX_ADDR_TO_SEND)) {
+        // Should be impossible since we always check size before adding to
+        // vAddrToSend. Recover by trimming the vector.
+        node.vAddrToSend.resize(MAX_ADDR_TO_SEND);
+    }
+
+    // Remove addr records that the peer already knows about, and add new
+    // addrs to the m_addr_known filter on the same pass.
+    auto addr_already_known = [&node](const CAddress& addr) {
+        bool ret = node.m_addr_known->contains(addr.GetKey());
+        if (!ret) node.m_addr_known->insert(addr.GetKey());
+        return ret;
+    };
+    node.vAddrToSend.erase(std::remove_if(node.vAddrToSend.begin(), node.vAddrToSend.end(), addr_already_known),
+                           node.vAddrToSend.end());
+
+    // No addr messages to send
+    if (node.vAddrToSend.empty()) return;
+
+    const char* msg_type;
+    int make_flags;
+    if (node.m_wants_addrv2) {
+        msg_type = NetMsgType::ADDRV2;
+        make_flags = ADDRV2_FORMAT;
+    } else {
+        msg_type = NetMsgType::ADDR;
+        make_flags = 0;
+    }
+    m_connman.PushMessage(&node, CNetMsgMaker(node.GetCommonVersion()).Make(make_flags, msg_type, node.vAddrToSend));
+    node.vAddrToSend.clear();
+
+    // we only send the big addr message once
+    if (node.vAddrToSend.capacity() > 40) {
+        node.vAddrToSend.shrink_to_fit();
     }
 }
 
@@ -4193,78 +4265,19 @@ bool PeerManagerImpl::SendMessages(CNode* pto)
     // If we get here, the outgoing message serialization version is set and can't change.
     const CNetMsgMaker msgMaker(pto->GetCommonVersion());
 
-    MaybeSendPing(*pto, *peer);
+    const auto current_time = GetTime<std::chrono::microseconds>();
+
+    MaybeSendPing(*pto, *peer, current_time);
 
     // MaybeSendPing may have marked peer for disconnection
     if (pto->fDisconnect) return true;
+
+    MaybeSendAddr(*pto, current_time);
 
     {
         LOCK(cs_main);
 
         CNodeState &state = *State(pto->GetId());
-
-        // Address refresh broadcast
-        auto current_time = GetTime<std::chrono::microseconds>();
-
-        if (fListen && pto->RelayAddrsWithConn() &&
-            !m_chainman.ActiveChainstate().IsInitialBlockDownload() &&
-            pto->m_next_local_addr_send < current_time) {
-            // If we've sent before, clear the bloom filter for the peer, so that our
-            // self-announcement will actually go out.
-            // This might be unnecessary if the bloom filter has already rolled
-            // over since our last self-announcement, but there is only a small
-            // bandwidth cost that we can incur by doing this (which happens
-            // once a day on average).
-            if (pto->m_next_local_addr_send != 0us) {
-                pto->m_addr_known->reset();
-            }
-            if (std::optional<CAddress> local_addr = GetLocalAddrForPeer(pto)) {
-                FastRandomContext insecure_rand;
-                pto->PushAddress(*local_addr, insecure_rand);
-            }
-            pto->m_next_local_addr_send = PoissonNextSend(current_time, AVG_LOCAL_ADDRESS_BROADCAST_INTERVAL);
-        }
-
-        //
-        // Message: addr
-        //
-        if (pto->RelayAddrsWithConn() && pto->m_next_addr_send < current_time) {
-            pto->m_next_addr_send = PoissonNextSend(current_time, AVG_ADDRESS_BROADCAST_INTERVAL);
-            std::vector<CAddress> vAddr;
-            vAddr.reserve(pto->vAddrToSend.size());
-            assert(pto->m_addr_known);
-
-            const char* msg_type;
-            int make_flags;
-            if (pto->m_wants_addrv2) {
-                msg_type = NetMsgType::ADDRV2;
-                make_flags = ADDRV2_FORMAT;
-            } else {
-                msg_type = NetMsgType::ADDR;
-                make_flags = 0;
-            }
-
-            for (const CAddress& addr : pto->vAddrToSend)
-            {
-                if (!pto->m_addr_known->contains(addr.GetKey()))
-                {
-                    pto->m_addr_known->insert(addr.GetKey());
-                    vAddr.push_back(addr);
-                    // receiver rejects addr messages larger than MAX_ADDR_TO_SEND
-                    if (vAddr.size() >= MAX_ADDR_TO_SEND)
-                    {
-                        m_connman.PushMessage(pto, msgMaker.Make(make_flags, msg_type, vAddr));
-                        vAddr.clear();
-                    }
-                }
-            }
-            pto->vAddrToSend.clear();
-            if (!vAddr.empty())
-                m_connman.PushMessage(pto, msgMaker.Make(make_flags, msg_type, vAddr));
-            // we only send the big addr message once
-            if (pto->vAddrToSend.capacity() > 40)
-                pto->vAddrToSend.shrink_to_fit();
-        }
 
         // Start block sync
         if (pindexBestHeader == nullptr)
@@ -4500,7 +4513,7 @@ bool PeerManagerImpl::SendMessages(CNode* pto)
                             vInv.clear();
                         }
                     }
-                    pto->m_tx_relay->m_last_mempool_req = GetTime<std::chrono::seconds>();
+                    pto->m_tx_relay->m_last_mempool_req = std::chrono::duration_cast<std::chrono::seconds>(current_time);
                 }
 
                 // Determine transactions to relay
@@ -4588,7 +4601,6 @@ bool PeerManagerImpl::SendMessages(CNode* pto)
             m_connman.PushMessage(pto, msgMaker.Make(NetMsgType::INV, vInv));
 
         // Detect whether we're stalling
-        current_time = GetTime<std::chrono::microseconds>();
         if (state.m_stalling_since.count() && state.m_stalling_since < current_time - BLOCK_STALLING_TIMEOUT) {
             // Stalling only triggers when the block download window cannot move. During normal steady state,
             // the download window should be much larger than the to-be-downloaded set of blocks, so disconnection

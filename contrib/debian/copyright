@@ -96,7 +96,7 @@ License: public-domain
 Comment: The author, Utopian, declares the source code to be
  put in the public domain
 
-Files: src/qt/fonts/RobotoMono-Bold.ttf
+Files: src/qt/res/fonts/RobotoMono-Bold.ttf
 License: Apache-2.0
 Comment: Site: https://fonts.google.com/specimen/Roboto+Mono
 

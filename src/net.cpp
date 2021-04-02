@@ -32,6 +32,10 @@
 #include <fcntl.h>
 #endif
 
+#if HAVE_DECL_GETIFADDRS && HAVE_DECL_FREEIFADDRS
+#include <ifaddrs.h>
+#endif
+
 #ifdef USE_POLL
 #include <poll.h>
 #endif
@@ -1252,9 +1256,10 @@ void CConnman::NotifyNumConnectionsChanged()
     }
 }
 
-bool CConnman::RunInactivityChecks(const CNode& node) const
+bool CConnman::ShouldRunInactivityChecks(const CNode& node, std::optional<int64_t> now_in) const
 {
-    return GetSystemTimeInSeconds() > node.nTimeConnected + m_peer_connect_timeout;
+    const int64_t now = now_in ? now_in.value() : GetSystemTimeInSeconds();
+    return node.nTimeConnected + m_peer_connect_timeout < now;
 }
 
 bool CConnman::InactivityCheck(const CNode& node) const
@@ -1262,6 +1267,8 @@ bool CConnman::InactivityCheck(const CNode& node) const
     // Use non-mockable system time (otherwise these timers will pop when we
     // use setmocktime in the tests).
     int64_t now = GetSystemTimeInSeconds();
+
+    if (!ShouldRunInactivityChecks(node, now)) return false;
 
     if (node.nLastRecv == 0 || node.nLastSend == 0) {
         LogPrint(BCLog::NET, "socket no message in first %i seconds, %d %d peer=%d\n", m_peer_connect_timeout, node.nLastRecv != 0, node.nLastSend != 0, node.GetId());
@@ -1559,7 +1566,7 @@ void CConnman::SocketHandler()
             if (bytes_sent) RecordBytesSent(bytes_sent);
         }
 
-        if (RunInactivityChecks(*pnode) && InactivityCheck(*pnode)) pnode->fDisconnect = true;
+        if (InactivityCheck(*pnode)) pnode->fDisconnect = true;
     }
     {
         LOCK(cs_vNodes);
