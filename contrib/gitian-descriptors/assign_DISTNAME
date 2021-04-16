@@ -9,4 +9,4 @@
 #else
 #    VERSION="$(git rev-parse --short=12 HEAD)"
 #fi
-DISTNAME="groestlcoin-2.21.0"
+DISTNAME="groestlcoin-2.21.1"
