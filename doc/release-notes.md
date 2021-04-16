@@ -1,44 +1,40 @@
-0.21.1 Release Notes
+2.21.1 Release Notes
 ====================
 
-Bitcoin Core version 0.21.1 is now available from:
+Groestlcoin Core version 2.21.1 is now available from:
 
-  <https://bitcoincore.org/bin/bitcoin-core-0.21.1/>
+  <https://groestlcoin.org/downloads/>
 
 This minor release includes various bug fixes and performance
 improvements, as well as updated translations.
 
 Please report bugs using the issue tracker at GitHub:
 
-  <https://github.com/bitcoin/bitcoin/issues>
-
-To receive security and update notifications, please subscribe to:
-
-  <https://bitcoincore.org/en/list/announcements/join/>
+  <https://github.com/groestlcoin/groestlcoin/issues>
 
 How to Upgrade
 ==============
 
 If you are running an older version, shut it down. Wait until it has completely
 shut down (which might take a few minutes in some cases), then run the
-installer (on Windows) or just copy over `/Applications/Bitcoin-Qt` (on Mac)
-or `bitcoind`/`bitcoin-qt` (on Linux).
+installer (on Windows) or just copy over `/Applications/Groestlcoin-Qt` (on Mac)
+or `groestlcoind`/`groestlcoin-qt` (on Linux).
 
-Upgrading directly from a version of Bitcoin Core that has reached its EOL is
+Upgrading directly from a version of Groestlcoin Core that has reached its EOL is
 possible, but it might take some time if the data directory needs to be migrated. Old
-wallet versions of Bitcoin Core are generally supported.
+wallet versions of Groestlcoin Core are generally supported.
 
 Compatibility
 ==============
 
-Bitcoin Core is supported and extensively tested on operating systems
-using the Linux kernel, macOS 10.12+, and Windows 7 and newer.  Bitcoin
+Groestlcoin Core is supported and extensively tested on operating systems
+using the Linux kernel, macOS 10.12+, and Windows 7 and newer.  Groestlcoin
 Core should also work on most other Unix-like systems but is not as
-frequently tested on them.  It is not recommended to use Bitcoin Core on
+frequently tested on them.  It is not recommended to use Groestlcoin Core on
 unsupported systems.
 
-From Bitcoin Core 0.20.0 onwards, macOS versions earlier than 10.12 are no
-longer supported. Additionally, Bitcoin Core does not yet change appearance
+From Groestlcoin Core 2.20.1 onwards, macOS versions earlier than 10.12 are no
+longer supported. Additionally, Groestlcoin Core does not yet change appearance
 when macOS "dark mode" is activated.
 
 Notable changes
@@ -48,7 +44,7 @@ RPC
 ---
 
 
-0.21.1 change log
+2.21.1 change log
 =================
 
 
