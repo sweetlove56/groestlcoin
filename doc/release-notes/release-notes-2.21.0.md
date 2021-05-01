@@ -50,11 +50,77 @@ operation as if the file was missing, creating a new empty one.
 Notable changes
 ===============
 
-Second version bits BIP9 softfork deployment
---------------------------------------------
+## Taproot Soft Fork
 
-This release includes a soft fork deployment to enforce BIP340, BIP341,
-and BIP342 using the BIP9 deployment mechanism.
+Included in this release are the mainnet and testnet activation
+parameters for the taproot soft fork (BIP341) which also adds support
+for schnorr signatures (BIP340) and tapscript (BIP342).
+
+If activated, these improvements will allow users of single-signature
+scripts, multisignature scripts, and complex contracts to all use
+identical-appearing commitments that enhance their privacy and the
+fungibility of all groestlcoins. Spenders will enjoy lower fees and the
+ability to resolve many multisig scripts and complex contracts with the
+same efficiency, low fees, and large anonymity set as single-sig users.
+Taproot and schnorr also include efficiency improvements for full nodes
+such as the ability to batch signature verification.  Together, the
+improvements lay the groundwork for future potential
+upgrades that may improve efficiency, privacy, and fungibility further.
+
+Taproot's versionbit is bit 2, and nodes will begin tracking which blocks signal
+support for taproot at the beginning of the first retarget period after
+taproot’s start date of 15 December 2020. If 95% of blocks within a
+2,016-block retarget period (about 1,5 days) signal support for taproot,
+the soft fork will be locked in, and taproot will then be active.
+
+This release includes the ability to pay taproot addresses, although
+payments to such addresses are not secure until taproot activates.
+It also includes the ability to relay and mine taproot transactions
+after activation.  Beyond those two basic capabilities, this release
+does not include any code that allows anyone to directly use taproot.
+The addition of taproot-related features to Groestlcoin Core's wallet is
+expected in later releases once taproot activation is assured.
+
+All users, businesses, and miners are encouraged to upgrade to this
+release (or a subsequent compatible release) unless they object to
+activation of taproot.  If taproot is locked in, then upgrading is highly
+recommended to help enforce taproot's new rules and to avoid the unlikely
+case of seeing falsely confirmed transactions.
+
+Miners who want to activate Taproot should preferably use this release
+to control their signaling.  The `getblocktemplate` RPC results will
+automatically be updated to signal once the appropriate start has been
+reached and continue signaling until the timeout occurs or taproot
+activates.  Alternatively, miners may manually start signaling on bit 2
+at any time; if taproot activates, they will need to ensure they update
+their nodes or non-upgraded nodes could cause them to mine on
+an invalid chain.  See the [versionbits
+FAQ](https://bitcoincore.org/en/2016/06/08/version-bits-miners-faq/) for
+details.
+
+
+For more information about taproot, please see the following resources:
+
+- Technical specifications
+  - [BIP340 Schnorr signatures for secp256k1](https://github.com/bitcoin/bips/blob/master/bip-0340.mediawiki)
+  - [BIP341 Taproot: SegWit version 1 spending rules](https://github.com/bitcoin/bips/blob/master/bip-0341.mediawiki)
+  - [BIP342 Validation of Taproot scripts](https://github.com/bitcoin/bips/blob/master/bip-0342.mediawiki)
+
+- Popular articles;
+  - [Taproot Is Coming: What It Is, and How It Will Benefit Bitcoin](https://bitcoinmagazine.com/technical/taproot-coming-what-it-and-how-it-will-benefit-bitcoin)
+  - [What do Schnorr Signatures Mean for Bitcoin?](https://academy.binance.com/en/articles/what-do-schnorr-signatures-mean-for-bitcoin)
+  - [The Schnorr Signature & Taproot Softfork Proposal](https://blog.bitmex.com/the-schnorr-signature-taproot-softfork-proposal/)
+
+- Development history overview
+  - [Taproot](https://bitcoinops.org/en/topics/taproot/)
+  - [Schnorr signatures](https://bitcoinops.org/en/topics/schnorr-signatures/)
+  - [Tapscript](https://bitcoinops.org/en/topics/tapscript/)
+  - [Soft fork activation](https://bitcoinops.org/en/topics/soft-fork-activation/)
+
+- Other
+  - [Questions and answers related to taproot](https://bitcoin.stackexchange.com/questions/tagged/taproot)
+  - [Taproot review](https://github.com/ajtowns/taproot-review)
+
 
 The deployment sets the block version number to 0x20000004 between
 midnight 15th Dec 2020 and midnight 31th Dec 2021 to signal readiness for
@@ -62,10 +128,6 @@ deployment. The version number consists of 0x20000000 to indicate version
 bits together with setting bit 2, shown as "taproot" in the `getblockchaininfo`
 RPC call. Please note it will keep generating blocks with version 0x20000004 until
 "taproot" is activated at which point is will automatically unset bit 2.
-
-[BIP340]: https://github.com/bitcoin/bips/blob/master/bip-0340.mediawiki
-[BIP341]: https://github.com/bitcoin/bips/blob/master/bip-0341.mediawiki
-[BIP342]: https://github.com/bitcoin/bips/blob/master/bip-0342.mediawiki
 
 
 P2P and network changes
