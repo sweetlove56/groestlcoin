@@ -661,20 +661,20 @@ static RPCHelpMan echoipc()
         [&](const RPCHelpMan& self, const JSONRPCRequest& request) -> UniValue {
             std::unique_ptr<interfaces::Echo> echo;
             if (interfaces::Ipc* ipc = Assert(EnsureAnyNodeContext(request.context).init)->ipc()) {
-                // Spawn a new bitcoin-node process and call makeEcho to get a
+                // Spawn a new groestlcoin-node process and call makeEcho to get a
                 // client pointer to a interfaces::Echo instance running in
                 // that process. This is just for testing. A slightly more
                 // realistic test spawning a different executable instead of
-                // the same executable would add a new bitcoin-echo executable,
-                // and spawn bitcoin-echo below instead of bitcoin-node. But
-                // using bitcoin-node avoids the need to build and install a
+                // the same executable would add a new groestlcoin-echo executable,
+                // and spawn groestlcoin-echo below instead of groestlcoin-node. But
+                // using groestlcoin-node avoids the need to build and install a
                 // new executable just for this one test.
-                auto init = ipc->spawnProcess("bitcoin-node");
+                auto init = ipc->spawnProcess("groestlcoin-node");
                 echo = init->makeEcho();
                 ipc->addCleanup(*echo, [init = init.release()] { delete init; });
             } else {
                 // IPC support is not available because this is a bitcoind
-                // process not a bitcoind-node process, so just create a local
+                // process not a groestlcoind-node process, so just create a local
                 // interfaces::Echo object and return it so the `echoipc` RPC
                 // method will work, and the python test calling `echoipc`
                 // can expect the same result.

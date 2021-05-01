@@ -11,7 +11,7 @@
 
 namespace init {
 namespace {
-const char* EXE_NAME = "bitcoin-node";
+const char* EXE_NAME = "groestlcoin-node";
 
 class BitcoinNodeInit : public interfaces::Init
 {
@@ -34,7 +34,7 @@ namespace interfaces {
 std::unique_ptr<Init> MakeNodeInit(NodeContext& node, int argc, char* argv[], int& exit_status)
 {
     auto init = std::make_unique<init::BitcoinNodeInit>(node, argc > 0 ? argv[0] : "");
-    // Check if bitcoin-node is being invoked as an IPC server. If so, then
+    // Check if groestlcoin-node is being invoked as an IPC server. If so, then
     // bypass normal execution and just respond to requests over the IPC
     // channel and return null.
     if (init->m_ipc->startSpawnedProcess(argc, argv, exit_status)) {
