@@ -12,7 +12,7 @@
 #include <span.h>
 #include <uint256.h>
 
-#include <stdexcept>
+#include <cstring>
 #include <vector>
 
 const unsigned int BIP32_EXTKEY_SIZE = 74;
@@ -101,7 +101,7 @@ public:
     }
 
     //! Construct a public key from a byte vector.
-    explicit CPubKey(const std::vector<unsigned char>& _vch)
+    explicit CPubKey(Span<const uint8_t> _vch)
     {
         Set(_vch.begin(), _vch.end());
     }
@@ -248,7 +248,7 @@ struct CExtPubKey {
     friend bool operator==(const CExtPubKey &a, const CExtPubKey &b)
     {
         return a.nDepth == b.nDepth &&
-            memcmp(&a.vchFingerprint[0], &b.vchFingerprint[0], sizeof(vchFingerprint)) == 0 &&
+            memcmp(a.vchFingerprint, b.vchFingerprint, sizeof(vchFingerprint)) == 0 &&
             a.nChild == b.nChild &&
             a.chaincode == b.chaincode &&
             a.pubkey == b.pubkey;
