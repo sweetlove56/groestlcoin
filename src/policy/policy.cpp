@@ -21,12 +21,12 @@ CAmount GetDustThreshold(const CTxOut& txout, const CFeeRate& dustRelayFeeIn)
     // need a CTxIn of at least 148 bytes to spend:
     // so dust is a spendable txout less than
     // 182*dustRelayFee/1000 (in gros).
-    // 546 gros at the default rate of 3000 gro/kB.
+    // 546 gros at the default rate of 3000 gro/kvB.
     // A typical spendable segwit txout is 31 bytes big, and will
     // need a CTxIn of at least 67 bytes to spend:
     // so dust is a spendable txout less than
     // 98*dustRelayFee/1000 (in gros).
-    // 294 gros at the default rate of 3000 gro/kB.
+    // 294 gros at the default rate of 3000 gro/kvB.
     if (txout.scriptPubKey.IsUnspendable())
         return 0;
 
