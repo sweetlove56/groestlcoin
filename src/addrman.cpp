@@ -7,11 +7,13 @@
 
 #include <hash.h>
 #include <logging.h>
+#include <netaddress.h>
 #include <serialize.h>
 #include <streams.h>
 #include <groestlcoin.h>
 
 #include <cmath>
+#include <optional>
 
 int CAddrInfo::GetTriedBucket(const uint256& nKey, const std::vector<bool> &asmap) const
 {
@@ -487,7 +489,7 @@ int CAddrMan::Check_()
 }
 #endif
 
-void CAddrMan::GetAddr_(std::vector<CAddress>& vAddr, size_t max_addresses, size_t max_pct)
+void CAddrMan::GetAddr_(std::vector<CAddress>& vAddr, size_t max_addresses, size_t max_pct, std::optional<Network> network)
 {
     size_t nNodes = vRandom.size();
     if (max_pct != 0) {
@@ -498,6 +500,7 @@ void CAddrMan::GetAddr_(std::vector<CAddress>& vAddr, size_t max_addresses, size
     }
 
     // gather a list of random nodes, skipping those of low quality
+    const int64_t now{GetAdjustedTime()};
     for (unsigned int n = 0; n < vRandom.size(); n++) {
         if (vAddr.size() >= nNodes)
             break;
@@ -507,8 +510,14 @@ void CAddrMan::GetAddr_(std::vector<CAddress>& vAddr, size_t max_addresses, size
         assert(mapInfo.count(vRandom[n]) == 1);
 
         const CAddrInfo& ai = mapInfo[vRandom[n]];
-        if (!ai.IsTerrible())
-            vAddr.push_back(ai);
+
+        // Filter by network (optional)
+        if (network != std::nullopt && ai.GetNetClass() != network) continue;
+
+        // Filter for quality
+        if (ai.IsTerrible(now)) continue;
+
+        vAddr.push_back(ai);
     }
 }
 
