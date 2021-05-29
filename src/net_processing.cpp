@@ -2718,17 +2718,6 @@ void PeerManagerImpl::ProcessMessage(CNode& pfrom, const std::string& msg_type, 
         return;
     }
 
-    if (msg_type == NetMsgType::SENDADDRV2) {
-        if (pfrom.fSuccessfullyConnected) {
-            // Disconnect peers that send SENDADDRV2 message after VERACK; this
-            // must be negotiated between VERSION and VERACK.
-            pfrom.fDisconnect = true;
-            return;
-        }
-        pfrom.m_wants_addrv2 = true;
-        return;
-    }
-
     if (!pfrom.fSuccessfullyConnected) {
         LogPrint(BCLog::NET, "Unsupported message \"%s\" prior to verack from peer=%d\n", SanitizeString(msg_type), pfrom.GetId());
         return;
@@ -4814,6 +4803,8 @@ bool PeerManagerImpl::SendMessages(CNode* pto)
                 m_txrequest.ForgetTxHash(gtxid.GetHash());
             }
         }
+
+
         if (!vGetData.empty())
             m_connman.PushMessage(pto, msgMaker.Make(NetMsgType::GETDATA, vGetData));
 
