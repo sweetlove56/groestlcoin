@@ -1,7 +1,7 @@
 Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: Bitcoin
 Upstream-Contact: Satoshi Nakamoto <satoshin@gmx.com>
- irc://#groestlcoin@freenode.net
+ irc://#groestlcoin@libera.chat
 Source: https://github.com/groestlcoin/groestlcoin
 
 Files: *

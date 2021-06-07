@@ -62,8 +62,6 @@ The Groestlcoin repo's [root README](/README.md) contains relevant information o
 - [Dnsseed Policy](dnsseed-policy.md)
 - [Benchmarking](benchmarking.md)
 
-### Resources
-
 ### Miscellaneous
 - [Assets Attribution](assets-attribution.md)
 - [groestlcoin.conf Configuration File](groestlcoin-conf.md)
