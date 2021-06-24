@@ -5,8 +5,8 @@ These are the dependencies currently used by Groestlcoin Core. You can find inst
 
 | Dependency | Version used | Minimum required | CVEs | Shared | [Bundled Qt library](https://doc.qt.io/qt-5/configure-options.html#third-party-libraries) |
 | --- | --- | --- | --- | --- | --- |
-| Berkeley DB | [5.3.28](https://www.oracle.com/technetwork/database/database-technologies/berkeleydb/downloads/index.html) | 4.3.x | No |  |  |
-| Boost | [1.71.0](https://www.boost.org/users/download/) | [1.58.0](https://github.com/bitcoin/bitcoin/pull/19667) | No |  |  |
+| Berkeley DB | [5.3.28](https://www.oracle.com/technetwork/database/database-technologies/berkeleydb/downloads/index.html) | 5.3.x | No |  |  |
+| Boost | [1.71.0](https://www.boost.org/users/download/) | [1.64.0](https://github.com/bitcoin/bitcoin/pull/22320) | No |  |  |
 | Clang |  | [5.0+](https://releases.llvm.org/download.html) (C++17 support) |  |  |  |
 | Expat | [2.2.7](https://libexpat.github.io/) |  | No | Yes |  |
 | fontconfig | [2.12.1](https://www.freedesktop.org/software/fontconfig/release/) |  | No | Yes |  |
