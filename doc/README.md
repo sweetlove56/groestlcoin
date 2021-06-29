@@ -28,7 +28,7 @@ Drag Groestlcoin-Core to your applications folder, and then run Groestlcoin-Core
 
 ### Need Help?
 
-* Ask for help on [#groestlcoin](http://webchat.freenode.net?channels=groestlcoin) on Freenode. If you don't have an IRC client use [webchat here](http://webchat.freenode.net?channels=groestlcoin).
+* Ask for help on #groestlcoin on Libera Chat. If you don't have an IRC client, you can use [web.libera.chat](https://web.libera.chat/#groestlcoin).
 * Ask for help on the [GroestlTalk](https://groestlcointalk.org/) forum or in in the [Alternate cryptocurrencies board](https://bitcointalk.org/index.php?topic=525926.0).
 
 Building
