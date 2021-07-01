@@ -4,25 +4,26 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#include "groestlcoin.h"
-
+#include <groestlcoin.h>
 #include <boost/assign/list_of.hpp>
+#include <arith_uint256.h>
+#include <chain.h>
+#include <consensus/params.h>
+#include <crypto/sha256.h>
 
-#include "arith_uint256.h"
-#include "chain.h"
+#include <chainparams.h>
+
+#include <chainparamsseeds.h>
+#include <consensus/merkle.h>
+#include <deploymentinfo.h>
 #include <hash.h> // for signet block challenge hash
-#include "chainparams.h"
-#include "chainparamsseeds.h"
-#include "consensus/merkle.h"
-#include "consensus/params.h"
-#include "crypto/sha256.h"
+#include <util/system.h>
 
-#include "util/system.h"
-#include "util/strencodings.h"
-#include "versionbitsinfo.h"
+#include <assert.h>
+#include <memory>
 
-#include "boost/algorithm/string/classification.hpp"
-#include "boost/algorithm/string/split.hpp"
+#include <boost/algorithm/string/classification.hpp>
+#include <boost/algorithm/string/split.hpp>
 
 #ifdef _MSC_VER
 #	include <intrin.h>
@@ -664,7 +665,7 @@ public:
         pchMessageStart[2] = 0xb5;
         pchMessageStart[3] = 0xda;
         nDefaultPort = 18888;
-        nPruneAfterHeight = gArgs.GetBoolArg("-fastprune", false) ? 100 : 10000000;
+        nPruneAfterHeight = args.GetBoolArg("-fastprune", false) ? 100 : 10000000;
         m_assumed_blockchain_size = 0;
         m_assumed_chain_state_size = 0;
 
