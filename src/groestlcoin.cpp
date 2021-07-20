@@ -301,7 +301,7 @@ static CBlock CreateGenesisBlock(uint32_t nTime, uint32_t nNonce, uint32_t nBits
 }
 
 /**
- * Main network
+ * Main network on which people trade goods and services.
  */
 class CMainParams : public CChainParams {
 public:
@@ -413,7 +413,7 @@ public:
 };
 
 /**
- * Testnet (v3)
+ * Testnet (v3): public test network which is reset from time to time.
  */
 class CTestNetParams : public CChainParams {
 public:
@@ -513,7 +513,7 @@ public:
 };
 
 /**
- * Signet
+ * Signet: test network with an additional consensus parameter (see BIP325).
  */
 class SigNetParams : public CChainParams {
 public:
@@ -529,7 +529,7 @@ public:
 
             consensus.nMinimumChainWork = uint256("0x00000000000000000000000000000000000000000000000000000154e3d7a9fa"); // groestlcoin-cli -signet getblockheader 0000017ba319454e72647124ece0ee4385f80079f585c07fac6f3ff561ae3d09 | jq '{chainwork}'
             consensus.defaultAssumeValid = uint256("0x0000017ba319454e72647124ece0ee4385f80079f585c07fac6f3ff561ae3d09"); // groestlcoin-cli -signet getblockhash 292800
-            m_assumed_blockchain_size = 0;
+            m_assumed_blockchain_size = 1;
             m_assumed_chain_state_size = 0;
             chainTxData = ChainTxData{
                 // Data from RPC: groestlcoin-cli -signet getchaintxstats 4096 0000017ba319454e72647124ece0ee4385f80079f585c07fac6f3ff561ae3d09 | jq '{time,txcount,txrate}'
@@ -622,7 +622,8 @@ public:
 };
 
 /**
- * Regression test
+ * Regression test: intended for private networks only. Has minimal difficulty to ensure that
+ * blocks can be found instantly.
  */
 class CRegTestParams : public CChainParams {
 public:
