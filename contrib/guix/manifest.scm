@@ -593,7 +593,7 @@ inspecting signatures in Mach-O binaries.")
                                            "glibc-2.24-elfm-loadaddr-dynamic-rewrite.patch"
                                            "glibc-2.24-no-build-time-cxx-header-run.patch"))))))
 
-(define glibc-2.27/bitcoin-patched
+(define glibc-2.27/groestlcoin-patched
   (package-with-extra-patches glibc-2.27
     (search-our-patches "glibc-2.27-riscv64-Use-__has_include__-to-include-asm-syscalls.h.patch")))
 
@@ -648,7 +648,7 @@ inspecting signatures in Mach-O binaries.")
           ((string-contains target "-linux-")
            (list (cond ((string-contains target "riscv64-")
                         (make-groestlcoin-cross-toolchain target
-                                                      #:base-libc glibc-2.27/bitcoin-patched
+                                                      #:base-libc glibc-2.27/groestlcoin-patched
                                                       #:base-kernel-headers linux-libre-headers-4.19))
                        (else
                         (make-groestlcoin-cross-toolchain target)))))
