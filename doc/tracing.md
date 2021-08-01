@@ -1,6 +1,6 @@
-# User-space, Statically Defined Tracing (USDT) for Bitcoin Core
+# User-space, Statically Defined Tracing (USDT) for Groestlcoin Core
 
-Bitcoin Core includes statically defined tracepoints to allow for more
+Groestlcoin Core includes statically defined tracepoints to allow for more
 observability during development, debugging, code review, and production usage.
 These tracepoints make it possible to keep track of custom statistics and
 enable detailed monitoring of otherwise hidden internals. They have
@@ -11,7 +11,7 @@ eBPF and USDT Overview
 ======================
 
                 ┌──────────────────┐            ┌──────────────┐
-                │ tracing script   │            │ bitcoind     │
+                │ tracing script   │            │ groestlcoind │
                 │==================│      2.    │==============│
                 │  eBPF  │ tracing │      hooks │              │
                 │  code  │ logic   │      into┌─┤►tracepoint 1─┼───┐ 3.
@@ -115,7 +115,7 @@ details.
 
 [bpftrace argument limit]: #bpftrace-argument-limit
 
-## Adding tracepoints to Bitcoin Core
+## Adding tracepoints to Groestlcoin Core
 
 To add a new tracepoint, `#include <util/trace.h>` in the compilation unit where
 the tracepoint is inserted. Use one of the `TRACEx` macros listed below
@@ -210,31 +210,31 @@ maximum expected string size if known.
 
 ## Listing available tracepoints
 
-Multiple tools can list the available tracepoints in a `bitcoind` binary with
+Multiple tools can list the available tracepoints in a `groestlcoind` binary with
 USDT support.
 
 ### GDB - GNU Project Debugger
 
-To list probes in Bitcoin Core, use `info probes` in `gdb`:
+To list probes in Groestlcoin Core, use `info probes` in `gdb`:
 
 ```
-$ gdb ./src/bitcoind
+$ gdb ./src/groestlcoind
 …
 (gdb) info probes
 Type Provider   Name             Where              Semaphore Object
-stap net        inbound_message  0x000000000014419e /src/bitcoind
-stap net        outbound_message 0x0000000000107c05 /src/bitcoind
-stap validation block_connected  0x00000000002fb10c /src/bitcoind
+stap net        inbound_message  0x000000000014419e /src/groestlcoind
+stap net        outbound_message 0x0000000000107c05 /src/groestlcoind
+stap validation block_connected  0x00000000002fb10c /src/groestlcoind
 …
 ```
 
 ### With `readelf`
 
-The `readelf` tool can be used to display the USDT tracepoints in Bitcoin Core.
+The `readelf` tool can be used to display the USDT tracepoints in Groestlcoin Core.
 Look for the notes with the description `NT_STAPSDT`.
 
 ```
-$ readelf -n ./src/bitcoind | grep NT_STAPSDT -A 4 -B 2
+$ readelf -n ./src/groestlcoind | grep NT_STAPSDT -A 4 -B 2
 Displaying notes found in: .note.stapsdt
   Owner                 Data size	Description
   stapsdt              0x0000005d	NT_STAPSDT (SystemTap probe descriptors)
@@ -258,7 +258,7 @@ between distributions. For example, on
 [ubuntu binary]: https://github.com/iovisor/bcc/blob/master/INSTALL.md#ubuntu---binary
 
 ```
-$ tplist -l ./src/bitcoind -v
+$ tplist -l ./src/groestlcoind -v
 b'net':b'outbound_message' [sema 0x0]
   1 location(s)
   6 argument(s)

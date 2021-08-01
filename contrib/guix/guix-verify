@@ -32,7 +32,7 @@ Synopsis:
 
 Example overriding signer's manifest to use as base
 
-    env GUIX_SIGS_REPO=/home/dongcarl/guix.sigs SIGNER=achow101 ./contrib/guix/guix-verify
+    env GUIX_SIGS_REPO=/home/jackielove4u/guix.sigs SIGNER=jackielove4u ./contrib/guix/guix-verify
 
 EOF
 }

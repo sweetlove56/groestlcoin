@@ -2,10 +2,10 @@
 # Copyright (c) 2020 The Bitcoin Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
-"""Script for verifying Bitcoin Core release binaries
+"""Script for verifying Groestlcoin Core release binaries
 
 This script attempts to download the signature file SHA256SUMS.asc from
-bitcoincore.org and bitcoin.org and compares them.
+github.com and compares them.
 It first checks if the signature passes, and then downloads the files
 specified in the file, and checks if the hashes of these files match those
 that are specified in the signature file.
@@ -19,11 +19,11 @@ import subprocess
 import sys
 from textwrap import indent
 
-WORKINGDIR = "/tmp/bitcoin_verify_binaries"
+WORKINGDIR = "/tmp/groestlcoin_verify_binaries"
 HASHFILE = "hashes.tmp"
-HOST1 = "https://bitcoincore.org"
-HOST2 = "https://bitcoin.org"
-VERSIONPREFIX = "bitcoin-core-"
+HOST1 = "https://github.com"
+HOST2 = "https://github.com"
+VERSIONPREFIX = "groestlcoin-core-"
 SIGNATUREFILENAME = "SHA256SUMS.asc"
 
 
