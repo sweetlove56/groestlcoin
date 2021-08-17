@@ -527,8 +527,8 @@ public:
             vSeeds.emplace_back("2604:a880:1:20::96:6001");
             vSeeds.emplace_back("ubmgcth2ngfb7qapyrkpnn3i6p2dmu76zvd3hfs2mw3u4t54v2qa66id.onion:31331");
 
-            consensus.nMinimumChainWork = uint256("0x00000000000000000000000000000000000000000000000000000154e3d7a9fa"); // groestlcoin-cli -signet getblockheader 0000017ba319454e72647124ece0ee4385f80079f585c07fac6f3ff561ae3d09 | jq '{chainwork}'
-            consensus.defaultAssumeValid = uint256("0x0000017ba319454e72647124ece0ee4385f80079f585c07fac6f3ff561ae3d09"); // groestlcoin-cli -signet getblockhash 292800
+            consensus.nMinimumChainWork = uint256S("0x00000000000000000000000000000000000000000000000000000154e3d7a9fa"); // groestlcoin-cli -signet getblockheader 0000017ba319454e72647124ece0ee4385f80079f585c07fac6f3ff561ae3d09 | jq '{chainwork}'
+            consensus.defaultAssumeValid = uint256S("0x0000017ba319454e72647124ece0ee4385f80079f585c07fac6f3ff561ae3d09"); // groestlcoin-cli -signet getblockhash 292800
             m_assumed_blockchain_size = 1;
             m_assumed_chain_state_size = 0;
             chainTxData = ChainTxData{
