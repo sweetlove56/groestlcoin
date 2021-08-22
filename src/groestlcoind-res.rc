@@ -1,3 +1,4 @@
+#include "grs-config.h"
 #include <windows.h>             // needed for VERSIONINFO
 #include "clientversion.h"       // holds the needed client version information
 
@@ -14,14 +15,14 @@ BEGIN
     BEGIN
         BLOCK "040904E4" // U.S. English - multilingual (hex)
         BEGIN
-            VALUE "CompanyName",        "Bitcoin"
-            VALUE "FileDescription",    "bitcoind (Bitcoin node with a JSON-RPC server)"
+            VALUE "CompanyName",        "Groestlcoin"
+            VALUE "FileDescription",    "groestlcoind (groestlcoin node with a JSON-RPC server)"
             VALUE "FileVersion",        PACKAGE_VERSION
-            VALUE "InternalName",       "bitcoind"
+            VALUE "InternalName",       "groestlcoind"
             VALUE "LegalCopyright",     COPYRIGHT_STR
             VALUE "LegalTrademarks1",   "Distributed under the MIT software license, see the accompanying file COPYING or http://www.opensource.org/licenses/mit-license.php."
-            VALUE "OriginalFilename",   "bitcoind.exe"
-            VALUE "ProductName",        "bitcoind"
+            VALUE "OriginalFilename",   "groestlcoind.exe"
+            VALUE "ProductName",        "groestlcoind"
             VALUE "ProductVersion",     PACKAGE_VERSION
         END
     END

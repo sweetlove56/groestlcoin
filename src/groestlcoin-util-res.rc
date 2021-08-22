@@ -1,3 +1,4 @@
+#include "grs-config.h"
 #include <windows.h>             // needed for VERSIONINFO
 #include "clientversion.h"       // holds the needed client version information
 
@@ -14,14 +15,14 @@ BEGIN
     BEGIN
         BLOCK "040904E4" // U.S. English - multilingual (hex)
         BEGIN
-            VALUE "CompanyName",        "Bitcoin"
-            VALUE "FileDescription",    "bitcoin-util (CLI Bitcoin utility)"
+            VALUE "CompanyName",        "Groestlcoin"
+            VALUE "FileDescription",    "groestlcoin-util (CLI Groestlcoin utility)"
             VALUE "FileVersion",        PACKAGE_VERSION
-            VALUE "InternalName",       "bitcoin-util"
+            VALUE "InternalName",       "groestlcoin-util"
             VALUE "LegalCopyright",     COPYRIGHT_STR
             VALUE "LegalTrademarks1",   "Distributed under the MIT software license, see the accompanying file COPYING or http://www.opensource.org/licenses/mit-license.php."
-            VALUE "OriginalFilename",   "bitcoin-util.exe"
-            VALUE "ProductName",        "bitcoin-util"
+            VALUE "OriginalFilename",   "groestlcoin-util.exe"
+            VALUE "ProductName",        "groestlcoin-util"
             VALUE "ProductVersion",     PACKAGE_VERSION
         END
     END
