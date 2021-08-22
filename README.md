@@ -22,6 +22,8 @@ Updated to Bitcoin reference wallet 0.21.0 on December 2020
 
 Updated to Bitcoin reference wallet 0.21.1 on June 2021
 
+Updated to Bitcoin reference wallet 22.0.0 on September 2021
+
 Groestlcoin Core Wallet
 
 https://www.groestlcoin.org
