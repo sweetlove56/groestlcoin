@@ -47,7 +47,6 @@ $BITCOIND --version | sed -n '1!p' >> footer.h2m
 for cmd in $BITCOIND $BITCOINCLI $BITCOINTX $WALLET_TOOL $BITCOINUTIL $BITCOINQT; do
   cmdname="${cmd##*/}"
   help2man -N --version-string=${GRSVER[0]} --include=footer.h2m -o ${MANDIR}/${cmdname}.1 ${cmd}
-  sed -i "s/\\\-${GRSVER[1]}//g" ${MANDIR}/${cmdname}.1
 done
 
 rm -f footer.h2m
