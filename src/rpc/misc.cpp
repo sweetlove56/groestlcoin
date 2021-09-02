@@ -158,7 +158,7 @@ static RPCHelpMan createmultisig()
 
 static RPCHelpMan getdescriptorinfo()
 {
-    const std::string EXAMPLE_DESCRIPTOR = "wpkh([d34db33f/84h/0h/0h]0279be667ef9dcbbac55a06295Ce870b07029Bfcdb2dce28d959f2815b16f81798)";
+    const std::string EXAMPLE_DESCRIPTOR = "wpkh([d34db33f/84h/17h/0h]0279be667ef9dcbbac55a06295Ce870b07029Bfcdb2dce28d959f2815b16f81798)";
 
     return RPCHelpMan{"getdescriptorinfo",
             {"\nAnalyses a descriptor.\n"},
@@ -204,7 +204,7 @@ static RPCHelpMan getdescriptorinfo()
 
 static RPCHelpMan deriveaddresses()
 {
-    const std::string EXAMPLE_DESCRIPTOR = "wpkh([d34db33f/84h/0h/0h]xpub6DJ2dNUysrn5Vt36jH2KLBT2i1auw1tTSSomg8PhqNiUtx8QX2SvC9nrHu81fT41fvDUnhMjEzQgXnQjKEu3oaqMSzhSrHMxyyoEAmUHQbY/0/*)#cjjspncu";
+    const std::string EXAMPLE_DESCRIPTOR = "wpkh([d34db33f/84h/17h/0h]xpub6DJ2dNUysrn5Vt36jH2KLBT2i1auw1tTSSomg8PhqNiUtx8QX2SvC9nrHu81fT41fvDUnhMjEzQgXnQjKEu3oaqMSzhSrHMxyyoEAmUHQbY/0/*)#cjjspncu";
 
     return RPCHelpMan{"deriveaddresses",
             {"\nDerives one or more addresses corresponding to an output descriptor.\n"
