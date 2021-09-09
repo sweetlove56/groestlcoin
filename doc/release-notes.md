@@ -60,8 +60,8 @@ P2P and network changes
 - Added NAT-PMP port mapping support via
   [`libnatpmp`](https://miniupnp.tuxfamily.org/libnatpmp.html).
 
-Updated RPCs
-------------
+New and Updated RPCs
+--------------------
 
 - Due to [BIP 350](https://github.com/bitcoin/bips/blob/master/bip-0350.mediawiki)
   being implemented, behavior for all RPCs that accept addresses is changed when
@@ -128,11 +128,11 @@ Updated RPCs
 
 Changes to Wallet or GUI related RPCs can be found in the GUI or Wallet section below.
 
-New RPCs
---------
-
 Build System
 ------------
+
+- Release binaries are now produced using the new `guix`-based build system.
+  The [/doc/release-process.md](/doc/release-process.md) document has been updated accordingly.
 
 Files
 -----
