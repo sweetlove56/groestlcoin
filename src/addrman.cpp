@@ -5,6 +5,7 @@
 
 #include <addrman.h>
 
+#include <clientversion.h>
 #include <hash.h>
 #include <logging.h>
 #include <netaddress.h>
