@@ -33,7 +33,7 @@ buffering or reassembly.
 
 ## Prerequisites
 
-The ZeroMQ feature in Groestkcoin Core requires the ZeroMQ API >= 4.0.0
+The ZeroMQ feature in Groestlcoin Core requires the ZeroMQ API >= 4.0.0
 [libzmq](https://github.com/zeromq/libzmq/releases).
 For version information, see [dependencies.md](dependencies.md).
 Typically, it is packaged by distributions as something like
@@ -84,6 +84,7 @@ For instance:
 
     $ groestlcoind -zmqpubhashtx=tcp://127.0.0.1:21441 \
                -zmqpubhashtx=tcp://192.168.1.2:21441 \
+               -zmqpubhashblock="tcp://[::1]:21331" \
                -zmqpubrawtx=ipc:///tmp/groestlcoind.tx.raw \
                -zmqpubhashtxhwm=10000
 
@@ -124,6 +125,9 @@ sudo sysctl -w net.ipv4.tcp_keepalive_time=600
 Setting the keepalive values appropriately for your operating environment may
 improve connectivity in situations where long-lived connections are silently
 dropped by network middle boxes.
+
+Also, the socket's ZMQ_IPV6 option is enabled to accept connections from IPv6
+hosts as well. If needed, this option has to be set on the client side too.
 
 ## Remarks
 
