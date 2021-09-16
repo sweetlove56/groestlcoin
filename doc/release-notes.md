@@ -52,7 +52,7 @@ Notable changes
 P2P and network changes
 -----------------------
 
-- A bitcoind node will no longer rumour addresses to inbound peers by default.
+- A groestlcoind node will no longer rumour addresses to inbound peers by default.
   They will become eligible for address gossip after sending an ADDR, ADDRV2,
   or GETADDR message. (#21528)
 
@@ -69,7 +69,7 @@ Files
 -----
 
 * On startup, the list of banned hosts and networks (via `setban` RPC) in
-  `banlist.dat` is ignored and only `banlist.json` is considered. Bitcoin Core
+  `banlist.dat` is ignored and only `banlist.json` is considered. Groestlcoin Core
   version 22.x is the only version that can read `banlist.dat` and also write
   it to `banlist.json`. If `banlist.json` already exists, version 22.x will not
   try to translate the `banlist.dat` into json. After an upgrade, `listbanned`
@@ -88,7 +88,7 @@ Tools and Utilities
 
 - CLI `-addrinfo` now returns a single field for the number of `onion` addresses
   known to the node instead of separate `torv2` and `torv3` fields, as support
-  for Tor V2 addresses was removed from Bitcoin Core in 22.0. (#22544)
+  for Tor V2 addresses was removed from Groestlcoin Core in 22.0. (#22544)
 
 Wallet
 ------
