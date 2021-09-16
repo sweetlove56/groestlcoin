@@ -576,7 +576,7 @@ libgroestlcoin_common_a_SOURCES = \
 
 # util: shared between all executables.
 # This library *must* be included to make sure that the glibc
-# backward-compatibility objects and their sanity checks are linked.
+# sanity checks are linked.
 libgroestlcoin_util_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
 libgroestlcoin_util_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 libgroestlcoin_util_a_SOURCES = \
@@ -622,11 +622,6 @@ libgroestlcoin_util_a_SOURCES = \
 
 if USE_LIBEVENT
 libgroestlcoin_util_a_SOURCES += util/url.cpp
-endif
-
-if GLIBC_BACK_COMPAT
-libgroestlcoin_util_a_SOURCES += compat/glibc_compat.cpp
-AM_LDFLAGS += $(COMPAT_LDFLAGS)
 endif
 
 # cli: shared between groestlcoin-cli and groestlcoin-qt
@@ -755,10 +750,6 @@ groestlcoin_util_LDADD += $(BOOST_LIBS)
 if BUILD_BITCOIN_LIBS
 include_HEADERS = script/groestlcoinconsensus.h
 libgroestlcoinconsensus_la_SOURCES = support/cleanse.cpp $(crypto_libgroestlcoin_crypto_base_a_SOURCES) $(libgroestlcoin_consensus_a_SOURCES)
-
-if GLIBC_BACK_COMPAT
-  libgroestlcoinconsensus_la_SOURCES += compat/glibc_compat.cpp
-endif
 
 libgroestlcoinconsensus_la_LDFLAGS = $(AM_LDFLAGS) -no-undefined $(RELDFLAGS)
 libgroestlcoinconsensus_la_LIBADD = $(LIBSECP256K1)
