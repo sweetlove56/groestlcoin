@@ -59,6 +59,12 @@ P2P and network changes
 Updated RPCs
 ------------
 
+- The `-deprecatedrpc=addresses` configuration option has been removed.  RPCs
+  `gettxout`, `getrawtransaction`, `decoderawtransaction`, `decodescript`,
+  `gettransaction verbose=true` and REST endpoints `/rest/tx`, `/rest/getutxos`,
+  `/rest/block` no longer return the `addresses` and `reqSigs` fields, which
+  were previously deprecated in 22.0. (#22650)
+
 New RPCs
 --------
 
@@ -80,6 +86,12 @@ New settings
 
 Updated settings
 ----------------
+
+- In previous releases, the meaning of the command line option
+  `-persistmempool` (without a value provided) incorrectly disabled mempool
+  persistence.  `-persistmempool` is now treated like other boolean options to
+  mean `-persistmempool=1`. Passing `-persistmempool=0`, `-persistmempool=1`
+  and `-nopersistmempool` is unaffected. (#23061)
 
 Tools and Utilities
 -------------------
