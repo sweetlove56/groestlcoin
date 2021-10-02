@@ -275,14 +275,14 @@ $ honggfuzz/honggfuzz --exit_upon_crash --quiet --timeout 4 -n 1 -Q \
                        -debug
 ```
 
-# Fuzzing Bitcoin Core using Eclipser (v1.x)
+# Fuzzing Groestlcoin Core using Eclipser (v1.x)
 
 ## Quickstart guide
 
-To quickly get started fuzzing Bitcoin Core using [Eclipser v1.x](https://github.com/SoftSec-KAIST/Eclipser/tree/v1.x):
+To quickly get started fuzzing Groestlcoin Core using [Eclipser v1.x](https://github.com/SoftSec-KAIST/Eclipser/tree/v1.x):
 
 ```sh
-$ git clone https://github.com/bitcoin/bitcoin
+$ git clone https://github.com/groestlcoin/groestlcoin
 $ cd bitcoin/
 $ sudo vim /etc/apt/sources.list # Uncomment the lines starting with 'deb-src'.
 $ sudo apt-get update
