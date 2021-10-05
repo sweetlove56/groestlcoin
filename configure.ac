@@ -1439,10 +1439,10 @@ fi
 AM_CONDITIONAL([ENABLE_EXTERNAL_SIGNER], [test "x$use_external_signer" = "xyes"])
 
 dnl Do not compile with syscall sandbox support when compiling under the sanitizers.
-dnl The sanitizers introduce use of syscalls that are not typically used in bitcoind
+dnl The sanitizers introduce use of syscalls that are not typically used in groestlcoind
 dnl (such as execve when the sanitizers execute llvm-symbolizer).
 if test x$use_sanitizers != x; then
-  AC_MSG_WARN(Specifying --with-sanitizers forces --without-seccomp since the sanitizers introduce use of syscalls not allowed by the bitcoind syscall sandbox (-sandbox=<mode>).)
+  AC_MSG_WARN(Specifying --with-sanitizers forces --without-seccomp since the sanitizers introduce use of syscalls not allowed by the groestlcoind syscall sandbox (-sandbox=<mode>).)
   seccomp_found=no
 fi
 if test "x$seccomp_found" != "xno"; then
