@@ -1,4 +1,4 @@
-#include "grs-config.h"
+#include <grs-config.h>
 
 #include <assert.h>
 #include <stdint.h>
@@ -14,5 +14,3 @@
 #include <string>
 #include <utility>
 #include <vector>
-
-

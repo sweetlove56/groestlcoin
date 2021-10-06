@@ -6,9 +6,9 @@
 
 #pragma once
 
-#include "amount.h"
-#include "uint256.h"
-#include "serialize.h"
+#include <consensus/amount.h>
+#include <uint256.h>
+#include <serialize.h>
 #include <crypto/common.h>
 
 namespace XCoin {

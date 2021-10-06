@@ -18,7 +18,7 @@
 #include <string>
 #include <vector>
 
-#include "groestlcoin.h"
+#include <groestlcoin.h>
 
 typedef uint256 ChainCode;
 

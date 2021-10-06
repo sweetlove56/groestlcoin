@@ -1,4 +1,4 @@
-#include "grs-config.h"
+#include <grs-config.h>
 
 #include <assert.h>
 #include <stdint.h>
@@ -51,4 +51,3 @@
 #include <QtCore/qbytearray.h>
 #include <QtCore/qmetatype.h>
 #include <QtCore/QVariant>
-
