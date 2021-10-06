@@ -57,7 +57,7 @@ SplashScreen::SplashScreen(const NetworkStyle* networkStyle)
 
 
     QPainter pixPaint(&pixmap);
-	pixPaint.setPen(QColor(100,100,100));
+    pixPaint.setPen(QColor(100,100,100));
 
     // draw a slightly radial gradient
     QRadialGradient gradient(QPoint(0,0), splashSize.width()/devicePixelRatio);
@@ -66,19 +66,16 @@ SplashScreen::SplashScreen(const NetworkStyle* networkStyle)
     QRect rGradient(QPoint(0,0), splashSize);
     pixPaint.fillRect(rGradient, gradient);
 
-    // draw the bitcoin icon, expected size of PNG: 1024x1024
-//    QRect rectIcon(QPoint(-150,-122), QSize(430,430));
+    // draw the groestlcoin icon, expected size of PNG: 1024x1024
     QRect rectIcon(QPoint(0,0), QSize(480,320));
 
     const QSize requiredSize(1024,1024);
     QPixmap icon(networkStyle->getAppIcon().pixmap(requiredSize));
-	//GRS  pixPaint.drawPixmap(rectIcon, icon);
 
-	// load the bitmap for writing some text over it
-	QRect rectSplash = pixPaint.viewport();
-	QPixmap pixmapSplash(gArgs.GetBoolArg("-testnet", false) ? ":/images/splash_testnet" : ":/images/splash");	//GRS
-	pixPaint.drawPixmap(rectIcon, pixmapSplash);
-
+    // GRS  pixPaint.drawPixmap(rectIcon, icon);
+    // load the bitmap for writing some text over it
+    QPixmap pixmapSplash(gArgs.GetBoolArg("-testnet", false) ? ":/images/splash_testnet" : ":/images/splash");	// GRS
+    pixPaint.drawPixmap(rectIcon, pixmapSplash); // GRS
 
     // check font size and drawing with
     pixPaint.setFont(QFont(font, 33*fontFactor));
@@ -102,8 +99,8 @@ SplashScreen::SplashScreen(const NetworkStyle* networkStyle)
         pixPaint.setFont(QFont(font, 10*fontFactor));
         titleVersionVSpace -= 5;
     }
-	int xCopyright = 20+pixmap.width()/devicePixelRatio-titleTextWidth-paddingRight;
-	pixPaint.drawText(xCopyright,paddingTop+titleVersionVSpace,versionText);
+    int xCopyright = 20+pixmap.width()/devicePixelRatio-titleTextWidth-paddingRight;
+    pixPaint.drawText(xCopyright,paddingTop+titleVersionVSpace,versionText);
 
     // draw copyright stuff
     {
