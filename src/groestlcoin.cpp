@@ -310,7 +310,7 @@ public:
         consensus.signet_blocks = false;
         consensus.signet_challenge.clear();
         // GRS consensus.nSubsidyHalvingInterval = 210000;
-        consensus.BIP16Exception = uint256S("00000000005a3b7cda97b28dd1e59d872eebb990ec79ed44f494b8e6edbf015d");
+        consensus.BIP16Exception = uint256S("0x00000000005a3b7cda97b28dd1e59d872eebb990ec79ed44f494b8e6edbf015d");
         consensus.BIP34Height = 800000;
         consensus.BIP34Hash = uint256S("0x0000000007f3f37410d5f7e71a07bf09bb802d5af6726fc891f0248ad857708c");
         consensus.BIP65Height = 2464000; // 00000000000030f90269dd2c0fb5f7502f332cd183b1596817f0cc4cfd6966b1
@@ -334,7 +334,7 @@ public:
         consensus.vDeployments[Consensus::DEPLOYMENT_TAPROOT].bit = 2;
         consensus.vDeployments[Consensus::DEPLOYMENT_TAPROOT].nStartTime = 1607990401; // December 15, 2020
         consensus.vDeployments[Consensus::DEPLOYMENT_TAPROOT].nTimeout = 1640908799; // December 31, 2021
-        consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].min_activation_height = 0; // No activation delay
+        consensus.vDeployments[Consensus::DEPLOYMENT_TAPROOT].min_activation_height = 0; // No activation delay
 
         consensus.nMinimumChainWork = uint256S("0x0000000000000000000000000000000000000000000000eb5b2eecce206a9c13"); // groestlcoin-cli getblockheader 0000000000001a753d797de12869251d0168e1e507b0cf71a50f8a0b07475810 | jq '{chainwork}'
         consensus.defaultAssumeValid = uint256S("0x0000000000001a753d797de12869251d0168e1e507b0cf71a50f8a0b07475810"); // groestlcoin-cli getblockhash 3679500
@@ -363,10 +363,10 @@ public:
         // This is fine at runtime as we'll fall back to using them as an addrfetch if they don't support the
         // service bits we want, but we should get them updated to support all service bits wanted by any
         // release ASAP to avoid it where possible.
-        vSeeds.push_back("dnsseed1.groestlcoin.org");
-        vSeeds.push_back("dnsseed2.groestlcoin.org");
-        vSeeds.push_back("dnsseed3.groestlcoin.org");
-        vSeeds.push_back("dnsseed4.groestlcoin.org");
+        vSeeds.emplace_back("dnsseed1.groestlcoin.org."); // only supports x1, x5, x9, and xd
+        vSeeds.emplace_back("dnsseed2.groestlcoin.org."); // only supports x1, x5, x9, and xd
+        vSeeds.emplace_back("dnsseed3.groestlcoin.org."); // only supports x1, x5, x9, and xd
+        vSeeds.emplace_back("dnsseed4.groestlcoin.org."); // only supports x1, x5, x9, and xd
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,36);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,5);
@@ -422,7 +422,7 @@ public:
         consensus.signet_blocks = false;
         consensus.signet_challenge.clear();
         // GRS consensus.nSubsidyHalvingInterval = 210000;
-        consensus.BIP16Exception = uint256S("000000458242a5d60e943f0a9945c29040b32be35582d1bfd47b5c536f10ac30");
+        consensus.BIP16Exception = uint256S("0x000000458242a5d60e943f0a9945c29040b32be35582d1bfd47b5c536f10ac30");
         consensus.BIP34Height = 286;
         consensus.BIP34Hash = uint256S("0x0000004b7778ba253a75b716c55b2c6609b5fb97691b3260978f9ce4a633106d");
         consensus.BIP65Height = 982000; // 000000204a7e703f80543d9329d4b90e4269e08f36ad746cfe145add340b8738
@@ -468,8 +468,8 @@ public:
         vFixedSeeds.clear();
         vSeeds.clear();
         // nodes with support for servicebits filtering should be at the top
-        vSeeds.push_back("testnet-seed1.groestlcoin.org");
-        vSeeds.push_back("testnet-seed2.groestlcoin.org");
+        vSeeds.emplace_back("testnet-seed1.groestlcoin.org."); // only supports x1, x5, x9, and xd
+        vSeeds.emplace_back("testnet-seed2.groestlcoin.org."); // only supports x1, x5, x9, and xd
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,111);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,196);
@@ -500,7 +500,7 @@ public:
         };
 
         m_assumeutxo_data = MapAssumeutxo{
-         // TODO to be specified in a future patch.
+            // TODO to be specified in a future patch.
         };
 
         chainTxData = ChainTxData{
@@ -523,6 +523,7 @@ public:
 
         if (!args.IsArgSet("-signetchallenge")) {
             bin = ParseHex("51210379156a07950b904a74e0d276e6d96bb61c4e0f89c9f69d3a5f75f161c9f8684051ae");
+            // Hardcoded nodes can be removed once there are more DNS seeds
             vSeeds.emplace_back("198.199.105.43");
             vSeeds.emplace_back("2604:a880:1:20::96:6001");
             vSeeds.emplace_back("ubmgcth2ngfb7qapyrkpnn3i6p2dmu76zvd3hfs2mw3u4t54v2qa66id.onion:31331");
@@ -637,8 +638,8 @@ public:
         consensus.BIP34Hash = uint256();
         consensus.BIP65Height = 1;  // Always active unless overridden
         consensus.BIP66Height = 1;  // Always active unless overridden
-        consensus.CSVHeight = 1;  // Always active unless overridden
-        consensus.SegwitHeight = 1;  // Always active unless overridden
+        consensus.CSVHeight = 1;    // Always active unless overridden
+        consensus.SegwitHeight = 1; // Always active unless overridden
         consensus.MinBIP9WarningHeight = 0;
         consensus.powLimit = uint256S("00ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
         consensus.nPowTargetTimespan = 14 * 24 * 60 * 60; // two weeks
@@ -653,10 +654,10 @@ public:
         consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].nTimeout = Consensus::BIP9Deployment::NO_TIMEOUT;
         consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].min_activation_height = 0; // No activation delay
 
-				consensus.vDeployments[Consensus::DEPLOYMENT_TAPROOT].bit = 2;
+        consensus.vDeployments[Consensus::DEPLOYMENT_TAPROOT].bit = 2;
         consensus.vDeployments[Consensus::DEPLOYMENT_TAPROOT].nStartTime = Consensus::BIP9Deployment::ALWAYS_ACTIVE;
         consensus.vDeployments[Consensus::DEPLOYMENT_TAPROOT].nTimeout = Consensus::BIP9Deployment::NO_TIMEOUT;
-        consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].min_activation_height = 0; // No activation delay
+        consensus.vDeployments[Consensus::DEPLOYMENT_TAPROOT].min_activation_height = 0; // No activation delay
 
         consensus.nMinimumChainWork = uint256{};
         consensus.defaultAssumeValid = uint256{};
@@ -697,7 +698,7 @@ public:
         };
 
         m_assumeutxo_data = MapAssumeutxo{
-         // TODO to be specified in a future patch.
+         // TODO to be specified in a future patch with https://github.com/groestlcoin/groestlcoin/blob/master/contrib/devtools/utxo_snapshot.sh
         };
 
         chainTxData = ChainTxData{
