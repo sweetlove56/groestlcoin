@@ -219,7 +219,7 @@ bool TestLockPointValidity(CChain& active_chain, const LockPoints* lp)
     // If there are relative lock times then the maxInputBlock will be set
     // If there are no relative lock times, the LockPoints don't depend on the chain
     if (lp->maxInputBlock) {
-        // Check whether ::ChainActive() is an extension of the block at which the LockPoints
+        // Check whether active_chain is an extension of the block at which the LockPoints
         // calculation was valid.  If not LockPoints are no longer valid
         if (!active_chain.Contains(lp->maxInputBlock)) {
             return false;
@@ -1884,14 +1884,13 @@ bool CChainState::ConnectBlock(const CBlock& block, BlockValidationState& state,
     int64_t nTime5 = GetTimeMicros(); nTimeIndex += nTime5 - nTime4;
     LogPrint(BCLog::BENCH, "    - Index writing: %.2fms [%.2fs (%.2fms/blk)]\n", MILLI * (nTime5 - nTime4), nTimeIndex * MICRO, nTimeIndex * MILLI / nBlocksTotal);
 
-    TRACE7(validation, block_connected,
-        block.GetHash().ToString().c_str(),
+    TRACE6(validation, block_connected,
+        block.GetHash().data(),
         pindex->nHeight,
         block.vtx.size(),
         nInputs,
         nSigOpsCost,
-        GetTimeMicros() - nTimeStart, // in microseconds (µs)
-        block.GetHash().data()
+        GetTimeMicros() - nTimeStart // in microseconds (µs)
     );
 
     return true;
