@@ -36,7 +36,7 @@ Release Process
 
 To tag the version (or release candidate) in git, use the `make-tag.py` script from [groestlcoin-maintainer-tools](https://github.com/groestlcoin/groestlcoin-maintainer-tools). From the root of the repository run:
 
-    ../groestlcoin-maintainer-tools/make-tag.py v(new version, e.g. 2.20.1)
+    ../groestlcoin-maintainer-tools/make-tag.py v(new version, e.g. 23.0)
 
 This will perform a few last-minute consistency checks in the build system files, and if they pass, create a signed tag.
 
@@ -180,7 +180,7 @@ cat "$VERSION"/*/all.SHA256SUMS.asc > SHA256SUMS.asc
       - Push the snap, see https://github.com/groestlcoin/packaging/blob/master/snap/build.md
 
 - This repo
-    
+
       - Archive the release notes for the new version to `doc/release-notes/` (branch `master` and branch of the release)
 
       - Create a [new GitHub release](https://github.com/groestlcoin/groestlcoin/releases/new) with a link to the archived release notes
