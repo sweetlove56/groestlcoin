@@ -708,6 +708,7 @@ groestlcoin_tx_LDADD += $(BOOST_LIBS)
 
 # groestlcoin-wallet binary #
 groestlcoin_wallet_SOURCES = groestlcoin-wallet.cpp
+groestlcoin_wallet_SOURCES += init/groestlcoin-wallet.cpp
 groestlcoin_wallet_CPPFLAGS = $(groestlcoin_bin_cppflags)
 groestlcoin_wallet_CXXFLAGS = $(groestlcoin_bin_cxxflags)
 groestlcoin_wallet_LDFLAGS = $(groestlcoin_bin_ldflags)

@@ -342,15 +342,15 @@ groestlcoin_qt_libtoolflags = $(AM_LIBTOOLFLAGS) --tag CXX
 
 qt_groestlcoin_qt_CPPFLAGS = $(groestlcoin_qt_cppflags)
 qt_groestlcoin_qt_CXXFLAGS = $(groestlcoin_qt_cxxflags)
-qt_groestlcoin_qt_SOURCES = $(groestlcoin_qt_sources) init/groestlcoind.cpp
+qt_groestlcoin_qt_SOURCES = $(groestlcoin_qt_sources) init/groestlcoin-qt.cpp
 qt_groestlcoin_qt_LDADD = $(groestlcoin_qt_ldadd)
 qt_groestlcoin_qt_LDFLAGS = $(groestlcoin_qt_ldflags)
 qt_groestlcoin_qt_LIBTOOLFLAGS = $(groestlcoin_qt_libtoolflags)
 
 groestlcoin_gui_CPPFLAGS = $(groestlcoin_qt_cppflags)
 groestlcoin_gui_CXXFLAGS = $(groestlcoin_qt_cxxflags)
-groestlcoin_gui_SOURCES = $(groestlcoin_qt_sources) init/groestlcoind.cpp
-groestlcoin_gui_LDADD = $(groestlcoin_qt_ldadd)
+groestlcoin_gui_SOURCES = $(groestlcoin_qt_sources) init/groestlcoin-gui.cpp
+groestlcoin_gui_LDADD = $(groestlcoin_qt_ldadd) $(LIBBITCOIN_IPC) $(LIBBITCOIN_UTIL) $(LIBMULTIPROCESS_LIBS)
 groestlcoin_gui_LDFLAGS = $(groestlcoin_qt_ldflags)
 groestlcoin_gui_LIBTOOLFLAGS = $(groestlcoin_qt_libtoolflags)
 
