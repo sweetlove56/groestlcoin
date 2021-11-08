@@ -42,12 +42,11 @@ Optional dependencies:
  ------------|------------------|----------------------
  miniupnpc   | UPnP Support     | Firewall-jumping support
  libnatpmp   | NAT-PMP Support  | Firewall-jumping support
- libdb5.3    | Berkeley DB      | Optional, wallet storage (only needed when wallet enabled)
+ libdb5.3    | Berkeley DB      | Optional, wallet storage (only needed when legacy wallet enabled)
  qt          | GUI              | GUI toolkit (only needed when GUI enabled)
  libqrencode | QR codes in GUI  | Optional for generating QR codes (only needed when GUI enabled)
- univalue    | Utility          | JSON parsing and encoding (bundled version will be used unless --with-system-univalue passed to configure)
  libzmq3     | ZMQ notification | Optional, allows generating ZMQ notifications (requires ZMQ version >= 4.0.0)
- sqlite3     | SQLite DB        | Optional, wallet storage (only needed when wallet enabled)
+ sqlite3     | SQLite DB        | Optional, wallet storage (only needed when descriptor wallet enabled)
  systemtap   | Tracing (USDT)   | Optional, statically defined tracepoints
 
 For the versions used, see [dependencies.md](dependencies.md)
@@ -80,10 +79,6 @@ Finally, clang (often less resource hungry) can be used instead of gcc, which is
 Build requirements:
 
     sudo apt-get install libevent-dev libboost-dev libboost-system-dev libboost-filesystem-dev libboost-test-dev
-
-Berkeley DB is required for the wallet.
-
-Otherwise, you can build Berkeley DB [yourself](#berkeley-db).
 
 SQLite is required for the descriptor wallet:
 
@@ -137,20 +132,14 @@ Now, you can either build from self-compiled [depends](/depends/README.md) or in
 
     sudo dnf install libevent-devel boost-devel
 
-Berkeley DB is required for the wallet:
-
-    sudo dnf install libdb4-devel libdb4-cxx-devel
-
-Newer Fedora releases, since Fedora 33, have only `libdb-devel` and `libdb-cxx-devel` packages, but these will install
-Berkeley DB 5.3 or later. This will break binary wallet compatibility with the distributed executables, which
-are based on Berkeley DB 4.8. If you do not care about wallet compatibility,
-pass `--with-incompatible-bdb` to configure.
-
-Otherwise, you can build Berkeley DB [yourself](#berkeley-db).
-
 SQLite is required for the descriptor wallet:
 
     sudo dnf install sqlite-devel
+
+Berkeley DB is required for the legacy wallet:
+
+    sudo dnf install libdb libdb-cxx-devel
+
 
 To build Groestlcoin Core without wallet, see [*Disable-wallet mode*](#disable-wallet-mode)
 
@@ -216,8 +205,10 @@ turned off by default. See the configure options for NAT-PMP behavior desired:
 
 Berkeley DB
 -----------
-It is recommended to use Berkeley DB 5.3. If you have to build it yourself,
-you can use [the installation script included in contrib/](/contrib/install_db5.sh)
+
+The legacy wallet uses Berkeley DB. To ensure backwards compatibility it is
+recommended to use Berkeley DB 5.3. If you have to build it yourself, you can
+use [the installation script included in contrib/](/contrib/install_db5.sh)
 like so:
 
 ```shell
