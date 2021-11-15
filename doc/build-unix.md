@@ -297,8 +297,11 @@ This example lists the steps necessary to setup and build a command line only, n
     make check
 
 Note:
-Enabling wallet support requires either compiling against a Berkeley DB newer than 5.3 (package `db`) or building and depending on a local version of Berkeley DB 5.3.
-As mentioned above, when maintaining portability of the wallet between the standard Groestlcoin Core distributions and independently built node software is desired, Berkeley DB 5.3 must be used.
+Enabling wallet support requires either compiling against a Berkeley DB newer than 5.3 (package `db`) using `--with-incompatible-bdb`,
+or building and depending on a local version of Berkeley DB 5.3. The readily available Arch Linux packages are currently built using
+`--with-incompatible-bdb` according to the [PKGBUILD](https://github.com/archlinux/svntogit-community/blob/packages/groestlcoin/trunk/PKGBUILD).
+As mentioned above, when maintaining portability of the wallet between the standard Groestlcoin Core distributions and independently built
+node software is desired, Berkeley DB 5.3 must be used.
 
 
 ARM Cross-compilation
