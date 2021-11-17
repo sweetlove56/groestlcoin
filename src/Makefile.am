@@ -171,7 +171,6 @@ BITCOIN_CORE_H = \
   memusage.h \
   merkleblock.h \
   miner.h \
-  minisketchwrapper.h \
   net.h \
   net_permissions.h \
   net_processing.h \
@@ -183,6 +182,7 @@ BITCOIN_CORE_H = \
   node/coin.h \
   node/coinstats.h \
   node/context.h \
+  node/minisketchwrapper.h \
   node/psbt.h \
   node/transaction.h \
   node/ui_interface.h \
@@ -338,7 +338,6 @@ libgroestlcoin_server_a_SOURCES = \
   init.cpp \
   mapport.cpp \
   miner.cpp \
-  minisketchwrapper.cpp \
   net.cpp \
   net_processing.cpp \
   node/blockstorage.cpp \
@@ -346,6 +345,7 @@ libgroestlcoin_server_a_SOURCES = \
   node/coinstats.cpp \
   node/context.cpp \
   node/interfaces.cpp \
+  node/minisketchwrapper.cpp \
   node/psbt.cpp \
   node/transaction.cpp \
   node/ui_interface.cpp \
@@ -714,7 +714,18 @@ groestlcoin_wallet_SOURCES += init/groestlcoin-wallet.cpp
 groestlcoin_wallet_CPPFLAGS = $(groestlcoin_bin_cppflags)
 groestlcoin_wallet_CXXFLAGS = $(groestlcoin_bin_cxxflags)
 groestlcoin_wallet_LDFLAGS = $(groestlcoin_bin_ldflags)
-groestlcoin_wallet_LDADD = $(LIBBITCOIN_WALLET_TOOL) $(groestlcoin_bin_ldadd)
+groestlcoin_wallet_LDADD = \
+  $(LIBBITCOIN_WALLET_TOOL) \
+  $(LIBBITCOIN_WALLET) \
+  $(LIBBITCOIN_COMMON) \
+  $(LIBBITCOIN_UTIL) \
+  $(LIBUNIVALUE) \
+  $(LIBBITCOIN_CONSENSUS) \
+  $(LIBBITCOIN_CRYPTO) \
+  $(LIBSECP256K1) \
+  $(BOOST_LIBS) \
+  $(BDB_LIBS) \
+  $(SQLITE_LIBS)
 
 if TARGET_WINDOWS
 groestlcoin_wallet_SOURCES += groestlcoin-wallet-res.rc

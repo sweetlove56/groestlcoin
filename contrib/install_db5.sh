@@ -20,10 +20,10 @@ expand_path() {
   cd "${1}" && pwd -P
 }
 
-BDB_PREFIX="$(expand_path ${1})/db5"; shift;
+BDB_PREFIX="$(expand_path "${1}")/db5"; shift;
 BDB_VERSION='db-5.3.28.NC'
 BDB_HASH='76a25560d9e52a198d37a31440fd07632b5f1f8f9f2b6d5438f4bc3e7c9013ef'
-BDB_URL="https://www.groestlcoin.org/${BDB_VERSION}.tar.gz"
+BDB_URL="https://download.oracle.com/berkeley-db/${BDB_VERSION}.tar.gz"
 
 check_exists() {
   command -v "$1" >/dev/null
