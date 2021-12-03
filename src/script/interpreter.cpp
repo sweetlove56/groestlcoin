@@ -1062,8 +1062,9 @@ bool EvalScript(std::vector<std::vector<unsigned char> >& stack, const CScript& 
                         CSHA256().Write(vch.data(), vch.size()).Finalize(vchHash.data());
                     else if (opcode == OP_HASH160)
                         CHash160().Write(vch).Finalize(vchHash);
-                    else if (opcode == OP_HASH256) 
-                        XCoin::GroestlHasher().Write(vch).Finalize(vchHash);
+                    else if (opcode == OP_HASH256)
+                        XCoin::GroestlHasher().Write(vch).Finalize(vchHash); // GRS
+                        // CHash256().Write(vch).Finalize(vchHash);
                     popstack(stack);
                     stack.push_back(vchHash);
                 }

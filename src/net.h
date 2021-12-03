@@ -317,7 +317,8 @@ class V1TransportDeserializer final : public TransportDeserializer
 private:
     const CChainParams& m_chain_params;
     const NodeId m_node_id; // Only for logging
-    mutable XCoin::GroestlHasher hasher; //GRS
+    mutable XCoin::GroestlHasher hasher; // GRS
+    // mutable CHash256 hasher;
     mutable uint256 data_hash;
     bool in_data;                   // parsing header (false) or data (true)
     CDataStream hdrbuf;             // partially received header
@@ -339,6 +340,7 @@ private:
         nDataPos = 0;
         data_hash.SetNull();
         hasher = XCoin::GroestlHasher(); // GRS
+        // hasher.Reset();
     }
 
 public:

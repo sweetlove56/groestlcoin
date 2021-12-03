@@ -780,6 +780,8 @@ CNetMessage V1TransportDeserializer::GetMessage(const std::chrono::microseconds 
 void V1TransportSerializer::prepareForTransport(CSerializedNetMsg& msg, std::vector<unsigned char>& header) {
     // create dbl-groestl512 checksum
     uint256 hash = XCoin::HashMessage(XCoin::ConstBuf(msg.data)); // GRS
+    // create dbl-sha256 checksum
+    // uint256 hash = Hash(msg.data);
 
     // create header
     CMessageHeader hdr(Params().MessageStart(), msg.m_type.c_str(), msg.data.size());
