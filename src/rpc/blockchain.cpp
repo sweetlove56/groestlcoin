@@ -2307,8 +2307,8 @@ public:
 
 static RPCHelpMan scantxoutset()
 {
-    // scriptPubKey corresponding to mainnet address 12cbQLTFMXRnSzktFkuoG3eHoMeFtpTu3S
-    const std::string EXAMPLE_DESCRIPTOR_RAW = "raw(76a91411b366edfc0a8b66feebae5c2e25a7b6a5d1cf3188ac)#fm24fxxy";
+    // scriptPubKey corresponding to mainnet address FVmPcGdHK61nBt4ipvmS7tMgrEZ2iZcQAP by issueing getaddressinfo FVmPcGdHK61nBt4ipvmS7tMgrEZ2iZcQAP
+    const std::string EXAMPLE_DESCRIPTOR_RAW = "raw(76a914068ed53e0759142ad97b928fc4b246f78d7b41f288ac)#sqwyljrc"; // getdescriptorinfo "raw(76a914068ed53e0759142ad97b928fc4b246f78d7b41f288ac)"
 
     return RPCHelpMan{"scantxoutset",
         "\nScans the unspent transaction output set for entries that match certain output descriptors.\n"
