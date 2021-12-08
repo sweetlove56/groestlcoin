@@ -463,12 +463,12 @@ RPCHelpMan listtransactions()
                         {RPCResult::Type::OBJ, "", "", Cat(Cat<std::vector<RPCResult>>(
                         {
                             {RPCResult::Type::BOOL, "involvesWatchonly", /* optional */ true, "Only returns true if imported addresses were involved in transaction."},
-                            {RPCResult::Type::STR, "address", "The bitcoin address of the transaction."},
+                            {RPCResult::Type::STR, "address", "The groestlcoin address of the transaction."},
                             {RPCResult::Type::STR, "category", "The transaction category.\n"
                                 "\"send\"                  Transactions sent.\n"
                                 "\"receive\"               Non-coinbase transactions received.\n"
-                                "\"generate\"              Coinbase transactions received with more than 100 confirmations.\n"
-                                "\"immature\"              Coinbase transactions received with 100 or fewer confirmations.\n"
+                                "\"generate\"              Coinbase transactions received with more than 120 confirmations.\n"
+                                "\"immature\"              Coinbase transactions received with 120 or fewer confirmations.\n"
                                 "\"orphan\"                Orphaned coinbase transactions received."},
                             {RPCResult::Type::STR_AMOUNT, "amount", "The amount in " + CURRENCY_UNIT + ". This is negative for the 'send' category, and is positive\n"
                                 "for all other categories"},
@@ -577,12 +577,12 @@ RPCHelpMan listsinceblock()
                             {RPCResult::Type::OBJ, "", "", Cat(Cat<std::vector<RPCResult>>(
                             {
                                 {RPCResult::Type::BOOL, "involvesWatchonly", /* optional */ true, "Only returns true if imported addresses were involved in transaction."},
-                                {RPCResult::Type::STR, "address", "The bitcoin address of the transaction."},
+                                {RPCResult::Type::STR, "address", "The groestlcoin address of the transaction."},
                                 {RPCResult::Type::STR, "category", "The transaction category.\n"
                                     "\"send\"                  Transactions sent.\n"
                                     "\"receive\"               Non-coinbase transactions received.\n"
-                                    "\"generate\"              Coinbase transactions received with more than 100 confirmations.\n"
-                                    "\"immature\"              Coinbase transactions received with 100 or fewer confirmations.\n"
+                                    "\"generate\"              Coinbase transactions received with more than 120 confirmations.\n"
+                                    "\"immature\"              Coinbase transactions received with 120 or fewer confirmations.\n"
                                     "\"orphan\"                Orphaned coinbase transactions received."},
                                 {RPCResult::Type::STR_AMOUNT, "amount", "The amount in " + CURRENCY_UNIT + ". This is negative for the 'send' category, and is positive\n"
                                     "for all other categories"},
@@ -605,8 +605,8 @@ RPCHelpMan listsinceblock()
                 },
                 RPCExamples{
                     HelpExampleCli("listsinceblock", "")
-            + HelpExampleCli("listsinceblock", "\"000000000000000bacf66f7497b7dc45ef753ee9a7d38571037cdb1a57f663ad\" 6")
-            + HelpExampleRpc("listsinceblock", "\"000000000000000bacf66f7497b7dc45ef753ee9a7d38571037cdb1a57f663ad\", 6")
+            + HelpExampleCli("listsinceblock", "\"00000000000012e815b167b1a2979ecec7da4bd09719b5130f70dfa4baeaf444\" 6")
+            + HelpExampleRpc("listsinceblock", "\"00000000000012e815b167b1a2979ecec7da4bd09719b5130f70dfa4baeaf444\", 6")
                 },
         [&](const RPCHelpMan& self, const JSONRPCRequest& request) -> UniValue
 {
@@ -720,12 +720,12 @@ RPCHelpMan gettransaction()
                             {RPCResult::Type::OBJ, "", "",
                             {
                                 {RPCResult::Type::BOOL, "involvesWatchonly", /* optional */ true, "Only returns true if imported addresses were involved in transaction."},
-                                {RPCResult::Type::STR, "address", /* optional */ true, "The bitcoin address involved in the transaction."},
+                                {RPCResult::Type::STR, "address", /* optional */ true, "The groestlcoin address involved in the transaction."},
                                 {RPCResult::Type::STR, "category", "The transaction category.\n"
                                     "\"send\"                  Transactions sent.\n"
                                     "\"receive\"               Non-coinbase transactions received.\n"
-                                    "\"generate\"              Coinbase transactions received with more than 100 confirmations.\n"
-                                    "\"immature\"              Coinbase transactions received with 100 or fewer confirmations.\n"
+                                    "\"generate\"              Coinbase transactions received with more than 120 confirmations.\n"
+                                    "\"immature\"              Coinbase transactions received with 120 or fewer confirmations.\n"
                                     "\"orphan\"                Orphaned coinbase transactions received."},
                                 {RPCResult::Type::STR_AMOUNT, "amount", "The amount in " + CURRENCY_UNIT},
                                 {RPCResult::Type::STR, "label", /* optional */ true, "A comment for the address/transaction, if any"},

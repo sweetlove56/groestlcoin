@@ -791,8 +791,8 @@ static RPCHelpMan getblockfrompeer()
             {RPCResult::Type::STR, "warnings", /*optional=*/true, "any warnings"},
         }},
         RPCExamples{
-            HelpExampleCli("getblockfrompeer", "\"00000000c937983704a73af28acdec37b049d214adbda81d7e2a3dd146f6ed09\" 0")
-            + HelpExampleRpc("getblockfrompeer", "\"00000000c937983704a73af28acdec37b049d214adbda81d7e2a3dd146f6ed09\" 0")
+            HelpExampleCli("getblockfrompeer", "\"000000000040ec74b9fe1d7fa4af97792904f80c5469f1a9460726cc4d2c5cbb\" 0")
+            + HelpExampleRpc("getblockfrompeer", "\"000000000040ec74b9fe1d7fa4af97792904f80c5469f1a9460726cc4d2c5cbb\" 0")
         },
         [&](const RPCHelpMan& self, const JSONRPCRequest& request) -> UniValue
 {
