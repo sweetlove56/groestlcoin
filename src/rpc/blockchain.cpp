@@ -890,8 +890,8 @@ static RPCHelpMan getblockheader()
                         RPCResult::Type::STR_HEX, "", "A string that is serialized, hex-encoded data for block 'hash'"},
                 },
                 RPCExamples{
-                    HelpExampleCli("getblockheader", "\"00000000c937983704a73af28acdec37b049d214adbda81d7e2a3dd146f6ed09\"")
-            + HelpExampleRpc("getblockheader", "\"00000000c937983704a73af28acdec37b049d214adbda81d7e2a3dd146f6ed09\"")
+                    HelpExampleCli("getblockheader", "\"00000000000434d5b8d1c3308df7b6e3fd773657dfb28f5dd2f70854ef94cc66\"")
+            + HelpExampleRpc("getblockheader", "\"00000000000434d5b8d1c3308df7b6e3fd773657dfb28f5dd2f70854ef94cc66\"")
                 },
         [&](const RPCHelpMan& self, const JSONRPCRequest& request) -> UniValue
 {
@@ -1011,8 +1011,8 @@ static RPCHelpMan getblock()
                 }},
         },
                 RPCExamples{
-                    HelpExampleCli("getblock", "\"00000000c937983704a73af28acdec37b049d214adbda81d7e2a3dd146f6ed09\"")
-            + HelpExampleRpc("getblock", "\"00000000c937983704a73af28acdec37b049d214adbda81d7e2a3dd146f6ed09\"")
+                    HelpExampleCli("getblock", "\"00000000000434d5b8d1c3308df7b6e3fd773657dfb28f5dd2f70854ef94cc66\"")
+            + HelpExampleRpc("getblock", "\"00000000000434d5b8d1c3308df7b6e3fd773657dfb28f5dd2f70854ef94cc66\"")
                 },
         [&](const RPCHelpMan& self, const JSONRPCRequest& request) -> UniValue
 {
@@ -2038,9 +2038,9 @@ static RPCHelpMan getblockstats()
                 {RPCResult::Type::NUM, "utxo_size_inc", /*optional=*/true, "The increase/decrease in size for the utxo index (not discounting op_return and similar)"},
             }},
                 RPCExamples{
-                    HelpExampleCli("getblockstats", R"('"00000000c937983704a73af28acdec37b049d214adbda81d7e2a3dd146f6ed09"' '["minfeerate","avgfeerate"]')") +
+                    HelpExampleCli("getblockstats", R"('"00000000000434d5b8d1c3308df7b6e3fd773657dfb28f5dd2f70854ef94cc66"' '["minfeerate","avgfeerate"]')") +
                     HelpExampleCli("getblockstats", R"(1000 '["minfeerate","avgfeerate"]')") +
-                    HelpExampleRpc("getblockstats", R"("00000000c937983704a73af28acdec37b049d214adbda81d7e2a3dd146f6ed09", ["minfeerate","avgfeerate"])") +
+                    HelpExampleRpc("getblockstats", R"("00000000000434d5b8d1c3308df7b6e3fd773657dfb28f5dd2f70854ef94cc66", ["minfeerate","avgfeerate"])") +
                     HelpExampleRpc("getblockstats", R"(1000, ["minfeerate","avgfeerate"])")
                 },
         [&](const RPCHelpMan& self, const JSONRPCRequest& request) -> UniValue
@@ -2503,8 +2503,8 @@ static RPCHelpMan getblockfilter()
                         {RPCResult::Type::STR_HEX, "header", "the hex-encoded filter header"},
                     }},
                 RPCExamples{
-                    HelpExampleCli("getblockfilter", "\"00000000c937983704a73af28acdec37b049d214adbda81d7e2a3dd146f6ed09\" \"basic\"") +
-                    HelpExampleRpc("getblockfilter", "\"00000000c937983704a73af28acdec37b049d214adbda81d7e2a3dd146f6ed09\", \"basic\"")
+                    HelpExampleCli("getblockfilter", "\"00000000000434d5b8d1c3308df7b6e3fd773657dfb28f5dd2f70854ef94cc66\" \"basic\"") +
+                    HelpExampleRpc("getblockfilter", "\"00000000000434d5b8d1c3308df7b6e3fd773657dfb28f5dd2f70854ef94cc66\", \"basic\"")
                 },
         [&](const RPCHelpMan& self, const JSONRPCRequest& request) -> UniValue
 {
