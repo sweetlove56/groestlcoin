@@ -100,7 +100,6 @@ Makefile
 !depends/Makefile
 src/qt/groestlcoin-qt
 Groestlcoin-Qt.app
-background.tiff*
 
 # Qt Creator
 Makefile.am.user
@@ -153,6 +152,5 @@ db5/
 
 osx_volname
 dist/
-*.background.tiff
 
 /guix-build-*

@@ -17,7 +17,7 @@ EXTRA_LIBRARIES =
 
 BITCOIN_INCLUDES=-I$(builddir) -I$(srcdir)/$(MINISKETCH_INCLUDE_DIR_INT) -I$(srcdir)/secp256k1/include -I$(srcdir)/$(UNIVALUE_INCLUDE_DIR_INT) $(BDB_CPPFLAGS) $(BOOST_CPPFLAGS) $(LEVELDB_CPPFLAGS)
 
-LIBBITCOIN_SERVER=libgroestlcoin_server.a
+LIBBITCOIN_NODE=libgroestlcoin_node.a
 LIBBITCOIN_COMMON=libgroestlcoin_common.a
 LIBBITCOIN_CONSENSUS=libgroestlcoin_consensus.a
 LIBBITCOIN_CLI=libgroestlcoin_cli.a
@@ -61,7 +61,7 @@ EXTRA_LIBRARIES += \
   $(LIBBITCOIN_UTIL) \
   $(LIBBITCOIN_COMMON) \
   $(LIBBITCOIN_CONSENSUS) \
-  $(LIBBITCOIN_SERVER) \
+  $(LIBBITCOIN_NODE) \
   $(LIBBITCOIN_CLI) \
   $(LIBBITCOIN_IPC) \
   $(LIBBITCOIN_WALLET) \
@@ -252,6 +252,7 @@ BITCOIN_CORE_H = \
   util/macros.h \
   util/message.h \
   util/moneystr.h \
+  util/overflow.h \
   util/overloaded.h \
   util/rbf.h \
   util/readwritefile.h \
@@ -319,9 +320,9 @@ ipc/capnp/libbitcoin_ipc_a-ipc.$(OBJEXT): $(libbitcoin_ipc_mpgen_input:=.h)
 # Contains code accessing mempool and chain state that is meant to be separated
 # from wallet and gui code (see node/README.md). Shared code should go in
 # libgroestlcoin_common or libgroestlcoin_util libraries, instead.
-libgroestlcoin_server_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(MINIUPNPC_CPPFLAGS) $(NATPMP_CPPFLAGS) $(EVENT_CFLAGS) $(EVENT_PTHREADS_CFLAGS)
-libgroestlcoin_server_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-libgroestlcoin_server_a_SOURCES = \
+libgroestlcoin_node_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(MINIUPNPC_CPPFLAGS) $(NATPMP_CPPFLAGS) $(EVENT_CFLAGS) $(EVENT_PTHREADS_CFLAGS)
+libgroestlcoin_node_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+libgroestlcoin_node_a_SOURCES = \
   addrdb.cpp \
   addrman.cpp \
   banman.cpp \
@@ -384,10 +385,10 @@ libgroestlcoin_server_a_SOURCES = \
   $(BITCOIN_CORE_H)
 
 if ENABLE_WALLET
-libgroestlcoin_server_a_SOURCES += wallet/init.cpp
+libgroestlcoin_node_a_SOURCES += wallet/init.cpp
 endif
 if !ENABLE_WALLET
-libgroestlcoin_server_a_SOURCES += dummywallet.cpp
+libgroestlcoin_node_a_SOURCES += dummywallet.cpp
 endif
 
 if ENABLE_ZMQ
@@ -674,13 +675,13 @@ groestlcoind_SOURCES = $(groestlcoin_daemon_sources) init/groestlcoind.cpp
 groestlcoind_CPPFLAGS = $(groestlcoin_bin_cppflags)
 groestlcoind_CXXFLAGS = $(groestlcoin_bin_cxxflags)
 groestlcoind_LDFLAGS = $(groestlcoin_bin_ldflags)
-groestlcoind_LDADD = $(LIBBITCOIN_SERVER) $(groestlcoin_bin_ldadd)
+groestlcoind_LDADD = $(LIBBITCOIN_NODE) $(groestlcoin_bin_ldadd)
 
 groestlcoin_node_SOURCES = $(groestlcoin_daemon_sources) init/groestlcoin-node.cpp
 groestlcoin_node_CPPFLAGS = $(groestlcoin_bin_cppflags)
 groestlcoin_node_CXXFLAGS = $(groestlcoin_bin_cxxflags)
 groestlcoin_node_LDFLAGS = $(groestlcoin_bin_ldflags)
-groestlcoin_node_LDADD = $(LIBBITCOIN_SERVER) $(groestlcoin_bin_ldadd) $(LIBBITCOIN_IPC) $(LIBMULTIPROCESS_LIBS)
+groestlcoin_node_LDADD = $(LIBBITCOIN_NODE) $(groestlcoin_bin_ldadd) $(LIBBITCOIN_IPC) $(LIBMULTIPROCESS_LIBS)
 
 # groestlcoin-cli binary #
 groestlcoin_cli_SOURCES = groestlcoin-cli.cpp
