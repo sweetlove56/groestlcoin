@@ -39,11 +39,11 @@ public:
         // We've previously had bugs creep in from silent double->int conversion...
         static_assert(std::is_integral<I>::value, "CFeeRate should be used without floats");
     }
-    /** Constructor for a fee rate in satoshis per kvB (sat/kvB).
+    /** Constructor for a fee rate in gros per kvB (gro/kvB).
      *
-     *  Passing a num_bytes value of COIN (1e8) returns a fee rate in satoshis per vB (sat/vB),
+     *  Passing a num_bytes value of COIN (1e8) returns a fee rate in gros per vB (sat/vB),
      *  e.g. (nFeePaid * 1e8 / 1e3) == (nFeePaid / 1e5),
-     *  where 1e5 is the ratio to convert from BTC/kvB to sat/vB.
+     *  where 1e5 is the ratio to convert from GRS/kvB to gro/vB.
      */
     CFeeRate(const CAmount& nFeePaid, uint32_t num_bytes);
     /**

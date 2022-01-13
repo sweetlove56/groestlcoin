@@ -47,50 +47,50 @@ Notable changes
 Block file pruning
 ----------------------
 
-This release supports running a fully validating node without maintaining a copy 
-of the raw block and undo data on disk. To recap, there are four types of data 
-related to the blockchain in the groestlcoin system: the raw blocks as received over 
-the network (blk???.dat), the undo data (rev???.dat), the block index and the 
+This release supports running a fully validating node without maintaining a copy
+of the raw block and undo data on disk. To recap, there are four types of data
+related to the blockchain in the groestlcoin system: the raw blocks as received over
+the network (blk???.dat), the undo data (rev???.dat), the block index and the
 UTXO set (both LevelDB databases). The databases are built from the raw data.
 
-Block pruning allows Groestlcoin Core to delete the raw block and undo data once 
-it's been validated and used to build the databases. At that point, the raw data 
-is used only to relay blocks to other nodes, to handle reorganizations, to look 
-up old transactions (if -txindex is enabled or via the RPC/REST interfaces), or 
-for rescanning the wallet. The block index continues to hold the metadata about 
+Block pruning allows Groestlcoin Core to delete the raw block and undo data once
+it's been validated and used to build the databases. At that point, the raw data
+is used only to relay blocks to other nodes, to handle reorganizations, to look
+up old transactions (if -txindex is enabled or via the RPC/REST interfaces), or
+for rescanning the wallet. The block index continues to hold the metadata about
 all blocks in the blockchain.
 
-The user specifies how much space to allot for block & undo files. The minimum 
-allowed is 55MB. Note that this is in addition to whatever is required for the 
-block index and UTXO databases. The minimum was chosen so that Groestlcoin Core will 
-be able to maintain at least 2880 blocks on disk (two days worth of blocks at 1 
-minute per block). In rare instances it is possible that the amount of space 
-used will exceed the pruning target in order to keep the required last 288 
+The user specifies how much space to allot for block & undo files. The minimum
+allowed is 55MB. Note that this is in addition to whatever is required for the
+block index and UTXO databases. The minimum was chosen so that Groestlcoin Core will
+be able to maintain at least 2880 blocks on disk (two days worth of blocks at 1
+minute per block). In rare instances it is possible that the amount of space
+used will exceed the pruning target in order to keep the required last 288
 blocks on disk.
 
-Block pruning works during initial sync in the same way as during steady state, 
-by deleting block files "as you go" whenever disk space is allocated. Thus, if 
-the user specifies 55MB, once that level is reached the program will begin 
-deleting the oldest block and undo files, while continuing to download the 
+Block pruning works during initial sync in the same way as during steady state,
+by deleting block files "as you go" whenever disk space is allocated. Thus, if
+the user specifies 55MB, once that level is reached the program will begin
+deleting the oldest block and undo files, while continuing to download the
 blockchain.
 
-For now, block pruning disables block relay.  In the future, nodes with block 
-pruning will at a minimum relay "new" blocks, meaning blocks that extend their 
-active chain. 
+For now, block pruning disables block relay.  In the future, nodes with block
+pruning will at a minimum relay "new" blocks, meaning blocks that extend their
+active chain.
 
-Block pruning is currently incompatible with running a wallet due to the fact 
-that block data is used for rescanning the wallet and importing keys or 
-addresses (which require a rescan.) However, running the wallet with block 
+Block pruning is currently incompatible with running a wallet due to the fact
+that block data is used for rescanning the wallet and importing keys or
+addresses (which require a rescan.) However, running the wallet with block
 pruning will be supported in the near future, subject to those limitations.
 
-Block pruning is also incompatible with -txindex and will automatically disable 
+Block pruning is also incompatible with -txindex and will automatically disable
 it.
 
-Once you have pruned blocks, going back to unpruned state requires 
-re-downloading the entire blockchain. To do this, re-start the node with 
--reindex. Note also that any problem that would cause a user to reindex (e.g., 
-disk corruption) will cause a pruned node to redownload the entire blockchain. 
-Finally, note that when a pruned node reindexes, it will delete any blk???.dat 
+Once you have pruned blocks, going back to unpruned state requires
+re-downloading the entire blockchain. To do this, re-start the node with
+-reindex. Note also that any problem that would cause a user to reindex (e.g.,
+disk corruption) will cause a pruned node to redownload the entire blockchain.
+Finally, note that when a pruned node reindexes, it will delete any blk???.dat
 and rev???.dat files in the data directory prior to restarting the download.
 
 To enable block pruning on the command line:
@@ -100,10 +100,10 @@ To enable block pruning on the command line:
 Modified RPC calls:
 
 - `getblockchaininfo` now includes whether we are in pruned mode or not.
-- `getblock` will check if the block's data has been pruned and if so, return an 
+- `getblock` will check if the block's data has been pruned and if so, return an
 error.
-- `getrawtransaction` will no longer be able to locate a transaction that has a 
-UTXO but where its block file has been pruned. 
+- `getrawtransaction` will no longer be able to locate a transaction that has a
+UTXO but where its block file has been pruned.
 
 Pruning is disabled by default.
 
@@ -164,7 +164,7 @@ For 2.11.0 we switched to an autotools-based build system instead of individual
 (q)makefiles.
 
 Using the standard "./autogen.sh; ./configure; make" to build Groestlcoin-Qt and
-groestlcoind makes it easier for experienced open source developers to contribute 
+groestlcoind makes it easier for experienced open source developers to contribute
 to the project.
 
 Be sure to check doc/build-*.md for your platform before building from source.
@@ -202,7 +202,7 @@ the old one:
 Transaction malleability-related fixes
 --------------------------------------
 
-This release contains a few fixes for transaction ID (TXID) malleability 
+This release contains a few fixes for transaction ID (TXID) malleability
 issues:
 
 - -nospendzeroconfchange command-line option, to avoid spending
@@ -242,8 +242,8 @@ Faster synchronization
 ----------------------
 
 Groestlcoin Core now uses 'headers-first synchronization'. This means that we first
-ask peers for block headers and validate those. In a second stage, when the headers 
-have been discovered, we download the blocks. However, as we already know about the 
+ask peers for block headers and validate those. In a second stage, when the headers
+have been discovered, we download the blocks. However, as we already know about the
 whole chain in advance, the blocks can be downloaded in parallel from all available peers.
 
 In practice, this means a much faster and more robust synchronization. On
@@ -269,7 +269,7 @@ This release automatically estimates how high a transaction fee (or how
 high a priority) transactions require to be confirmed quickly. The default
 settings will create transactions that confirm quickly; see the new
 'txconfirmtarget' setting to control the tradeoff between fees and
-confirmation times. Fees are added by default unless the 'sendfreetransactions' 
+confirmation times. Fees are added by default unless the 'sendfreetransactions'
 setting is enabled.
 
 Prior releases used hard-coded fees (and priorities), and would
@@ -283,7 +283,7 @@ New command line options for transaction fee changes:
 - `-txconfirmtarget=n` : create transactions that have enough fees (or priority)
 so they are likely to begin confirmation within n blocks (default: 1). This setting
 is over-ridden by the -paytxfee option.
-- `-sendfreetransactions` : Send transactions as zero-fee transactions if possible 
+- `-sendfreetransactions` : Send transactions as zero-fee transactions if possible
 (default: 0)
 
 New RPC commands for fee estimation:
@@ -412,10 +412,10 @@ addresses need to added to the wallet before the payment, though.
 Consensus library
 -----------------
 
-Starting from 2.11.0, the Groestlcoin Core distribution includes a consensus library.
+Starting from 2.11.0, the Groestlcoin Core distribution includes a consensus libraryC
 
 The purpose of this library is to make the verification functionality that is
-critical to Groestlcoin's consensus available to other applications, e.g. 
+critical to Groestlcoin's consensus available to other applications, e.g.
 alternative node implementations.
 
 This library is called `libgroestlcoinconsensus.so` (or, `.dll` for Windows).
@@ -423,7 +423,7 @@ Its interface is defined in the C header [groestlcoinconsensus.h](https://github
 
 In its initial version the API includes two functions:
 
-- `groestlcoinconsensus_verify_script` verifies a script. It returns whether the indicated input of the provided serialized transaction 
+- `groestlcoinconsensus_verify_script` verifies a script. It returns whether the indicated input of the provided serialized transaction
 correctly spends the passed scriptPubKey under additional constraints indicated by flags
 - `groestlcoinconsensus_version` returns the API version, currently at an experimental `0`
 
@@ -495,8 +495,8 @@ if this is 1.
 - `-datacarriersize=n` : Maximum size, in bytes, we consider acceptable for
 "data carrier" outputs.
 
-The relay policy has changed to more properly implement the desired behavior of not 
-relaying free (or very low fee) transactions unless they have a priority above the 
+The relay policy has changed to more properly implement the desired behavior of not
+relaying free (or very low fee) transactions unless they have a priority above the
 AllowFreeThreshold(), in which case they are relayed subject to the rate limiter.
 
 BIP 66: strict DER encoding for signatures
@@ -561,4 +561,3 @@ is exceedingly rare, but in this case `-proxyrandomize=0` can be passed to
 disable the behavior.
 
 As well as everyone that helped translating on [Transifex](https://www.transifex.com/projects/p/bitcoin/).
-
