@@ -115,10 +115,6 @@ BITCOIN_CORE_H = \
   blockencodings.h \
   blockfilter.h \
   chain.h \
-  groestlcoin.h \
-  grs-config.h \
-  sphlib/sph_types.h \
-  sphlib/sph_groestl.h \
   chainparams.h \
   chainparamsbase.h \
   chainparamsseeds.h \
@@ -145,6 +141,8 @@ BITCOIN_CORE_H = \
   external_signer.h \
   flatfile.h \
   fs.h \
+  groestlcoin.h \
+  grs-config.h \
   httprpc.h \
   httpserver.h \
   i2p.h \
@@ -222,6 +220,8 @@ BITCOIN_CORE_H = \
   script/standard.h \
   shutdown.h \
   signet.h \
+  sphlib/sph_types.h \
+  sphlib/sph_groestl.h \
   streams.h \
   support/allocators/secure.h \
   support/allocators/zeroafterfree.h \
@@ -519,10 +519,9 @@ libgroestlcoin_consensus_a_SOURCES = \
   consensus/params.h \
   consensus/tx_check.cpp \
   consensus/validation.h \
+  groestlcoin-hash.cpp \
   hash.cpp \
   hash.h \
-  sphlib/groestl.cpp \
-  groestlcoin-hash.cpp \
   prevector.h \
   primitives/block.cpp \
   primitives/block.h \
@@ -539,6 +538,7 @@ libgroestlcoin_consensus_a_SOURCES = \
   script/script_error.h \
   serialize.h \
   span.h \
+  sphlib/groestl.cpp \
   tinyformat.h \
   uint256.cpp \
   uint256.h \
@@ -551,7 +551,6 @@ libgroestlcoin_common_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
 libgroestlcoin_common_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 libgroestlcoin_common_a_SOURCES = \
   base58.cpp \
-  groestlcoin.cpp \
   bech32.cpp \
   coins.cpp \
   common/bloom.cpp \
@@ -560,6 +559,7 @@ libgroestlcoin_common_a_SOURCES = \
   core_write.cpp \
   deploymentinfo.cpp \
   external_signer.cpp \
+  groestlcoin.cpp \
   init/common.cpp \
   key.cpp \
   key_io.cpp \
