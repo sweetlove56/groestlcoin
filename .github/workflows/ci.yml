@@ -203,3 +203,8 @@ jobs:
           path: |
             depends/${{ matrix.host }}/bin/groestlcoin*
             dist/Groestlcoin-Qt.app
+
+      - name: Download artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: groestlcoin-${{ github.sha }}-${{ matrix.name }}
