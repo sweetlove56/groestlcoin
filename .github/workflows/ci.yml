@@ -203,6 +203,8 @@ jobs:
           path: |
             depends/${{ matrix.host }}/bin/groestlcoin*
             dist/Groestlcoin-Qt.app
+          if-no-files-found: error
+          retention-days: 7
 
       - name: Download artifacts
         uses: actions/download-artifact@v2
