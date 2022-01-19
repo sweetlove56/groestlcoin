@@ -40,9 +40,9 @@ $ FUZZ=process_message src/test/fuzz/fuzz
 There is also a runner script to execute all fuzz targets. Refer to
 `./test/fuzz/test_runner.py --help` for more details.
 
-## Overview of Bitcoin Core fuzzing
+## Overview of Groestlcoin Core fuzzing
 
-[Google](https://github.com/google/fuzzing/) has a good overview of fuzzing in general, with contributions from key architects of some of the most-used fuzzers. [This paper](https://agroce.github.io/bitcoin_report.pdf) includes an external overview of the status of Bitcoin Core fuzzing, as of summer 2021.  [John Regehr](https://blog.regehr.org/archives/1687) provides good advice on writing code that assists fuzzers in finding bugs, which is useful for developers to keep in mind.
+[Google](https://github.com/google/fuzzing/) has a good overview of fuzzing in general, with contributions from key architects of some of the most-used fuzzers. [This paper](https://agroce.github.io/bitcoin_report.pdf) includes an external overview of the status of Groestlcoin Core fuzzing, as of summer 2021.  [John Regehr](https://blog.regehr.org/archives/1687) provides good advice on writing code that assists fuzzers in finding bugs, which is useful for developers to keep in mind.
 
 ## Fuzzing harnesses and output
 
@@ -92,7 +92,7 @@ block^@M-^?M-^?M-^?M-^?M-^?nM-^?M-^?
 
 In this case the fuzzer managed to create a `block` message which when passed to `ProcessMessage(...)` increased coverage.
 
-It is possible to specify `bitcoind` arguments to the `fuzz` executable.
+It is possible to specify `groestlcoind` arguments to the `fuzz` executable.
 Depending on the test, they may be ignored or consumed and alter the behavior
 of the test. Just make sure to use double-dash to distinguish them from the
 fuzzer's own arguments:
@@ -296,7 +296,7 @@ To quickly get started fuzzing Groestlcoin Core using [Eclipser v1.x](https://gi
 
 ```sh
 $ git clone https://github.com/groestlcoin/groestlcoin
-$ cd bitcoin/
+$ cd groestlcoin/
 $ sudo vim /etc/apt/sources.list # Uncomment the lines starting with 'deb-src'.
 $ sudo apt-get update
 $ sudo apt-get build-dep qemu
@@ -357,11 +357,11 @@ Read the [Eclipser documentation for v1.x](https://github.com/SoftSec-KAIST/Ecli
 
 # OSS-Fuzz
 
-Bitcoin Core participates in Google's [OSS-Fuzz](https://github.com/google/oss-fuzz/tree/master/projects/bitcoin-core)
+Groestlcoin Core participates in Google's [OSS-Fuzz](https://github.com/google/oss-fuzz/tree/master/projects/bitcoin-core)
 program, which includes a dashboard of [publicly disclosed vulnerabilities](https://bugs.chromium.org/p/oss-fuzz/issues/list?q=bitcoin-core).
 Generally, we try to disclose vulnerabilities as soon as possible after they
 are fixed to give users the knowledge they need to be protected. However,
-because Bitcoin is a live P2P network, and not just standalone local software,
+because Groestlcoin is a live P2P network, and not just standalone local software,
 we might not fully disclose every issue within Google's standard
 [90-day disclosure window](https://google.github.io/oss-fuzz/getting-started/bug-disclosure-guidelines/)
 if a partial or delayed disclosure is important to protect users or the
