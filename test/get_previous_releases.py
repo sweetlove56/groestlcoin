@@ -21,12 +21,6 @@ import hashlib
 
 
 SHA256_SUMS = {
-    "d576c0aa488fa5d88077fd9cb2fec855619ce2512254cb207085f3e9440305c0": "groestlcoin-2.16.3-aarch64-linux-gnu.tar.gz",
-    "a7f9f4fcaaeb31c9617cf9711ea14c67cf810bace6e0fb60d208e559e295a65f": "groestlcoin-2.16.3-arm-linux-gnueabihf.tar.gz",
-    "d8432224a6bafb06f953200f997e29a3925fc21cfe7f4ee8c22080fcc9eb182d": "groestlcoin-2.16.3-i686-pc-linux-gnu.tar.gz",
-    "4976c8f60105a32bb0d8e230577f60438d5bed45a9aa92c51f0dd79a13c6b89e": "groestlcoin-2.16.3-x86_64-apple-darwin11.tar.gz",
-    "f15bd5e38b25a103821f1563cd0e1b2cf7146ec9f9835493a30bd57313d3b86f": "groestlcoin-2.16.3-x86_64-linux-gnu.tar.gz",
-    #
     "e83406ebf473c7d69da02d2f09539a710cb82b090116ff8f9b63e35a41608577": "groestlcoin-2.17.2-aarch64-linux-gnu.tar.gz",
     "5db693a615ce60e817af16cdcae51c4ac03e31f9588ed63447a57c343e1e4c7c": "groestlcoin-2.17.2-arm-linux-gnueabihf.tar.gz",
     "5db065045115a0bc5d02e46d591dfac9fb98e028dd3933d42c16712e5c29925d": "groestlcoin-2.17.2-i686-pc-linux-gnu.tar.gz",
@@ -86,13 +80,13 @@ def download_binary(tag, args) -> int:
     print('Fetching: {tarballUrl}'.format(tarballUrl=tarballUrl))
 
     header, status = subprocess.Popen(
-        ['curl', '--head', tarballUrl], stdout=subprocess.PIPE).communicate()
+        ['curl', '-L', '--head', tarballUrl], stdout=subprocess.PIPE).communicate()
     if re.search("404 Not Found", header.decode("utf-8")):
         print("Binary tag was not found")
         return 1
 
     curlCmds = [
-        ['curl', '--remote-name', tarballUrl]
+        ['curl', '-L', '--remote-name', tarballUrl]
     ]
 
     for cmd in curlCmds:
