@@ -77,7 +77,7 @@ tar -xzvf ${BDB_VERSION}.tar.gz -C "$BDB_PREFIX"
 cd "${BDB_PREFIX}/${BDB_VERSION}/"
 
 # Apply a patch necessary when building with clang and c++11 (see https://community.oracle.com/thread/3952592)
-patch --ignore-whitespace -p2 << 'EOF'
+patch --ignore-whitespace -p1 << 'EOF'
 --- original/src/dbinc/atomic.h	2013-09-09 17:35:08.000000000 +0200
 +++ patched/src/dbinc/atomic.h	2020-12-15 17:47:20.535316800 +0100
 @@ -70,7 +70,7 @@
