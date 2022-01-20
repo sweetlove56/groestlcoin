@@ -10,10 +10,6 @@ export DOCKER_NAME_TAG="ubuntu:20.04"
 export CONTAINER_NAME=ci_native_fuzz_valgrind
 export PACKAGES="clang llvm python3 libevent-dev bsdmainutils libboost-dev libboost-system-dev libboost-filesystem-dev libboost-test-dev libsqlite3-dev valgrind"
 export NO_DEPENDS=1
-export RUN_UNIT_TESTS=false
-export RUN_FUNCTIONAL_TESTS=false
-export RUN_FUZZ_TESTS=true
-export FUZZ_TESTS_CONFIG="--valgrind"
 export GOAL="install"
 export GROESTLCOIN_CONFIG="--enable-fuzz --with-sanitizers=fuzzer CC=clang CXX=clang++"
 export CCACHE_SIZE=200M

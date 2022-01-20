@@ -18,7 +18,4 @@ export DEP_OPTS="NO_BDB=1 NO_QT=1 CC='clang' CXX='clang++' CFLAGS='${MSAN_FLAGS}
 export GOAL="install"
 export GROESTLCOIN_CONFIG="--enable-fuzz --with-sanitizers=fuzzer,memory --with-asm=no --prefix=${DEPENDS_DIR}/x86_64-pc-linux-gnu/ CC=clang CXX=clang++ CFLAGS='${MSAN_FLAGS}' CXXFLAGS='${MSAN_AND_LIBCXX_FLAGS}'"
 export USE_MEMORY_SANITIZER="true"
-export RUN_UNIT_TESTS="false"
-export RUN_FUNCTIONAL_TESTS="false"
-export RUN_FUZZ_TESTS=true
 export CCACHE_SIZE=250M

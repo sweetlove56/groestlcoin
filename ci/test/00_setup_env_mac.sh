@@ -12,7 +12,5 @@ export HOST=x86_64-apple-darwin
 export PACKAGES="cmake libz-dev libtinfo5 python3-setuptools xorriso"
 export XCODE_VERSION=12.1
 export XCODE_BUILD_ID=12A7403
-export RUN_UNIT_TESTS=false
-export RUN_FUNCTIONAL_TESTS=false
 export GOAL="deploy"
 export GROESTLCOIN_CONFIG="--with-gui --enable-reduce-exports"

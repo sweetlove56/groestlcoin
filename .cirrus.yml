@@ -1,6 +1,6 @@
 env:  # Global defaults
   PACKAGE_MANAGER_INSTALL: "apt-get update && apt-get install -y"
-  MAKEJOBS: "-j4"
+  MAKEJOBS: "-j12"
   TEST_RUNNER_PORT_MIN: "14000"  # Must be larger than 12321, which is used for the http cache. See https://cirrus-ci.org/guide/writing-tasks/#http-cache
   CCACHE_SIZE: "200M"
   CCACHE_DIR: "/tmp/ccache_dir"
@@ -47,7 +47,7 @@ global_task_template: &GLOBAL_TASK_TEMPLATE
   << : *MAIN_TEMPLATE
 
 task:
-  name: 'ARM [unit tests, no functional tests] [bullseye]'
+  name: 'ARM [no unit tests, no functional tests] [bullseye]'
   << : *GLOBAL_TASK_TEMPLATE
   arm_container:
     image: debian:bullseye
@@ -59,7 +59,7 @@ task:
     QEMU_USER_CMD: ""  # Disable qemu and run the test natively
 
 task:
-  name: 'Win64 [unit tests, no gui tests, no boost::process, no functional tests] [focal]'
+  name: 'Win64 [no unit tests, no gui tests, no boost::process, no functional tests] [focal]'
   << : *GLOBAL_TASK_TEMPLATE
   container:
     image: ubuntu:focal
@@ -87,6 +87,36 @@ task:
     << : *PERSISTENT_WORKER_TEMPLATE_ENV
     FILE_ENV: "./ci/test/00_setup_env_native_qt5.sh"
 
+task:
+  name: '[TSan, depends, gui] [jammy]'
+  << : *GLOBAL_TASK_TEMPLATE
+  container:
+    image: ubuntu:jammy
+    cpu: 6  # Increase CPU and Memory to avoid timeout
+    memory: 24G
+  env:
+    << : *CIRRUS_EPHEMERAL_WORKER_TEMPLATE_ENV
+    FILE_ENV: "./ci/test/00_setup_env_native_tsan.sh"
+
+task:
+  name: '[MSan, depends] [focal]'
+  << : *GLOBAL_TASK_TEMPLATE
+  container:
+    image: ubuntu:focal
+  env:
+    << : *CIRRUS_EPHEMERAL_WORKER_TEMPLATE_ENV
+    FILE_ENV: "./ci/test/00_setup_env_native_msan.sh"
+    MAKEJOBS: "-j4"  # Avoid excessive memory use due to MSan
+
+task:
+  name: '[ASan + LSan + UBSan + integer, no depends] [jammy]'
+  << : *GLOBAL_TASK_TEMPLATE
+  container:
+    image: ubuntu:jammy
+  env:
+    << : *CIRRUS_EPHEMERAL_WORKER_TEMPLATE_ENV
+    FILE_ENV: "./ci/test/00_setup_env_native_asan.sh"
+    MAKEJOBS: "-j4"  # Avoid excessive memory use
 
 task:
   name: '[multiprocess, i686, DEBUG] [focal]'
