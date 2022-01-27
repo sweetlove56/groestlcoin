@@ -185,7 +185,7 @@ UniValue blockToJSON(const CBlock& block, const CBlockIndex* tip, const CBlockIn
         case TxVerbosity::SHOW_DETAILS:
         case TxVerbosity::SHOW_DETAILS_AND_PREVOUT:
             CBlockUndo blockUndo;
-            const bool have_undo = !IsBlockPruned(blockindex) && UndoReadFromDisk(blockUndo, blockindex);
+            const bool have_undo{WITH_LOCK(::cs_main, return !IsBlockPruned(blockindex) && UndoReadFromDisk(blockUndo, blockindex))};
 
             for (size_t i = 0; i < block.vtx.size(); ++i) {
                 const CTransactionRef& tx = block.vtx.at(i);
@@ -790,17 +790,15 @@ static RPCHelpMan getblockfrompeer()
 {
     return RPCHelpMan{
         "getblockfrompeer",
-        "\nAttempt to fetch block from a given peer.\n"
+        "Attempt to fetch block from a given peer.\n"
         "\nWe must have the header for this block, e.g. using submitheader.\n"
-        "\nReturns {} if a block-request was successfully scheduled\n",
+        "Subsequent calls for the same block and a new peer will cause the response from the previous peer to be ignored.\n"
+        "\nReturns an empty JSON object if the request was successfully scheduled.",
         {
-            {"blockhash", RPCArg::Type::STR_HEX, RPCArg::Optional::NO, "The block hash"},
-            {"nodeid", RPCArg::Type::NUM, RPCArg::Optional::NO, "The node ID (see getpeerinfo for node IDs)"},
+            {"block_hash", RPCArg::Type::STR_HEX, RPCArg::Optional::NO, "The block hash to try to fetch"},
+            {"peer_id", RPCArg::Type::NUM, RPCArg::Optional::NO, "The peer to fetch it from (see getpeerinfo for peer IDs)"},
         },
-        RPCResult{RPCResult::Type::OBJ, "", "",
-        {
-            {RPCResult::Type::STR, "warnings", /*optional=*/true, "any warnings"},
-        }},
+        RPCResult{RPCResult::Type::OBJ, "", /*optional=*/false, "", {}},
         RPCExamples{
             HelpExampleCli("getblockfrompeer", "\"000000000040ec74b9fe1d7fa4af97792904f80c5469f1a9460726cc4d2c5cbb\" 0")
             + HelpExampleRpc("getblockfrompeer", "\"000000000040ec74b9fe1d7fa4af97792904f80c5469f1a9460726cc4d2c5cbb\" 0")
@@ -810,31 +808,25 @@ static RPCHelpMan getblockfrompeer()
     const NodeContext& node = EnsureAnyNodeContext(request.context);
     ChainstateManager& chainman = EnsureChainman(node);
     PeerManager& peerman = EnsurePeerman(node);
-    CConnman& connman = EnsureConnman(node);
 
-    uint256 hash(ParseHashV(request.params[0], "hash"));
+    const uint256& block_hash{ParseHashV(request.params[0], "block_hash")};
+    const NodeId peer_id{request.params[1].get_int64()};
 
-    const NodeId nodeid = static_cast<NodeId>(request.params[1].get_int64());
-
-    // Check that the peer with nodeid exists
-    if (!connman.ForNode(nodeid, [](CNode* node) {return true;})) {
-        throw JSONRPCError(RPC_MISC_ERROR, strprintf("Peer nodeid %d does not exist", nodeid));
-    }
-
-    const CBlockIndex* const index = WITH_LOCK(cs_main, return chainman.m_blockman.LookupBlockIndex(hash););
+    const CBlockIndex* const index = WITH_LOCK(cs_main, return chainman.m_blockman.LookupBlockIndex(block_hash););
 
     if (!index) {
         throw JSONRPCError(RPC_MISC_ERROR, "Block header missing");
     }
 
-    UniValue result = UniValue::VOBJ;
-
-    if (index->nStatus & BLOCK_HAVE_DATA) {
-        result.pushKV("warnings", "Block already downloaded");
-    } else if (!peerman.FetchBlock(nodeid, hash, *index)) {
-        throw JSONRPCError(RPC_MISC_ERROR, "Failed to fetch block from peer");
+    const bool block_has_data = WITH_LOCK(::cs_main, return index->nStatus & BLOCK_HAVE_DATA);
+    if (block_has_data) {
+        throw JSONRPCError(RPC_MISC_ERROR, "Block already downloaded");
     }
-    return result;
+
+    if (const auto err{peerman.FetchBlock(peer_id, *index)}) {
+        throw JSONRPCError(RPC_MISC_ERROR, err.value());
+    }
+    return UniValue::VOBJ;
 },
     };
 }
@@ -938,8 +930,9 @@ static RPCHelpMan getblockheader()
     };
 }
 
-static CBlock GetBlockChecked(const CBlockIndex* pblockindex)
+static CBlock GetBlockChecked(const CBlockIndex* pblockindex) EXCLUSIVE_LOCKS_REQUIRED(::cs_main)
 {
+    AssertLockHeld(::cs_main);
     CBlock block;
     if (IsBlockPruned(pblockindex)) {
         throw JSONRPCError(RPC_MISC_ERROR, "Block not available (pruned data)");
@@ -955,8 +948,9 @@ static CBlock GetBlockChecked(const CBlockIndex* pblockindex)
     return block;
 }
 
-static CBlockUndo GetUndoChecked(const CBlockIndex* pblockindex)
+static CBlockUndo GetUndoChecked(const CBlockIndex* pblockindex) EXCLUSIVE_LOCKS_REQUIRED(cs_main)
 {
+    AssertLockHeld(::cs_main);
     CBlockUndo blockUndo;
     if (IsBlockPruned(pblockindex)) {
         throw JSONRPCError(RPC_MISC_ERROR, "Undo data not available (pruned data)");
@@ -1340,6 +1334,7 @@ static RPCHelpMan gettxout()
                 {RPCResult::Type::STR_AMOUNT, "value", "The transaction value in " + CURRENCY_UNIT},
                 {RPCResult::Type::OBJ, "scriptPubKey", "", {
                     {RPCResult::Type::STR, "asm", ""},
+                    {RPCResult::Type::STR, "desc", "Inferred descriptor for the output"},
                     {RPCResult::Type::STR_HEX, "hex", ""},
                     {RPCResult::Type::STR, "type", "The type, eg pubkeyhash"},
                     {RPCResult::Type::STR, "address", /*optional=*/true, "The Groestlcoin address (only if a well-defined address exists)"},
