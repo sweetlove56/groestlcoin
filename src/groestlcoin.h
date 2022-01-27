@@ -87,8 +87,9 @@ public:
 	int GetType() const { return nType; }
 	int GetVersion() const { return nVersion; }
 
-	void write(const char *pch, size_t size) {
-		ctx.Write((const unsigned char*)pch, size);
+	void write(Span<const std::byte> src)
+	{
+       ctx.Write(UCharCast(src.data()), src.size());
 	}
 
 	// invalidates the object
