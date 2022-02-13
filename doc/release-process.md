@@ -61,7 +61,7 @@ Checkout the Groestlcoin Core version you'd like to build:
 pushd ./groestlcoin
 SIGNER='(your builder key, ie jackielove4u, hashengineering, etc)'
 VERSION='(new version without v-prefix, e.g. 2.20.1)'
-git fetch "v${VERSION}"
+git fetch origin "v${VERSION}"
 git checkout "v${VERSION}"
 popd
 ```
