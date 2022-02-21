@@ -8,12 +8,12 @@ import sys
 import tempfile
 
 BINARIES = [
-'src/bitcoind',
-'src/bitcoin-cli',
-'src/bitcoin-tx',
-'src/bitcoin-wallet',
-'src/bitcoin-util',
-'src/qt/bitcoin-qt',
+'src/groestlcoind',
+'src/groestlcoin-cli',
+'src/groestlcoin-tx',
+'src/groestlcoin-wallet',
+'src/groestlcoin-util',
+'src/qt/groestlcoin-qt',
 ]
 
 # Paths to external utilities.
@@ -47,8 +47,8 @@ for relpath in BINARIES:
     verstr = verstr.split()[-1]
     assert verstr.startswith('v')
 
-    # Only bitcoin-qt prints the copyright message on --version, so store it specifically.
-    if relpath == 'src/qt/bitcoin-qt':
+    # Only groestlcoin-qt prints the copyright message on --version, so store it specifically.
+    if relpath == 'src/qt/groestlcoin-qt':
         copyright = r.stdout.split('\n')[1:]
 
     versions.append((abspath, verstr))
