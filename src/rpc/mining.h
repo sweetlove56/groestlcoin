@@ -6,6 +6,6 @@
 #define BITCOIN_RPC_MINING_H
 
 /** Default max iterations to try in RPC generatetodescriptor, generatetoaddress, and generateblock. */
-static const uint64_t DEFAULT_MAX_TRIES{100000000};
+static const uint64_t DEFAULT_MAX_TRIES{100000000}; // GRS
 
 #endif // BITCOIN_RPC_MINING_H
