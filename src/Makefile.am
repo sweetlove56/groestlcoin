@@ -106,6 +106,10 @@ if BUILD_BITCOIN_UTIL
   bin_PROGRAMS += groestlcoin-util
 endif
 
+if BUILD_BITCOIN_CHAINSTATE
+  bin_PROGRAMS += groestlcoin-chainstate
+endif
+
 .PHONY: FORCE check-symbols check-security
 # groestlcoin core #
 BITCOIN_CORE_H = \
@@ -774,7 +778,102 @@ groestlcoin_util_LDADD = \
   $(LIBSECP256K1)
 #
 
-# groestlvvcoinconsensus library #
+# groestlcoin-chainstate binary #
+groestlcoin_chainstate_SOURCES = \
+  bitcoin-chainstate.cpp \
+  arith_uint256.cpp \
+  blockfilter.cpp \
+  chain.cpp \
+  chainparamsbase.cpp \
+  clientversion.cpp \
+  coins.cpp \
+  compat/glibcxx_sanity.cpp \
+  compressor.cpp \
+  consensus/merkle.cpp \
+  consensus/tx_check.cpp \
+  consensus/tx_verify.cpp \
+  core_read.cpp \
+  dbwrapper.cpp \
+  deploymentinfo.cpp \
+  deploymentstatus.cpp \
+  flatfile.cpp \
+  fs.cpp \
+  hash.cpp \
+  index/base.cpp \
+  index/blockfilterindex.cpp \
+  index/coinstatsindex.cpp \
+  init/common.cpp \
+  key.cpp \
+  logging.cpp \
+  netaddress.cpp \
+  node/blockstorage.cpp \
+  node/chainstate.cpp \
+  node/coinstats.cpp \
+  node/ui_interface.cpp \
+  policy/feerate.cpp \
+  policy/fees.cpp \
+  policy/packages.cpp \
+  policy/policy.cpp \
+  policy/rbf.cpp \
+  policy/settings.cpp \
+  pow.cpp \
+  primitives/block.cpp \
+  primitives/transaction.cpp \
+  pubkey.cpp \
+  random.cpp \
+  randomenv.cpp \
+  scheduler.cpp \
+  script/interpreter.cpp \
+  script/script.cpp \
+  script/script_error.cpp \
+  script/sigcache.cpp \
+  script/standard.cpp \
+  shutdown.cpp \
+  signet.cpp \
+  support/cleanse.cpp \
+  support/lockedpool.cpp \
+  sync.cpp \
+  threadinterrupt.cpp \
+  timedata.cpp \
+  txdb.cpp \
+  txmempool.cpp \
+  uint256.cpp \
+  util/asmap.cpp \
+  util/bytevectorhash.cpp \
+  util/getuniquepath.cpp \
+  util/hasher.cpp \
+  util/moneystr.cpp \
+  util/rbf.cpp \
+  util/serfloat.cpp \
+  util/settings.cpp \
+  util/strencodings.cpp \
+  util/syscall_sandbox.cpp \
+  util/system.cpp \
+  util/thread.cpp \
+  util/threadnames.cpp \
+  util/time.cpp \
+  util/tokenpipe.cpp \
+  validation.cpp \
+  validationinterface.cpp \
+  versionbits.cpp \
+  warnings.cpp
+groestlcoin_chainstate_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
+groestlcoin_chainstate_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+groestlcoin_chainstate_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS) $(PTHREAD_FLAGS)
+groestlcoin_chainstate_LDADD = \
+  $(LIBBITCOIN_CRYPTO) \
+  $(LIBUNIVALUE) \
+  $(LIBSECP256K1) \
+  $(LIBLEVELDB) \
+  $(LIBLEVELDB_SSE42) \
+  $(LIBMEMENV)
+
+# Required for obj/build.h to be generated first.
+# More details: https://www.gnu.org/software/automake/manual/html_node/Built-Sources-Example.html
+bitcoin_chainstate-clientversion.$(OBJEXT): obj/build.h
+#
+
+# groestlcoinconsensus library #
 if BUILD_BITCOIN_LIBS
 include_HEADERS = script/groestlcoinconsensus.h
 libgroestlcoinconsensus_la_SOURCES = support/cleanse.cpp $(crypto_libgroestlcoin_crypto_base_a_SOURCES) $(libgroestlcoin_consensus_a_SOURCES)

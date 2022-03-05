@@ -9,6 +9,7 @@ src/groestlcoin-gui
 src/groestlcoin-node
 src/groestlcoin-tx
 src/groestlcoin-util
+src/groestlcoin-chainstate
 src/groestlcoin-wallet
 src/test/fuzz/fuzz
 src/test/test_groestlcoin
