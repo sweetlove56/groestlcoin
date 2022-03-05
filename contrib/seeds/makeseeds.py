@@ -3,7 +3,7 @@
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 #
-# Generate seeds.txt from Pieter's DNS seeder
+# Generate seeds.txt from Groestlcoin's DNS seeder
 #
 
 import re
@@ -11,11 +11,11 @@ import sys
 import dns.resolver
 import collections
 
-NSEEDS=512
+NSEEDS=50
 
 MAX_SEEDS_PER_ASN=2
 
-MIN_BLOCKS = 2088754
+MIN_BLOCKS = 3990000
 
 # These are hosts that have been observed to be behaving strangely (e.g.
 # aggressively connecting to every node).
@@ -213,7 +213,7 @@ def main():
     ips.sort(key=lambda x: (x['uptime'], x['lastsuccess'], x['ip']), reverse=True)
     # Filter out hosts with multiple groestlcoin ports, these are likely abusive
     ips = filtermultiport(ips)
-    print('%s Filter out hosts with multiple bitcoin ports' % (ip_stats(ips)), file=sys.stderr)
+    print('%s Filter out hosts with multiple groestlcoin ports' % (ip_stats(ips)), file=sys.stderr)
     # Look up ASNs and limit results, both per ASN and globally.
     ips = filterbyasn(ips, MAX_SEEDS_PER_ASN, NSEEDS)
     print('%s Look up ASNs and limit results per ASN and per net' % (ip_stats(ips)), file=sys.stderr)

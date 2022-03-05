@@ -8,9 +8,9 @@ and remove old versions as necessary (at a minimum when GetDesirableServiceFlags
 changes its default return value, as those are the services which seeds are added
 to addrman with).
 
-The seeds compiled into the release are created from sipa's DNS seed data, like this:
+The seeds compiled into the release are created from Groestlcoins DNS seed data, like this:
 
-    curl https://bitcoin.sipa.be/seeds.txt.gz | gzip -dc > seeds_main.txt
+    cd groestlcoin-seeder/ && cp dnsseed.dump /root/groestlcoin/contrib/seeds/seeds_main.txt && cd .. && cd groestlcoin/contrib/seeds
     python3 makeseeds.py < seeds_main.txt > nodes_main.txt
     cat nodes_main_manual.txt >> nodes_main.txt
     python3 generate-seeds.py . > ../../src/chainparamsseeds.h
