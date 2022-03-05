@@ -1,6 +1,7 @@
-# List of fixed seed nodes for testnet
+45.32.235.71:17777
+45.32.236.128:17777
 
-# Onion nodes
+# manually added 2021-04 for minimal torv3 bootstrap support
 wsrq6xvwue34rxuvhlt62kfoeous5tyuokabznqlt7qknr3jxojwt2qd.onion:17777
 kdbypsudc5ubv44wcp5votejeloce4jwoddcqa5a46xq7fxbufnxv4yd.onion:17777
 jodon7sfebzfjeghmfdbp6glwqtzssjfnymqhkxex6gevlfj7xmn3pyd.onion:17777
