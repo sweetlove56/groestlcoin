@@ -47,7 +47,7 @@ for relpath in BINARIES:
     assert verstr.startswith('v')
     # remaining lines are copyright
     copyright = r.stdout.split('\n')[1:]
-    #assert copyright[0].startswith('Copyright (C)')
+    #assert copyright[0].startswith('Copyright (C)') \\ GRS
 
     versions.append((abspath, verstr, copyright))
 
