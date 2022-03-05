@@ -797,7 +797,9 @@ groestlcoin_chainstate_SOURCES = \
   deploymentstatus.cpp \
   flatfile.cpp \
   fs.cpp \
+  groestlcoin.cpp \
   groestlcoin-chainstate.cpp \
+  groestlcoin-hash.cpp \
   hash.cpp \
   index/base.cpp \
   index/blockfilterindex.cpp \
@@ -830,6 +832,7 @@ groestlcoin_chainstate_SOURCES = \
   script/standard.cpp \
   shutdown.cpp \
   signet.cpp \
+  sphlib/groestl.cpp \
   support/cleanse.cpp \
   support/lockedpool.cpp \
   sync.cpp \
@@ -870,7 +873,7 @@ groestlcoin_chainstate_LDADD = \
 
 # Required for obj/build.h to be generated first.
 # More details: https://www.gnu.org/software/automake/manual/html_node/Built-Sources-Example.html
-bitcoin_chainstate-clientversion.$(OBJEXT): obj/build.h
+groestlcoin_chainstate-clientversion.$(OBJEXT): obj/build.h
 #
 
 # groestlcoinconsensus library #
