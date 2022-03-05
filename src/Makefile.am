@@ -780,7 +780,6 @@ groestlcoin_util_LDADD = \
 
 # groestlcoin-chainstate binary #
 groestlcoin_chainstate_SOURCES = \
-  bitcoin-chainstate.cpp \
   arith_uint256.cpp \
   blockfilter.cpp \
   chain.cpp \
@@ -798,6 +797,7 @@ groestlcoin_chainstate_SOURCES = \
   deploymentstatus.cpp \
   flatfile.cpp \
   fs.cpp \
+  groestlcoin-chainstate.cpp \
   hash.cpp \
   index/base.cpp \
   index/blockfilterindex.cpp \
