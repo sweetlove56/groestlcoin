@@ -485,7 +485,7 @@ and endian independent.")
     (license license:expat)))
 
 (define-public python-signapple
-  (let ((commit "9f42f3c8295d4107ee7a22e523ec17449a936f43"))
+  (let ((commit "0777ce58e61b0e6be753a5f524149d6d47905186"))
     (package
       (name "python-signapple")
       (version (git-version "0.1" "1" commit))
@@ -498,7 +498,7 @@ and endian independent.")
          (file-name (git-file-name name commit))
          (sha256
           (base32
-           "0j1sqi0g8k2z5y56iayh5pw9yyq1r6ry3q5zy0cdy2sispiwvdnp"))))
+           "19axspyyfqbrfw2r53c17mi9bvm8zsb39mz8v9h7c173qkm3x5ym"))))
       (build-system python-build-system)
       (propagated-inputs
        `(("python-asn1crypto" ,python-asn1crypto)
@@ -588,24 +588,30 @@ inspecting signatures in Mach-O binaries.")
         ;; Git
         git
         ;; Tests
-        lief
-        ;; Native gcc 7 toolchain
-        gcc-toolchain-7
-        (list gcc-toolchain-7 "static"))
+        lief)
   (let ((target (getenv "HOST")))
     (cond ((string-suffix? "-mingw32" target)
            ;; Windows
-           (list zip
+           (list ;; Native GCC 10 toolchain
+                 gcc-toolchain-10
+                 (list gcc-toolchain-10 "static")
+                 zip
                  (make-mingw-pthreads-cross-toolchain "x86_64-w64-mingw32")
                  (make-nsis-for-gcc-10 nsis-x86_64)
                  osslsigncode))
           ((string-contains target "-linux-")
-           (list (cond ((string-contains target "riscv64-")
+           (list ;; Native GCC 7 toolchain
+                 gcc-toolchain-7
+                 (list gcc-toolchain-7 "static")
+                 (cond ((string-contains target "riscv64-")
                         (make-groestlcoin-cross-toolchain target
                                                       #:base-libc glibc-2.27/groestlcoin-patched
                                                       #:base-kernel-headers linux-libre-headers-4.19))
                        (else
                         (make-groestlcoin-cross-toolchain target)))))
           ((string-contains target "darwin")
-           (list clang-toolchain-10 binutils cmake xorriso python-signapple))
+           (list ;; Native GCC 10 toolchain
+                 gcc-toolchain-10
+                 (list gcc-toolchain-10 "static")
+                 clang-toolchain-10 binutils cmake xorriso python-signapple))
           (else '())))))
