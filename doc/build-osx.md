@@ -66,30 +66,22 @@ git clone https://github.com/groestlcoin/groestlcoin.git
 #### Wallet Dependencies
 
 It is not necessary to build wallet functionality to run `groestlcoind` or  `groestlcoin-qt`.
-To enable legacy wallets, you must install `berkeley-db@5.3`.
-To enable [descriptor wallets](https://github.com/groestlcoin/groestlcoin/blob/master/doc/descriptors.md), `sqlite` is required.
-Skip `berkeley-db@5.3` if you intend to *exclusively* use descriptor wallets.
+
+###### Descriptor Wallet Support
+
+`sqlite` is required to support for descriptor wallets.
+
+macOS ships with a useable `sqlite` package, meaning you don't need to
+install anything.
 
 ###### Legacy Wallet Support
 
-`berkeley-db@5.3` is required to enable support for legacy wallets.
+`berkeley-db@5.3` is only required to support for legacy wallets.
 Skip if you don't intend to use legacy wallets.
 
 ``` bash
 brew tap zeroc-ice/tap
 brew install zeroc-ice/tap/berkeley-db@5.3
-```
-
-###### Descriptor Wallet Support
-
-Note: Apple has included a useable `sqlite` package since macOS 10.14.
-You may not need to install this package.
-
-`sqlite` is required to enable support for descriptor wallets.
-Skip if you don't intend to use descriptor wallets.
-
-``` bash
-brew install sqlite
 ```
 ---
 
