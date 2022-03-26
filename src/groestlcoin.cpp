@@ -17,6 +17,7 @@
 #include <consensus/merkle.h>
 #include <deploymentinfo.h>
 #include <hash.h> // for signet block challenge hash
+#include <script/interpreter.h>
 #include <util/system.h>
 
 #include <assert.h>
@@ -310,7 +311,6 @@ public:
         consensus.signet_blocks = false;
         consensus.signet_challenge.clear();
         // GRS consensus.nSubsidyHalvingInterval = 210000;
-        consensus.BIP16Exception = uint256S("0x00000000005a3b7cda97b28dd1e59d872eebb990ec79ed44f494b8e6edbf015d");
         consensus.BIP34Height = 800000;
         consensus.BIP34Hash = uint256S("0x0000000007f3f37410d5f7e71a07bf09bb802d5af6726fc891f0248ad857708c");
         consensus.BIP65Height = 2464000; // 00000000000030f90269dd2c0fb5f7502f332cd183b1596817f0cc4cfd6966b1
@@ -422,7 +422,6 @@ public:
         consensus.signet_blocks = false;
         consensus.signet_challenge.clear();
         // GRS consensus.nSubsidyHalvingInterval = 210000;
-        consensus.BIP16Exception = uint256S("0x000000458242a5d60e943f0a9945c29040b32be35582d1bfd47b5c536f10ac30");
         consensus.BIP34Height = 286;
         consensus.BIP34Hash = uint256S("0x0000004b7778ba253a75b716c55b2c6609b5fb97691b3260978f9ce4a633106d");
         consensus.BIP65Height = 982000; // 000000204a7e703f80543d9329d4b90e4269e08f36ad746cfe145add340b8738
@@ -565,7 +564,6 @@ public:
         consensus.signet_blocks = true;
         consensus.signet_challenge.assign(bin.begin(), bin.end());
         // GRS consensus.nSubsidyHalvingInterval = 210000;
-        consensus.BIP16Exception = uint256{};
         consensus.BIP34Height = 1;
         consensus.BIP34Hash = uint256{};
         consensus.BIP65Height = 1;
@@ -633,7 +631,6 @@ public:
         consensus.signet_blocks = false;
         consensus.signet_challenge.clear();
         // GRS consensus.nSubsidyHalvingInterval = 150;
-        consensus.BIP16Exception = uint256();
         consensus.BIP34Height = 1; // Always active unless overridden
         consensus.BIP34Hash = uint256();
         consensus.BIP65Height = 1;  // Always active unless overridden
