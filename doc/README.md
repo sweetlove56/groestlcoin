@@ -65,6 +65,7 @@ The Groestlcoin repo's [root README](/README.md) contains relevant information o
 - [Assets Attribution](assets-attribution.md)
 - [Assumeutxo design](assumeutxo.md)
 - [groestlcoin.conf Configuration File](groestlcoin-conf.md)
+- [CJDNS Support](cjdns.md)
 - [Files](files.md)
 - [Fuzz-testing](fuzzing.md)
 - [I2P Support](i2p.md)
