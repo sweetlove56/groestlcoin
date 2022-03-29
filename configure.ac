@@ -1274,7 +1274,7 @@ dnl Do not change "-I/usr/include" to "-isystem /usr/include" because that
 dnl is not necessary (/usr/include is already a system directory) and because
 dnl it would break GCC's #include_next.
 AC_DEFUN([SUPPRESS_WARNINGS],
-         [$(echo $1 |${SED} -E -e 's/(^| )-I/\1-isystem /g' -e 's;-isystem /usr/include([/ ]|$);-I/usr/include\1;g')])
+         [[$(echo $1 |${SED} -E -e 's/(^| )-I/\1-isystem /g' -e 's;-isystem /usr/include/*( |$);-I/usr/include\1;g')]])
 
 dnl enable-fuzz should disable all other targets
 if test "$enable_fuzz" = "yes"; then
@@ -1454,6 +1454,10 @@ if test "$use_external_signer" != "no"; then
     ;;
     *)
       AC_MSG_CHECKING([whether Boost.Process can be used])
+      TEMP_CXXFLAGS="$CXXFLAGS"
+      dnl Boost 1.78 requires the following workaround.
+      dnl See: https://github.com/boostorg/process/issues/235
+      CXXFLAGS="$CXXFLAGS -Wno-error=narrowing"
       TEMP_CPPFLAGS="$CPPFLAGS"
       CPPFLAGS="$CPPFLAGS $BOOST_CPPFLAGS"
       TEMP_LDFLAGS="$LDFLAGS"
@@ -1464,6 +1468,7 @@ if test "$use_external_signer" != "no"; then
         [have_boost_process="no"])
       LDFLAGS="$TEMP_LDFLAGS"
       CPPFLAGS="$TEMP_CPPFLAGS"
+      CXXFLAGS="$TEMP_CXXFLAGS"
       AC_MSG_RESULT([$have_boost_process])
       if test "$have_boost_process" = "yes"; then
         use_external_signer="yes"
