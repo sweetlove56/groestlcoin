@@ -19,7 +19,6 @@ import subprocess
 import sys
 import hashlib
 
-
 SHA256_SUMS = {
     "e83406ebf473c7d69da02d2f09539a710cb82b090116ff8f9b63e35a41608577": "groestlcoin-2.17.2-aarch64-linux-gnu.tar.gz",
     "5db693a615ce60e817af16cdcae51c4ac03e31f9588ed63447a57c343e1e4c7c": "groestlcoin-2.17.2-arm-linux-gnueabihf.tar.gz",
@@ -43,7 +42,7 @@ SHA256_SUMS = {
     "16564cf6df5f4edead0f8a807f285e34e9f20b2770c2f66ab803de5152e38d3b": "groestlcoin-2.20.1-osx64.tar.gz",
     "b0e7a1a18d29975b76281450dc744a64461aa4660fa8a09fafa7582e9c7b386b": "groestlcoin-2.20.1-riscv64-linux-gnu.tar.gz",
     "0a877be9dac14f4d9aab95d6bfd51547275acbcc3e6553f0cb82c5c9f35f333c": "groestlcoin-2.20.1-x86_64-linux-gnu.tar.gz",
-    
+
     "aac5246f1be90f34914a82c65308b3981e78e6ce0c7d51f3c8fe6bae7455eef0": "groestlcoin-2.21.1-aarch64-linux-gnu.tar.gz",
     "3fd6c2f1cd01d73314bc6e9abc13947f3477446cab5e8665a8cb0919063066f2": "groestlcoin-2.21.1-arm-linux-gnueabihf.tar.gz",
     "d3b36a30f2a9a624087414820237df0ec5289a52fc24c3a1a38f67be7698073c": "groestlcoin-2.21.1-osx64.tar.gz",
