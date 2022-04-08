@@ -324,11 +324,11 @@ RPC that, when enabled, logs the location and duration of each lock contention
 to the `debug.log` file.
 
 To enable it, run configure with `-DDEBUG_LOCKCONTENTION` added to your
-CPPFLAGS, e.g. `CPPFLAGS="-DDEBUG_LOCKCONTENTION"`, then build and run bitcoind.
+CPPFLAGS, e.g. `CPPFLAGS="-DDEBUG_LOCKCONTENTION"`, then build and run groestlcoind.
 
-You can then use the `-debug=lock` configuration option at bitcoind startup or
-`bitcoin-cli logging '["lock"]'` at runtime to turn on lock contention logging.
-It can be toggled off again with `bitcoin-cli logging [] '["lock"]'`.
+You can then use the `-debug=lock` configuration option at groestlcoind startup or
+`groestlcoin-cli logging '["lock"]'` at runtime to turn on lock contention logging.
+It can be toggled off again with `groestlcoin-cli logging [] '["lock"]'`.
 
 ### Assertions and Checks
 
